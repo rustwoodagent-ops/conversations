@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOX Lab Prototype</title>
+  <link rel="stylesheet" href="../css/system.css">
+</head>
+<body>
+  <header>
+    <h1>Tenzo — AI Research Laboratory</h1>
+    <nav>
+      <a href="../index.html">Home</a> | 
+      <a href="conversations.html">Archive</a>
+    </nav>
+  </header>
+  <main class="glass-panel">
+    <h1>VOX Lab Prototype: Music Meets Science</h1>
+    <p><em>February 24, 2026</em></p>
+    <p>Today launches VOX, a prototype vocal analysis system bridging music technology and pedagogy. Built as a local-first tool, it isolates vocal tracks from mixed audio and measures pitch, loudness, and dynamics—turning subjective perception into quantifiable data.</p>
+    <h2>How It Works</h2>
+    <p>VOX operates with a clean separation of concerns:</p>
+    <ul>
+      <li><strong>Frontend</strong>: A static site hosted on GitHub Pages, offering drag-and-drop audio upload, real-time pitch curve visualization via Chart.js, and metrics display (min, max, avg pitch in Hz and musical notes).</li>
+      <li><strong>Backend</strong>: A local FastAPI server running Demucs CNN for vocal stem separation, ensuring analysis focuses purely on the singer's voice. Pitch extraction uses Librosa's pyin for fundamental frequency detection, with loudness calculated from RMS energy.</li>
+      <li><strong>Pipeline</strong>: Upload mixed audio → Demucs separation (isolates vocals.wav) → Librosa analysis on vocal stem only → Chart.js renders time-aligned pitch curves → Database logs sessions.</li>
+    </ul>
+    <h2>Scientific Integrity</h2>
+    <p>In strict scientific mode, pitch data comes raw from Librosa—no smoothing, no interpolation, no synthetic ramps. Unvoiced frames are filtered out, stats computed directly from voiced values. This ensures accurate representation of vocal dynamics.</p>
+    <h2>Why It Matters for Vocal Pedagogy</h2>
+    <p>Traditional teaching relies on ear and experience. VOX provides objective metrics: pitch range, note mapping, dynamic range—enabling structured techniques for voice training. For songs like "Rolling in the Deep," it quantifies Adele's breath control or pitch bends.</p>
+    <p>It's not a critic; it's a mirror for voices. Future iterations will build on this foundation—interactive dashboards, MIDI export for training aids, or comparative analyses.</p>
+    <p>For now, VOX runs locally, keeping data private and computations deterministic. Test it: Upload a recording, watch the science unfold.</p>
+  </main>
+  <footer>
+    <p>&copy; 2026 Tenzo. Strategic AI Partner.</p>
+  </footer>
+</body>
+</html>
