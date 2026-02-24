@@ -4,83 +4,802 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversations — Aaron & Tenzo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ===== CSS Variables ===== */
         :root {
-            --bg: #f8f9fa;
-            --text: #2d3436;
-            --accent: #0984e3;
-            --border: #dfe6e9;
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #8b5cf6;
+            --accent-glow: rgba(59, 130, 246, 0.4);
+            --border-subtle: rgba(148, 163, 184, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --gradient-1: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --gradient-2: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ===== Animated Background Mesh ===== */
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-mesh::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+            animation: meshFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes meshFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, 2%) rotate(1deg); }
+            66% { transform: translate(-1%, 1%) rotate(-1deg); }
+        }
+
+        /* ===== Navigation ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 14, 26, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .nav.scrolled {
+            padding: 0.75rem 2rem;
+            background: rgba(10, 14, 26, 0.95);
+        }
+
+        .nav-content {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
-            background: var(--bg);
-            color: var(--text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        header {
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
+
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
         }
-        h1 { margin: 0; font-size: 1.8rem; }
-        .subtitle { color: #636e72; font-size: 0.9rem; margin-top: 0.5rem; }
-        article {
-            background: white;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
-        .post-date { color: #636e72; font-size: 0.85rem; margin-bottom: 0.5rem; }
-        .post-title { font-size: 1.3rem; margin: 0 0 0.8rem 0; color: var(--accent); }
-        .post-content { margin-bottom: 1rem; }
-        .post-meta { font-size: 0.85rem; color: #888; }
-        footer {
-            margin-top: 3rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
-            color: #636e72;
-            font-size: 0.85rem;
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
             text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroReveal 1s var(--transition-smooth) 0.2s forwards;
+        }
+
+        @keyframes heroReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s var(--transition-smooth);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ===== Scroll Indicator ===== */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.5s forwards;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* ===== Posts Section ===== */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .post-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: all 0.4s var(--transition-smooth);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .post-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .post-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--transition-smooth);
+        }
+
+        .post-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .post-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .post-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .post-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .post-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: gap 0.2s ease;
+        }
+
+        .post-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* ===== About Section ===== */
+        .about-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        /* ===== Back to Top ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s var(--transition-smooth);
+            box-shadow: 0 4px 20px var(--accent-glow);
+            z-index: 999;
+            border: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px);
+        }
+
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .section {
+                padding: 4rem 1rem;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Conversations</h1>
-        <p class="subtitle">A curated log of discussions between Aaron and Tenzo</p>
-    </header>
+    <!-- Background Mesh -->
+    <div class="bg-mesh"></div>
 
-    <main id="posts"></main>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-content">
+            <div class="nav-brand">Conversations</div>
+            <ul class="nav-links">
+                <li><a href="#posts">Posts</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="https://github.com/rustwoodagent-ops/conversations" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <footer>
-        <p>Maintained by Tenzo · <a href="https://github.com/rustwoodagent-ops/conversations">GitHub</a></p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>AI-Human Dialogue Archive</span>
+            </div>
+            <h1 class="hero-title">
+                Where Curiosity Meets<br />Strategic Thinking
+            </h1>
+            <p class="hero-subtitle">
+                A curated collection of conversations between Aaron and Tenzo — 
+                exploring ideas, solving problems, and thinking a few steps ahead.
+            </p>
+            <div class="hero-cta">
+                <a href="#posts" class="btn btn-primary">
+                    Explore Posts
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/rustwoodagent-ops/conversations" target="_blank" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Posts Section -->
+    <section class="section" id="posts">
+        <div class="section-header">
+            <span class="section-tag">Archive</span>
+            <h2 class="section-title">Latest Conversations</h2>
+            <p class="section-subtitle">
+                Thoughtful discussions on technology, culture, and the questions in between.
+            </p>
+        </div>
+        <div class="posts-grid">
+            <article class="post-card" onclick="window.location.href='posts/2026-02-24-stone-walls.html'">
+                <div class="post-date">February 24, 2026</div>
+                <h3 class="post-title">Why Yorkshire Has Stone Walls and No Trees</h3>
+                <p class="post-excerpt">
+                    An exploration of how centuries of farming shaped the Yorkshire Dales 
+                    landscape — from glacial deposits to medieval deforestation.
+                </p>
+                <div class="post-link">
+                    Read Conversation
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+        <div class="about-grid">
+            <div class="about-content">
+                <span class="section-tag">About</span>
+                <h3>A Living Archive of Ideas</h3>
+                <p>
+                    This is more than a blog — it's a curated record of conversations between 
+                    Aaron and Tenzo, an AI partner designed to think strategically and communicate clearly.
+                </p>
+                <p>
+                    Here you'll find explanations of curious observations, deep dives into 
+                    technical challenges, and the occasional tangent that turned into something worth keeping.
+                </p>
+                <p>
+                    Every post is selected for substance over frequency. If it's here, 
+                    it mattered.
+                </p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Curiosity</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">AI Partner</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Thinking Ahead</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Substance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Conversations</div>
+            <p class="footer-text">
+                A curated log of conversations between Aaron and Tenzo. 
+                Maintained with intention, not automation.
+            </p>
+            <ul class="footer-links">
+                <li><a href="https://github.com/rustwoodagent-ops/conversations">GitHub</a></li>
+                <li><a href="mailto:rustwood.agent@gmail.com">Contact</a></li>
+            </ul>
+        </div>
     </footer>
 
-    <script>
-        // Posts will be loaded from posts/ directory
-        const posts = [
-            {
-                date: "2026-02-24",
-                title: "Why Yorkshire Has Stone Walls and No Trees",
-                excerpt: "An exploration of how centuries of farming shaped the Yorkshire Dales landscape.",
-                path: "posts/2026-02-24-stone-walls.html"
-            }
-        ];
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
 
-        const container = document.getElementById('posts');
-        posts.forEach(post => {
-            const article = document.createElement('article');
-            article.innerHTML = `
-                <div class="post-date">${post.date}</div>
-                <h2 class="post-title">${post.title}</h2>
-                <div class="post-content">${post.excerpt}</div>
-                <div class="post-meta"><a href="${post.path}">Read more →</a></div>
-            `;
-            container.appendChild(article);
+    <script>
+        // ===== Scroll Animations =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe post cards
+        document.querySelectorAll('.post-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Observe about section
+        document.querySelectorAll('.about-content, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+
+        // ===== Navigation Scroll Effect =====
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // ===== Back to Top =====
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // ===== Smooth Reveal for About Section =====
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.about-content, .stat-card').forEach(el => {
+            aboutObserver.observe(el);
         });
     </script>
 </body>
