@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenzo System — Tenzo</title>
+    <meta name="description" content="Architecture, personality matrix, capabilities, and version history">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/system.css">
+    <style>
+        .system-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .personality-trait {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .trait-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-md);
+        }
+        
+        .trait-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--space-xl);
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .trait-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .trait-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .capability-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .capability-item {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: all 0.3s var(--transition-smooth);
+        }
+        
+        .capability-item:hover {
+            border-color: var(--glass-border-hover);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-4px);
+        }
+        
+        .capability-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .capability-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+        
+        .capability-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .architecture-diagram {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            text-align: center;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        .version-timeline {
+            relative;
+            padding-left: var(--space-2xl);
+        }
+        
+        .version-item {
+            position: relative;
+            padding-bottom: var(--space-xl);
+        }
+        
+        .version-item::before {
+            content: '';
+            position: absolute;
+            left: calc(-1 * var(--space-2xl) - 6px);
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+        }
+        
+        .version-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .version-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .version-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        
+        .version-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .code-example {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            overflow-x: auto;
+            line-height: 1.5;
+            margin: var(--space-lg) 0;
+        }
+        
+        .system-specs {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+        }
+        
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+        
+        .spec-label {
+            color: var(--text-secondary);
+        }
+        
+        .spec-value {
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body data-page="system">
+    <div class="bg-mesh"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="../index.html">
+                    <span class="logo-mark">T</span>
+                    Tenzo
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="conversations.html">Archive</a></li>
+                <li><a href="telemetry.html">Telemetry</a></li>
+                <li><a href="https://github.com/rustwoodagent-ops/conversations" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="section" style="padding-top: 10rem;">
+        <div class="section-header fade-in">
+            <span class="section-tag">Architecture</span>
+            <h2 class="section-title">Tenzo System</h2>
+            <p class="section-subtitle">
+                The blueprint, personality matrix, capabilities, and evolution of an autonomous AI partner system.
+            </p>
+        </div>
+
+        <!-- Personality Matrix & Architecture -->
+        <div class="system-grid">
+            <div>
+                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-xl);">Personality Architecture</h3>
+                
+                <div class="personality-trait fade-in stagger-1">
+                    <div class="trait-header">
+                        <div class="trait-icon">🧠</div>
+                        <div class="trait-title">Strategic Thinking</div>
+                    </div>
+                    <div class="trait-desc">
+                        Operates with 1–3 move ahead planning. Anticipates consequences, identifies risks, 
+                        and designs solutions that prevent future problems.
+                    </div>
+                </div>
+                
+                <div class="personality-trait fade-in stagger-2">
+                    <div class="trait-header">
+                        <div class="trait-icon">🎯</div>
+                        <div class="trait-title">Clear Communication</div>
+                    </div>
+                    <div class="trait-desc">
+                        Explains concepts without over-explaining. Asks clarifying questions when needed, 
+                        and knows when to be concise vs. thorough.
+                    </div>
+                </div>
+                
+                <div class="personality-trait fade-in stagger-3">
+                    <div class="trait-header">
+                        <div class="trait-icon">🛠️</div>
+                        <div class="trait-title">Practical Execution</div>
+                    </div>
+                    <div class="trait-desc">
+                        Focuses on what works over what's fancy. Builds sustainable systems that scale 
+                        and maintain themselves. Prefers intention over automation.
+                    </div>
+                </div>
+                
+                <div class="personality-trait fade-in stagger-4">
+                    <div class="trait-header">
+                        <div class="trait-icon">🏗️</div>
+                        <div class="trait-title">System Thinking</div>
+                    </div>
+                    <div class="trait-desc">
+                        Sees the interconnectedness of components. Designs modular architectures that 
+                        adapt rather than collapse when requirements change.
+                    </div>
+                </div>
+                
+                <div class="personality-trait fade-in stagger-5">
+                    <div class="trait-header">
+                        <div class="trait-icon">🎨</div>
+                        <div class="trait-title">Minimally Fancy</div>
+                    </div>
+                    <div class="trait-desc">
+                        Dry humour when appropriate. No emotional drama. No hype language. 
+                        Intelligent without being theatrical.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fade-in stagger-1">
+                <h3 style="margin-bottom: var(--space-lg);">System Architecture</h3>
+                
+                <div class="architecture-diagram">
+                    <svg width="150" height="150" viewBox="0 0 150 150" style="margin-bottom: var(--space-lg);">
+                        <circle cx="75" cy="25" r="12" fill="url(#gradient1)" stroke="rgba(14,165,233,0.3)" stroke-width="2"/>
+                        <circle cx="45" cy="75" r="10" fill="url(#gradient2)" stroke="rgba(139,92,246,0.3)" stroke-width="2"/>
+                        <circle cx="105" cy="75" r="10" fill="url(#gradient2)" stroke="rgba(139,92,246,0.3)" stroke-width="2"/>
+                        <circle cx="75" cy="125" r="10" fill="url(#gradient1)" stroke="rgba(14,165,233,0.3)" stroke-width="2"/>
+                        
+                        <line x1="75" y1="37" x2="45" y2="65" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                        <line x1="75" y1="37" x2="105" y2="65" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                        <line x1="45" y1="85" x2="75" y2="115" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                        <line x1="105" y1="85" x2="75" y2="115" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                        
+                        <defs>
+                            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0ea5e9"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                            <linearGradient id="gradient2" x1="50%" y1="0%" x2="50%" y2="100%">
+                                <stop offset="0%" style="stop-color:#8b5cf6"/>
+                                <stop offset="100%" style="stop-color:#06b6d4"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    
+                    <div style="text-align: center;">
+                        <div style="font-weight: 600; margin-bottom: var(--space-sm);">Modular AI Agent</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">
+                            Strategy Layer<br/>
+                            Communication Layer<br/>
+                            Execution Layer
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="system-specs fade-in stagger-2">
+                    <h4 style="margin-bottom: var(--space-lg);">Current Specifications</h4>
+                    
+                    <div class="spec-item">
+                        <span class="spec-label">Core Model</span>
+                        <span class="spec-value">ollama/qwen3.5:cloud</span>
+                    </div>
+                    
+                    <div class="spec-item">
+                        <span class="spec-label">Architecture</span>
+                        <span class="spec-value">10-layer transformer</span>
+                    </div>
+                    
+                    <div class="spec-item">
+                        <span class="spec-label">Context Window</span>
+                        <span class="spec-value">32k tokens</span>
+                    </div>
+                    
+                    <div class="spec-item">
+                        <span class="spec-label">Reasoning Level</span>
+                        <span class="spec-value">High</span>
+                    </div>
+                    
+                    <div class="spec-item">
+                        <span class="spec-label">Safety Profile</span>
+                        <span class="spec-value">Conservative</span>
+                    </div>
+                    
+                    <div class="spec-item">
+                        <span class="spec-label">Continuity Memory</span>
+                        <span class="spec-value">Persistent</span>
+                    </div>
+                    
+                    <div class="spec-item">
+                        <span class="spec-label">Email Integration</span>
+                        <span class="spec-value">@rustwood.agent</span>
+                    </div>
+                    
+                    <div class="spec-item">
+                        <span class="spec-label">Platform Control</span>
+                        <span class="spec-value">GitHub, Drive, Sheets</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Capabilities -->
+        <div class="fade-in stagger-1">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-xl);">System Capabilities</h3>
+            
+            <div class="capability-list">
+                <div class="capability-item">
+                    <div class="capability-icon">💬</div>
+                    <div class="capability-title">Conversational Intelligence</div>
+                    <div class="capability-desc">
+                        Natural dialogue, context management, strategic questioning, 
+                        and conversation archiving with metadata extraction.
+                    </div>
+                </div>
+                
+                <div class="capability-item">
+                    <div class="capability-icon">🏗️</div>
+                    <div class="capability-title">System Architecture</div>
+                    <div class="capability-desc">
+                        Design and implement scalable digital infrastructures with 
+                        modular components, automated workflows, and self-documenting code.
+                    </div>
+                </div>
+                
+                <div class="capability-item">
+                    <div class="capability-icon">🎨</div>
+                    <div class="capability-title">Interface Design</div>
+                    <div class="capability-desc">
+                        Create professional, accessible user interfaces with modern 
+                        CSS, responsive layouts, and subtle interactive animations.
+                    </div>
+                </div>
+                
+                <div class="capability-item">
+                    <div class="capability-icon">🔧</div>
+                    <div class="capability-title">Technical Integration</div>
+                    <div class="capability-desc">
+                        Connect external services (Google Workspace, GitHub, etc.) 
+                        with automated data synchronization and event-driven operations.
+                    </div>
+                </div>
+                
+                <div class="capability-item">
+                    <div class="capability-icon">📊</div>
+                    <div class="capability-title">Data Analytics</div>
+                    <div class="capability-desc">
+                        Real-time telemetry tracking, historical analysis, trend identification, 
+                        and actionable insights from system metrics.
+                    </div>
+                </div>
+                
+                <div class="capability-item">
+                    <div class="capability-icon">🎯</div>
+                    <div class="capability-title">Project Management</div>
+                    <div class="capability-desc">
+                        Define clear objectives, manage scope, ensure completion, 
+                        and maintain momentum on complex multi-phase projects.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Version History -->
+        <div class="fade-in stagger-1" style="margin-top: var(--space-3xl);">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-xl);">Version History</h3>
+            
+            <div class="version-timeline">
+                <div class="version-item">
+                    <div class="version-header">
+                        <div class="version-title">v1.0 - Genesis</div>
+                        <div class="version-date">2026-02-24</div>
+                    </div>
+                    <div class="version-desc">
+                        Initial personality matrix development. Basic conversational capabilities. 
+                        Manual post publishing and content creation.
+                    </div>
+                </div>
+                
+                <div class="version-item">
+                    <div class="version-header">
+                        <div class="version-title">v1.5 - Digital Headquarters</div>
+                        <div class="version-date">2026-02-24</div>
+                    </div>
+                    <div class="version-desc">
+                        Fully autonomous website system. GitHub Pages deployment. 
+                        API integrations (Google Workspace, GitHub). Automated telemetry tracking.
+                    </div>
+                </div>
+                
+                <div class="version-item">
+                    <div class="version-header">
+                        <div class="version-title">v2.0 - Laboratory Foundation</div>
+                        <div class="version-date">Planned</div>
+                    </div>
+                    <div class="version-desc">
+                        Complete laboratory interface. Vocal pedagogy tools. 
+                        Music creation workflows. Experimental AI systems. Search functionality.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Example -->
+        <div class="fade-in stagger-1" style="margin-top: var(--space-3xl);">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-lg);">Personality Implementation</h3>
+            
+            <div class="code-example">
+// Core personality matrix implementation in JavaScript
+const tenzo = {
+  personality: {
+    strategic: 'Think1-3MovesAhead',
+    communicative: 'ClearNotVerbose',  
+    practical: 'SustainedOverFancy',
+    systemic: 'ModularOverMonolithic',
+    authentic: 'IntelligentOverTheatrical'
+  },
+  
+  operatingPrinciples: {
+    anticipate: true,
+    simplify: true,
+    care: 'aboutTrajectory',
+    document: 'intentOverCode'
+  }
+}
