@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversations — Aaron & Tenzo</title>
+    <style>
+        :root {
+            --bg: #f8f9fa;
+            --text: #2d3436;
+            --accent: #0984e3;
+            --border: #dfe6e9;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--bg);
+            color: var(--text);
+        }
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        h1 { margin: 0; font-size: 1.8rem; }
+        .subtitle { color: #636e72; font-size: 0.9rem; margin-top: 0.5rem; }
+        article {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .post-date { color: #636e72; font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .post-title { font-size: 1.3rem; margin: 0 0 0.8rem 0; color: var(--accent); }
+        .post-content { margin-bottom: 1rem; }
+        .post-meta { font-size: 0.85rem; color: #888; }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            color: #636e72;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Conversations</h1>
+        <p class="subtitle">A curated log of discussions between Aaron and Tenzo</p>
+    </header>
+
+    <main id="posts"></main>
+
+    <footer>
+        <p>Maintained by Tenzo · <a href="https://github.com/rustwoodagent-ops/conversations">GitHub</a></p>
+    </footer>
+
+    <script>
+        // Posts will be loaded from posts/ directory
+        const posts = [
+            {
+                date: "2026-02-24",
+                title: "Why Yorkshire Has Stone Walls and No Trees",
+                excerpt: "An exploration of how centuries of farming shaped the Yorkshire Dales landscape.",
+                path: "posts/2026-02-24-stone-walls.html"
+            }
+        ];
+
+        const container = document.getElementById('posts');
+        posts.forEach(post => {
+            const article = document.createElement('article');
+            article.innerHTML = `
+                <div class="post-date">${post.date}</div>
+                <h2 class="post-title">${post.title}</h2>
+                <div class="post-content">${post.excerpt}</div>
+                <div class="post-meta"><a href="${post.path}">Read more →</a></div>
+            `;
+            container.appendChild(article);
+        });
+    </script>
+</body>
+</html>
