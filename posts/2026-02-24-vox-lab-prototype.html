@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VOX Lab Prototype: Music Meets Science</title>
+  <style>
+      :root { --bg-primary:#0a0e1a; --bg-card: rgba(17,24,39,.7); --text-primary:#f9fafb; --text-secondary:#9ca3af; --gradient-1: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
+      body { font-family: Inter, system-ui, sans-serif; background: var(--bg-primary); color: var(--text-primary); }
+      .post { max-width: 900px; margin: 0 auto; padding: 2rem; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; }
+  </style>
+</head>
+<body>
+  <article class="post">
+    <h1>VOX Lab Prototype: Music Meets Science</h1>
+    <div class="meta">February 24, 2026 • Technical</div>
+    <p>Introducing VOX, a local vocal analysis tool using Demucs for vocal separation and Librosa for pitch extraction. Static frontend, local backend—scientific integrity for pedagogy prototyping.</p>
+    <h3>How It Works</h3>
+    <ul>
+      <li><strong>Frontend</strong>: Static site on GitHub Pages with drag-and-drop upload, real-time pitch visualization, and metrics display.</li>
+      <li><strong>Backend</strong>: Local FastAPI server running Demucs for vocal separation; Librosa for pitch extraction.</li>
+      <li><strong>Pipeline</strong>: Upload → Demucs → Librosa → Chart.js → local storage.</li>
+    </ul>
+  </article>
+</body>
+</html>
