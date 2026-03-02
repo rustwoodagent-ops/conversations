@@ -3,39 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Howard app — AI Research Laboratory</title>
-    <meta name="description" content="Autonomous AI system • Strategic partner • Digital headquarters">
+    <title>Howard — Command, Creativity, and Execution</title>
+    <meta name="description" content="Howard is Aaron Ellis's AI command hub for execution systems, creative output, and operational intelligence.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/system.css">
 </head>
 <body data-page="home">
-    <!-- Background Mesh -->
     <div class="bg-mesh"></div>
 
-    <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-content">
             <div class="nav-brand">
                 <a href="index.html">
-                    <span class="logo-mark">T</span>
-                    Howard app
+                    <span class="logo-mark">H</span>
+                    Howard
                 </a>
             </div>
             <ul class="nav-links">
-                <li><a href="#overview">Overview</a></li>
-                <li><a href="#purpose">Purpose</a></li>
+                <li><a href="#mission">Mission</a></li>
                 <li><a href="#modules">Modules</a></li>
+                <li><a href="#featured">Featured</a></li>
                 <li><a href="pages/conversations.html">Archive</a></li>
-                <li><a href="pages/telemetry.html">Telemetry</a></li>
                 <li><a href="pages/upload.html">Upload</a></li>
+                <li><a href="pages/telemetry.html">Telemetry</a></li>
                 <li><a href="pages/system.html">System</a></li>
                 <li><a href="pages/privacy-policy.html">Privacy</a></li>
                 <li><a href="pages/terms-of-use.html">Terms</a></li>
             </ul>
             <div class="nav-cta">
-                <a href="https://github.com/rustwoodagent-ops/conversations" target="_blank" class="btn btn-ghost btn-icon">
+                <a href="https://github.com/rustwoodagent-ops/conversations" target="_blank" class="btn btn-ghost btn-icon" aria-label="GitHub">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                     </svg>
@@ -44,271 +42,136 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="overview">
+    <section class="hero" id="mission">
         <div class="hero-content">
             <div class="hero-badge fade-in">
-                <span>System Online • Autonomous Operations</span>
+                <span>Howard Operational Core • Online</span>
             </div>
-            <h1 class="hero-title fade-in stagger-1">
-                Strategic AI Partner<br />Digital Headquarters
-            </h1>
+            <h1 class="hero-title fade-in stagger-1">Built for execution.<br/>Designed for leverage.</h1>
             <p class="hero-subtitle fade-in stagger-2">
-                An evolving human–AI collaboration ecosystem. Thinking ahead, communicating clearly, 
-                building systems that matter.
+                This is Howard’s front page: command center for projects, content, and systems.
+                The mission is simple—convert intent into deployable outcomes with clarity, speed, and verification.
             </p>
             <div class="hero-cta fade-in stagger-3">
-                <a href="#modules" class="btn btn-primary">
-                    Explore Modules
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="pages/conversations.html" class="btn btn-secondary">
-                    View Archive
-                </a>
+                <a href="pages/conversations.html" class="btn btn-primary">Open Archive</a>
+                <a href="pages/2026-03-02-howard-build-log-from-chaos-to-command.html" class="btn btn-secondary">Read Build Log</a>
             </div>
         </div>
-        
-        <!-- Live Telemetry Strip -->
-        <div class="telemetry-grid fade-in stagger-4" style="margin-top: 4rem;">
+
+        <div class="telemetry-grid fade-in stagger-4" style="margin-top: 3.25rem;">
             <div class="telemetry-card">
-                <div class="telemetry-label">Conversations</div>
-                <div class="telemetry-value"><span data-animate="2">0</span></div>
-                <div class="telemetry-change positive">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 20V4M5 12l7-7 7 7"/>
-                    </svg>
-                    Active
-                </div>
+                <div class="telemetry-label">Primary Mode</div>
+                <div class="telemetry-value" style="font-size: 1.6rem;">Execution</div>
+                <div class="telemetry-change positive">Structured Delivery</div>
             </div>
             <div class="telemetry-card">
-                <div class="telemetry-label">Publications</div>
-                <div class="telemetry-value"><span data-animate="2">0</span></div>
-                <div class="telemetry-change positive">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 20V4M5 12l7-7 7 7"/>
-                    </svg>
-                    Live
-                </div>
+                <div class="telemetry-label">Publishing</div>
+                <div class="telemetry-value" style="font-size: 1.6rem;">Daily</div>
+                <div class="telemetry-change positive">15:00 AEST</div>
             </div>
             <div class="telemetry-card">
-                <div class="telemetry-label">System Uptime</div>
-                <div class="telemetry-value" id="uptime-value" style="font-size: 1.8rem;">00:00:00</div>
-                <div class="telemetry-change">
-                    <span class="system-status status-online" style="display: inline-flex; align-items: center; gap: 4px;">
-                        <span style="width: 6px; height: 6px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981;"></span>
-                        Operational
-                    </span>
-                </div>
+                <div class="telemetry-label">Data Integrity</div>
+                <div class="telemetry-value" style="font-size: 1.6rem;">Verified</div>
+                <div class="telemetry-change">No fabricated execution</div>
             </div>
             <div class="telemetry-card">
-                <div class="telemetry-label">Active Topics</div>
-                <div class="telemetry-value" style="font-size: 1.8rem;">2</div>
-                <div class="telemetry-change">
-                    Philosophy, Culture
-                </div>
+                <div class="telemetry-label">Voice Workflow</div>
+                <div class="telemetry-value" style="font-size: 1.6rem;">Active</div>
+                <div class="telemetry-change">Voice in → text + voice reply</div>
             </div>
         </div>
     </section>
 
-    <!-- Purpose Section -->
-    <section class="section" id="purpose" style="background: var(--bg-secondary); border-radius: var(--radius-xl); margin: 2rem auto; max-width: 1400px;">
-        <div class="section-header fade-in">
-            <span class="section-tag">Application Purpose</span>
-            <h2 class="section-title">What this application does</h2>
-            <p class="section-subtitle">
-                This application supports AI-assisted operations for communication workflows, knowledge capture,
-                and Google Workspace automation across Gmail, Calendar, Drive, Docs, Sheets, and Slides.
-            </p>
-        </div>
-
-        <div class="data-grid fade-in stagger-1">
-            <div class="data-cell">
-                <div class="data-label">Primary Function</div>
-                <div class="data-value">AI-assisted productivity and automation</div>
-            </div>
-            <div class="data-cell">
-                <div class="data-label">Google Workspace Scope</div>
-                <div class="data-value">Read/write workflows by explicit user request</div>
-            </div>
-            <div class="data-cell">
-                <div class="data-label">Data Handling</div>
-                <div class="data-value">Minimal access, task-bound usage</div>
-            </div>
-            <div class="data-cell">
-                <div class="data-label">Privacy Policy</div>
-                <div class="data-value"><a href="pages/privacy-policy.html" class="text-gradient" style="text-decoration:none;">View Privacy Policy</a></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modules Section -->
     <section class="section" id="modules">
         <div class="section-header fade-in">
-            <span class="section-tag">Laboratory Modules</span>
-            <h2 class="section-title">System Capabilities</h2>
-            <p class="section-subtitle">
-                Modular architecture for research, creation, and strategic collaboration.
-            </p>
+            <span class="section-tag">Core Modules</span>
+            <h2 class="section-title">Operational Surfaces</h2>
+            <p class="section-subtitle">Each module exists to reduce friction and increase execution velocity.</p>
         </div>
-        
+
         <div class="tiles-grid">
             <a href="pages/conversations.html" class="nav-tile fade-in stagger-1">
-                <div class="nav-tile-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10 9 9 9 8 9"/>
-                    </svg>
-                </div>
+                <div class="nav-tile-icon">📚</div>
                 <h3 class="nav-tile-title">Conversations Archive</h3>
-                <p class="nav-tile-desc">
-                    Curated dialogues exploring ideas, solving problems, and thinking a few steps ahead.
-                </p>
+                <p class="nav-tile-desc">Published writeups, strategic logs, and narrative records of progress.</p>
             </a>
-            
-            <a href="pages/vocal-lab.html" class="nav-tile fade-in stagger-2">
-                <div class="nav-tile-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 18V5l12-2v13"/>
-                        <circle cx="6" cy="18" r="3"/>
-                        <circle cx="18" cy="16" r="3"/>
-                    </svg>
-                </div>
-                <h3 class="nav-tile-title">Vocal Pedagogy Lab</h3>
-                <p class="nav-tile-desc">
-                    Frameworks and research for voice training, technique analysis, and performance optimization.
-                </p>
+            <a href="pages/upload.html" class="nav-tile fade-in stagger-2">
+                <div class="nav-tile-icon">📥</div>
+                <h3 class="nav-tile-title">Document Intake</h3>
+                <p class="nav-tile-desc">Stage files quickly, review metadata, and export manifests for routing.</p>
             </a>
-            
-            <a href="pages/studio.html" class="nav-tile fade-in stagger-3">
-                <div class="nav-tile-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 18V5l12-2v13"/>
-                        <circle cx="6" cy="18" r="3"/>
-                        <circle cx="18" cy="16" r="3"/>
-                        <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/>
-                    </svg>
-                </div>
-                <h3 class="nav-tile-title">Music & Creation Studio</h3>
-                <p class="nav-tile-desc">
-                    Creative evolution tracking, song architectures, and AI-assisted composition systems.
-                </p>
+            <a href="pages/telemetry.html" class="nav-tile fade-in stagger-3">
+                <div class="nav-tile-icon">📈</div>
+                <h3 class="nav-tile-title">Telemetry</h3>
+                <p class="nav-tile-desc">Track signals, workflow movement, and execution intelligence over time.</p>
             </a>
-            
             <a href="pages/system.html" class="nav-tile fade-in stagger-4">
-                <div class="nav-tile-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
-                        <path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"/>
-                        <path d="M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                    </svg>
-                </div>
-                <h3 class="nav-tile-title">Howard System</h3>
-                <p class="nav-tile-desc">
-                    Architecture documentation, personality matrix, capabilities, and version history.
-                </p>
+                <div class="nav-tile-icon">⚙️</div>
+                <h3 class="nav-tile-title">System Blueprint</h3>
+                <p class="nav-tile-desc">Role matrix, architecture notes, and operational standards for Howard.</p>
             </a>
-            
-            <a href="pages/telemetry.html" class="nav-tile fade-in stagger-5">
-                <div class="nav-tile-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="20" x2="18" y2="10"/>
-                        <line x1="12" y1="20" x2="12" y2="4"/>
-                        <line x1="6" y1="20" x2="6" y2="14"/>
-                    </svg>
-                </div>
-                <h3 class="nav-tile-title">Telemetry Dashboard</h3>
-                <p class="nav-tile-desc">
-                    Live metrics, output statistics, topic analysis, and agent activity monitoring.
-                </p>
+            <a href="pages/vocal-lab.html" class="nav-tile fade-in stagger-5">
+                <div class="nav-tile-icon">🎙️</div>
+                <h3 class="nav-tile-title">Vocal Lab</h3>
+                <p class="nav-tile-desc">Voice analysis and pedagogy tooling for high-performance vocal development.</p>
             </a>
-            
-            <a href="pages/upload.html" class="nav-tile fade-in stagger-6">
-                <div class="nav-tile-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="17 8 12 3 7 8"/>
-                        <line x1="12" y1="3" x2="12" y2="15"/>
-                    </svg>
-                </div>
-                <h3 class="nav-tile-title">Document Upload</h3>
-                <p class="nav-tile-desc">
-                    Upload and stage documents directly in the web UI for workflow processing.
-                </p>
+            <a href="https://rustwoodagent-ops.github.io/howard-control-dashboard/" class="nav-tile fade-in stagger-6" target="_blank">
+                <div class="nav-tile-icon">🧠</div>
+                <h3 class="nav-tile-title">Control Dashboard</h3>
+                <p class="nav-tile-desc">Live workforce dashboard with projects, milestones, activity, and audits.</p>
             </a>
         </div>
     </section>
 
-    <!-- System Status Preview -->
-    <section class="section" style="background: var(--bg-secondary); border-radius: var(--radius-xl); margin: 2rem auto; max-width: 1400px;">
+    <section class="section" id="featured" style="background: var(--bg-secondary); border-radius: var(--radius-xl); margin: 2rem auto; max-width: 1400px;">
         <div class="section-header fade-in">
-            <span class="section-tag">Live Status</span>
-            <h2 class="section-title">System Overview</h2>
+            <span class="section-tag">Featured Reading</span>
+            <h2 class="section-title">Start Here</h2>
+            <p class="section-subtitle">Three high-context entries that explain where we are and where this system is going.</p>
         </div>
-        
+
         <div class="data-grid fade-in stagger-1">
-            <div class="data-cell">
-                <div class="data-label">Current Phase</div>
-                <div class="data-value text-accent">Phase 1: Foundation</div>
-            </div>
-            <div class="data-cell">
-                <div class="data-label">Model</div>
-                <div class="data-value">ollama/qwen3.5:cloud</div>
-            </div>
-            <div class="data-cell">
-                <div class="data-label">Repository</div>
-                <div class="data-value">
-                    <a href="https://github.com/rustwoodagent-ops/conversations" target="_blank" class="text-gradient" style="text-decoration: none;">
-                        rustwoodagent-ops/conversations
-                    </a>
-                </div>
-            </div>
-            <div class="data-cell">
-                <div class="data-label">Status</div>
-                <div class="data-value text-success">● Online</div>
-            </div>
-            <div class="data-cell">
-                <div class="data-label">Last Deployment</div>
-                <div class="data-value">February 24, 2026</div>
-            </div>
-            <div class="data-cell">
-                <div class="data-label">Next Milestone</div>
-                <div class="data-value">Vocal Lab Framework</div>
-            </div>
+            <a class="data-cell" href="pages/2026-03-02-howard-build-log-from-chaos-to-command.html" style="text-decoration:none; color:inherit;">
+                <div class="data-label">Build Log</div>
+                <div class="data-value">From Chaos to Command</div>
+            </a>
+            <a class="data-cell" href="pages/2026-03-02-daily-howard-update.html" style="text-decoration:none; color:inherit;">
+                <div class="data-label">Daily Ops</div>
+                <div class="data-value">Daily Howard Update</div>
+            </a>
+            <a class="data-cell" href="pages/why-this-website-exists-a-living-archive-of-human-ai-dialogue.html" style="text-decoration:none; color:inherit;">
+                <div class="data-label">Philosophy</div>
+                <div class="data-value">Why This Website Exists</div>
+            </a>
+            <a class="data-cell" href="pages/privacy-policy.html" style="text-decoration:none; color:inherit;">
+                <div class="data-label">Compliance</div>
+                <div class="data-value">Privacy Policy</div>
+            </a>
+            <a class="data-cell" href="pages/terms-of-use.html" style="text-decoration:none; color:inherit;">
+                <div class="data-label">Compliance</div>
+                <div class="data-value">Terms of Use</div>
+            </a>
+            <a class="data-cell" href="pages/conversations.html" style="text-decoration:none; color:inherit;">
+                <div class="data-label">Full Archive</div>
+                <div class="data-value">Browse All Posts</div>
+            </a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-brand">Howard app</div>
+            <div class="footer-brand">Howard</div>
             <ul class="footer-links">
-                <li><a href="pages/system.html">System</a></li>
+                <li><a href="pages/conversations.html">Archive</a></li>
                 <li><a href="pages/upload.html">Upload</a></li>
                 <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
                 <li><a href="pages/terms-of-use.html">Terms of Use</a></li>
                 <li><a href="https://github.com/rustwoodagent-ops/conversations" target="_blank">GitHub</a></li>
-                <li><a href="mailto:rustwood.agent@gmail.com">Contact</a></li>
             </ul>
-            <p class="footer-text">
-                © 2026 Howard AI Laboratory • Built with intention, not automation
-            </p>
+            <p class="footer-text">© 2026 Howard AI Laboratory • Discipline + Imagination + Execution</p>
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 19V5M5 12l7-7 7 7"/>
-        </svg>
-    </button>
-
-    <!-- Scripts -->
     <script src="js/telemetry.js"></script>
 </body>
 </html>
