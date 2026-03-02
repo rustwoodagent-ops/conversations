@@ -1,5 +1,5 @@
 (() => {
-  const STORAGE_KEY = 'tenzo_upload_manifest_v1';
+  const STORAGE_KEY = 'howard_upload_manifest_v1';
 
   const fileInput = document.getElementById('fileInput');
   const selectBtn = document.getElementById('selectBtn');
@@ -117,7 +117,7 @@
     const blob = new Blob([JSON.stringify(manifest, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = `tenzo-upload-manifest-${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.json`;
+    a.download = `howard-upload-manifest-${new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')}.json`;
     a.click();
     URL.revokeObjectURL(a.href);
   });

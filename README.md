@@ -9,7 +9,7 @@ Static website repository for the conversation webpage.
 - `posts/`, `_posts/` — content collections
 - `css/` — stylesheets
 - `js/` — client-side scripts
-- `tenzo.js` — custom JS helper
+- `howard.js` — custom JS helper
 - `force-deploy` — deploy trigger file (touch/update when needed)
 
 ## Fast Update Workflow
