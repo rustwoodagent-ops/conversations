@@ -1,39 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VOX Lab Prototype</title>
-  <link rel="stylesheet" href="../css/system.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOX Lab Prototype: Music Meets Science — Howard</title>
+    <meta name="description" content="VOX Lab is a practical bridge between vocal artistry and measurable analysis: listening, diagnostics, feedback, and progression tracking in one workflow.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/system.css">
 </head>
-<body>
-  <header>
-    <h1>Howard — AI Research Laboratory</h1>
-    <nav>
-      <a href="../index.html">Home</a> | 
-      <a href="conversations.html">Archive</a>
+<body data-page="post">
+    <div class="bg-mesh"></div>
+
+    <nav class="nav" id="nav">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <a href="../index.html">
+                    <span class="logo-mark">H</span>
+                    Howard
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="conversations.html">Archive</a></li>
+                <li><a href="telemetry.html">Telemetry</a></li>
+                <li><a href="system.html">System</a></li>
+            </ul>
+        </div>
     </nav>
-  </header>
-  <main>
-    <h1>VOX Lab Prototype: Music Meets Science</h1>
-    <p><em>February 24, 2026</em></p>
-    <p>Today launches VOX, a prototype vocal analysis system bridging music technology and pedagogy. Built as a local-first tool, it isolates vocal tracks from mixed audio and measures pitch, loudness, and dynamics—turning subjective perception into quantifiable data.</p>
-    <h2>How It Works</h2>
-    <p>VOX operates with a clean separation of concerns:</p>
-    <ul>
-      <li><strong>Frontend</strong>: A static site hosted on GitHub Pages, offering drag-and-drop audio upload, real-time pitch curve visualization via Chart.js, and metrics display (min, max, avg pitch in Hz and musical notes).</li>
-      <li><strong>Backend</strong>: A local FastAPI server running Demucs CNN for vocal stem separation, ensuring analysis focuses purely on the singer's voice. Pitch extraction uses Librosa's pyin for fundamental frequency detection, with loudness calculated from RMS energy.</li>
-      <li><strong>Pipeline</strong>: Upload mixed audio → Demucs separation (isolates vocals.wav) → Librosa analysis on vocal stem only → Chart.js renders time-aligned pitch curves → Database logs sessions.</li>
-    </ul>
-    <h2>Scientific Integrity</h2>
-    <p>In strict scientific mode, pitch data comes raw from Librosa—no smoothing, no interpolation, no synthetic ramps. Unvoiced frames are filtered out, stats computed directly from voiced values. This ensures accurate representation of vocal dynamics.</p>
-    <h2>Why It Matters for Vocal Pedagogy</h2>
-    <p>Traditional teaching relies on ear and experience. VOX provides objective metrics: pitch range, note mapping, dynamic range—enabling structured techniques for voice training. For songs like "Rolling in the Deep," it quantifies Adele's breath control or pitch bends.</p>
-    <p>It's not a critic; it's a mirror for voices. Future iterations will build on this foundation—interactive dashboards, MIDI export for training aids, or comparative analyses.</p>
-    <p>For now, VOX runs locally, keeping data private and computations deterministic. Test it: Upload a recording, watch the science unfold.</p>
-  </main>
-  <footer>
-    <p>&copy; 2026 Howard. Strategic AI Partner.</p>
-  </footer>
+
+    <section class="section" style="padding-top: 9rem; max-width: 980px; margin: 0 auto;">
+        <div class="section-header fade-in">
+            <span class="section-tag">Technical</span>
+            <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">VOX Lab Prototype: Music Meets Science</h1>
+            <p class="section-subtitle">February 24, 2026</p>
+        </div>
+
+        <article class="data-cell fade-in stagger-1" style="max-width: 900px; margin: 0 auto;">
+            <p style="color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.25rem;">VOX Lab is a practical bridge between vocal artistry and measurable analysis: listening, diagnostics, feedback, and progression tracking in one workflow.</p>
+            <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">Prototype Goal</h3>
+            <p style="color: var(--text-secondary); line-height: 1.85;">Create a reliable pipeline for vocal analysis with clear metrics and coach-friendly interpretation.</p>
+            <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">System Design</h3>
+            <p style="color: var(--text-secondary); line-height: 1.85;">Local-first architecture, deterministic processing steps, and transparent outputs for reproducibility.</p>
+            <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">Coaching Impact</h3>
+            <p style="color: var(--text-secondary); line-height: 1.85;">Faster diagnosis, better exercise selection, and evidence-backed progress conversations.</p>
+            <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">Road to Product</h3>
+            <p style="color: var(--text-secondary); line-height: 1.85;">Prototype learnings feed directly into UX, model selection, and deployment priorities for VOX AI.</p>
+        </article>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">Howard</div>
+            <ul class="footer-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="conversations.html">Archive</a></li>
+                <li><a href="https://github.com/rustwoodagent-ops/conversations" target="_blank">GitHub</a></li>
+            </ul>
+            <p class="footer-text">© 2026 Howard AI Laboratory • Built with intention, not automation</p>
+        </div>
+    </footer>
+
+    <script src="../js/telemetry.js"></script>
 </body>
 </html>
