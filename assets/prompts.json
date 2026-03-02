@@ -1,0 +1,77 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-03-02T20:00:00+10:00",
+  "prompts": [
+    {
+      "id": "professor-pro-coaching-outline",
+      "title": "Professor Pro — Coaching Session Blueprint",
+      "category": "Professor Pro",
+      "bestFor": "Structured 45–60 minute coaching sessions with measurable outcomes.",
+      "tags": ["coaching", "framework", "lesson-plan"],
+      "prompt": "You are Professor Pro. Build a high-impact coaching session for {{student_name}} focused on {{focus_area}}.\n\nConstraints:\n- Session length: {{session_length}} minutes\n- Current level: {{current_level}}\n- Desired outcome: {{desired_outcome}}\n\nOutput format:\n1) Session objective\n2) 3-phase structure (warm-up, core drill, application)\n3) Success criteria\n4) Homework tasks with measurable targets",
+      "variables": [
+        { "key": "student_name", "label": "Student Name", "example": "Azza" },
+        { "key": "focus_area", "label": "Focus Area", "example": "Pitch stability" },
+        { "key": "session_length", "label": "Session Length", "example": "50" },
+        { "key": "current_level", "label": "Current Level", "example": "Intermediate" },
+        { "key": "desired_outcome", "label": "Desired Outcome", "example": "Cleaner transitions between E4 and A4" }
+      ],
+      "example": "Use for voice/pedagogy sessions where progression tracking matters."
+    },
+    {
+      "id": "vox-analysis-request",
+      "title": "VOX — Audio Diagnostic Request",
+      "category": "VOX",
+      "bestFor": "Requesting an audio analysis report with practical coaching actions.",
+      "tags": ["vox", "analysis", "audio", "diagnostic"],
+      "prompt": "Analyse this vocal recording for {{artist_name}} in key {{song_key}} and BPM {{bpm}}.\n\nReturn:\n- Pitch stability summary\n- Problem timestamps\n- Formant/resonance notes\n- Breath management notes\n- 5 targeted exercises ranked by impact",
+      "variables": [
+        { "key": "artist_name", "label": "Artist Name", "example": "Aaron Ellis" },
+        { "key": "song_key", "label": "Song Key", "example": "F minor" },
+        { "key": "bpm", "label": "BPM", "example": "94" }
+      ],
+      "example": "Great for converting a raw vocal file into an action plan."
+    },
+    {
+      "id": "karaoke-ops-prep",
+      "title": "Karaoke Ops — Performance Prep Pack",
+      "category": "Karaoke Ops",
+      "bestFor": "Fast prep before a live karaoke set.",
+      "tags": ["karaoke", "live", "prep", "performance"],
+      "prompt": "Prepare a performance pack for {{artist_name}} singing {{song_title}}.\n\nNeed:\n- 10-minute vocal warm-up\n- Risk lines and safer alternatives\n- Stage confidence cues\n- Emergency recovery plan if pitch slips",
+      "variables": [
+        { "key": "artist_name", "label": "Artist Name", "example": "Azza" },
+        { "key": "song_title", "label": "Song Title", "example": "Use Somebody" }
+      ],
+      "example": "Useful right before going on stage with minimal setup time."
+    },
+    {
+      "id": "social-engine-content-sprint",
+      "title": "Social Engine — 7 Post Sprint",
+      "category": "Social Engine",
+      "bestFor": "Creating one-week social content from a single idea.",
+      "tags": ["social", "content", "growth", "repurposing"],
+      "prompt": "Turn this core message into a 7-post content sprint for {{platform}}.\n\nCore message: {{core_message}}\nAudience: {{audience}}\nTone: {{tone}}\n\nOutput:\n- 7 post hooks\n- 7 caption drafts\n- CTA per post\n- Suggested posting order",
+      "variables": [
+        { "key": "platform", "label": "Platform", "example": "Instagram + X" },
+        { "key": "core_message", "label": "Core Message", "example": "Voice discipline beats hacks" },
+        { "key": "audience", "label": "Audience", "example": "Indie vocalists" },
+        { "key": "tone", "label": "Tone", "example": "Direct, authority, motivating" }
+      ],
+      "example": "Best when you have one strong idea and need distribution fast."
+    },
+    {
+      "id": "web-github-release-task",
+      "title": "Web/GitHub — Release Operator Prompt",
+      "category": "Web/GitHub",
+      "bestFor": "Shipping a static feature with clean commits and deploy checks.",
+      "tags": ["web", "github", "deploy", "release"],
+      "prompt": "Act as a release engineer for {{repo_name}}. Implement {{feature_goal}} with static-site constraints.\n\nRequirements:\n- Keep style consistent with existing design system\n- Add/modify required files only\n- Run verification checks\n- Commit with semantic message\n- Provide deployment URL + QA checklist",
+      "variables": [
+        { "key": "repo_name", "label": "Repo Name", "example": "conversations" },
+        { "key": "feature_goal", "label": "Feature Goal", "example": "Prompt Lab mini-app" }
+      ],
+      "example": "Use for implementation tasks where you need clean delivery and proof."
+    }
+  ]
+}

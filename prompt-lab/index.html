@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Howard Prompt Lab</title>
+  <meta name="description" content="Prompt Lab mini-app for searching, filtering, and copying prompt systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/system.css" />
+  <link rel="stylesheet" href="./prompt-lab.css" />
+</head>
+<body data-page="prompt-lab">
+  <div class="bg-mesh"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav-content">
+      <div class="nav-brand">
+        <a href="../index.html"><span class="logo-mark">H</span>Howard</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/conversations.html">Archive</a></li>
+        <li><a href="../prompt-lab/index.html">Prompt Lab</a></li>
+        <li><a href="../pages/upload.html">Upload</a></li>
+        <li><a href="../pages/telemetry.html">Telemetry</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero prompt-hero">
+    <div class="hero-content">
+      <div class="hero-badge fade-in"><span>Prompt Lab • Operational</span></div>
+      <h1 class="hero-title fade-in stagger-1">Find the right prompt.<br/>Ship faster.</h1>
+      <p class="hero-subtitle fade-in stagger-2">
+        Command-centre prompt workflows with smart search, category routing, command palette, and one-click copy.
+      </p>
+      <div class="mini-telemetry fade-in stagger-3" aria-hidden="true">
+        <span class="monitor-dot"></span>
+        <span>Online</span>
+        <div class="monitor-bars"><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section prompt-shell">
+    <div class="controls-row glass-panel" role="region" aria-label="Prompt controls">
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search title, tags, content..." aria-label="Search prompts" />
+      </div>
+      <div class="chips" id="categoryChips" role="tablist" aria-label="Prompt categories"></div>
+      <div class="quick-lists">
+        <button id="showAllBtn" class="chip chip-active" type="button">All</button>
+        <button id="showFavBtn" class="chip" type="button">Favourites</button>
+        <button id="showRecentBtn" class="chip" type="button">Recent</button>
+      </div>
+    </div>
+
+    <div class="cards-grid" id="promptGrid" aria-live="polite"></div>
+  </section>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div id="palette" class="palette hidden" aria-hidden="true">
+    <div class="palette-backdrop" data-close="1"></div>
+    <div class="palette-panel" role="dialog" aria-modal="true" aria-label="Prompt command palette">
+      <input id="paletteInput" type="text" placeholder="Search prompts…" autocomplete="off" />
+      <div id="paletteList" class="palette-list"></div>
+      <p class="palette-hint">↑ ↓ navigate · Enter copy clean · Esc close</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">Howard</div>
+      <ul class="footer-links">
+        <li><a href="../pages/conversations.html">Archive</a></li>
+        <li><a href="../prompt-lab/index.html">Prompt Lab</a></li>
+        <li><a href="../pages/upload.html">Upload</a></li>
+        <li><a href="../pages/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="../pages/terms-of-use.html">Terms of Use</a></li>
+      </ul>
+      <p class="footer-text">© 2026 Howard AI Laboratory</p>
+    </div>
+  </footer>
+
+  <script src="./prompt-lab.js" type="module"></script>
+</body>
+</html>
