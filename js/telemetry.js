@@ -197,6 +197,8 @@ const pages = {
         init() {
             this.setupHeroAnimation();
             this.setupTiles();
+            this.setupConsoleMonitor();
+            this.setupTypedWelcome();
         },
         
         setupHeroAnimation() {
@@ -226,6 +228,68 @@ const pages = {
                     tile.style.transform = 'translateY(0)';
                 }, 100);
             });
+        },
+
+        setupConsoleMonitor() {
+            const timeEl = document.getElementById('heroConsoleTime');
+            const latencyEl = document.getElementById('latencyValue');
+            if (!timeEl && !latencyEl) return;
+
+            const tick = () => {
+                if (timeEl) {
+                    const now = new Date();
+                    timeEl.textContent = now.toLocaleTimeString('en-AU', { hour12: false });
+                }
+                if (latencyEl) {
+                    const ms = 28 + Math.floor(Math.random() * 36);
+                    latencyEl.textContent = `${ms}ms`;
+                }
+            };
+
+            tick();
+            setInterval(tick, 1200);
+        },
+
+        setupTypedWelcome() {
+            const el = document.getElementById('typedWelcome');
+            if (!el) return;
+
+            const lines = [
+                'Welcome back, Azza. Howard is online.',
+                'Command stack stable. Ready for next objective.',
+                'Telemetry green. Systems go.'
+            ];
+
+            let lineIndex = 0;
+            let charIndex = 0;
+            let deleting = false;
+
+            const run = () => {
+                const full = lines[lineIndex];
+
+                if (!deleting) {
+                    charIndex += 1;
+                    el.textContent = full.slice(0, charIndex);
+                    if (charIndex >= full.length) {
+                        deleting = true;
+                        setTimeout(run, 1300);
+                        return;
+                    }
+                    setTimeout(run, 45);
+                } else {
+                    charIndex -= 1;
+                    el.textContent = full.slice(0, Math.max(0, charIndex));
+                    if (charIndex <= 0) {
+                        deleting = false;
+                        lineIndex = (lineIndex + 1) % lines.length;
+                        setTimeout(run, 240);
+                        return;
+                    }
+                    setTimeout(run, 24);
+                }
+            };
+
+            run();
         }
     },
     

@@ -12,6 +12,7 @@
 </head>
 <body data-page="home">
     <div class="bg-mesh"></div>
+    <div class="signal-lines" aria-hidden="true"></div>
 
     <nav class="nav" id="nav">
         <div class="nav-content">
@@ -57,9 +58,20 @@
                 <a href="pages/conversations.html" class="btn btn-primary">Open Archive</a>
                 <a href="pages/2026-03-02-howard-build-log-from-chaos-to-command.html" class="btn btn-secondary">Read Build Log</a>
             </div>
+
+            <div class="hero-console fade-in stagger-4" aria-live="polite">
+                <div class="console-header">
+                    <span class="console-status"><i></i> GREEN MONITOR • ONLINE</span>
+                    <span class="console-time" id="heroConsoleTime">--:--:--</span>
+                </div>
+                <p class="console-line">status: <span>stable</span></p>
+                <p class="console-line">pipeline: <span>active</span></p>
+                <p class="console-line">latency: <span id="latencyValue">42ms</span></p>
+                <p class="console-line typewriter-row">howard&gt; <span id="typedWelcome"></span><span class="caret">▋</span></p>
+            </div>
         </div>
 
-        <div class="telemetry-grid fade-in stagger-4" style="margin-top: 3.25rem;">
+        <div class="telemetry-grid fade-in stagger-5" style="margin-top: 3.25rem;">
             <div class="telemetry-card">
                 <div class="telemetry-label">Primary Mode</div>
                 <div class="telemetry-value" style="font-size: 1.6rem;">Execution</div>
