@@ -32,8 +32,21 @@
   const initPlayer = (panel) => {
     const readBtn = panel.querySelector('.btn-read-aloud');
     const stopBtn = panel.querySelector('.btn-stop-aloud');
+    const audioEl = panel.querySelector('audio');
     const article = panel.parentElement?.querySelector('article');
     const text = buildText(article);
+
+    if (audioEl) {
+      const applySpeed = () => {
+        audioEl.defaultPlaybackRate = 1.1;
+        audioEl.playbackRate = 1.1;
+      };
+      applySpeed();
+      audioEl.addEventListener('loadedmetadata', applySpeed);
+      audioEl.addEventListener('play', () => {
+        if (audioEl.playbackRate !== 1.1) audioEl.playbackRate = 1.1;
+      });
+    }
 
     if (readBtn) {
       readBtn.addEventListener('click', () => {
@@ -41,7 +54,7 @@
         speechSynthesis.cancel();
 
         const utter = new SpeechSynthesisUtterance(text);
-        utter.rate = 0.97;
+        utter.rate = 1.1;
         utter.pitch = 0.92;
         utter.lang = 'en-AU';
 
