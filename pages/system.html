@@ -194,6 +194,65 @@
             font-family: var(--font-mono);
             font-weight: 600;
         }
+
+        @media (max-width: 980px) {
+            .system-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+
+            .capability-list {
+                grid-template-columns: 1fr;
+            }
+
+            .version-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+
+            .section {
+                padding-left: var(--space-md) !important;
+                padding-right: var(--space-md) !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .personality-trait,
+            .capability-item,
+            .system-specs,
+            .activity-feed,
+            .architecture-diagram {
+                padding: var(--space-lg);
+            }
+
+            .trait-header {
+                align-items: flex-start;
+            }
+
+            .trait-icon {
+                margin-right: var(--space-md);
+                width: 28px;
+                height: 28px;
+                font-size: 1rem;
+            }
+
+            .metric-value,
+            .section-title {
+                word-break: break-word;
+            }
+
+            .spec-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+
+            .code-example {
+                font-size: 0.78rem;
+                line-height: 1.45;
+            }
+        }
     </style>
 </head>
 <body data-page="system">
