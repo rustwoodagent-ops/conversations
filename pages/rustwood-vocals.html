@@ -207,6 +207,73 @@
     .step li { margin: .2rem 0; }
     .step li::before { content: '• '; color: var(--brand-2); }
 
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .price-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1.2rem 1rem;
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+
+    .price-card:hover {
+      border-color: rgba(212, 134, 79, 0.4);
+      box-shadow: 0 0 24px rgba(212, 134, 79, 0.14);
+      transform: translateY(-2px);
+    }
+
+    .price-card h3 {
+      font-family: 'Space Grotesk', var(--font-sans);
+      font-size: 1.05rem;
+      margin-bottom: 0.45rem;
+      color: #fff;
+    }
+
+    .price-tag {
+      font-size: 1.55rem;
+      line-height: 1.1;
+      font-weight: 900;
+      color: var(--brand-2);
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.01em;
+    }
+
+    .price-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1rem 0.85rem;
+    }
+
+    .faq-item h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      font-family: 'Space Grotesk', var(--font-sans);
+    }
+
+    .faq-item p {
+      margin-bottom: 0;
+    }
+
     .duo {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -248,7 +315,8 @@
 
     @media (max-width: 900px) {
       .about-grid,
-      .duo {
+      .duo,
+      .pricing-grid {
         grid-template-columns: 1fr;
       }
 
@@ -273,7 +341,8 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#process">Process</a></li>
-        <li><a href="#rights">Rights</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="../pages/conversations.html">Archive</a></li>
       </ul>
       <div class="nav-cta">
@@ -366,6 +435,31 @@
       </div>
     </section>
 
+    <section class="block" id="pricing">
+      <h2>Simple Pricing</h2>
+      <p>Clear options. Fast turnaround. Easy to choose.</p>
+
+      <div class="pricing-grid">
+        <article class="price-card">
+          <h3>Standard Custom Song</h3>
+          <div class="price-tag">$200 AUD</div>
+          <p>14-day turnaround from creative brief + confirmation. Includes: professionally produced song + final master.</p>
+        </article>
+
+        <article class="price-card">
+          <h3>Karaoke Version (Add-On)</h3>
+          <div class="price-tag">+ $50 AUD</div>
+          <p>Your song converted into a karaoke-friendly instrumental for performance.</p>
+        </article>
+
+        <article class="price-card">
+          <h3>Full Stems (Add-On)</h3>
+          <div class="price-tag">+ $50 AUD</div>
+          <p>Individual track exports (stems) for mixing, editing, and collaboration.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="duo" id="rights">
       <article class="block">
         <span class="tag">Commercial Rights</span>
@@ -386,13 +480,31 @@
       </article>
     </section>
 
+    <section class="block" id="faq">
+      <h2>FAQ</h2>
+      <div class="faq-list">
+        <article class="faq-item">
+          <h3>How long does a custom song take?</h3>
+          <p>Most Rustwood Vocals projects are delivered within 14 days, starting from your creative brief and confirmation.</p>
+        </article>
+
+        <article class="faq-item">
+          <h3>What do I own once the song is finished?</h3>
+          <p>You receive the finished master as standard. If you add them on, you can also receive the stems and/or a karaoke version. You’re free to use your song for the agreed purpose — we simply request credit where it makes sense (when it suits the story).</p>
+        </article>
+
+        <article class="faq-item">
+          <h3>Can you collaborate with my team/producer?</h3>
+          <p>Absolutely. We can integrate with your producer, director, or creative lead, sharing the right files in the right format while protecting the songwriting and performance quality Rustwood Vocals is known for.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="block final-cta">
-      <h2>Turn your lyrics into a finished song.</h2>
-      <p>
-        Don’t leave your words in draft form. Let’s produce something emotionally true, technically clean,
-        and ready to release.
-      </p>
+      <h2>Let’s make your lyrics real.</h2>
+      <p>Book your creative brief today and start your custom song journey.</p>
       <a href="mailto:hello@rustwoodvocals.com" class="btn btn-rust">Start Your Song Today</a>
+      <p style="font-size:0.9rem; margin-top:0.75rem; color:var(--text-muted);">No pressure — just a quick brief to see if we’re the right fit.</p>
     </section>
   </main>
 
