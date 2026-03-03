@@ -8,583 +8,398 @@
     name="description"
     content="Bring your own lyrics to life with Rustwood Vocals. Professional custom song production without the expensive studio."
   />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../css/system.css" />
   <style>
     :root {
-      --bg-dark: #0a0a0b;
-      --bg-section: #121214;
-      --bg-card: #1a1a1c;
-      --text-main: #fdfdfd;
-      --text-muted: #a3a3a6;
-      --accent-primary: #cc7843;
-      --accent-hover: #e08b55;
-      --border-color: rgba(255, 255, 255, 0.08);
-      --font-heading: "Didot", "Playfair Display", "Georgia", serif;
-      --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      --brand: #d4864f;
+      --brand-2: #f0a46d;
+      --brand-glow: rgba(212, 134, 79, 0.28);
     }
 
     body {
-      font-family: var(--font-body);
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
+      font-family: 'Inter', var(--font-sans);
     }
 
-    h1,
-    h2,
-    h3,
-    h4 {
-      font-family: var(--font-heading);
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 1rem;
+    .hero-rv {
+      padding: 9rem 1.5rem 5rem;
+      position: relative;
     }
 
-    p {
-      margin-bottom: 1rem;
-      color: var(--text-muted);
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 100%;
+    .hero-inner {
       max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 4rem 2rem;
+      backdrop-filter: var(--glass-blur);
+      box-shadow: 0 0 40px var(--brand-glow);
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-2);
+      border: 1px solid rgba(212, 134, 79, 0.45);
+      border-radius: var(--radius-full);
+      padding: 0.45rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', var(--font-sans);
+      font-weight: 700;
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.2rem;
+      color: #fff;
+    }
+
+    .hero-sub {
+      max-width: 780px;
+      margin: 0 auto 2rem;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-secondary);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 0.85rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-rust {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+      color: #121212;
+      font-weight: 700;
+      box-shadow: 0 12px 30px var(--brand-glow);
+    }
+
+    .btn-rust:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px var(--brand-glow);
+    }
+
+    .btn-rust-outline {
+      border: 1px solid rgba(212, 134, 79, 0.45);
+      color: var(--brand-2);
+      background: rgba(212, 134, 79, 0.07);
+    }
+
+    .section-shell {
+      max-width: 1150px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
 
-    .section {
-      padding: 6rem 0;
+    .block {
+      margin: 2.5rem 0;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      backdrop-filter: var(--glass-blur);
+      padding: 2.25rem;
     }
 
-    .btn {
-      display: inline-block;
-      background: var(--accent-primary);
+    .block h2 {
+      font-family: 'Space Grotesk', var(--font-sans);
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
       color: #fff;
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-      border-radius: 4px;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
-
-    .btn:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(204, 120, 67, 0.2);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--accent-primary);
-      color: var(--accent-primary);
-    }
-
-    .btn-outline:hover {
-      background: rgba(204, 120, 67, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .waveform {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      height: 40px;
-      margin: 2rem 0;
-    }
-
-    .waveform span {
-      display: block;
-      width: 3px;
-      background-color: var(--accent-primary);
-      border-radius: 3px;
-      animation: play 1.2s ease infinite alternate;
-    }
-
-    .waveform span:nth-child(1) {
-      height: 10px;
-      animation-delay: 0s;
-    }
-
-    .waveform span:nth-child(2) {
-      height: 25px;
-      animation-delay: 0.2s;
-    }
-
-    .waveform span:nth-child(3) {
-      height: 40px;
-      animation-delay: 0.4s;
-    }
-
-    .waveform span:nth-child(4) {
-      height: 20px;
-      animation-delay: 0.6s;
-    }
-
-    .waveform span:nth-child(5) {
-      height: 15px;
-      animation-delay: 0.8s;
-    }
-
-    @keyframes play {
-      0% {
-        transform: scaleY(0.3);
-      }
-
-      100% {
-        transform: scaleY(1);
-      }
-    }
-
-    header {
-      padding: 2rem 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-    }
-
-    .logo {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo span {
-      font-size: 0.9rem;
-      color: var(--accent-primary);
-      font-family: var(--font-body);
-      font-weight: 300;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      background: radial-gradient(circle at 50% 30%, #2a1a12 0%, var(--bg-dark) 70%);
-      text-align: center;
-      padding-top: 5rem;
-    }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      animation: fadeIn 1s ease-out;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      margin-bottom: 1.5rem;
-      color: #ffffff;
-    }
-
-    .hero p {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-      color: #b8b8b8;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .about {
-      background-color: var(--bg-section);
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 2rem;
       align-items: center;
     }
 
-    .about-text h2 {
-      font-size: 2.5rem;
-      color: var(--accent-primary);
-    }
-
-    .about-visual {
-      position: relative;
-      height: 100%;
-      min-height: 300px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #1a1a1c 0%, #0a0a0b 100%);
-      border: 1px solid var(--border-color);
+    .wave {
       display: flex;
-      align-items: center;
+      gap: 6px;
       justify-content: center;
-      overflow: hidden;
+      align-items: center;
+      min-height: 220px;
+      border: 1px solid rgba(212, 134, 79, 0.25);
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 50% 20%, rgba(212, 134, 79, 0.15), transparent 70%);
     }
 
-    .about-visual::after {
-      content: "";
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(204, 120, 67, 0.1) 0%, transparent 70%);
+    .wave span {
+      display: block;
+      width: 5px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--brand-2), var(--brand));
+      animation: pulse 1.2s ease-in-out infinite alternate;
     }
 
-    .process {
-      background-color: var(--bg-dark);
-    }
+    .wave span:nth-child(1) { height: 20px; animation-delay: 0s; }
+    .wave span:nth-child(2) { height: 36px; animation-delay: 0.12s; }
+    .wave span:nth-child(3) { height: 58px; animation-delay: 0.24s; }
+    .wave span:nth-child(4) { height: 28px; animation-delay: 0.36s; }
+    .wave span:nth-child(5) { height: 42px; animation-delay: 0.48s; }
+    .wave span:nth-child(6) { height: 24px; animation-delay: 0.6s; }
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-header h2 {
-      font-size: 2.8rem;
+    @keyframes pulse {
+      from { transform: scaleY(0.45); opacity: 0.65; }
+      to { transform: scaleY(1); opacity: 1; }
     }
 
     .process-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
     }
 
-    .step-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      padding: 2.5rem 2rem;
-      border-radius: 8px;
+    .step {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1.2rem 1rem 1rem;
+      transition: border-color .2s ease, transform .2s ease;
       position: relative;
-      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
-    .step-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(204, 120, 67, 0.3);
+    .step:hover {
+      border-color: rgba(212, 134, 79, 0.42);
+      transform: translateY(-2px);
     }
 
-    .step-num {
-      font-family: var(--font-heading);
-      font-size: 3rem;
-      color: rgba(204, 120, 67, 0.15);
-      position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-      line-height: 1;
+    .step .n {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: var(--brand-2);
+      margin-bottom: .4rem;
+      display: inline-block;
     }
 
-    .step-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
+    .step h3 {
+      font-size: 1.05rem;
+      margin-bottom: .45rem;
       color: #fff;
-      position: relative;
-      z-index: 1;
+      font-family: 'Space Grotesk', var(--font-sans);
     }
 
-    .step-card ul {
-      list-style: none;
-      color: var(--text-muted);
-      margin-top: 1rem;
-    }
-
-    .step-card ul li {
-      position: relative;
-      padding-left: 1.2rem;
-      margin-bottom: 0.5rem;
+    .step p, .step li {
+      color: var(--text-secondary);
       font-size: 0.95rem;
     }
 
-    .step-card ul li::before {
-      content: "•";
-      color: var(--accent-primary);
-      position: absolute;
-      left: 0;
-      top: -1px;
+    .step ul {
+      list-style: none;
+      margin-top: .5rem;
     }
 
-    .features-wrapper {
-      background-color: var(--bg-section);
-      border-top: 1px solid var(--border-color);
+    .step li { margin: .2rem 0; }
+    .step li::before { content: '• '; color: var(--brand-2); }
+
+    .duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
 
-    .feature-block {
-      padding: 4rem 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .feature-block:last-child {
-      border-bottom: none;
-    }
-
-    .feature-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .feature-content h2 {
-      font-size: 2.2rem;
-      color: var(--accent-primary);
-    }
-
-    .feature-tag {
-      display: inline-block;
-      font-size: 0.8rem;
+    .tag {
+      font-size: .75rem;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--accent-primary);
-      border: 1px solid var(--accent-primary);
-      padding: 0.3rem 1rem;
-      border-radius: 50px;
-      margin-bottom: 1rem;
+      color: var(--brand-2);
+      margin-bottom: .7rem;
+      display: block;
+      font-weight: 700;
     }
 
     .final-cta {
       text-align: center;
-      background: linear-gradient(to bottom, var(--bg-dark) 0%, #17110e 100%);
+      padding: 1.5rem;
     }
 
     .final-cta h2 {
-      font-size: 3rem;
-      margin-bottom: 2rem;
+      margin-bottom: 0.75rem;
     }
 
-    footer {
-      background-color: #050505;
-      padding: 3rem 0;
+    .final-cta p {
+      max-width: 680px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .footer-min {
+      max-width: 1150px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.5rem;
       text-align: center;
-      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: .9rem;
     }
 
-    .footer-logo {
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-
-    footer p {
-      font-size: 0.9rem;
-      margin: 0;
-    }
-
-    @media (max-width: 768px) {
-      .about-grid {
+    @media (max-width: 900px) {
+      .about-grid,
+      .duo {
         grid-template-columns: 1fr;
-        gap: 2rem;
       }
 
-      .about-visual {
-        display: none;
+      .hero-inner {
+        padding: 3rem 1.2rem;
       }
 
-      .section {
-        padding: 4rem 0;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .section-header h2 {
-        font-size: 2.2rem;
-      }
-
-      .step-card {
-        padding: 2rem 1.5rem;
+      .block {
+        padding: 1.35rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="logo">
-        Rustwood Vocals <span>By Aaron</span>
+  <div class="bg-mesh"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav-content">
+      <div class="nav-brand">
+        <a href="../index.html"><span class="logo-mark">R</span> Rustwood Vocals</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#rights">Rights</a></li>
+        <li><a href="../pages/conversations.html">Archive</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="mailto:hello@rustwoodvocals.com">Contact</a>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <section class="hero">
-    <div class="container hero-content">
-      <h1>Have you ever dreamed of bringing your own lyrics to life?</h1>
-      <p>
-        Today, you can hear your song come to life without hiring a band, booking an expensive studio,
-        or spending thousands of dollars.
+  <section class="hero-rv">
+    <div class="hero-inner">
+      <span class="hero-kicker">Custom Song Production by Aaron</span>
+      <h1 class="hero-title">Bring your lyrics to life with a modern boutique production workflow.</h1>
+      <p class="hero-sub">
+        No band bookings, no high-cost studio complexity. Just your words, your vision, and a clean,
+        collaborative process that produces a release-ready track.
       </p>
-      <a href="#process" class="btn">Bring Your Song to Life Today</a>
-      <div class="waveform" style="margin-top: 4rem;">
-        <span></span><span></span><span></span><span></span><span></span>
+      <div class="hero-cta">
+        <a href="#process" class="btn btn-rust">Start Your Song</a>
+        <a href="mailto:hello@rustwoodvocals.com" class="btn btn-rust-outline">Email Rustwood Vocals</a>
       </div>
     </div>
   </section>
 
-  <section class="section about" id="about">
-    <div class="container about-grid">
-      <div class="about-text">
-        <h2>A Boutique Approach to Your Music.</h2>
-        <p>
-          Welcome to Rustwood Vocals. Founded and operated by Aaron, we are a boutique, professional custom
-          song production service dedicated to the art of songwriting.
-        </p>
-        <p>
-          As a passionate music creator, Aaron's mission is simple: to help singers and writers transform
-          their rough, written lyrics into fully realised, beautifully produced songs.
-        </p>
-        <p>
-          Whether you have a poem hidden in a notebook or a melody stuck in your head, we provide a warm,
-          collaborative, and highly professional environment to bring your vision into the real world.
-        </p>
-      </div>
-      <div class="about-visual">
-        <div class="waveform">
-          <span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
+  <main class="section-shell">
+    <section class="block" id="about">
+      <div class="about-grid">
+        <div>
+          <h2>A premium songwriting partner, built around your voice.</h2>
+          <p>
+            Rustwood Vocals is a custom production service founded and operated by Aaron. The mission is
+            simple: transform rough lyrics, notebook poems, and melody ideas into emotionally strong,
+            professionally produced songs.
+          </p>
+          <p>
+            You bring the story. We shape the structure, define the sonic direction, and deliver a final track
+            you can confidently own, share, and perform.
+          </p>
+        </div>
+        <div class="wave" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section process" id="process">
-    <div class="container">
-      <div class="section-header">
-        <h2>The Creative Process</h2>
-        <p>A clear, collaborative journey from written word to final track.</p>
-      </div>
+    <section class="block" id="process">
+      <h2>The Creative Process</h2>
+      <p>A clear, staged flow from raw lyric concept to finished record.</p>
 
       <div class="process-grid">
-        <div class="step-card">
-          <div class="step-num">01</div>
+        <article class="step">
+          <span class="n">STEP 01</span>
           <h3>Submit Your Lyrics</h3>
-          <p>
-            It all starts with your words. Send over your rough lyrics, poems, or ideas. They don't have to
-            be perfect—that's what we're here for.
-          </p>
-        </div>
+          <p>Share your words, notes, poem, or draft. Perfection is not required.</p>
+        </article>
 
-        <div class="step-card">
-          <div class="step-num">02</div>
+        <article class="step">
+          <span class="n">STEP 02</span>
           <h3>Refinement &amp; Structure</h3>
-          <p>
-            We refine your lyrics into a proper song structure (verses, chorus, bridge). Minor wording
-            adjustments may be made to ensure perfect flow and singability.
-          </p>
-        </div>
+          <p>Lyrics are refined into a high-flow structure: verse, chorus, bridge, and momentum.</p>
+        </article>
 
-        <div class="step-card">
-          <div class="step-num">03</div>
+        <article class="step">
+          <span class="n">STEP 03</span>
           <h3>Define the Vibe</h3>
-          <p>You tell us exactly what you're looking for by providing:</p>
           <ul>
-            <li>Mood and emotional feel</li>
-            <li>Genre (dance, rap, ballad, rock, etc.)</li>
-            <li>Vocal style (soft, gritty, sweet, powerful)</li>
-            <li>Your vocal range (if you plan to sing it)</li>
+            <li>Mood and emotional tone</li>
+            <li>Genre direction</li>
+            <li>Vocal delivery style</li>
+            <li>Range considerations (if you’ll sing it)</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="step-card">
-          <div class="step-num">04</div>
+        <article class="step">
+          <span class="n">STEP 04</span>
           <h3>Custom Previews</h3>
-          <p>
-            Aaron hits the studio. We will create two distinct custom preview versions (partial tracks) and
-            send them directly to your email for review.
-          </p>
-        </div>
+          <p>Two distinct partial versions are produced and sent for review.</p>
+        </article>
 
-        <div class="step-card">
-          <div class="step-num">05</div>
-          <h3>Select Your Version</h3>
-          <p>
-            Listen to the partial previews and choose the direction that best captures the heart and soul of
-            your original lyrics.
-          </p>
-        </div>
+        <article class="step">
+          <span class="n">STEP 05</span>
+          <h3>Select Direction</h3>
+          <p>Choose the version that best captures your song’s emotional center.</p>
+        </article>
 
-        <div class="step-card">
-          <div class="step-num">06</div>
+        <article class="step">
+          <span class="n">STEP 06</span>
           <h3>Final Delivery</h3>
-          <p>
-            Upon purchase, the final, fully-produced, high-quality track is completed, mixed, and delivered
-            securely to you.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="features-wrapper">
-    <section class="feature-block">
-      <div class="container feature-content">
-        <span class="feature-tag">Commercial Rights</span>
-        <h2>100% Yours to Keep.</h2>
-        <p>
-          We believe your art belongs to you. Once the final track is delivered, you own it completely. You
-          are granted full commercial rights, meaning you may distribute, perform, stream, or use your new
-          song however you wish, forever.
-        </p>
+          <p>Final production, polish, and secure high-quality delivery after purchase.</p>
+        </article>
       </div>
     </section>
 
-    <section class="feature-block">
-      <div class="container feature-content">
-        <span class="feature-tag">Optional Upgrade</span>
-        <h2>Take the Stage.</h2>
+    <section class="duo" id="rights">
+      <article class="block">
+        <span class="tag">Commercial Rights</span>
+        <h2>100% yours to own.</h2>
         <p>
-          Planning to perform your new song live? We offer an exclusive add-on service to remove the lead
-          studio vocals and create a pristine, professional karaoke backing track. Perfect for live
-          performances, open mics, or local karaoke venues.
+          Once your final track is delivered, you hold full commercial rights. Stream it, perform it, publish
+          it, or use it for your brand—your music stays your asset.
         </p>
-      </div>
+      </article>
+
+      <article class="block">
+        <span class="tag">Optional Upgrade</span>
+        <h2>Stage-ready karaoke backing.</h2>
+        <p>
+          Need a live version? Add the vocal-removal upgrade to receive a polished karaoke backing track for
+          performance, open mics, and live venue use.
+        </p>
+      </article>
     </section>
+
+    <section class="block final-cta">
+      <h2>Turn your lyrics into a finished song.</h2>
+      <p>
+        Don’t leave your words in draft form. Let’s produce something emotionally true, technically clean,
+        and ready to release.
+      </p>
+      <a href="mailto:hello@rustwoodvocals.com" class="btn btn-rust">Start Your Song Today</a>
+    </section>
+  </main>
+
+  <div class="footer-min">
+    <p>© 2026 Rustwood Vocals by Aaron • Built inside the Howard conversations system</p>
   </div>
 
-  <section class="section final-cta">
-    <div class="container">
-      <h2>Turn Your Lyrics Into Reality</h2>
-      <p style="max-width: 500px; margin: 0 auto 2rem;">
-        Don't let your words sit in a notebook forever. Let's create something beautiful together.
-      </p>
-      <a href="mailto:hello@rustwoodvocals.com" class="btn">Start Your Song Today</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-logo">Rustwood Vocals</div>
-      <p>&copy; 2026 Rustwood Vocals by Aaron. All rights reserved.</p>
-    </div>
-  </footer>
+  <script src="../js/telemetry.js"></script>
 </body>
 </html>
