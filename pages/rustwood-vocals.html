@@ -273,6 +273,26 @@
       padding: 0.9rem;
     }
 
+    .player-layout {
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .player-cover {
+      width: 128px;
+      height: 128px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid rgba(212, 134, 79, 0.35);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35), 0 0 22px rgba(212, 134, 79, 0.16);
+    }
+
+    .player-main {
+      min-width: 0;
+    }
+
     .player-head {
       display: flex;
       align-items: center;
@@ -545,6 +565,16 @@
       .block {
         padding: 1.35rem;
       }
+
+      .player-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .player-cover {
+        width: 100%;
+        height: auto;
+        max-height: 260px;
+      }
     }
   </style>
 </head>
@@ -676,33 +706,39 @@
         <div class="audio-panel">
           <h3>Listen to the uploaded demo — “Rattletrap Halo”</h3>
           <div class="modern-player" data-player>
-            <div class="player-head">
-              <div class="now-playing">
-                <span class="now-playing-dot" aria-hidden="true"></span>
-                <span class="now-playing-label">Now Playing</span>
+            <div class="player-layout">
+              <img class="player-cover" src="../assets/images/rattletrap-halo-cover.png" alt="Rattletrap Halo cover art" />
+
+              <div class="player-main">
+                <div class="player-head">
+                  <div class="now-playing">
+                    <span class="now-playing-dot" aria-hidden="true"></span>
+                    <span class="now-playing-label">Now Playing</span>
+                  </div>
+                  <span class="time-readout" data-time>0:00 / 0:00</span>
+                </div>
+
+                <div class="wave-row">
+                  <button class="play-btn" type="button" data-play aria-label="Play demo">
+                    <svg class="play-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+                  </button>
+                  <div class="np-waveform" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+
+                <div class="progress-wrap" data-progress>
+                  <div class="progress-fill" data-progress-fill></div>
+                </div>
+
+                <audio class="audio-el" controlslist="nodownload noplaybackrate" preload="metadata" oncontextmenu="return false;">
+                  <source src="../assets/audio/rattletrap-halo-demo.mp3" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
               </div>
-              <span class="time-readout" data-time>0:00 / 0:00</span>
             </div>
-
-            <div class="wave-row">
-              <button class="play-btn" type="button" data-play aria-label="Play demo">
-                <svg class="play-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                <svg class="pause-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
-              </button>
-              <div class="np-waveform" aria-hidden="true">
-                <span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span>
-              </div>
-            </div>
-
-            <div class="progress-wrap" data-progress>
-              <div class="progress-fill" data-progress-fill></div>
-            </div>
-
-            <audio class="audio-el" controlslist="nodownload noplaybackrate" preload="metadata" oncontextmenu="return false;">
-              <source src="../assets/audio/rattletrap-halo-demo.mp3" type="audio/mpeg" />
-              Your browser does not support the audio element.
-            </audio>
           </div>
           <p class="audio-note">Streaming preview only.</p>
         </div>
