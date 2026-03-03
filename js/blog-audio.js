@@ -50,6 +50,15 @@
 
     if (readBtn) {
       readBtn.addEventListener('click', () => {
+        // Prefer the embedded MP3 so voice is consistent with the player.
+        if (audioEl) {
+          if ('speechSynthesis' in window) speechSynthesis.cancel();
+          audioEl.currentTime = 0;
+          audioEl.play().catch(() => {});
+          return;
+        }
+
+        // Fallback: browser speech synthesis only if no audio file exists.
         if (!('speechSynthesis' in window) || !text) return;
         speechSynthesis.cancel();
 
@@ -67,6 +76,10 @@
 
     if (stopBtn) {
       stopBtn.addEventListener('click', () => {
+        if (audioEl) {
+          audioEl.pause();
+          audioEl.currentTime = 0;
+        }
         if ('speechSynthesis' in window) speechSynthesis.cancel();
       });
     }
