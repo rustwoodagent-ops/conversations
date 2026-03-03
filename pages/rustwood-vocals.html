@@ -280,13 +280,38 @@
       align-items: center;
     }
 
-    .player-cover {
+    .cover-wrap {
+      position: relative;
       width: 128px;
       height: 128px;
-      border-radius: 10px;
-      object-fit: cover;
+      border-radius: 12px;
+      overflow: hidden;
       border: 1px solid rgba(212, 134, 79, 0.35);
       box-shadow: 0 10px 25px rgba(0,0,0,0.35), 0 0 22px rgba(212, 134, 79, 0.16);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .player-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .album-mark {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      background: rgba(5, 8, 16, 0.75);
+      border: 1px solid rgba(240, 164, 109, 0.5);
+      color: #fff;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.42rem;
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      font-weight: 700;
     }
 
     .player-main {
@@ -570,9 +595,10 @@
         grid-template-columns: 1fr;
       }
 
-      .player-cover {
+      .cover-wrap {
         width: 100%;
         height: auto;
+        aspect-ratio: 1 / 1;
         max-height: 260px;
       }
     }
@@ -707,7 +733,10 @@
           <h3>Listen to the uploaded demo — “Rattletrap Halo”</h3>
           <div class="modern-player" data-player>
             <div class="player-layout">
-              <img class="player-cover" src="../assets/images/rattletrap-halo-cover.png" alt="Rattletrap Halo cover art" />
+              <div class="cover-wrap">
+                <img class="player-cover" src="../assets/images/rattletrap-halo-cover.png" alt="Rattletrap Halo cover art" />
+                <span class="album-mark">Album Mark</span>
+              </div>
 
               <div class="player-main">
                 <div class="player-head">
