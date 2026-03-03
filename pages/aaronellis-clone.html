@@ -1,17 +1,82 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Aaron Ellis — Cloned Experience</title>
-    <meta name="description" content="Replica page rebuilt from aaronellis.au for the Conversations repo." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/aaronellis-clone/index.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="../assets/aaronellis-clone/index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaron Ellis — Homepage Concept</title>
+  <meta name="description" content="Meet Howard, your elite vocal coach. A single-page concept inspired by the aaronellis.au homepage." />
+  <link rel="stylesheet" href="../css/system.css" />
+  <style>
+    .hero-wrap { max-width: 1100px; margin: 0 auto; padding: 8rem 1.5rem 3rem; }
+    .hero-card { border: 1px solid var(--glass-border); background: var(--glass-bg); backdrop-filter: var(--glass-blur); border-radius: var(--radius-xl); padding: 3rem 2rem; }
+    .eyebrow { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--neon-cyan); margin-bottom: .9rem; }
+    h1 { font-size: clamp(2rem, 5vw, 4rem); line-height: 1.05; margin: 0 0 1rem; }
+    .lead { color: var(--text-secondary); max-width: 760px; font-size: 1.05rem; }
+    .cta-row { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.3rem; }
+    .section { max-width: 1100px; margin: 0 auto; padding: 1rem 1.5rem 2.2rem; }
+    .grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+    .card { border: 1px solid var(--glass-border); background: var(--glass-bg); border-radius: var(--radius-md); padding: 1rem; }
+    .card h3 { margin: 0 0 .45rem; font-size: 1rem; }
+    .card p { margin: 0; color: var(--text-secondary); font-size: .94rem; }
+    .mini { color: var(--text-muted); font-size: .82rem; margin-top: .5rem; }
+    @media (max-width: 900px){ .grid { grid-template-columns: 1fr; } .hero-card { padding: 2rem 1.2rem; } }
+  </style>
+</head>
+<body>
+  <div class="bg-mesh"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav-content">
+      <div class="nav-brand"><a href="../index.html"><span class="logo-mark">A</span> Aaron Ellis</a></div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+      </ul>
+      <div class="nav-cta"><a class="btn btn-ghost" href="mailto:hello@aaronellis.au">Contact</a></div>
+    </div>
+  </nav>
+
+  <header class="hero-wrap">
+    <section class="hero-card">
+      <div class="eyebrow">Elite Vocal Coaching</div>
+      <h1>Meet Howard, your elite vocal coach.</h1>
+      <p class="lead">Single-page homepage concept built for the Conversations repo: high-precision vocal coaching, audio diagnostics, and performance-focused workflow design.</p>
+      <div class="cta-row">
+        <a class="btn" href="#features">Explore Features</a>
+        <a class="btn btn-ghost" href="mailto:hello@aaronellis.au">Book a consult</a>
+      </div>
+      <p class="mini">This is a standalone homepage adaptation, not a full app clone.</p>
+    </section>
+  </header>
+
+  <main>
+    <section class="section" id="about">
+      <div class="card">
+        <h3>VOXAI by Aaron</h3>
+        <p>A modern vocal intelligence direction that combines musical artistry with clear, measurable coaching outcomes.</p>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="grid">
+        <article class="card">
+          <h3>Audio Analysis</h3>
+          <p>Structured feedback loops for timing, tone, consistency, and delivery confidence.</p>
+        </article>
+        <article class="card">
+          <h3>Diagnostic Workflow</h3>
+          <p>Practical, actionable direction for rehearsal, live performance prep, and track execution.</p>
+        </article>
+        <article class="card">
+          <h3>Performance Coaching</h3>
+          <p>Artist-first coaching with technical depth and clear progression checkpoints.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" style="padding:2rem 1.5rem; text-align:center;">
+    <p>© 2026 Aaron Ellis · Homepage concept page inside Conversations</p>
+  </footer>
+</body>
 </html>
