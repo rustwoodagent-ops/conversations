@@ -942,6 +942,24 @@ body {
     border-color: transparent;
 }
 
+.rustwood-return-links {
+    margin-top: var(--space-2xl);
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.rustwood-return-links a {
+    color: var(--rustwood-accent);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.rustwood-return-links a:hover {
+    border-color: var(--rustwood-accent-hover);
+}
+
 /* ===== Animations ===== */
 .fade-in {
     opacity: 0;
