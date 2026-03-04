@@ -757,6 +757,62 @@ body[data-page="home"] .boot-line:nth-child(3) { animation-delay: 0.8s; color: #
     }
 }
 
+body[data-page="home"] .mock-openclaw {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(74, 216, 138, 0.24);
+    position: relative;
+    z-index: 1;
+    background: rgba(4, 18, 11, 0.74);
+}
+
+body[data-page="home"] .mock-cmd,
+body[data-page="home"] .mock-brand,
+body[data-page="home"] .mock-footer {
+    margin: 0.2rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.45;
+}
+
+body[data-page="home"] .mock-cmd {
+    color: #74ffb2;
+}
+
+body[data-page="home"] .mock-cmd span {
+    color: #e7fff3;
+}
+
+body[data-page="home"] .mock-brand {
+    color: #ffb4a1;
+}
+
+body[data-page="home"] .mock-brand strong {
+    color: #ffd7cc;
+}
+
+body[data-page="home"] .mock-ascii-wrap {
+    margin: 0.45rem 0;
+    border: 1px solid rgba(208, 251, 226, 0.62);
+    background: #e9f3ec;
+    color: #131313;
+    overflow-x: auto;
+}
+
+body[data-page="home"] .mock-ascii {
+    margin: 0;
+    padding: 0.35rem 0.55rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.58rem;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+}
+
+body[data-page="home"] .mock-footer {
+    text-align: center;
+    color: #ffc2b3;
+    letter-spacing: 0.08em;
+}
+
 body[data-page="home"] .crt-shell::before {
     content: '';
     position: absolute;
@@ -1432,6 +1488,7 @@ body[data-page="home"] .hero > * {
 
     body[data-page="home"] .site-intro,
     body[data-page="home"] .boot-sequence,
+    body[data-page="home"] .mock-openclaw,
     body[data-page="home"] .crt-header,
     body[data-page="home"] .crt-block,
     body[data-page="home"] .crt-panel,
@@ -1444,8 +1501,15 @@ body[data-page="home"] .hero > * {
     }
 
     body[data-page="home"] .site-intro p,
-    body[data-page="home"] .boot-line {
+    body[data-page="home"] .boot-line,
+    body[data-page="home"] .mock-cmd,
+    body[data-page="home"] .mock-brand,
+    body[data-page="home"] .mock-footer {
         font-size: 0.72rem;
+    }
+
+    body[data-page="home"] .mock-ascii {
+        font-size: 0.5rem;
     }
 
     body[data-page="home"] .crt-line,
