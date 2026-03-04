@@ -767,11 +767,34 @@ body[data-page="home"] .mock-openclaw {
 
 body[data-page="home"] .mock-cmd,
 body[data-page="home"] .mock-brand,
-body[data-page="home"] .mock-footer {
+body[data-page="home"] .mock-footer,
+body[data-page="home"] .mock-output {
     margin: 0.2rem 0;
     font-family: var(--font-mono);
     font-size: 0.78rem;
     line-height: 1.45;
+}
+
+body[data-page="home"] .cmd-caret {
+    display: inline-block;
+    margin-left: 0.2rem;
+    color: #e6fff2;
+    animation: blinkCaret 0.95s step-end infinite;
+}
+
+body[data-page="home"] .mock-output {
+    color: #9cecc1;
+    margin-left: 1.1rem;
+}
+
+body[data-page="home"] .mock-output a {
+    color: #c9ffe5;
+    border-bottom: 1px dotted rgba(198, 255, 227, 0.45);
+}
+
+body[data-page="home"] .mock-output a:hover {
+    color: #ffffff;
+    border-bottom-color: rgba(255, 255, 255, 0.8);
 }
 
 body[data-page="home"] .mock-cmd {
@@ -1504,7 +1527,8 @@ body[data-page="home"] .hero > * {
     body[data-page="home"] .boot-line,
     body[data-page="home"] .mock-cmd,
     body[data-page="home"] .mock-brand,
-    body[data-page="home"] .mock-footer {
+    body[data-page="home"] .mock-footer,
+    body[data-page="home"] .mock-output {
         font-size: 0.72rem;
     }
 
