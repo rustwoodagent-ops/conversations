@@ -705,6 +705,58 @@ body[data-page="home"] .crt-shell {
     overflow: hidden;
 }
 
+body[data-page="home"] .site-intro {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid rgba(74, 216, 138, 0.24);
+    position: relative;
+    z-index: 1;
+}
+
+body[data-page="home"] .site-intro h1 {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: #c8ffe3;
+    letter-spacing: 0.04em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+body[data-page="home"] .site-intro p {
+    margin: 0.35rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: #97dbb7;
+}
+
+body[data-page="home"] .boot-sequence {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(74, 216, 138, 0.24);
+    min-height: 4.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+body[data-page="home"] .boot-line {
+    margin: 0.18rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.77rem;
+    color: #8fdbb3;
+    opacity: 0;
+    transform: translateY(2px);
+    animation: bootFade 0.6s ease forwards;
+}
+
+body[data-page="home"] .boot-line:nth-child(1) { animation-delay: 0.1s; }
+body[data-page="home"] .boot-line:nth-child(2) { animation-delay: 0.45s; }
+body[data-page="home"] .boot-line:nth-child(3) { animation-delay: 0.8s; color: #b8ffd9; }
+
+@keyframes bootFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 body[data-page="home"] .crt-shell::before {
     content: '';
     position: absolute;
@@ -1378,11 +1430,22 @@ body[data-page="home"] .hero > * {
         border-bottom: 0;
     }
 
+    body[data-page="home"] .site-intro,
+    body[data-page="home"] .boot-sequence,
     body[data-page="home"] .crt-header,
     body[data-page="home"] .crt-block,
     body[data-page="home"] .crt-panel,
     body[data-page="home"] .crt-footer {
         padding: 0.72rem 0.75rem;
+    }
+
+    body[data-page="home"] .site-intro h1 {
+        font-size: 0.86rem;
+    }
+
+    body[data-page="home"] .site-intro p,
+    body[data-page="home"] .boot-line {
+        font-size: 0.72rem;
     }
 
     body[data-page="home"] .crt-line,
