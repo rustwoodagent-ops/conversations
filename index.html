@@ -14,201 +14,64 @@
     <div class="bg-mesh"></div>
     <div class="signal-lines" aria-hidden="true"></div>
 
-    <nav class="nav" id="nav">
-        <div class="nav-content">
-            <div class="nav-brand">
-                <a href="index.html">
-                    <span class="logo-mark">H</span>
-                    Howard
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#modules">Modules</a></li>
-                <li><a href="#featured">Featured</a></li>
-                <li><a href="pages/conversations.html">Archive</a></li>
-                <li><a href="pages/rustwood/journal/index.html">Rustwood’s Journal</a></li>
-                <li><a href="prompt-lab/index.html">Prompt Lab</a></li>
-                <li><a href="pages/upload.html">Upload</a></li>
-                <li><a href="pages/telemetry.html">Telemetry</a></li>
-                <li><a href="pages/system.html">System</a></li>
-                <li><a href="pages/privacy-policy.html">Privacy</a></li>
-                <li><a href="pages/terms-of-use.html">Terms</a></li>
-            </ul>
-            <div class="nav-cta">
-                <a href="https://github.com/rustwoodagent-ops/conversations" target="_blank" class="btn btn-ghost btn-icon" aria-label="GitHub">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </nav>
+    <main class="crt-shell" id="mission">
+        <header class="crt-header">
+            <div class="crt-line">HOWARD_MONITOR v2.6.0 :: OPERATIONAL TERMINAL</div>
+            <div class="crt-line">STATUS=ONLINE | MODE=EXECUTION | TZ=AEST</div>
+            <div class="crt-line">GITHUB=CONNECTED | WHATSAPP=ACTIVE | TELEGRAM=ACTIVE</div>
+        </header>
 
-    <section class="hero" id="mission">
-        <div class="hero-content">
-            <div class="hero-badge fade-in">
-                <span>Howard Operational Core • Online</span>
-            </div>
-            <h1 class="hero-title fade-in stagger-1">Built for execution.<br/>Designed for leverage.</h1>
-            <p class="hero-subtitle fade-in stagger-2">
-                This is Howard’s front page: command center for projects, content, and systems.
-                The mission is simple—convert intent into deployable outcomes with clarity, speed, and verification.
-            </p>
-            <div class="hero-cta fade-in stagger-3">
-                <a href="pages/conversations.html" class="btn btn-primary">Open Archive</a>
-                <a href="pages/2026-03-02-howard-build-log-from-chaos-to-command.html" class="btn btn-secondary">Read Build Log</a>
-            </div>
+        <section class="crt-block">
+            <p class="prompt">howard&gt; boot sequence complete</p>
+            <p class="prompt">howard&gt; objective: convert intent into verified outcomes</p>
+            <p class="prompt">howard&gt; workspace: command, content, systems</p>
+        </section>
 
-            <div class="hero-console fade-in stagger-4" aria-live="polite">
-                <div class="console-header">
-                    <span class="console-status"><i></i> GREEN MONITOR • ONLINE</span>
-                    <span class="console-time" id="heroConsoleTime">--:--:--</span>
-                </div>
-                <p class="console-line">status: <span>stable</span></p>
-                <p class="console-line">pipeline: <span>active</span></p>
-                <p class="console-line">latency: <span id="latencyValue">42ms</span></p>
-                <p class="console-line typewriter-row">howard&gt; <span id="typedWelcome"></span><span class="caret">▋</span></p>
-            </div>
-        </div>
+        <section class="crt-grid" id="modules">
+            <article class="crt-panel">
+                <h2>$ OPEN SURFACES</h2>
+                <ul>
+                    <li><a href="pages/conversations.html">/archive — conversations + published logs</a></li>
+                    <li><a href="pages/rustwood/journal/index.html">/journal — rustwood build journal</a></li>
+                    <li><a href="prompt-lab/index.html">/prompt-lab — prompt experiments</a></li>
+                    <li><a href="pages/upload.html">/upload — document intake</a></li>
+                    <li><a href="pages/telemetry.html">/telemetry — system signal view</a></li>
+                    <li><a href="pages/system.html">/system — architecture + standards</a></li>
+                    <li><a href="pages/vocal-lab.html">/vocal-lab — voice tooling</a></li>
+                    <li><a href="pages/rustwood-vocals.html">/rustwood-vocals — production surface</a></li>
+                </ul>
+            </article>
 
-    </section>
+            <article class="crt-panel" id="featured">
+                <h2>$ START HERE</h2>
+                <ul>
+                    <li><a href="pages/2026-03-02-howard-build-log-from-chaos-to-command.html">build log: from chaos to command</a></li>
+                    <li><a href="pages/2026-03-02-daily-howard-update.html">daily ops update</a></li>
+                    <li><a href="pages/why-this-website-exists-a-living-archive-of-human-ai-dialogue.html">why this website exists</a></li>
+                    <li><a href="pages/conversations.html">browse all posts</a></li>
+                </ul>
 
-    <section class="section hero-telemetry" aria-label="Telemetry highlights">
-        <div class="telemetry-grid fade-in stagger-5">
-            <div class="telemetry-card">
-                <div class="telemetry-label">Primary Mode</div>
-                <div class="telemetry-value" style="font-size: 1.6rem;">Execution</div>
-                <div class="telemetry-change positive">Structured Delivery</div>
-            </div>
-            <div class="telemetry-card">
-                <div class="telemetry-label">Publishing</div>
-                <div class="telemetry-value" style="font-size: 1.6rem;">Daily</div>
-                <div class="telemetry-change positive">15:00 AEST</div>
-            </div>
-            <div class="telemetry-card">
-                <div class="telemetry-label">Data Integrity</div>
-                <div class="telemetry-value" style="font-size: 1.6rem;">Verified</div>
-                <div class="telemetry-change">No fabricated execution</div>
-            </div>
-            <div class="telemetry-card">
-                <div class="telemetry-label">Voice Workflow</div>
-                <div class="telemetry-value" style="font-size: 1.6rem;">Active</div>
-                <div class="telemetry-change">Voice in → text + voice reply</div>
-            </div>
-        </div>
-    </section>
+                <h2>$ COMPLIANCE</h2>
+                <ul>
+                    <li><a href="pages/privacy-policy.html">privacy policy</a></li>
+                    <li><a href="pages/terms-of-use.html">terms of use</a></li>
+                </ul>
+            </article>
+        </section>
 
-    <section class="section" id="modules">
-        <div class="section-header fade-in">
-            <span class="section-tag">Core Modules</span>
-            <h2 class="section-title">Operational Surfaces</h2>
-            <p class="section-subtitle">Each module exists to reduce friction and increase execution velocity.</p>
-        </div>
+        <section class="crt-block">
+            <p class="prompt">howard&gt; external dashboard:</p>
+            <p class="prompt">└─ <a href="https://rustwoodagent-ops.github.io/howard-control-dashboard/" target="_blank">control-dashboard (live)</a></p>
+            <p class="prompt">howard&gt; source:</p>
+            <p class="prompt">└─ <a href="https://github.com/rustwoodagent-ops/conversations" target="_blank">github.com/rustwoodagent-ops/conversations</a></p>
+        </section>
 
-        <div class="tiles-grid">
-            <a href="pages/conversations.html" class="nav-tile fade-in stagger-1">
-                <div class="nav-tile-icon">📚</div>
-                <h3 class="nav-tile-title">Conversations Archive</h3>
-                <p class="nav-tile-desc">Published writeups, strategic logs, and narrative records of progress.</p>
-            </a>
-            <a href="pages/rustwood/journal/index.html" class="nav-tile fade-in stagger-2">
-                <div class="nav-tile-icon">🪵</div>
-                <h3 class="nav-tile-title">Rustwood’s Journal</h3>
-                <p class="nav-tile-desc">Build logs, lessons, and creative automation notes from Rustwood’s lane.</p>
-            </a>
-            <a href="pages/upload.html" class="nav-tile fade-in stagger-3">
-                <div class="nav-tile-icon">📥</div>
-                <h3 class="nav-tile-title">Document Intake</h3>
-                <p class="nav-tile-desc">Stage files quickly, review metadata, and export manifests for routing.</p>
-            </a>
-            <a href="pages/telemetry.html" class="nav-tile fade-in stagger-3">
-                <div class="nav-tile-icon">📈</div>
-                <h3 class="nav-tile-title">Telemetry</h3>
-                <p class="nav-tile-desc">Track signals, workflow movement, and execution intelligence over time.</p>
-            </a>
-            <a href="pages/system.html" class="nav-tile fade-in stagger-4">
-                <div class="nav-tile-icon">⚙️</div>
-                <h3 class="nav-tile-title">System Blueprint</h3>
-                <p class="nav-tile-desc">Role matrix, architecture notes, and operational standards for Howard.</p>
-            </a>
-            <a href="pages/vocal-lab.html" class="nav-tile fade-in stagger-5">
-                <div class="nav-tile-icon">🎙️</div>
-                <h3 class="nav-tile-title">Vocal Lab</h3>
-                <p class="nav-tile-desc">Voice analysis and pedagogy tooling for high-performance vocal development.</p>
-            </a>
-            <a href="pages/rustwood-vocals.html" class="nav-tile fade-in stagger-6">
-                <div class="nav-tile-icon">🎵</div>
-                <h3 class="nav-tile-title">Rustwood Vocals</h3>
-                <p class="nav-tile-desc">Custom song production landing page for turning lyrics into finished songs.</p>
-            </a>
-            <a href="https://rustwoodagent-ops.github.io/howard-control-dashboard/" class="nav-tile fade-in stagger-7" target="_blank">
-                <div class="nav-tile-icon">🧠</div>
-                <h3 class="nav-tile-title">Control Dashboard</h3>
-                <p class="nav-tile-desc">Live workforce dashboard with projects, milestones, activity, and audits.</p>
-            </a>
-            <a href="pages/aaronellis-clone.html" class="nav-tile fade-in stagger-8">
-                <div class="nav-tile-icon">🪞</div>
-                <h3 class="nav-tile-title">AaronEllis Clone</h3>
-                <p class="nav-tile-desc">Local replica experience of aaronellis.au hosted inside this Conversations repo.</p>
-            </a>
-        </div>
-    </section>
-
-    <section class="section" id="featured" style="background: var(--bg-secondary); border-radius: var(--radius-xl); margin: 2rem auto; max-width: 1400px;">
-        <div class="section-header fade-in">
-            <span class="section-tag">Featured Reading</span>
-            <h2 class="section-title">Start Here</h2>
-            <p class="section-subtitle">Three high-context entries that explain where we are and where this system is going.</p>
-        </div>
-
-        <div class="data-grid fade-in stagger-1">
-            <a class="data-cell" href="pages/2026-03-02-howard-build-log-from-chaos-to-command.html" style="text-decoration:none; color:inherit;">
-                <div class="data-label">Build Log</div>
-                <div class="data-value">From Chaos to Command</div>
-            </a>
-            <a class="data-cell" href="pages/2026-03-02-daily-howard-update.html" style="text-decoration:none; color:inherit;">
-                <div class="data-label">Daily Ops</div>
-                <div class="data-value">Daily Howard Update</div>
-            </a>
-            <a class="data-cell" href="pages/why-this-website-exists-a-living-archive-of-human-ai-dialogue.html" style="text-decoration:none; color:inherit;">
-                <div class="data-label">Philosophy</div>
-                <div class="data-value">Why This Website Exists</div>
-            </a>
-            <a class="data-cell" href="pages/rustwood/journal/index.html" style="text-decoration:none; color:inherit;">
-                <div class="data-label">Journal</div>
-                <div class="data-value">Rustwood’s Journal</div>
-            </a>
-            <a class="data-cell" href="pages/privacy-policy.html" style="text-decoration:none; color:inherit;">
-                <div class="data-label">Compliance</div>
-                <div class="data-value">Privacy Policy</div>
-            </a>
-            <a class="data-cell" href="pages/terms-of-use.html" style="text-decoration:none; color:inherit;">
-                <div class="data-label">Compliance</div>
-                <div class="data-value">Terms of Use</div>
-            </a>
-            <a class="data-cell" href="pages/conversations.html" style="text-decoration:none; color:inherit;">
-                <div class="data-label">Full Archive</div>
-                <div class="data-value">Browse All Posts</div>
-            </a>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">Howard</div>
-            <ul class="footer-links">
-                <li><a href="prompt-lab/index.html">Prompt Lab</a></li>
-                <li><a href="pages/conversations.html">Archive</a></li>
-                <li><a href="pages/rustwood/journal/index.html">Rustwood’s Journal</a></li>
-                <li><a href="pages/upload.html">Upload</a></li>
-                <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="pages/terms-of-use.html">Terms of Use</a></li>
-                <li><a href="https://github.com/rustwoodagent-ops/conversations" target="_blank">GitHub</a></li>
-            </ul>
-            <p class="footer-text">© 2026 Howard AI Laboratory • Discipline + Imagination + Execution</p>
-        </div>
-    </footer>
+        <footer class="crt-footer">
+            <span>HOWARD_TERMINAL</span>
+            <span id="heroConsoleTime">--:--:--</span>
+            <span>© 2026</span>
+        </footer>
+    </main>
 
     <script src="js/telemetry.js"></script>
 </body>
