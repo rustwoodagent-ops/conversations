@@ -775,6 +775,51 @@ body[data-page="home"] .mock-output {
     line-height: 1.45;
 }
 
+body[data-page="home"] .mock-ticker-wrap {
+    overflow: hidden;
+    border: 1px solid rgba(82, 236, 154, 0.35);
+    background: rgba(5, 30, 18, 0.76);
+    margin: 0.1rem 0 0.5rem;
+}
+
+body[data-page="home"] .mock-ticker-track {
+    display: inline-flex;
+    gap: 3rem;
+    min-width: 200%;
+    white-space: nowrap;
+    animation: tickerScroll 20s linear infinite;
+}
+
+body[data-page="home"] .mock-ticker-track span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.23rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: #aaf7cb;
+    letter-spacing: 0.03em;
+}
+
+body[data-page="home"] .live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: #50ffaa;
+    box-shadow: 0 0 8px rgba(80, 255, 170, 0.8);
+    animation: pulseDot 0.9s ease-in-out infinite;
+}
+
+@keyframes tickerScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.85); }
+}
+
 body[data-page="home"] .cmd-caret {
     display: inline-block;
     margin-left: 0.2rem;
@@ -1534,6 +1579,10 @@ body[data-page="home"] .hero > * {
 
     body[data-page="home"] .mock-ascii {
         font-size: 0.5rem;
+    }
+
+    body[data-page="home"] .mock-ticker-track span {
+        font-size: 0.66rem;
     }
 
     body[data-page="home"] .crt-line,
