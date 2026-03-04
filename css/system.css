@@ -561,6 +561,15 @@ body {
     margin: 0 auto;
 }
 
+.hero-telemetry {
+    margin-top: -1.5rem;
+    padding-top: var(--space-2xl);
+}
+
+.hero-telemetry .telemetry-grid {
+    margin-top: 0;
+}
+
 .section-header {
     text-align: center;
     margin-bottom: var(--space-3xl);
