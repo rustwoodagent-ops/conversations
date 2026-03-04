@@ -36,6 +36,14 @@
     --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
     --gradient-dark: linear-gradient(180deg, rgba(5,8,16,0) 0%, rgba(5,8,16,1) 100%);
     --gradient-glow: radial-gradient(circle at center, rgba(14,165,233,0.15) 0%, transparent 70%);
+
+    --rustwood-bg: #0a0a0b;
+    --rustwood-panel: #141417;
+    --rustwood-text: #f4f1ea;
+    --rustwood-muted: #a6a2a0;
+    --rustwood-accent: #cc7843;
+    --rustwood-accent-hover: #e08b55;
+    --rustwood-border: rgba(255, 255, 255, 0.08);
     
     /* Shadows & Glow */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -797,6 +805,141 @@ body {
     width: 24px;
     height: 24px;
     color: white;
+}
+
+/* ===== Rustwood Journal Theme ===== */
+.rustwood-theme {
+    background: var(--rustwood-bg);
+    color: var(--rustwood-text);
+}
+
+.rustwood-theme .nav {
+    background: rgba(10, 10, 11, 0.9);
+    border-color: var(--rustwood-border);
+}
+
+.rustwood-theme .nav-links a {
+    color: var(--rustwood-muted);
+}
+
+.rustwood-theme .nav-links a.active,
+.rustwood-theme .nav-links a:hover {
+    color: var(--rustwood-accent);
+}
+
+.rustwood-hero {
+    padding: 8rem var(--space-xl) 4rem;
+    text-align: left;
+}
+
+.rustwood-hero h1 {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+}
+
+.rustwood-hero p {
+    max-width: 640px;
+    color: var(--rustwood-muted);
+    line-height: 1.8;
+}
+
+.rustwood-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+}
+
+.rustwood-card {
+    background: var(--rustwood-panel);
+    border: 1px solid var(--rustwood-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.rustwood-card h3 {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    margin-bottom: var(--space-xs);
+}
+
+.rustwood-card p {
+    color: var(--rustwood-muted);
+    line-height: 1.8;
+}
+
+.rustwood-tags {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+    margin-top: var(--space-md);
+}
+
+.rustwood-tags span {
+    font-size: 0.8rem;
+    padding: 0.15rem var(--space-sm);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--rustwood-border);
+    color: var(--rustwood-muted);
+}
+
+.rustwood-card a {
+    display: inline-flex;
+    gap: 0.35rem;
+    align-items: center;
+    margin-top: var(--space-md);
+    color: var(--rustwood-accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.rustwood-aside {
+    background: var(--rustwood-panel);
+    border: 1px solid var(--rustwood-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    color: var(--rustwood-muted);
+    line-height: 1.7;
+}
+
+.rustwood-aside h4 {
+    margin-bottom: var(--space-sm);
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    color: var(--rustwood-text);
+}
+
+.rustwood-takeaway {
+    border: 1px solid var(--rustwood-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin: var(--space-2xl) 0;
+    background: rgba(204, 120, 67, 0.08);
+    color: var(--rustwood-text);
+}
+
+.rustwood-cta {
+    margin-top: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.rustwood-cta a {
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--rustwood-border);
+    color: var(--rustwood-text);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.rustwood-cta a:hover {
+    background: var(--rustwood-accent-hover);
+    border-color: transparent;
 }
 
 /* ===== Animations ===== */
