@@ -920,6 +920,55 @@ body {
     color: var(--rustwood-text);
 }
 
+
+.rustwood-return-links a:hover {
+    border-color: var(--rustwood-accent-hover);
+}
+
+.rustwood-post-menu {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-lg);
+    justify-content: flex-start;
+}
+
+.rustwood-post-menu a {
+    color: var(--rustwood-text);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--rustwood-border);
+    border-radius: var(--radius-full);
+    padding: 0.35rem 0.9rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.rustwood-post-menu a:hover {
+    border-color: var(--rustwood-accent-hover);
+    background: rgba(204, 120, 67, 0.12);
+}
+
+.rustwood-post-nav {
+    margin-top: var(--space-2xl);
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rustwood-post-nav a {
+    color: var(--rustwood-accent);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.rustwood-post-nav span {
+    color: var(--rustwood-muted);
+    font-size: 0.85rem;
+}
+
 .rustwood-cta {
     margin-top: var(--space-2xl);
     display: flex;
