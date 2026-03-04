@@ -562,6 +562,140 @@ body {
     46%, 100% { opacity: 0; }
 }
 
+/* ===== Home: Green Monitor Terminal Theme ===== */
+body[data-page="home"] {
+    --bg-primary: #020906;
+    --bg-secondary: #04110b;
+    --bg-tertiary: #07170f;
+    --bg-card: rgba(8, 24, 16, 0.76);
+
+    --text-primary: #d6ffe9;
+    --text-secondary: #8cd5ae;
+    --text-muted: #5ea681;
+    --text-accent: #5dfca5;
+
+    --accent-primary: #26dd78;
+    --accent-secondary: #11b05d;
+    --accent-success: #3aff98;
+    --accent-glow: rgba(38, 221, 120, 0.28);
+
+    --glass-bg: rgba(22, 255, 143, 0.04);
+    --glass-border: rgba(49, 222, 132, 0.28);
+    --glass-border-hover: rgba(98, 255, 172, 0.52);
+
+    --gradient-primary: linear-gradient(135deg, #52ffb0 0%, #17bd67 100%);
+
+    background: radial-gradient(circle at 25% -5%, rgba(35, 197, 100, 0.16), transparent 38%), var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+}
+
+body[data-page="home"] .bg-mesh::before {
+    background:
+        radial-gradient(circle at 20% 80%, rgba(26, 186, 96, 0.11) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(13, 132, 70, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(17, 176, 93, 0.08) 0%, transparent 40%);
+}
+
+body[data-page="home"] .bg-mesh::after {
+    background-image:
+      linear-gradient(rgba(141, 255, 196, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(141, 255, 196, 0.05) 1px, transparent 1px);
+    opacity: 0.23;
+}
+
+body[data-page="home"] .signal-lines {
+    opacity: 0.5;
+    background-image:
+      repeating-linear-gradient(120deg, transparent 0 18px, rgba(39, 255, 143, 0.14) 18px 20px, transparent 20px 46px),
+      repeating-linear-gradient(180deg, transparent 0 26px, rgba(39, 255, 143, 0.08) 26px 27px, transparent 27px 52px);
+}
+
+body[data-page="home"] .nav,
+body[data-page="home"] .footer {
+    background: rgba(2, 13, 9, 0.88);
+    border-color: rgba(46, 210, 126, 0.25);
+}
+
+body[data-page="home"] .nav-brand,
+body[data-page="home"] .footer-brand,
+body[data-page="home"] .telemetry-value,
+body[data-page="home"] .hero-title,
+body[data-page="home"] .section-title {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: #b9ffd9;
+}
+
+body[data-page="home"] .logo-mark,
+body[data-page="home"] .nav-tile-icon {
+    background: rgba(15, 53, 34, 0.95);
+    color: #7bffc0;
+    border: 1px solid rgba(71, 233, 148, 0.45);
+    box-shadow: inset 0 0 12px rgba(45, 216, 127, 0.24);
+}
+
+body[data-page="home"] .nav-links a,
+body[data-page="home"] .footer-links a {
+    color: #9be6bb;
+    letter-spacing: 0.01em;
+}
+
+body[data-page="home"] .nav-links a::before {
+    content: '> ';
+    opacity: 0.5;
+}
+
+body[data-page="home"] .nav-links a::after {
+    background: #45f69f;
+}
+
+body[data-page="home"] .hero-badge,
+body[data-page="home"] .section-tag,
+body[data-page="home"] .telemetry-card,
+body[data-page="home"] .nav-tile,
+body[data-page="home"] .data-cell,
+body[data-page="home"] .hero-console,
+body[data-page="home"] .btn-secondary,
+body[data-page="home"] .btn-ghost {
+    background: rgba(7, 25, 16, 0.76);
+    border-color: rgba(68, 229, 147, 0.38);
+    box-shadow: 0 0 0 1px rgba(46, 201, 121, 0.14), 0 0 24px rgba(31, 159, 90, 0.12);
+}
+
+body[data-page="home"] .btn-primary {
+    background: rgba(10, 39, 25, 0.96);
+    border: 1px solid rgba(79, 246, 167, 0.55);
+    color: #cffff0;
+    box-shadow: 0 0 0 1px rgba(59, 223, 137, 0.25), 0 0 22px rgba(38, 180, 105, 0.25);
+}
+
+body[data-page="home"] .btn:hover,
+body[data-page="home"] .nav-tile:hover,
+body[data-page="home"] .telemetry-card:hover,
+body[data-page="home"] .data-cell:hover {
+    border-color: rgba(104, 255, 181, 0.72);
+    box-shadow: 0 0 0 1px rgba(78, 245, 160, 0.3), 0 0 26px rgba(38, 190, 109, 0.28);
+}
+
+body[data-page="home"] .hero-subtitle,
+body[data-page="home"] .section-subtitle,
+body[data-page="home"] .nav-tile-desc,
+body[data-page="home"] .footer-text,
+body[data-page="home"] .telemetry-change,
+body[data-page="home"] .data-label {
+    color: #88c9a8;
+}
+
+body[data-page="home"] .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(39, 255, 154, 0.04), transparent 18%, transparent 82%, rgba(39, 255, 154, 0.04));
+    mix-blend-mode: screen;
+}
+
 /* ===== Section Styles ===== */
 .section {
     padding: var(--space-3xl) var(--space-xl);
