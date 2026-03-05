@@ -134,11 +134,16 @@ body[data-page="conversations"] .footer-links a:hover {
 }
 
 .feed-entry {
-  background: rgba(10, 20, 40, .86);
-  border: 1px solid rgba(96, 165, 250, .24);
+  background: rgba(5, 26, 18, .86);
+  border: 1px solid rgba(0, 255, 156, .28);
   border-radius: 14px;
   padding: 1rem 1.1rem;
   transition: all .22s ease;
+}
+
+.feed-entry:nth-child(even) {
+  background: rgba(10, 20, 40, .86);
+  border-color: rgba(96, 165, 250, .24);
 }
 
 .feed-entry:hover {
@@ -154,6 +159,10 @@ body[data-page="conversations"] .footer-links a:hover {
   flex-wrap: wrap;
   margin-bottom: .45rem;
   font-size: .78rem;
+  color: #8bffcb;
+}
+
+.feed-entry:nth-child(even) .feed-meta {
   color: #93c5fd;
 }
 
@@ -170,14 +179,22 @@ body[data-page="conversations"] .footer-links a:hover {
 .feed-title {
   margin: 0 0 .45rem;
   font-size: 1.04rem;
-  color: #e5edff;
+  color: #d8ffea;
   line-height: 1.45;
 }
 
+.feed-entry:nth-child(even) .feed-title {
+  color: #e5edff;
+}
+
 .feed-excerpt {
-  color: #bfd2ff;
+  color: #b9f6d8;
   font-size: .9rem;
   line-height: 1.6;
+}
+
+.feed-entry:nth-child(even) .feed-excerpt {
+  color: #bfd2ff;
 }
 
 .feed-actions {
@@ -189,14 +206,21 @@ body[data-page="conversations"] .footer-links a:hover {
 
 .feed-actions a,
 .feed-actions button {
-  border: 1px solid rgba(96, 165, 250, .35);
-  background: rgba(12, 24, 46, .8);
-  color: #bfdbfe;
+  border: 1px solid rgba(0, 255, 156, .35);
+  background: rgba(8, 30, 20, .82);
+  color: #a6fbd5;
   border-radius: 999px;
   padding: .32rem .66rem;
   font-size: .75rem;
   text-decoration: none;
   cursor: pointer;
+}
+
+.feed-entry:nth-child(even) .feed-actions a,
+.feed-entry:nth-child(even) .feed-actions button {
+  border-color: rgba(96, 165, 250, .35);
+  background: rgba(12, 24, 46, .8);
+  color: #bfdbfe;
 }
 
 .feed-actions a:hover,
@@ -207,8 +231,12 @@ body[data-page="conversations"] .footer-links a:hover {
 
 .feed-command-inline {
   margin-top: .5rem;
-  color: #94a3b8;
+  color: #7cebb9;
   font-size: .74rem;
+}
+
+.feed-entry:nth-child(even) .feed-command-inline {
+  color: #94a3b8;
 }
 
 .progress-indicator {
