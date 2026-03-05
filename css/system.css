@@ -1884,3 +1884,67 @@ body[data-page="home"] .hero > * {
     color: var(--text-primary);
     font-weight: 500;
 }
+
+/* ===== Archive blog posts: blue terminal style ===== */
+body[data-page="post"] {
+    background: #060b15;
+    color: #dbe7ff;
+    font-family: var(--font-mono);
+    --text-secondary: #bfd2ff;
+    --text-muted: #93c5fd;
+    --accent-primary: #60a5fa;
+}
+
+body[data-page="post"] .bg-mesh::before {
+    opacity: 0.12;
+}
+
+body[data-page="post"] .nav,
+body[data-page="post"] .footer {
+    border-color: rgba(96, 165, 250, 0.26);
+    background: rgba(8, 15, 30, 0.82);
+    backdrop-filter: blur(8px);
+}
+
+body[data-page="post"] .nav-links a,
+body[data-page="post"] .footer-links a {
+    color: #93c5fd;
+}
+
+body[data-page="post"] .nav-links a:hover,
+body[data-page="post"] .footer-links a:hover {
+    color: #f59e0b;
+}
+
+body[data-page="post"] .section-tag {
+    border-color: rgba(245, 158, 11, 0.45);
+    background: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+}
+
+body[data-page="post"] .section-title {
+    color: #e7eeff;
+}
+
+body[data-page="post"] .section-subtitle {
+    color: #aec3ef;
+}
+
+body[data-page="post"] .data-cell,
+body[data-page="post"] .glass-panel {
+    background: rgba(10, 20, 40, 0.86);
+    border: 1px solid rgba(96, 165, 250, 0.24);
+    box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.08), 0 28px 90px rgba(0, 0, 0, 0.45);
+}
+
+body[data-page="post"] .btn-secondary,
+body[data-page="post"] .btn-ghost {
+    border-color: rgba(96, 165, 250, 0.35);
+    color: #bfdbfe;
+}
+
+body[data-page="post"] .btn-secondary:hover,
+body[data-page="post"] .btn-ghost:hover {
+    border-color: rgba(245, 158, 11, 0.55);
+    color: #fbbf24;
+}
