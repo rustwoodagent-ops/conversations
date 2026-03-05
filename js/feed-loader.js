@@ -51,7 +51,7 @@
             <button type="button" data-share="${esc(new URL(articleUrl, window.location.href).toString())}">share link</button>
             <span class="feed-tag">${esc(category)}</span>
           </div>
-          <p class="feed-command-inline">rustwood@A9Max:~$ open transmission</p>
+          <p class="feed-command-inline">howard@rustwoodstudio:~$ open transmission</p>
         </article>
       `;
     }).join('');
