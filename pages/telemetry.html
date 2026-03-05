@@ -14,6 +14,10 @@
             background: #07110b;
             color: #d7ffe8;
             font-family: 'JetBrains Mono', 'Inter', monospace;
+            --accent-primary: #55ffb0;
+            --accent-secondary: #9fe8be;
+            --accent-success: #55ffb0;
+            --accent-warning: #fbbf24;
         }
 
         body[data-page="telemetry"] .bg-mesh::before {
@@ -82,6 +86,45 @@
             color: #9fe8be;
             border-bottom: 1px solid rgba(148, 255, 198, .16);
             background: linear-gradient(180deg, rgba(148, 255, 198, .08), rgba(148, 255, 198, .02));
+        }
+
+        .telemetry-preamble {
+            margin: 1rem 1rem 1.25rem;
+            border: 1px solid rgba(148, 255, 198, .16);
+            border-radius: 12px;
+            background: rgba(5, 16, 11, .72);
+            overflow: hidden;
+        }
+
+        .telemetry-preamble .line {
+            padding: .6rem .8rem;
+            border-bottom: 1px solid rgba(148, 255, 198, .14);
+            color: #c9ffe2;
+            line-height: 1.5;
+        }
+
+        .telemetry-preamble .line:last-child {
+            border-bottom: 0;
+        }
+
+        .telemetry-preamble .line.head {
+            color: #ffd477;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .telemetry-preamble .line.status {
+            color: #d4ffea;
+            background: rgba(10, 36, 22, .45);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+
+        body[data-page="telemetry"] .glass-panel {
+            background: rgba(8, 24, 16, .86);
+            border: 1px solid rgba(148, 255, 198, .2);
+            box-shadow: inset 0 0 0 1px rgba(148, 255, 198, .05);
         }
 
         .metrics-grid {
@@ -247,6 +290,15 @@
 
     <!-- Main Content -->
     <section class="section telemetry-terminal" style="padding-top: 10rem;">
+        <div class="telemetry-preamble fade-in">
+            <p class="line head">HOWARD COMMAND TERMINAL</p>
+            <p class="line">Execution-focused command center for projects, archive entries, and system operations.</p>
+            <p class="line">[BOOT] initializing monitor interface...</p>
+            <p class="line">[SYNC] loading links, archive index, and telemetry...</p>
+            <p class="line">[READY] Howard terminal online.</p>
+            <p class="line status">NODE=A9Max · MODE=EXECUTION · QUEUE=STABLE</p>
+        </div>
+
         <div class="section-header fade-in">
             <span class="section-tag">Live Metrics</span>
             <h2 class="section-title">Telemetry Dashboard</h2>
