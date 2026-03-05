@@ -24,7 +24,11 @@
   }
 
   function postUrl(file, directUrl) {
-    if (directUrl) return directUrl;
+    if (directUrl) {
+      if (/^https?:\/\//i.test(directUrl) || directUrl.startsWith('/')) return directUrl;
+      const inPagesDir = window.location.pathname.includes('/pages/');
+      return inPagesDir ? directUrl : `pages/${directUrl}`;
+    }
     return `${templatePath}?post=${encodeURIComponent(file)}`;
   }
 
