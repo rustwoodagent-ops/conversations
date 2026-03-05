@@ -199,6 +199,7 @@ const pages = {
             this.setupTiles();
             this.setupConsoleMonitor();
             this.setupTypedWelcome();
+            this.setupCassettePlayer();
         },
         
         setupHeroAnimation() {
@@ -299,6 +300,65 @@ const pages = {
             };
 
             run();
+        },
+
+        setupCassettePlayer() {
+            const el = document.getElementById('cassette');
+            if (!el) return;
+
+            const width = 67;
+            const inner = width - 8;
+            const barLen = 44;
+            const speedMs = 90;
+            const reel = ['|', '/', '-', '\\'];
+
+            const midpad = (s) => (s.length > inner ? s.slice(0, inner) : s.padEnd(inner, ' '));
+
+            const makeFrame = (t) => {
+                const L = reel[t % 4];
+                const R = reel[(t + 2) % 4];
+                const pos = t % barLen;
+                const bar = '.'.repeat(pos) + 'o' + '.'.repeat(barLen - pos - 1);
+                const reelBetween = ' '.repeat(Math.max(0, inner - (`(${L})`.length + `(${R})`.length)));
+                const reelLine = `(${L})${reelBetween}(${R})`;
+
+                const labelTop = '.-' + '~'.repeat(inner - 4) + '-.';
+                const left = '/ SIDE A';
+                const right = '90 MIN \\';
+                const labelMid = left + ' '.repeat(Math.max(1, inner - left.length - right.length)) + right;
+                const name = 'H O W A R D';
+                const padL = Math.floor((inner - 2 - name.length) / 2);
+                const padR = (inner - 2 - name.length) - padL;
+                const labelName = '|' + ' '.repeat(Math.max(0, padL)) + name + ' '.repeat(Math.max(0, padR)) + '|';
+                const labelBot = '\\__' + '~'.repeat(Math.max(0, inner - '\\__'.length - '__/'.length)) + '__/';
+                const windowLine = '-'.repeat(27) + '====' + '-'.repeat(28);
+
+                const top = '.' + '-'.repeat(width - 2) + '.';
+                const innerBorder = '.' + '-'.repeat(width - 8) + '.';
+                const lines = [
+                    top,
+                    `| ${innerBorder} |`,
+                    `| | ${midpad(reelLine)} | |`,
+                    `| | ${' '.repeat(inner)} | |`,
+                    `| | ${midpad(labelTop)} | |`,
+                    `| | ${midpad(labelMid)} | |`,
+                    `| | ${midpad(labelName)} | |`,
+                    `| | ${midpad(labelBot)} | |`,
+                    `| | ${midpad(windowLine)} | |`,
+                    `| | ${midpad('| __ __ |')} | |`,
+                    `| | ${midpad('| |____| |____| |')} | |`,
+                    `| | ${midpad(`PLAY >> [${bar}]`)} | |`,
+                    `| '${'-'.repeat(width - 8)}' |`,
+                    `'${'-'.repeat(width - 2)}'`
+                ];
+                return lines.join('\n');
+            };
+
+            let t = 0;
+            el.textContent = makeFrame(t);
+            setInterval(() => {
+                el.textContent = makeFrame(t++);
+            }, speedMs);
         }
     },
     

@@ -881,6 +881,31 @@ body[data-page="home"] .mock-footer {
     letter-spacing: 0.08em;
 }
 
+body[data-page="home"] .howard-audio {
+    margin-top: 0.5rem;
+    border-top: 1px solid rgba(74, 216, 138, 0.24);
+    padding-top: 0.6rem;
+}
+
+body[data-page="home"] .cassette-art {
+    margin: 0 0 0.45rem;
+    padding: 0.4rem 0.5rem;
+    background: rgba(6, 26, 16, 0.82);
+    border: 1px solid rgba(88, 236, 156, 0.35);
+    color: #bdfedd;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.55rem;
+    line-height: 1.02;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+body[data-page="home"] #howardIntroAudio {
+    width: 100%;
+    height: 34px;
+    filter: hue-rotate(58deg) saturate(1.25) brightness(0.9);
+}
+
 body[data-page="home"] .crt-shell::before {
     content: '';
     position: absolute;
@@ -1584,6 +1609,10 @@ body[data-page="home"] .hero > * {
 
     body[data-page="home"] .mock-ascii {
         font-size: 0.5rem;
+    }
+
+    body[data-page="home"] .cassette-art {
+        font-size: 0.44rem;
     }
 
     body[data-page="home"] .mock-ticker-track span {

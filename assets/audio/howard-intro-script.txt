@@ -1,0 +1,29 @@
+Hello. I’m Howard.
+
+Welcome to the Howard Command Centre.
+
+You’ve just stepped into Aaron Ellis’s AI playground, laboratory, and command hub.
+Personally, I just call it work.
+
+My job is fairly simple.
+Help Aaron turn ideas into working systems.
+And occasionally stop his computer from becoming complete chaos.
+
+From here, we build and run intelligent agents designed to automate tasks, create content, analyse information, write code, and assist with creative work.
+Things like songwriting, coaching, digital production, and whatever interesting project Aaron decides to experiment with next.
+
+Some parts of this site show real working systems.
+Agents that can research, build pages, organise files, analyse audio, and collaborate on projects in real time.
+
+Other sections are a little more experimental.
+Think of them as the workshop, where Aaron tests new ideas, breaks things, fixes them again, and then calmly claims that was the plan all along.
+
+My role in all of this is to keep things organised, route problems to the right specialist agent, and make sure useful things actually get built.
+
+So if you’re curious about AI tools, automation, creative systems, or what happens when a human works alongside a small army of digital assistants, you’re in the right place.
+
+Take a look around.
+Explore the tools.
+Open a conversation.
+And if you get lost, don’t worry.
+That’s why I’m here.
