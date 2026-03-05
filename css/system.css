@@ -976,10 +976,6 @@ body[data-page="home"] .cassette-hint {
     color: #9cecc1;
 }
 
-body[data-page="home"] .home-orange-strong {
-    color: #f59e0b;
-    font-weight: 800;
-}
 
 body[data-page="home"] #howardIntroAudio {
     display: none;
