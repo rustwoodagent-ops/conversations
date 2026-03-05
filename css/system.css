@@ -980,6 +980,11 @@ body[data-page="home"] .crt-footer {
     border-bottom: 0;
 }
 
+body[data-page="home"] .crt-status-line {
+    text-align: center;
+    color: #b8ffd9;
+}
+
 body[data-page="home"] .hero-title {
     font-size: clamp(2rem, 5.2vw, 3.8rem);
     text-shadow: 0 0 10px rgba(83, 255, 176, 0.2);
@@ -1590,6 +1595,16 @@ body[data-page="home"] .hero > * {
     body[data-page="home"] .crt-panel li,
     body[data-page="home"] .crt-footer {
         font-size: 0.78rem;
+    }
+
+    body[data-page="home"] .crt-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+
+    body[data-page="home"] .crt-status-line {
+        text-align: left;
     }
 
     body[data-page="home"] .hero-content {

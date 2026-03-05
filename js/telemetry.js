@@ -232,13 +232,23 @@ const pages = {
 
         setupConsoleMonitor() {
             const timeEl = document.getElementById('heroConsoleTime');
+            const dateEl = document.getElementById('heroConsoleDate');
+            const weatherEl = document.getElementById('heroConsoleWeather');
             const latencyEl = document.getElementById('latencyValue');
-            if (!timeEl && !latencyEl) return;
+            if (!timeEl && !dateEl && !weatherEl && !latencyEl) return;
 
             const tick = () => {
+                const now = new Date();
                 if (timeEl) {
-                    const now = new Date();
                     timeEl.textContent = now.toLocaleTimeString('en-AU', { hour12: false });
+                }
+                if (dateEl) {
+                    dateEl.textContent = now.toLocaleDateString('en-AU', {
+                        weekday: 'short',
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric'
+                    });
                 }
                 if (latencyEl) {
                     const ms = 28 + Math.floor(Math.random() * 36);
@@ -246,8 +256,37 @@ const pages = {
                 }
             };
 
+            const updateSandgateWeather = async () => {
+                if (!weatherEl) return;
+                try {
+                    const url = 'https://api.open-meteo.com/v1/forecast?latitude=-27.3234&longitude=153.0692&current=temperature_2m,weather_code&timezone=Australia%2FBrisbane';
+                    const res = await fetch(url, { cache: 'no-store' });
+                    const data = await res.json();
+                    const temp = Math.round(data?.current?.temperature_2m);
+                    const code = data?.current?.weather_code;
+                    const map = {
+                        0: 'Clear', 1: 'Mainly clear', 2: 'Partly cloudy', 3: 'Overcast',
+                        45: 'Fog', 48: 'Fog', 51: 'Drizzle', 53: 'Drizzle', 55: 'Drizzle',
+                        56: 'Freezing drizzle', 57: 'Freezing drizzle', 61: 'Rain', 63: 'Rain',
+                        65: 'Heavy rain', 66: 'Freezing rain', 67: 'Freezing rain',
+                        71: 'Snow', 73: 'Snow', 75: 'Snow', 77: 'Snow grains',
+                        80: 'Rain showers', 81: 'Rain showers', 82: 'Heavy showers',
+                        85: 'Snow showers', 86: 'Snow showers',
+                        95: 'Thunderstorm', 96: 'Storm + hail', 99: 'Storm + hail'
+                    };
+                    const condition = map[code] || 'Weather';
+                    if (Number.isFinite(temp)) {
+                        weatherEl.textContent = `Sandgate: ${temp}°C ${condition}`;
+                    }
+                } catch (e) {
+                    weatherEl.textContent = 'Sandgate: weather unavailable';
+                }
+            };
+
             tick();
+            updateSandgateWeather();
             setInterval(tick, 1200);
+            setInterval(updateSandgateWeather, 15 * 60 * 1000);
         },
 
         setupTypedWelcome() {
