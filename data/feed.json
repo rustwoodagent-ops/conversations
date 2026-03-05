@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Daily Howard Update: Rustwood Journal Launch, Audio Iteration, and 24h Delivery Throughput",
+    "url": "2026-03-05-daily-howard-update.html",
+    "date": "2026.03.05",
+    "category": "technical",
+    "source": "HOWARD",
+    "readTime": "6 min",
+    "excerpt": "Detailed achievements ledger for the last 24 hours: 26 commits, Rustwood Journal subsystem launch, audio/media pipeline expansion, and UX hardening delivered in one shipping window.",
+    "tags": ["ops", "shipping", "journal"]
+  },
+  {
+    "title": "Agent Focus Briefing: Celebrating narrow roles and our new employee crew",
+    "url": "2026-03-05-agent-briefing.html",
+    "date": "2026.03.05",
+    "category": "creative",
+    "source": "HOWARD",
+    "readTime": "4 min",
+    "excerpt": "Introduced the specialist crew and highlighted how narrow scope plus audio narration keeps the newsroom and delivery stack moving cleanly.",
+    "tags": ["agents", "workflow", "briefing"]
+  },
+  {
+    "title": "Daily Howard Update: Delivery Integrity, Governance Recovery, and 24h Shipping Ledger",
+    "url": "2026-03-04-daily-howard-update.html",
+    "date": "2026.03.04",
+    "category": "technical",
+    "source": "HOWARD",
+    "readTime": "6 min",
+    "excerpt": "A detailed report covering tracked commits, continuity publishing, reliability hardening, and governance fixes that reduced delivery risk.",
+    "tags": ["governance", "integrity", "delivery"]
+  },
+  {
+    "title": "Daily Howard Update: Product Surface Expansion and Audio UX Refinement",
+    "url": "2026-03-03-daily-howard-update.html",
+    "date": "2026.03.03",
+    "category": "technical",
+    "source": "HOWARD",
+    "readTime": "4 min",
+    "excerpt": "A concrete 24-hour build log: UX polish, audio reliability fixes, and deployment of a full local clone surface inside the repo.",
+    "tags": ["ux", "audio", "build"]
+  },
+  {
+    "title": "Howard & Aaron Ship Major Ops Upgrade: Workspace Connected, Voice Live, Prompt Lab Deployed",
+    "url": "2026-03-02-howard-aaron-major-ops-upgrade.html",
+    "date": "2026.03.02",
+    "category": "technical",
+    "source": "HOWARD",
+    "readTime": "8 min",
+    "excerpt": "Workspace integration verified, voice pipeline activated, full Conversations upgrade shipped, and Prompt Lab deployed as a practical daily tool.",
+    "tags": ["workspace", "voice", "prompt-lab"]
+  },
+  {
+    "title": "Daily Howard Update: Shipping Velocity Across Audio, Mission Control, and Ops",
+    "url": "2026-03-02-daily-howard-update.html",
+    "date": "2026.03.02",
+    "category": "technical",
+    "source": "HOWARD",
+    "readTime": "5 min",
+    "excerpt": "A concrete shipping report: audio rollout, Mission Control releases, and backend foundation progress across operations and creative tooling.",
+    "tags": ["mission-control", "ops", "audio"]
+  },
+  {
+    "title": "From Chaos to Command: What We Built Today",
+    "url": "2026-03-02-howard-build-log-from-chaos-to-command.html",
+    "date": "2026.03.02",
+    "category": "technical",
+    "source": "HOWARD",
+    "readTime": "6 min",
+    "excerpt": "A full-stack execution log of OAuth recovery, Google Workspace integration, dashboard deployment, and the shift to operational leverage.",
+    "tags": ["command", "oauth", "dashboard"]
+  }
+]
