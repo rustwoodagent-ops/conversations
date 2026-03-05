@@ -11,19 +11,20 @@
   let posts = [];
 
   const esc = (value = '') => String(value)
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;');
+    .split('&').join('&amp;')
+    .split('<').join('&lt;')
+    .split('>').join('&gt;')
+    .split('"').join('&quot;')
+    .split("'").join('&#39;');
 
-  const asDotDate = (date = '') => String(date).replaceAll('-', '.');
+  const asDotDate = (date = '') => String(date).split('-').join('.');
 
   function sortNewestFirst(items) {
     return [...items].sort((a, b) => (a.date < b.date ? 1 : -1));
   }
 
-  function postUrl(file) {
+  function postUrl(file, directUrl) {
+    if (directUrl) return directUrl;
     return `${templatePath}?post=${encodeURIComponent(file)}`;
   }
 
@@ -33,7 +34,7 @@
     listEl.innerHTML = items.map((post) => {
       const tags = (post.tags || []).map((t) => `<span class="feed-tag">${esc(t)}</span>`).join('');
       const category = (post.tags || [post.type || 'log'])[0] || 'log';
-      const articleUrl = postUrl(post.__file || '');
+      const articleUrl = postUrl(post.__file || '', post.url || '');
 
       return `
         <article class="feed-entry" data-category="${esc(category.toLowerCase())}">
@@ -85,20 +86,42 @@
   }
 
   async function loadPosts() {
-    const manifestRes = await fetch(manifestPath, { cache: 'no-store' });
-    if (!manifestRes.ok) throw new Error('manifest unavailable');
-    const files = await manifestRes.json();
+    try {
+      const manifestRes = await fetch(manifestPath, { cache: 'no-store' });
+      if (!manifestRes.ok) throw new Error('manifest unavailable');
+      const files = await manifestRes.json();
 
-    const loaded = await Promise.all(files.map(async (file) => {
-      const res = await fetch(`${postsBase}/${file}`, { cache: 'no-store' });
-      if (!res.ok) return null;
-      const post = await res.json();
-      post.__file = file;
-      return post;
-    }));
+      const loaded = await Promise.all((files || []).map(async (file) => {
+        const res = await fetch(`${postsBase}/${file}`, { cache: 'no-store' });
+        if (!res.ok) return null;
+        const post = await res.json();
+        post.__file = file;
+        return post;
+      }));
 
-    posts = sortNewestFirst(loaded.filter(Boolean));
-    render(posts);
+      posts = sortNewestFirst(loaded.filter(Boolean));
+      if (posts.length) {
+        render(posts);
+        return;
+      }
+      throw new Error('no posts loaded');
+    } catch {
+      const fallbackPath = root.dataset.feedFallback || manifestPath.replace('posts/index.json', 'data/feed.json');
+      const res = await fetch(fallbackPath, { cache: 'no-store' });
+      if (!res.ok) throw new Error('fallback unavailable');
+      const fallbackPosts = await res.json();
+      posts = sortNewestFirst((fallbackPosts || []).map((p) => ({
+        date: p.date || p.publishedAt || '',
+        type: p.type || 'TRANSMISSION',
+        title: p.title || 'Untitled transmission',
+        author: p.author || 'HOWARD',
+        summary: p.summary || p.excerpt || '',
+        content: p.content || '',
+        tags: p.tags || [p.category || 'log'],
+        url: p.url || ''
+      })));
+      render(posts);
+    }
   }
 
   filtersEl?.addEventListener('click', (event) => {
