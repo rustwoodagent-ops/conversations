@@ -304,7 +304,8 @@ const pages = {
 
         setupCassettePlayer() {
             const el = document.getElementById('cassette');
-            if (!el) return;
+            const audio = document.getElementById('howardIntroAudio');
+            if (!el || !audio) return;
 
             const width = 67;
             const inner = width - 8;
@@ -313,11 +314,19 @@ const pages = {
             const reel = ['|', '/', '-', '\\'];
 
             const midpad = (s) => (s.length > inner ? s.slice(0, inner) : s.padEnd(inner, ' '));
+            const fmt = (n) => {
+                if (!Number.isFinite(n)) return '00:00';
+                const m = Math.floor(n / 60);
+                const s = Math.floor(n % 60);
+                return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+            };
 
-            const makeFrame = (t) => {
-                const L = reel[t % 4];
-                const R = reel[(t + 2) % 4];
-                const pos = t % barLen;
+            const makeFrame = (tick) => {
+                const playing = !audio.paused && !audio.ended;
+                const L = playing ? reel[tick % 4] : 'o';
+                const R = playing ? reel[(tick + 2) % 4] : 'o';
+                const progress = audio.duration ? Math.min(1, Math.max(0, audio.currentTime / audio.duration)) : 0;
+                const pos = Math.min(barLen - 1, Math.floor(progress * (barLen - 1)));
                 const bar = '.'.repeat(pos) + 'o' + '.'.repeat(barLen - pos - 1);
                 const reelBetween = ' '.repeat(Math.max(0, inner - (`(${L})`.length + `(${R})`.length)));
                 const reelLine = `(${L})${reelBetween}(${R})`;
@@ -332,6 +341,8 @@ const pages = {
                 const labelName = '|' + ' '.repeat(Math.max(0, padL)) + name + ' '.repeat(Math.max(0, padR)) + '|';
                 const labelBot = '\\__' + '~'.repeat(Math.max(0, inner - '\\__'.length - '__/'.length)) + '__/';
                 const windowLine = '-'.repeat(27) + '====' + '-'.repeat(28);
+                const state = playing ? 'PLAY' : 'PAUSE';
+                const time = `${fmt(audio.currentTime)} / ${fmt(audio.duration)}`;
 
                 const top = '.' + '-'.repeat(width - 2) + '.';
                 const innerBorder = '.' + '-'.repeat(width - 8) + '.';
@@ -347,17 +358,43 @@ const pages = {
                     `| | ${midpad(windowLine)} | |`,
                     `| | ${midpad('| __ __ |')} | |`,
                     `| | ${midpad('| |____| |____| |')} | |`,
-                    `| | ${midpad(`PLAY >> [${bar}]`)} | |`,
+                    `| | ${midpad(`${state} >> [${bar}]`)} | |`,
+                    `| | ${midpad(`TIME >> ${time}`)} | |`,
                     `| '${'-'.repeat(width - 8)}' |`,
                     `'${'-'.repeat(width - 2)}'`
                 ];
                 return lines.join('\n');
             };
 
+            const toggle = () => {
+                if (audio.paused || audio.ended) {
+                    audio.play().catch(() => {});
+                } else {
+                    audio.pause();
+                }
+            };
+
+            el.addEventListener('click', toggle);
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggle();
+                }
+            });
+
             let t = 0;
-            el.textContent = makeFrame(t);
+            const redraw = () => { el.textContent = makeFrame(t); };
+            redraw();
+
+            audio.addEventListener('play', redraw);
+            audio.addEventListener('pause', redraw);
+            audio.addEventListener('timeupdate', redraw);
+            audio.addEventListener('loadedmetadata', redraw);
+            audio.addEventListener('ended', redraw);
+
             setInterval(() => {
-                el.textContent = makeFrame(t++);
+                if (!audio.paused && !audio.ended) t += 1;
+                redraw();
             }, speedMs);
         }
     },
