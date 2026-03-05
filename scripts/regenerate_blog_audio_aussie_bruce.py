@@ -89,8 +89,7 @@ def build_script(title: str, article_text: str, headings, agents):
         agent_line = "Agent update callout: this one is more strategic and content-focused than lane-specific."
 
     outro = (
-        "Bottom line: this entry captures what changed, why it matters, and what happens next. "
-        "If you want, I can also give you a 60-second action brief version."
+        "Bottom line: this entry captures what changed, why it matters, and what happens next."
     )
 
     text = re.sub(r"\s+", " ", " ".join([intro] + points + [agent_line, outro])).strip()
