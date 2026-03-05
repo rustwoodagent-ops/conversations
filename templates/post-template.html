@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transmission — Howard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/terminal-feed.css" />
+</head>
+<body data-page="transmission">
+  <div class="feed-container" style="padding-top:2.5rem;">
+    <article class="log-entry" id="postView">
+      <p class="log-header">[MISSION LOG] DATE: ----.--.-- SOURCE: HOWARD</p>
+      <h1 class="cursor" id="postTitle" style="font-size:1.25rem;margin:.35rem 0 .65rem;">Loading transmission…</h1>
+      <p id="postSummary" style="margin-bottom:.8rem;color:#b8ffd9;"></p>
+      <p id="postBody" style="line-height:1.7;color:#a6fbd5;"></p>
+      <p class="log-tags" id="postTags"></p>
+      <div class="feed-actions" style="margin-top:1rem;">
+        <a href="../pages/conversations.html">back to feed</a>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    (async () => {
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get('post');
+      if (!file) return;
+
+      try {
+        const res = await fetch(`../posts/${file}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error('missing');
+        const post = await res.json();
+
+        const date = (post.date || '').replaceAll('-', '.');
+        document.querySelector('.log-header').textContent = `[${post.type || 'TRANSMISSION'}] DATE: ${date} SOURCE: ${post.author || 'HOWARD'}`;
+        document.getElementById('postTitle').textContent = post.title || 'Untitled transmission';
+        document.getElementById('postSummary').textContent = post.summary || '';
+        document.getElementById('postBody').textContent = post.content || '';
+        document.getElementById('postTags').innerHTML = (post.tags || []).map(t => `<span>${t}</span>`).join(' ');
+      } catch {
+        document.getElementById('postTitle').textContent = 'Transmission unavailable';
+      }
+    })();
+  </script>
+</body>
+</html>

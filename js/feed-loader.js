@@ -4,44 +4,53 @@
 
   const listEl = root.querySelector('[data-feed-list]');
   const filtersEl = root.querySelector('[data-feed-filters]');
-  let allPosts = [];
-  let activeFilter = 'all';
+  const manifestPath = root.dataset.feedManifest || 'posts/index.json';
+  const postsBase = root.dataset.postsBase || 'posts';
+  const templatePath = root.dataset.postTemplate || 'templates/post-template.html';
 
-  function escapeHtml(value = '') {
-    return value
-      .replaceAll('&', '&amp;')
-      .replaceAll('<', '&lt;')
-      .replaceAll('>', '&gt;')
-      .replaceAll('"', '&quot;')
-      .replaceAll("'", '&#39;');
+  let posts = [];
+
+  const esc = (value = '') => String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+
+  const asDotDate = (date = '') => String(date).replaceAll('-', '.');
+
+  function sortNewestFirst(items) {
+    return [...items].sort((a, b) => (a.date < b.date ? 1 : -1));
   }
 
-  function render(posts) {
+  function postUrl(file) {
+    return `${templatePath}?post=${encodeURIComponent(file)}`;
+  }
+
+  function render(items) {
     if (!listEl) return;
 
-    listEl.innerHTML = posts.map((post) => {
-      const tags = (post.tags || []).slice(0, 3).map((t) => `<span class="feed-tag">${escapeHtml(t)}</span>`).join('');
-      const href = `${post.url}`;
-      const shareUrl = new URL(href, window.location.href).toString();
+    listEl.innerHTML = items.map((post) => {
+      const tags = (post.tags || []).map((t) => `<span class="feed-tag">${esc(t)}</span>`).join('');
+      const category = (post.tags || [post.type || 'log'])[0] || 'log';
+      const articleUrl = postUrl(post.__file || '');
 
       return `
-        <article class="feed-entry fade-in" data-category="${escapeHtml(post.category || 'uncategorised')}">
+        <article class="feed-entry" data-category="${esc(category.toLowerCase())}">
           <div class="feed-meta">
-            <span>[MISSION LOG]</span>
-            <span>DATE: ${escapeHtml(post.date || 'N/A')}</span>
-            <span>SOURCE: ${escapeHtml(post.source || 'HOWARD')}</span>
-            <span>${escapeHtml(post.readTime || '')}</span>
+            <span>[${esc(post.type || 'TRANSMISSION')}]</span>
+            <span>${esc(asDotDate(post.date))}</span>
+            <span>SOURCE: ${esc((post.author || 'HOWARD').toUpperCase())}</span>
             ${tags}
           </div>
-          <h3 class="feed-title cursor">${escapeHtml(post.title)}</h3>
-          <p class="feed-excerpt">${escapeHtml(post.excerpt)}</p>
-
+          <h3 class="feed-title cursor">${esc(post.title || 'Untitled transmission')}</h3>
+          <p class="feed-excerpt">${esc(post.summary || '')}</p>
+          <p class="feed-command-inline">STATUS: SIGNAL VERIFIED</p>
           <div class="feed-actions">
-            <a href="${href}">open transmission</a>
-            <button type="button" data-share="${escapeHtml(shareUrl)}" data-title="${escapeHtml(post.title)}">share link</button>
-            <span class="feed-tag">${escapeHtml(post.category || 'log')}</span>
+            <a href="${articleUrl}">open transmission</a>
+            <button type="button" data-share="${esc(new URL(articleUrl, window.location.href).toString())}">share link</button>
+            <span class="feed-tag">${esc(category)}</span>
           </div>
-
           <p class="feed-command-inline">rustwood@A9Max:~$ open transmission</p>
         </article>
       `;
@@ -50,57 +59,66 @@
     listEl.querySelectorAll('[data-share]').forEach((button) => {
       button.addEventListener('click', async () => {
         const url = button.getAttribute('data-share');
-        const title = button.getAttribute('data-title');
-
         try {
           if (navigator.share) {
-            await navigator.share({ title, url });
+            await navigator.share({ url });
             return;
           }
           await navigator.clipboard.writeText(url);
+          const original = button.textContent;
           button.textContent = 'link copied';
-          setTimeout(() => { button.textContent = 'share link'; }, 1200);
+          setTimeout(() => (button.textContent = original), 1200);
         } catch {
-          // Ignore share cancellation.
+          // ignore
         }
       });
     });
   }
 
   function applyFilter(filter) {
-    activeFilter = filter;
-    const filtered = filter === 'all' ? allPosts : allPosts.filter((p) => p.category === filter);
-    render(filtered);
-
-    filtersEl?.querySelectorAll('button').forEach((btn) => {
-      btn.classList.toggle('active', btn.dataset.filter === activeFilter);
-    });
+    if (filter === 'all') return render(posts);
+    const f = String(filter).toLowerCase();
+    render(posts.filter((p) => {
+      const hay = [p.type, ...(p.tags || [])].join(' ').toLowerCase();
+      return hay.includes(f);
+    }));
   }
 
-  async function load() {
-    try {
-      const response = await fetch('../data/feed.json', { cache: 'no-store' });
-      if (!response.ok) throw new Error('Feed unavailable');
-      allPosts = await response.json();
-      applyFilter('all');
-    } catch {
-      listEl.innerHTML = '<article class="feed-entry"><p class="feed-excerpt">Feed unavailable. Please refresh shortly.</p></article>';
-    }
+  async function loadPosts() {
+    const manifestRes = await fetch(manifestPath, { cache: 'no-store' });
+    if (!manifestRes.ok) throw new Error('manifest unavailable');
+    const files = await manifestRes.json();
+
+    const loaded = await Promise.all(files.map(async (file) => {
+      const res = await fetch(`${postsBase}/${file}`, { cache: 'no-store' });
+      if (!res.ok) return null;
+      const post = await res.json();
+      post.__file = file;
+      return post;
+    }));
+
+    posts = sortNewestFirst(loaded.filter(Boolean));
+    render(posts);
   }
 
   filtersEl?.addEventListener('click', (event) => {
-    const target = event.target.closest('button[data-filter]');
-    if (!target) return;
-    applyFilter(target.dataset.filter);
+    const btn = event.target.closest('button[data-filter]');
+    if (!btn) return;
+    filtersEl.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b === btn));
+    applyFilter(btn.dataset.filter || 'all');
   });
 
   window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = max > 0 ? (scrolled / max) * 100 : 0;
     const bar = document.getElementById('progressBar');
-    if (bar) bar.style.width = `${progress}%`;
+    if (!bar) return;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
+    bar.style.width = `${progress}%`;
   });
 
-  load();
+  loadPosts().catch(() => {
+    if (listEl) {
+      listEl.innerHTML = '<article class="feed-entry"><p class="feed-excerpt">Feed unavailable. Refresh shortly.</p></article>';
+    }
+  });
 })();

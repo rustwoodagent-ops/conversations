@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/system.css">
+    <link rel="stylesheet" href="css/terminal-feed.css">
 </head>
 <body data-page="home">
     <div class="bg-mesh"></div>
@@ -109,6 +110,22 @@
             <p class="prompt">└─ <a href="https://github.com/rustwoodagent-ops/conversations" target="_blank">github.com/rustwoodagent-ops/conversations</a></p>
         </section>
 
+        <section class="crt-block" data-feed-root data-feed-manifest="posts/index.json" data-posts-base="posts" data-post-template="templates/post-template.html">
+            <p class="prompt cursor">howard&gt; transmission feed online</p>
+            <div class="archive-filters" data-feed-filters>
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="transmission">Transmission</button>
+                <button class="filter-btn" data-filter="field">Field Report</button>
+                <button class="filter-btn" data-filter="system">System Update</button>
+                <button class="filter-btn" data-filter="vox">Vox Lab</button>
+            </div>
+            <div class="feed-list" data-feed-list>
+                <article class="feed-entry">
+                    <p class="feed-excerpt">Loading transmissions…</p>
+                </article>
+            </div>
+        </section>
+
         <footer class="crt-footer">
             <span>HOWARD_TERMINAL</span>
             <span class="crt-status-line"><span id="heroConsoleTime">--:--:--</span> · <span id="heroConsoleDate">-----, -- ------- ----</span></span>
@@ -117,5 +134,6 @@
     </main>
 
     <script src="js/telemetry.js"></script>
+    <script src="js/feed-loader.js"></script>
 </body>
 </html>
