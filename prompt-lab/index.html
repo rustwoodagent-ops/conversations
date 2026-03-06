@@ -13,6 +13,7 @@
 </head>
 <body data-page="prompt-lab">
   <div class="bg-mesh"></div>
+  <div class="signal-lines" aria-hidden="true"></div>
 
   <nav class="nav" id="nav">
     <div class="nav-content">
@@ -22,43 +23,57 @@
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
         <li><a href="../pages/conversations.html">Archive</a></li>
-        <li><a href="../prompt-lab/index.html">Prompt Lab</a></li>
+        <li><a href="../prompt-lab/index.html" class="active">Prompt Lab</a></li>
         <li><a href="../pages/upload.html">Upload</a></li>
         <li><a href="../pages/telemetry.html">Telemetry</a></li>
       </ul>
     </div>
   </nav>
 
-  <section class="hero prompt-hero">
-    <div class="hero-content">
-      <div class="hero-badge fade-in"><span>Prompt Lab • Operational</span></div>
-      <h1 class="hero-title fade-in stagger-1">Find the right prompt.<br/>Ship faster.</h1>
-      <p class="hero-subtitle fade-in stagger-2">
-        Command-centre prompt workflows with smart search, category routing, command palette, and one-click copy.
-      </p>
-      <div class="mini-telemetry fade-in stagger-3" aria-hidden="true">
-        <span class="monitor-dot"></span>
-        <span>Online</span>
-        <div class="monitor-bars"><i></i><i></i><i></i><i></i></div>
-      </div>
-    </div>
-  </section>
+  <main class="crt-shell prompt-crt" id="promptLabMission">
+    <section class="site-intro" aria-label="Prompt Lab introduction">
+      <h1>Howard Prompt Lab Terminal</h1>
+      <p>Telemetry-style prompt operations surface for search, routing, and execution-ready copy.</p>
+    </section>
 
-  <section class="section prompt-shell">
-    <div class="controls-row glass-panel" role="region" aria-label="Prompt controls">
-      <div class="search-wrap">
-        <input id="searchInput" type="search" placeholder="Search title, tags, content..." aria-label="Search prompts" />
-      </div>
-      <div class="chips" id="categoryChips" role="tablist" aria-label="Prompt categories"></div>
-      <div class="quick-lists">
-        <button id="showAllBtn" class="chip chip-active" type="button">All</button>
-        <button id="showFavBtn" class="chip" type="button">Favourites</button>
-        <button id="showRecentBtn" class="chip" type="button">Recent</button>
-      </div>
-    </div>
+    <section class="boot-sequence" aria-label="Boot sequence">
+      <p class="boot-line">[BOOT] indexing prompt systems...</p>
+      <p class="boot-line">[SYNC] loading categories, favourites, and command palette...</p>
+      <p class="boot-line">[READY] Prompt Lab terminal online.</p>
+    </section>
 
-    <div class="cards-grid" id="promptGrid" aria-live="polite"></div>
-  </section>
+    <section class="hero prompt-hero">
+      <div class="hero-content">
+        <div class="hero-badge fade-in"><span>Prompt Lab • Operational</span></div>
+        <h1 class="hero-title fade-in stagger-1">Find the right prompt.<br/>Ship faster.</h1>
+        <p class="hero-subtitle fade-in stagger-2">
+          Command-centre prompt workflows with smart search, category routing, command palette, and one-click copy.
+        </p>
+        <div class="mini-telemetry fade-in stagger-3" aria-hidden="true">
+          <span class="monitor-dot"></span>
+          <span>Online</span>
+          <div class="monitor-bars"><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section prompt-shell">
+      <div class="controls-row glass-panel" role="region" aria-label="Prompt controls">
+        <p class="prompt-shell-command">howard@rustwoodstudio:~$ prompt-lab --interactive</p>
+        <div class="search-wrap">
+          <input id="searchInput" type="search" placeholder="Search title, tags, content..." aria-label="Search prompts" />
+        </div>
+        <div class="chips" id="categoryChips" role="tablist" aria-label="Prompt categories"></div>
+        <div class="quick-lists">
+          <button id="showAllBtn" class="chip chip-active" type="button">All</button>
+          <button id="showFavBtn" class="chip" type="button">Favourites</button>
+          <button id="showRecentBtn" class="chip" type="button">Recent</button>
+        </div>
+      </div>
+
+      <div class="cards-grid" id="promptGrid" aria-live="polite"></div>
+    </section>
+  </main>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
