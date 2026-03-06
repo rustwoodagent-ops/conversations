@@ -256,7 +256,7 @@ body[data-page="prompt-lab"] .footer-links a:hover {
 
 body[data-page="prompt-lab"] .prompt-crt {
   width: min(1100px, calc(100% - 2rem));
-  margin: 1rem auto;
+  margin: 6.4rem auto 1rem;
   border: 1px solid rgba(85, 255, 177, 0.34);
   background: rgba(3, 16, 10, 0.86);
   box-shadow: 0 0 0 1px rgba(30, 182, 102, 0.16), 0 0 40px rgba(28, 145, 84, 0.28), inset 0 0 32px rgba(13, 84, 48, 0.24);
@@ -384,7 +384,7 @@ body[data-page="prompt-lab"] .toast {
 @media (max-width: 768px) {
   body[data-page="prompt-lab"] .prompt-crt {
     width: calc(100% - 1rem);
-    margin: 0.5rem auto;
+    margin: calc(env(safe-area-inset-top, 0px) + 6.2rem) auto 0.5rem;
   }
 
   body[data-page="prompt-lab"] .site-intro,
