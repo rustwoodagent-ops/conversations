@@ -1948,3 +1948,121 @@ body[data-page="post"] .btn-ghost:hover {
     border-color: rgba(245, 158, 11, 0.55);
     color: #fbbf24;
 }
+
+/* ===== Global terminal header/menu structure (prompt-lab style) ===== */
+.terminal-header-shell {
+    width: min(1100px, calc(100% - 2rem));
+    margin: 1rem auto 0.8rem;
+    border: 1px solid rgba(85, 255, 177, 0.34);
+    background: rgba(3, 16, 10, 0.86);
+    box-shadow: 0 0 0 1px rgba(30, 182, 102, 0.16), 0 0 40px rgba(28, 145, 84, 0.28), inset 0 0 32px rgba(13, 84, 48, 0.24);
+    position: relative;
+    overflow: hidden;
+}
+
+.terminal-header-shell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(132, 255, 190, 0.05) 0px,
+        rgba(132, 255, 190, 0.05) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+    opacity: 0.18;
+}
+
+.terminal-header-intro,
+.terminal-header-boot,
+.terminal-header-menu {
+    position: relative;
+    z-index: 1;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(74, 216, 138, 0.24);
+}
+
+.terminal-header-menu {
+    border-bottom: 0;
+}
+
+.terminal-header-intro h1 {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: #ffbe8a;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.terminal-header-intro p,
+.terminal-header-boot p {
+    margin: 0.3rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: #97dbb7;
+}
+
+.terminal-menu-line {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: #9cecc1;
+}
+
+.terminal-menu-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.terminal-menu-links a {
+    color: #a6ffca;
+    text-decoration: none;
+    border: 1px solid rgba(68, 229, 147, 0.36);
+    background: rgba(7, 25, 16, 0.84);
+    border-radius: 999px;
+    padding: 0.24rem 0.64rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+}
+
+.terminal-menu-links a:hover,
+.terminal-menu-links a.active {
+    border-color: rgba(104, 255, 181, 0.72);
+    color: #dcffef;
+    box-shadow: 0 0 0 1px rgba(78, 245, 160, 0.3), 0 0 14px rgba(38, 190, 109, 0.16);
+}
+
+@media (max-width: 768px) {
+    .terminal-header-shell {
+        width: calc(100% - 1rem);
+        margin: 0.5rem auto;
+    }
+
+    .terminal-header-intro,
+    .terminal-header-boot,
+    .terminal-header-menu {
+        padding: 0.72rem 0.75rem;
+    }
+
+    .terminal-header-intro h1 {
+        font-size: 0.84rem;
+    }
+
+    .terminal-header-intro p,
+    .terminal-header-boot p,
+    .terminal-menu-line,
+    .terminal-menu-links a {
+        font-size: 0.72rem;
+    }
+}
+
+/* Reduce legacy fixed-nav top padding once terminal header shell is present */
+.terminal-header-shell + .section,
+.terminal-header-shell + .hero,
+.terminal-header-shell + .rustwood-hero {
+    padding-top: 2rem !important;
+}
