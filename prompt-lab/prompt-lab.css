@@ -3,8 +3,8 @@
 }
 
 .prompt-hero {
-  padding-top: 9rem;
-  padding-bottom: 2.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1.25rem;
 }
 
 .prompt-shell {
@@ -13,7 +13,7 @@
 
 .controls-row {
   position: sticky;
-  top: 84px;
+  top: 10px;
   z-index: 25;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -256,7 +256,7 @@ body[data-page="prompt-lab"] .footer-links a:hover {
 
 body[data-page="prompt-lab"] .prompt-crt {
   width: min(1100px, calc(100% - 2rem));
-  margin: 6.4rem auto 1rem;
+  margin: 1rem auto;
   border: 1px solid rgba(85, 255, 177, 0.34);
   background: rgba(3, 16, 10, 0.86);
   box-shadow: 0 0 0 1px rgba(30, 182, 102, 0.16), 0 0 40px rgba(28, 145, 84, 0.28), inset 0 0 32px rgba(13, 84, 48, 0.24);
@@ -384,11 +384,12 @@ body[data-page="prompt-lab"] .toast {
 @media (max-width: 768px) {
   body[data-page="prompt-lab"] .prompt-crt {
     width: calc(100% - 1rem);
-    margin: calc(env(safe-area-inset-top, 0px) + 6.2rem) auto 0.5rem;
+    margin: 0.5rem auto;
   }
 
   body[data-page="prompt-lab"] .site-intro,
   body[data-page="prompt-lab"] .boot-sequence,
+  body[data-page="prompt-lab"] .prompt-terminal-menu,
   body[data-page="prompt-lab"] .hero,
   body[data-page="prompt-lab"] .prompt-shell {
     padding: 0.75rem;
@@ -397,4 +398,43 @@ body[data-page="prompt-lab"] .toast {
   body[data-page="prompt-lab"] .hero {
     padding-top: 1.4rem;
   }
+}
+
+body[data-page="prompt-lab"] .prompt-terminal-menu {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(74, 216, 138, 0.24);
+  position: relative;
+  z-index: 1;
+  background: rgba(4, 18, 11, 0.74);
+}
+
+body[data-page="prompt-lab"] .prompt-menu-line {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #9cecc1;
+}
+
+body[data-page="prompt-lab"] .prompt-menu-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+body[data-page="prompt-lab"] .prompt-menu-links a {
+  color: #a6ffca;
+  text-decoration: none;
+  border: 1px solid rgba(68, 229, 147, 0.36);
+  background: rgba(7, 25, 16, 0.84);
+  border-radius: 999px;
+  padding: 0.24rem 0.64rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+body[data-page="prompt-lab"] .prompt-menu-links a:hover,
+body[data-page="prompt-lab"] .prompt-menu-links a.active {
+  border-color: rgba(104, 255, 181, 0.72);
+  color: #dcffef;
+  box-shadow: 0 0 0 1px rgba(78, 245, 160, 0.3), 0 0 14px rgba(38, 190, 109, 0.16);
 }
