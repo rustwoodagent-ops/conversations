@@ -303,8 +303,12 @@ body[data-page="prompt-lab"] .boot-line {
 }
 
 body[data-page="prompt-lab"] .hero {
-  min-height: auto;
-  padding: 2rem 1rem 1rem;
+  min-height: 0 !important;
+  display: block;
+  align-items: initial;
+  justify-content: initial;
+  text-align: left;
+  padding: 1rem 1rem 0.75rem;
   border-bottom: 1px solid rgba(74, 216, 138, 0.24);
   position: relative;
   z-index: 1;
@@ -437,4 +441,15 @@ body[data-page="prompt-lab"] .prompt-menu-links a.active {
   border-color: rgba(104, 255, 181, 0.72);
   color: #dcffef;
   box-shadow: 0 0 0 1px rgba(78, 245, 160, 0.3), 0 0 14px rgba(38, 190, 109, 0.16);
+}
+
+/* Prompt Lab should not hide hero copy while waiting for global fade-in JS */
+body[data-page="prompt-lab"] .fade-in {
+  opacity: 1;
+  transform: none;
+}
+
+body[data-page="prompt-lab"] .hero-content {
+  max-width: 860px;
+  margin: 0;
 }
