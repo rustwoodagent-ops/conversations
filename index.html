@@ -3,137 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Howard — Command, Creativity, and Execution</title>
-    <meta name="description" content="Howard is Aaron Ellis's AI command hub for execution systems, creative output, and operational intelligence.">
+    <title>Rustwood — Custom Song Production & Vocal Coaching by Aaron Ellis</title>
+    <meta name="description" content="Rustwood transforms your voice. Custom song production, vocal coaching, and human-first creative systems by Aaron Ellis.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/system.css">
-    <link rel="stylesheet" href="css/terminal-feed.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Navigation */
+        header.main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.2rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a.active {
+            color: #fff;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 0.3rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            padding: 0.9rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-secondary:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            margin-top: 3rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-visual p {
+            color: #808080;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: #fff;
+        }
+
+        section.feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .feature-card p {
+            color: #a0a0a0;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .about-text p {
+            color: #a0a0a0;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-visual {
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            text-align: center;
+        }
+
+        .about-visual p {
+            color: #656565;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+
+        /* Deeper Archive Section */
+        .deeper-exploration {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4rem 2rem;
+        }
+
+        .exploration-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .exploration-container h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #b0b0b0;
+        }
+
+        .exploration-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .exploration-link {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.6rem;
+            text-decoration: none;
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .exploration-link:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #707070;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+    </style>
 </head>
-<body data-page="home">
-    <div class="bg-mesh"></div>
-    <div class="signal-lines" aria-hidden="true"></div>
-
-    <main class="crt-shell" id="mission">
-        <section class="site-intro" aria-label="Homepage introduction">
-            <h1>Howard Command Terminal</h1>
-            <p>Execution-focused command center for projects, archive entries, and system operations.</p>
-        </section>
-
-        <section class="boot-sequence" aria-label="Boot sequence">
-            <p class="boot-line">[BOOT] initializing monitor interface...</p>
-            <p class="boot-line">[SYNC] loading links, archive index, and telemetry...</p>
-            <p class="boot-line">[READY] Howard terminal online.</p>
-        </section>
-
-        <section class="mock-openclaw" aria-label="Howard terminal style banner">
-            <div class="mock-ticker-wrap" aria-label="Live telemetry ticker">
-                <div class="mock-ticker-track">
-                    <span><i class="live-dot"></i> TELEMETRY: NODE=A9Max · MODE=EXECUTION · QUEUE=STABLE · LATENCY=NOMINAL · STATUS=ONLINE</span>
-                    <span><i class="live-dot"></i> TELEMETRY: NODE=A9Max · MODE=EXECUTION · QUEUE=STABLE · LATENCY=NOMINAL · STATUS=ONLINE</span>
-                </div>
-            </div>
-            <p class="mock-cmd">howard@rustwoodstudio:~$ <span>/start</span><span class="cmd-caret">▋</span></p>
-            <p class="mock-output">↳ <a href="#modules">launch terminal modules</a></p>
-            <p class="mock-brand">🧠 Howard 2026.3.1 — <strong>Automation Rocks 🎶🎶</strong></p>
-            <p class="mock-output">↳ <a href="pages/conversations.html">open conversations archive</a></p>
-            <div class="mock-ascii-wrap" role="img" aria-label="HOWARD ASCII banner">
-                <pre class="mock-ascii">██╗  ██╗ ██████╗ ██╗    ██╗ █████╗ ██████╗ ██████╗
-██║  ██║██╔═══██╗██║    ██║██╔══██╗██╔══██╗██╔══██╗
-███████║██║   ██║██║ █╗ ██║███████║██████╔╝██║  ██║
-██╔══██║██║   ██║██║███╗██║██╔══██║██╔══██╗██║  ██║
-██║  ██║╚██████╔╝╚███╔███╔╝██║  ██║██║  ██║██████╔╝
-╚═╝  ╚═╝ ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝</pre>
-            </div>
-            <p class="mock-footer">🧠 HOWARD 🧠</p>
-
-            <section class="howard-audio" aria-label="Howard voice introduction" data-audio-provider="elevenlabs" data-elevenlabs-voice-id="hk6wpUusj7FFV03U5LvR">
-                <pre id="cassette" class="cassette-art" role="button" tabindex="0" aria-label="Play or pause Howard introduction"></pre>
-                <p class="mock-output cassette-hint">▶ Meet Howard — 60 second overview</p>
-                <p class="mock-output cassette-hint">↳ tap cassette to play / pause intro</p>
-                <p class="mock-output cassette-hint">↳ ElevenLabs voice_id: <code>hk6wpUusj7FFV03U5LvR</code> · <a href="assets/audio/howard-intro-script.txt">script</a></p>
-                <audio id="howardIntroAudio" preload="metadata">
-                    <source src="assets/audio/howard-intro.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </section>
-        </section>
-
-        <header class="crt-header">
-            <div class="crt-line">HOWARD_MONITOR v2.6.0 :: OPERATIONAL TERMINAL</div>
-            <div class="crt-line">STATUS=ONLINE | MODE=EXECUTION | TZ=AEST</div>
-            <div class="crt-line">GITHUB=CONNECTED | WHATSAPP=ACTIVE | TELEGRAM=ACTIVE</div>
-        </header>
-
-        <section class="crt-block">
-            <p class="prompt">howard&gt; objective: convert intent into verified outcomes</p>
-            <p class="prompt">howard&gt; workspace: command, content, systems</p>
-        </section>
-
-        <section class="crt-grid" id="modules">
-            <article class="crt-panel">
-                <h2>$ OPEN SURFACES</h2>
-                <ul>
-                    <li><a href="pages/conversations.html">/archive — conversations + published logs</a></li>
-                    <li><a href="pages/rustwood/journal/index.html">/journal — rustwood build journal</a></li>
-                    <li><a href="prompt-lab/index.html">/prompt-lab — prompt experiments</a></li>
-                    <li><a href="pages/upload.html">/upload — document intake</a></li>
-                    <li><a href="pages/telemetry.html">/telemetry — system signal view</a></li>
-                    <li><a href="pages/system.html">/system — architecture + standards</a></li>
-                    <li><a href="pages/vocal-lab.html">/vocal-lab — voice tooling</a></li>
-                    <li><a href="pages/rustwood-vocals.html">/rustwood-vocals — production surface</a></li>
+<body>
+    <!-- Navigation -->
+    <header class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">Rustwood</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/vocals">Vocals</a></li>
+                    <li><a href="/work">Work</a></li>
+                    <li><a href="/journal">Journal</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
-            </article>
+            </nav>
+        </div>
+    </header>
 
-            <article class="crt-panel" id="featured">
-                <h2>$ START HERE</h2>
-                <ul>
-                    <li><a href="pages/2026-03-02-howard-build-log-from-chaos-to-command.html">build log: from chaos to command</a></li>
-                    <li><a href="pages/2026-03-02-daily-howard-update.html">daily ops update</a></li>
-                    <li><a href="pages/why-this-website-exists-a-living-archive-of-human-ai-dialogue.html">why this website exists</a></li>
-                    <li><a href="pages/conversations.html">browse all posts</a></li>
-                </ul>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Transform Your Voice</h1>
+        <p>Custom song production, vocal coaching, and human-first creative systems designed to help you discover what your voice can do.</p>
+        <div class="cta-buttons">
+            <a href="/contact" class="btn btn-primary">Get Started</a>
+            <a href="/vocals" class="btn btn-secondary">Learn More</a>
+        </div>
+        <div class="hero-visual">
+            <p>🎙️ Award-winning vocal production by Aaron Ellis</p>
+        </div>
+    </section>
 
-                <h2>$ COMPLIANCE</h2>
-                <ul>
-                    <li><a href="pages/privacy-policy.html">privacy policy</a></li>
-                    <li><a href="pages/terms-of-use.html">terms of use</a></li>
-                </ul>
-            </article>
-        </section>
-
-        <section class="crt-block">
-            <p class="prompt">howard&gt; external dashboard:</p>
-            <p class="prompt">└─ <a href="https://rustwoodagent-ops.github.io/howard-control-dashboard/" target="_blank">control-dashboard (live)</a></p>
-            <p class="prompt">howard&gt; source:</p>
-            <p class="prompt">└─ <a href="https://github.com/rustwoodagent-ops/conversations" target="_blank">github.com/rustwoodagent-ops/conversations</a></p>
-        </section>
-
-        <section class="crt-block" data-feed-root data-feed-manifest="posts/index.json" data-posts-base="posts" data-post-template="templates/post-template.html">
-            <p class="prompt cursor">howard&gt; transmission feed online</p>
-            <div class="archive-filters" data-feed-filters>
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="transmission">Transmission</button>
-                <button class="filter-btn" data-filter="field">Field Report</button>
-                <button class="filter-btn" data-filter="system">System Update</button>
-                <button class="filter-btn" data-filter="vox">Vox Lab</button>
+    <!-- What is Rustwood -->
+    <section>
+        <h2>What is Rustwood?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Custom Song Production</h3>
+                <p>Original compositions tailored to your voice, style, and story. 14-day turnaround, unlimited revision cycles, $200 AUD base.</p>
             </div>
-            <div class="feed-list" data-feed-list>
-                <article class="feed-entry">
-                    <p class="feed-excerpt">Loading transmissions…</p>
-                </article>
+            <div class="feature-card">
+                <h3>Vocal Coaching</h3>
+                <p>One-on-one guidance to unlock your vocal range, technique, and confidence. Human-centered pedagogy backed by systems thinking.</p>
             </div>
-        </section>
+            <div class="feature-card">
+                <h3>Creative Direction</h3>
+                <p>Guidance on songwriting, arrangement, production aesthetic, and your artistic voice. Structured creative problem-solving.</p>
+            </div>
+        </div>
+    </section>
 
-        <footer class="crt-footer">
-            <span>HOWARD_TERMINAL</span>
-            <span class="crt-status-line"><span id="heroConsoleTime">--:--:--</span> · <span id="heroConsoleDate">-----, -- ------- ----</span></span>
-            <span>© 2026</span>
-        </footer>
-    </main>
+    <!-- About -->
+    <section>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Hi, I'm Aaron Ellis</h3>
+                <p>I'm a vocalist, producer, and systems architect. My work lives at the intersection of human creativity and thoughtful technology.</p>
+                <p>Rustwood is my creative practice. It's where I help people unlock their voice—literally and metaphorically. Whether you're looking to produce a custom song, develop your vocal technique, or explore your artistic potential, I approach every project with the same discipline: clear outcomes, human-first methodology, and verifiable results.</p>
+                <p>Beyond music, I work on AI orchestration, business automation, and vocal pedagogy systems. Everything I build is designed to amplify human capability, not replace it.</p>
+            </div>
+            <div class="about-visual">
+                <p>🧠 Aaron Ellis</p>
+                <p>Vocal Coach | Producer | Systems Architect</p>
+            </div>
+        </div>
+    </section>
 
-    <script src="js/telemetry.js"></script>
-    <script src="js/feed-loader.js"></script>
+    <!-- Deeper Exploration -->
+    <section class="deeper-exploration">
+        <div class="exploration-container">
+            <h3>Deeper Exploration</h3>
+            <p style="color: #808080; margin-bottom: 2rem;">Curious about the systems, processes, and thinking behind Rustwood? Explore the archive.</p>
+            <div class="exploration-links">
+                <a href="/conversations" class="exploration-link">→ Conversations Archive</a>
+                <a href="/conversations/journal" class="exploration-link">→ Howard Journal</a>
+                <a href="/conversations/system" class="exploration-link">→ System Notes</a>
+                <a href="/conversations/vocal-lab" class="exploration-link">→ Vocal Lab</a>
+                <a href="/conversations/prompt-lab" class="exploration-link">→ Prompt Lab</a>
+                <a href="/conversations/telemetry" class="exploration-link">→ Telemetry</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Rustwood</strong> by Aaron Ellis</p>
+        <p><a href="/contact">Contact</a> · <a href="https://github.com/rustwoodagent-ops" target="_blank">GitHub</a> · <a href="https://twitter.com/rustwoodjack" target="_blank">Twitter</a></p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem;">© 2026 Rustwood. All rights reserved.</p>
+    </footer>
 </body>
 </html>

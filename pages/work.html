@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work & Projects — Rustwood</title>
+    <meta name="description" content="Explore Aaron Ellis's creative work: songs, projects, and case studies in vocal production and coaching.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        header.main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.2rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .intro {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #fff;
+        }
+
+        .project-card .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: #b0b0b0;
+            font-size: 0.8rem;
+            border-radius: 0.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .project-card a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-card a:hover {
+            color: #b0b0b0;
+        }
+
+        .case-study {
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .case-study h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .case-study p {
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+        }
+
+        .case-study .metric {
+            display: inline-block;
+            margin-right: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-study .metric strong {
+            color: #fff;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #707070;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">Rustwood</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/rustwood-vocals.html">Vocals</a></li>
+                    <li><a href="/pages/work.html" class="active">Work</a></li>
+                    <li><a href="/pages/rustwood/journal/index.html">Journal</a></li>
+                    <li><a href="/pages/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Work & Projects</h1>
+        <p class="intro">A selection of vocal productions, coaching engagements, and creative systems work. Each project represents a commitment to clarity, craft, and measurable outcomes.</p>
+
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <span class="tag">Vocal Production</span>
+                <h3>Custom Song Productions</h3>
+                <p>Bespoke original compositions tailored to individual voices and stories. 14-day turnaround with unlimited revisions.</p>
+                <a href="/pages/rustwood-vocals.html">View Details →</a>
+            </div>
+
+            <div class="project-card">
+                <span class="tag">Vocal Coaching</span>
+                <h3>One-on-One Coaching</h3>
+                <p>Personalized vocal development sessions focusing on technique, range expansion, confidence, and artistic expression.</p>
+                <a href="/pages/rustwood-vocals.html">Learn More →</a>
+            </div>
+
+            <div class="project-card">
+                <span class="tag">Research</span>
+                <h3>Vocal Pedagogy Systems</h3>
+                <p>Structural frameworks for vocal development, measurement, and creative confidence. Published in the Rustwood Journal.</p>
+                <a href="/pages/rustwood/journal/index.html">Read Essays →</a>
+            </div>
+        </div>
+
+        <h2>Case Studies</h2>
+
+        <div class="case-study">
+            <h3>Engineering the Voice: Designing a Vocal Pedagogy System</h3>
+            <p>A comprehensive exploration of how to structure vocal development using principles from systems design and deliberate practice.</p>
+            <div class="metric"><strong>Format:</strong> Long-form essay with audio narration</div>
+            <div class="metric"><strong>Focus:</strong> Pedagogy + Systems thinking</div>
+            <p><a href="/pages/engineering-the-voice-designing-a-vocal-pedagogy-system.html">Read the full essay →</a></p>
+        </div>
+
+        <div class="case-study">
+            <h3>Low Notes Without the Push: Technique Mastery</h3>
+            <p>A detailed exploration of low-note technique, breaking down the mechanical and psychological barriers that prevent singers from accessing their lower range safely.</p>
+            <div class="metric"><strong>Type:</strong> Vocal Technique Guide</div>
+            <div class="metric"><strong>Audience:</strong> Intermediate to Advanced Singers</div>
+            <p><a href="/pages/rustwood/journal/low-notes-without-the-push.html">Read the guide →</a></p>
+        </div>
+
+        <div class="case-study">
+            <h3>VOX: The Day I Stopped Guessing and Started Measuring My Voice</h3>
+            <p>A personal journey into vocal measurement and metrics. How I moved from intuitive evaluation to data-driven vocal assessment.</p>
+            <div class="metric"><strong>Type:</strong> Personal Essay + Systems Work</div>
+            <div class="metric"><strong>Focus:</strong> Vocal Science + Measurement</div>
+            <p><a href="/pages/rustwood/journal/vox-the-day-i-stopped-guessing.html">Read the story →</a></p>
+        </div>
+
+        <h2>Technical & Systems Work</h2>
+        <p>Beyond vocal coaching, I design systems for creative work. Multi-agent AI orchestration, operational telemetry, and automation frameworks for complex workflows. This foundational systems work informs everything I do with Rustwood.</p>
+        <p><a href="/conversations">Explore the deeper archive →</a></p>
+    </main>
+
+    <footer>
+        <p><strong>Rustwood</strong> by Aaron Ellis</p>
+        <p><a href="/pages/contact.html">Contact</a> · <a href="https://github.com/rustwoodagent-ops" target="_blank">GitHub</a></p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem;">© 2026 Rustwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>
