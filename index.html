@@ -56,6 +56,30 @@
             list-style: none;
         }
 
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-brand {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+            }
+        }
+
         .nav-links a {
             color: #b0b0b0;
             text-decoration: none;
@@ -207,8 +231,9 @@
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
+            padding: 2rem 0;
         }
 
         .about-text h3 {
@@ -340,7 +365,7 @@
             <a href="/vocals" class="btn btn-secondary">Learn More</a>
         </div>
         <div class="hero-visual">
-            <p>🎙️ Award-winning vocal production by Aaron Ellis</p>
+            <p>Vocal coaching | Custom song production | Creative systems design</p>
         </div>
     </section>
 
