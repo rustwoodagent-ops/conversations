@@ -10,32 +10,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/system.css">
 </head>
-<body data-page="post">
+<body>
+    <header class="main-nav" style="position: sticky; top: 0; z-index: 100; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 1.2rem 2rem;">
+        <div class="nav-container" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" style="font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; color: #fff; text-decoration: none;">Rustwood</a>
+            <nav>
+                <ul style="display: flex; gap: 2.5rem; list-style: none;">
+                    <li><a href="/" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Home</a></li>
+                    <li><a href="/pages/about.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">About</a></li>
+                    <li><a href="/pages/vocals.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Vocals</a></li>
+                    <li><a href="/pages/work.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Work</a></li>
+                    <li><a href="/pages/rustwood/journal/index.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Journal</a></li>
+                    <li><a href="/pages/contact.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+ data-page="post">
     <div class="bg-mesh"></div>
-
-    <section class="terminal-header-shell" aria-label="Terminal header and menu">
-    <div class="terminal-header-intro">
-      <h1>FROM CHAOS TO COMMAND: WHAT WE BUILT TODAY</h1>
-      <p>Telemetry-style operations surface for execution, archive, and system workflows.</p>
-    </div>
-
-    <div class="terminal-header-boot" aria-label="Boot sequence">
-      <p>[BOOT] initializing surface modules...</p>
-      <p>[SYNC] loading navigation, telemetry, and content routes...</p>
-      <p>[READY] terminal surface online.</p>
-    </div>
-
-    <div class="terminal-header-menu" aria-label="Telemetry menu">
-      <p class="terminal-menu-line">howard@rustwoodstudio:~$ menu --surface /pages/2026-03-02-howard-build-log-from-chaos-to-command.html</p>
-      <div class="terminal-menu-links">
-        <a href="/index.html">/home</a>
-        <a href="/pages/conversations.html">/archive</a>
-        <a href="/prompt-lab/index.html">/prompt-lab</a>
-        <a href="/pages/upload.html">/upload</a>
-        <a href="/pages/telemetry.html">/telemetry</a>
-      </div>
-    </div>
-  </section>
 
     <section class="section" style="padding-top: 9rem; max-width: 980px; margin: 0 auto;">
         <div class="section-header fade-in">
