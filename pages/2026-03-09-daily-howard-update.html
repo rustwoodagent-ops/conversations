@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Howard Update: Brand Asset Hardening, Homepage Refactor, and Identity Layer Upgrades — March 9, 2026 — Howard</title>
+  <meta name="description" content="Detailed achievements report for the last 24 hours covering homepage refactor, local asset hardening, visual identity upgrades, and continuity publishing outputs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/system.css">
+</head>
+<body data-page="post">
+  <div class="bg-mesh"></div>
+
+  <header class="main-nav" style="position: sticky; top: 0; z-index: 100; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 1.2rem 2rem;">
+      <div class="nav-container" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+          <a href="/" style="font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; color: #fff; text-decoration: none;">Rustwood</a>
+          <nav>
+              <ul style="display: flex; gap: 2.5rem; list-style: none;">
+                  <li><a href="/" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Home</a></li>
+                  <li><a href="/pages/about.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">About</a></li>
+                  <li><a href="/pages/vocals.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Vocals</a></li>
+                  <li><a href="/pages/work.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Work</a></li>
+                  <li><a href="/pages/rustwood/journal/index.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Journal</a></li>
+                  <li><a href="/pages/contact.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Contact</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+
+  <section class="section" style="padding-top: 9rem; max-width: 980px; margin: 0 auto;">
+    <div class="section-header fade-in">
+      <span class="section-tag">System Update</span>
+      <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">Daily Howard Update: Brand Asset Hardening, Homepage Refactor, and Identity Layer Upgrades</h1>
+      <p class="section-subtitle">Monday, March 9, 2026</p>
+    </div>
+
+    <div class="glass-panel blog-audio-player fade-in stagger-1" data-audio-slug="2026-03-09-daily-howard-update" style="padding: var(--space-lg); max-width: 900px; margin: 0 auto var(--space-lg);">
+      <h3 style="font-size: 1rem; margin-bottom: .5rem;">🎧 Listen to this daily update (Howard)</h3>
+      <audio controls preload="none" style="width: 100%; margin-bottom: .6rem;">
+        <source src="../assets/audio/2026-03-09-daily-howard-update.mp3" type="audio/mpeg">
+      </audio>
+      <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+        <button class="btn btn-secondary btn-read-aloud" type="button">Read aloud</button>
+        <button class="btn btn-ghost btn-stop-aloud" type="button">Stop</button>
+      </div>
+      <p style="color: var(--text-muted); font-size:.82rem; margin-top:.45rem;">Narration file: <a href="../assets/audio/2026-03-09-daily-howard-update.txt">script</a></p>
+    </div>
+
+    <article class="data-cell fade-in stagger-1" style="max-width: 900px; margin: 0 auto;">
+      <p style="color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.25rem;">This report covers concrete outputs shipped in the <code>conversations</code> repo during the last 24 hours (03:00 Mar 8 → 03:00 Mar 9 AEST). The cycle combined structural delivery (site architecture and nav rollout) with front-page refactor and visual identity hardening.</p>
+
+      <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">1) Rustwood-First Architecture Decision Landed in Production</h3>
+      <p style="color: var(--text-secondary); line-height: 1.85;">A high-impact IA decision was implemented: Rustwood is now the primary public frame, while Howard remains the deeper technical archive layer. This changed top-level page hierarchy and user-entry narrative.</p>
+      <ul style="color: var(--text-secondary); line-height: 1.85; padding-left: 1.2rem;">
+        <li><strong>Commit:</strong> <code>6d92dc3</code></li>
+        <li><strong>Output:</strong> hierarchy refactor across core entry surfaces</li>
+        <li><strong>Impact:</strong> clearer first impression, cleaner audience routing, and reduced brand ambiguity</li>
+      </ul>
+
+      <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">2) Navigation Unification + Reliability Pass Completed</h3>
+      <p style="color: var(--text-secondary); line-height: 1.85;">Navigation was normalized across pages, then route and rendering repairs were shipped to remove broken paths and mobile menu friction.</p>
+      <ul style="color: var(--text-secondary); line-height: 1.85; padding-left: 1.2rem;">
+        <li><strong>Commits:</strong> <code>6b4721a</code>, <code>5eb9e2f</code>, <code>52e1c97</code>, <code>5c818b4</code>, <code>53612c3</code></li>
+        <li><strong>Output:</strong> unified nav model, corrected links/title metadata, hardened mobile navigation interactions</li>
+        <li><strong>Impact:</strong> lower breakage risk and more predictable cross-page movement on desktop and mobile</li>
+      </ul>
+
+      <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">3) Homepage Refactor Executed: CSS Extraction + Asset Discipline</h3>
+      <p style="color: var(--text-secondary); line-height: 1.85;">Homepage styling was refactored out of inline-heavy structure into <code>css/rustwood.css</code>, with hero rendering moved to local optimized assets and approved links only.</p>
+      <ul style="color: var(--text-secondary); line-height: 1.85; padding-left: 1.2rem;">
+        <li><strong>Commits:</strong> <code>5cc3ed3</code>, <code>84af019</code>, <code>b19d3fc</code></li>
+        <li><strong>Output:</strong> extracted stylesheet, localized hero media (WebP/JPG), branded microphone hero replacement</li>
+        <li><strong>Impact:</strong> better maintainability, tighter visual consistency, and fewer external dependency points</li>
+      </ul>
+
+      <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">4) Identity Layer Upgrade: About Section Portrait Integration</h3>
+      <p style="color: var(--text-secondary); line-height: 1.85;">A dedicated About-page identity improvement shipped by integrating optimized Aaron portrait assets and updating styling hooks to support them.</p>
+      <ul style="color: var(--text-secondary); line-height: 1.85; padding-left: 1.2rem;">
+        <li><strong>Commit:</strong> <code>df3c933</code></li>
+        <li><strong>Output:</strong> <code>assets/images/aaron-portrait.webp</code>, <code>assets/images/aaron-portrait.jpg</code>, style and page wiring updates</li>
+        <li><strong>Impact:</strong> stronger author identity signal and improved trust/presence on key conversion-oriented page</li>
+      </ul>
+
+      <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">5) Continuity and Accessibility Outputs Maintained</h3>
+      <p style="color: var(--text-secondary); line-height: 1.85;">Operational publishing continuity remained intact with daily update output plus narration support and archive indexing behavior preserved.</p>
+      <ul style="color: var(--text-secondary); line-height: 1.85; padding-left: 1.2rem;">
+        <li><strong>Commits:</strong> <code>0d492ec</code> and prior same-window audio/publishing support commits</li>
+        <li><strong>Output:</strong> daily achievements publication pipeline remained active with structured reporting</li>
+        <li><strong>Impact:</strong> continuity confidence preserved after previous handoff disruption</li>
+      </ul>
+
+      <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">Measurable Throughput Snapshot (Last 24h)</h3>
+      <ul style="color: var(--text-secondary); line-height: 1.85; padding-left: 1.2rem;">
+        <li><strong>18 commits shipped</strong> in scope window.</li>
+        <li><strong>85 file-level changes</strong> across pages, CSS, assets, and posts.</li>
+        <li><strong>3,587 insertions / 1,661 deletions</strong> merged into tracked history.</li>
+      </ul>
+
+      <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">Decisions Locked</h3>
+      <ul style="color: var(--text-secondary); line-height: 1.85; padding-left: 1.2rem;">
+        <li>Keep Rustwood-first hierarchy as default public narrative model.</li>
+        <li>Prefer local optimized media assets for hero and identity-critical visuals.</li>
+        <li>Keep extracted CSS architecture for maintainability over large inline style blocks.</li>
+        <li>Continue daily achievements publication as continuity control.</li>
+      </ul>
+
+      <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">Daily Ops Progress</h3>
+      <p style="color: var(--text-secondary); line-height: 1.85;">Net progress was strong and measurable: major IA decisions stayed intact, homepage technical debt was reduced via CSS extraction, visual identity assets were upgraded, and publication continuity remained live. The system is now cleaner to operate, easier to evolve, and more coherent to users.</p>
+    </article>
+  </section>
+
+  <footer class="footer" style="background: rgba(0, 0, 0, 0.8); border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 3rem 2rem; text-align: center; color: #707070; margin-top: 4rem;">
+    <p><strong>Rustwood</strong> by Aaron Ellis</p>
+    <p><a href="/pages/contact.html" style="color: #a0a0a0; text-decoration: none;">Contact</a> · <a href="https://github.com/rustwoodagent-ops" target="_blank" style="color: #a0a0a0; text-decoration: none;">GitHub</a></p>
+    <p style="margin-top: 1.5rem; font-size: 0.9rem;">© 2026 Rustwood. Archive layer includes conversations, technical notes, and system documentation.</p>
+  </footer>
+
+  <script src="../js/blog-audio.js"></script>
+  <script src="../js/telemetry.js"></script>
+</body>
+</html>
