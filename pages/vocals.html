@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rustwood Vocals — Custom Song Production & Vocal Coaching</title>
+    <meta name="description" content="Custom song production and vocal coaching by Aaron Ellis. 14-day turnaround, unlimited revisions, human-centered approach.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        header.main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.2rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .service-card .price {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card li {
+            color: #a0a0a0;
+            margin-bottom: 0.7rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .service-card a {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card a:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .process-section {
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-num {
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.1);
+            margin-bottom: 0.5rem;
+        }
+
+        .step h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.7rem;
+        }
+
+        .step p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+        }
+
+        .faq-section {
+            margin-top: 4rem;
+        }
+
+        .faq-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            color: #fff;
+        }
+
+        .faq-item p {
+            color: #a0a0a0;
+        }
+
+        .cta-final {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            margin-top: 4rem;
+        }
+
+        .cta-final h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .cta-final p {
+            color: #a0a0a0;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-final a {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-final a:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #707070;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: #a0a0a0;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">Rustwood</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/vocals.html" class="active">Vocals</a></li>
+                    <li><a href="/pages/work.html">Work</a></li>
+                    <li><a href="/pages/rustwood/journal/index.html">Journal</a></li>
+                    <li><a href="/pages/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Rustwood Vocals</h1>
+        <p class="tagline">Custom song production and vocal coaching. Fast turnaround. Unlimited revisions. Human-centered approach.</p>
+
+        <h2>Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <h3>Custom Song Production</h3>
+                <p class="price">$200 AUD</p>
+                <ul>
+                    <li>Original composition written for your voice</li>
+                    <li>Professional production & mixing</li>
+                    <li>14-day turnaround</li>
+                    <li>Unlimited revision cycles</li>
+                    <li>Final stereo mix delivered</li>
+                </ul>
+                <a href="/pages/contact.html">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <h3>Custom Song + Add-ons</h3>
+                <p class="price">$200 + $50</p>
+                <ul>
+                    <li>Full production (as above)</li>
+                    <li>Mastered stereo mix</li>
+                    <li>Vocal recording & tuning</li>
+                    <li>Production notes & breakdown</li>
+                    <li>Stems for future remixing</li>
+                </ul>
+                <a href="/pages/contact.html">Explore Options</a>
+            </div>
+
+            <div class="service-card">
+                <h3>Vocal Coaching</h3>
+                <p class="price">Custom Rate</p>
+                <ul>
+                    <li>One-on-one sessions</li>
+                    <li>Technique development</li>
+                    <li>Range expansion guidance</li>
+                    <li>Artistic confidence building</li>
+                    <li>Remote or in-person</li>
+                </ul>
+                <a href="/pages/contact.html">Schedule Consultation</a>
+            </div>
+        </div>
+
+        <div class="process-section">
+            <h2>The Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h4>Discovery</h4>
+                    <p>Tell me about your voice, style, and story. What do you want this song to capture?</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h4>Composition</h4>
+                    <p>I write an original piece tailored to your vocal range and artistic vision.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h4>Production</h4>
+                    <p>Full production, mixing, and professional delivery of your custom song.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <h4>Revisions</h4>
+                    <p>Unlimited rounds of refinement until we nail it together.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>FAQ</h2>
+
+            <div class="faq-item">
+                <h4>What styles do you work with?</h4>
+                <p>I'm versatile across classical, contemporary, soul, rock, jazz, and experimental styles. Whatever resonates with you, we can create it.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can I request revisions after delivery?</h4>
+                <p>Yes. The production includes unlimited revision cycles until you're satisfied. We work until we get it right.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What if I'm not sure what I want?</h4>
+                <p>No problem. We start with a discovery conversation where I ask about your voice, style preferences, and the story behind the song. We'll develop it together.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can you work with my existing vocal recordings?</h4>
+                <p>Absolutely. Bring reference vocals, and I'll craft production around your unique sound.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do you offer vocal recording as part of production?</h4>
+                <p>Yes, as an add-on. I can record, tune, and blend your vocals into the mix for a fully realized final product.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What's the licensing for the final song?</h4>
+                <p>It's yours to use. Full rights to the composition and recording. Use it however you like—release, personal use, streaming, etc.</p>
+            </div>
+        </div>
+
+        <div class="cta-final">
+            <h3>Ready to Create Something Great?</h3>
+            <p>Let's talk about your project. No obligation, just a conversation about what's possible.</p>
+            <a href="/pages/contact.html">Get in Touch</a>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>Rustwood</strong> by Aaron Ellis</p>
+        <p><a href="/pages/contact.html">Contact</a> · <a href="https://github.com/rustwoodagent-ops" target="_blank">GitHub</a></p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem;">© 2026 Rustwood. All rights reserved.</p>
+    </footer>
+</body>
+</html>

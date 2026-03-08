@@ -16,29 +16,21 @@
   <div class="signal-lines" aria-hidden="true"></div>
   <div class="progress-indicator"><div class="progress-bar" id="progressBar"></div></div>
 
-  <section class="terminal-header-shell" aria-label="Terminal header and menu">
-    <div class="terminal-header-intro">
-      <h1>CONVERSATIONS ARCHIVE</h1>
-      <p>Telemetry-style operations surface for execution, archive, and system workflows.</p>
-    </div>
-
-    <div class="terminal-header-boot" aria-label="Boot sequence">
-      <p>[BOOT] initializing surface modules...</p>
-      <p>[SYNC] loading navigation, telemetry, and content routes...</p>
-      <p>[READY] terminal surface online.</p>
-    </div>
-
-    <div class="terminal-header-menu" aria-label="Telemetry menu">
-      <p class="terminal-menu-line">howard@rustwoodstudio:~$ menu --surface /pages/conversations.html</p>
-      <div class="terminal-menu-links">
-        <a href="/index.html">/home</a>
-        <a href="/pages/conversations.html">/archive</a>
-        <a href="/prompt-lab/index.html">/prompt-lab</a>
-        <a href="/pages/upload.html">/upload</a>
-        <a href="/pages/telemetry.html">/telemetry</a>
+  <header class="main-nav" style="position: sticky; top: 0; z-index: 100; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 1.2rem 2rem;">
+      <div class="nav-container" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+          <a href="/" style="font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; color: #fff; text-decoration: none;">Rustwood</a>
+          <nav>
+              <ul style="display: flex; gap: 2.5rem; list-style: none;">
+                  <li><a href="/" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Home</a></li>
+                  <li><a href="/pages/about.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">About</a></li>
+                  <li><a href="/pages/vocals.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Vocals</a></li>
+                  <li><a href="/pages/work.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Work</a></li>
+                  <li><a href="/pages/rustwood/journal/index.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Journal</a></li>
+                  <li><a href="/pages/contact.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Contact</a></li>
+              </ul>
+          </nav>
       </div>
-    </div>
-  </section>
+  </header>
 
   <section class="section archive-terminal" style="padding-top: 10rem;" data-feed-root data-feed-manifest="../posts/index.json" data-posts-base="../posts" data-post-template="../templates/post-template.html">
     <div class="section-header fade-in" style="padding: 1.1rem 1.2rem 0;">
@@ -102,17 +94,10 @@
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-brand">Howard</div>
-      <ul class="footer-links">
-        <li><a href="../prompt-lab/index.html">Prompt Lab</a></li>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="system.html">System</a></li>
-        <li><a href="https://github.com/rustwoodagent-ops/conversations" target="_blank">GitHub</a></li>
-      </ul>
-      <p class="footer-text">© 2026 Howard AI Laboratory • Built with intention, not automation</p>
-    </div>
+  <footer class="footer" style="background: rgba(0, 0, 0, 0.8); border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 3rem 2rem; text-align: center; color: #707070; margin-top: 4rem;">
+    <p><strong>Rustwood</strong> by Aaron Ellis</p>
+    <p><a href="/pages/contact.html" style="color: #a0a0a0; text-decoration: none;">Contact</a> · <a href="https://github.com/rustwoodagent-ops" target="_blank" style="color: #a0a0a0; text-decoration: none;">GitHub</a></p>
+    <p style="margin-top: 1.5rem; font-size: 0.9rem;">© 2026 Rustwood. Archive layer includes conversations, technical notes, and system documentation.</p>
   </footer>
 
   <script src="../js/telemetry.js"></script>
