@@ -285,17 +285,18 @@ section.feature-grid {
 }
 
 .about-visual {
-    padding: 3.5rem;
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(139, 90, 43, 0.04) 100%);
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 1.2rem;
-    text-align: center;
+    overflow: hidden;
     box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
 }
 
-.about-visual p {
-    color: #888;
-    font-style: italic;
+.about-portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* Deeper Exploration */
