@@ -12,6 +12,18 @@
     <style>
         .section-title, .section-subtitle, .section-tag { color: #f8fafc !important; }
         .data-label { color: #cbd5e1 !important; }
+        .mobile-menu-btn { display: none; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: 8px; padding: .35rem .55rem; font-size: 1rem; }
+        .mobile-menu { display: none; }
+        @media (max-width: 900px) {
+            .main-nav { padding: .85rem 1rem !important; }
+            .nav-container { gap: .75rem; }
+            .main-nav nav > ul { display: none !important; }
+            .mobile-menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+            .mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,10,10,.98); border-bottom: 1px solid rgba(255,255,255,.12); padding: .5rem 1rem .9rem; }
+            .mobile-menu.open { display: block; }
+            .mobile-menu a { display: block; color: #cfd6ef; text-decoration: none; padding: .55rem 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+            .mobile-menu a:last-child { border-bottom: 0; }
+        }
     </style>
 </head>
 <body>
@@ -28,6 +40,15 @@
                     <li><a href="/pages/contact.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Contact</a></li>
                 </ul>
             </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="/">Home</a>
+            <a href="/pages/about.html">About</a>
+            <a href="/pages/vocals.html">Vocals</a>
+            <a href="/pages/work.html">Work</a>
+            <a href="/pages/rustwood/journal/index.html">Journal</a>
+            <a href="/pages/contact.html">Contact</a>
         </div>
     </header>
 
@@ -120,5 +141,13 @@
             <p class="footer-text">© 2026 Howard AI Laboratory</p>
         </div>
     </footer>
+    <script>
+      (function(){
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+        if (!btn || !menu) return;
+        btn.addEventListener('click', () => menu.classList.toggle('open'));
+      })();
+    </script>
 </body>
 </html>
