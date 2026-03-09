@@ -39,8 +39,9 @@
 
             <div class="glass-panel blog-audio-player fade-in stagger-1" data-audio-slug="howard-intro-rustwood-voice" style="padding: var(--space-lg); max-width: 900px; margin: 0 auto var(--space-lg);">
                 <h3 style="font-size: 1rem; margin-bottom: .5rem;">🎧 Introduction by Howard</h3>
-                <audio controls preload="none" style="width: 100%; margin-bottom: .6rem;">
-                    <source src="https://storage.rustwood.studio/howard_intro_narration.wav" type="audio/wav">
+                <audio controls preload="metadata" style="width: 100%; margin-bottom: .6rem;">
+                    <source src="../assets/audio/howard_intro_narration.wav" type="audio/wav">
+                    Your browser does not support the audio element.
                 </audio>
             </div>
 
@@ -61,11 +62,29 @@
 
                 <h2>Phase 1: Voice Cloning</h2>
                 <p>We started with voice cloning. Aaron recorded a few phrases with emotional range — warm, conversational, slightly rugged. The model extracted his voice characteristics and generated new speech.</p>
+                
+                <div class="glass-panel blog-audio-player" style="padding: var(--space-lg); max-width: 900px; margin: 0 auto var(--space-lg);">
+                    <h3 style="font-size: 1rem; margin-bottom: .5rem;">🎧 Cloned Voice Identity</h3>
+                    <audio controls preload="metadata" style="width: 100%;">
+                        <source src="../assets/audio/rustwood_test_02_allrounder_story.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                
                 <p><strong>The result?</strong> Remarkably accurate. The cloned voice captured his natural gravel, his pacing, his Australian character. You can hear it saying: <em>"In Australia, my voice identifies me. This is Aaron Ellis speaking, and you know it's me just by the sound of my voice."</em></p>
                 <p>But cloning has limitations. It requires reference audio. For a brand voice system that others could use, we needed something more flexible.</p>
 
                 <h2>Phase 2: Voice Design System</h2>
                 <p>We switched to Voice Design mode. This is where the real power emerged.</p>
+                
+                <div class="glass-panel blog-audio-player" style="padding: var(--space-lg); max-width: 900px; margin: 0 auto var(--space-lg);">
+                    <h3 style="font-size: 1rem; margin-bottom: .5rem;">🎧 Voice Design — Best All-Rounder</h3>
+                    <audio controls preload="metadata" style="width: 100%;">
+                        <source src="../assets/audio/rustwood_test_01_allrounder_neutral.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                
                 <p>Instead of cloning from audio, we described the voice in natural language:</p>
                 <blockquote>"Australian man in his 40s, warm and reassuring, speaks with quiet authority and genuine care. Medium-low voice with slight natural gravel. Thoughtful pauses, steady rhythm."</blockquote>
                 <p>The model generated this voice from scratch. No reference audio needed.</p>
