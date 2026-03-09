@@ -1,5 +1,15 @@
 [
   {
+    "title": "Daily Howard Update: Voice-Pack Publication Sprint, Player UX Standardization, and Legal-Page Reliability Hardening",
+    "url": "2026-03-10-daily-howard-update.html",
+    "date": "2026.03.10",
+    "category": "system",
+    "source": "HOWARD",
+    "readTime": "6 min",
+    "excerpt": "A detailed 24-hour achievements report covering voice-pack publishing, audio player standardization, legal-page mobile hardening, and measurable repo throughput.",
+    "tags": ["system", "ops", "audio", "reliability"]
+  },
+  {
     "title": "Building the Rustwood Voice Pack: A Complete Synthetic Voice System for Qwen-TTS",
     "url": "2026-03-09-building-the-rustwood-voice-pack.html",
     "date": "2026.03.09",
