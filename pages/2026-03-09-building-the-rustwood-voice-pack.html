@@ -40,7 +40,7 @@
             <div class="content prose" style="max-width: 900px; margin: 0 auto;">
                 
                 <div class="glass-panel blog-audio-player fade-in" style="padding: 1.5rem; margin: 1.5rem 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.03);">
-                    <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: #a6fbd5;">🎧 Listen: Introduction by Howard</h3>
+                    <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: #a6fbd5;">🎧 Listen: Narration by Howard</h3>
                     <audio controls preload="metadata" style="width: 100%; height: 40px;">
                         <source src="../assets/audio/howard_intro_narration.wav" type="audio/wav">
                         Your browser does not support the audio element.
@@ -64,28 +64,10 @@
                 <h2>Phase 1: Voice Cloning</h2>
                 <p>We started with voice cloning. Aaron recorded a few phrases with emotional range — warm, conversational, slightly rugged. The model extracted his voice characteristics and generated new speech.</p>
                 
-                <div class="glass-panel blog-audio-player" style="padding: 1.5rem; margin: 1.5rem 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.03);">
-                    <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: #a6fbd5;">🎧 Sample: Cloned Voice Identity</h3>
-                    <audio controls preload="metadata" style="width: 100%; height: 40px;">
-                        <source src="../assets/audio/rustwood_test_02_allrounder_story.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                
-                <p><strong>The result?</strong> Remarkably accurate. The cloned voice captured his natural gravel, his pacing, his Australian character. You can hear it saying: <em>"In Australia, my voice identifies me. This is Aaron Ellis speaking, and you know it's me just by the sound of my voice."</em></p>
-                <p>But cloning has limitations. It requires reference audio. For a brand voice system that others could use, we needed something more flexible.</p>
+                <p><strong>The result?</strong> Remarkably accurate. The cloned voice captured his natural gravel, his pacing, his Australian character. But cloning has limitations. It requires reference audio. For a brand voice system that others could use, we needed something more flexible.</p>
 
                 <h2>Phase 2: Voice Design System</h2>
                 <p>We switched to Voice Design mode. This is where the real power emerged.</p>
-                
-                <div class="glass-panel blog-audio-player" style="padding: 1.5rem; margin: 1.5rem 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.03);">
-                    <h3 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: #a6fbd5;">🎧 Sample: Voice Design — Best All-Rounder</h3>
-                    <audio controls preload="metadata" style="width: 100%; height: 40px;">
-                        <source src="../assets/audio/rustwood_test_01_allrounder_neutral.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                
                 <p>Instead of cloning from audio, we described the voice in natural language:</p>
                 <blockquote style="border-left: 3px solid #a6fbd5; padding-left: 1rem; margin: 1rem 0; color: #ccc;">"Australian man in his 40s, warm and reassuring, speaks with quiet authority and genuine care. Medium-low voice with slight natural gravel. Thoughtful pauses, steady rhythm."</blockquote>
                 <p>The model generated this voice from scratch. No reference audio needed.</p>
@@ -107,6 +89,56 @@
 
                 <h3>5. Confident Sales Guide</h3>
                 <p>Assured and capable. Speaks with quiet confidence — not pushy, not hype.</p>
+
+                <h2>Voice Test Samples</h2>
+                <p>Here are the five test generations we created using different voice + script combinations:</p>
+
+                <div class="glass-panel blog-audio-player" style="padding: 1.5rem; margin: 1rem 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.03);">
+                    <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: #a6fbd5;">🎧 Test 1: Best All-Rounder + Neutral</h3>
+                    <p style="font-size: 0.85rem; color: #888; margin-bottom: 0.75rem;">"Welcome to Rustwood Studios. I am Aaron Ellis, and this is where we build things that matter..."</p>
+                    <audio controls preload="metadata" style="width: 100%; height: 40px;">
+                        <source src="../assets/audio/rustwood_test_01_allrounder_neutral.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="glass-panel blog-audio-player" style="padding: 1.5rem; margin: 1rem 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.03);">
+                    <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: #a6fbd5;">🎧 Test 2: Best All-Rounder + Story</h3>
+                    <p style="font-size: 0.85rem; color: #888; margin-bottom: 0.75rem;">"There was a time when I thought I had to shout to be heard..."</p>
+                    <audio controls preload="metadata" style="width: 100%; height: 40px;">
+                        <source src="../assets/audio/rustwood_test_02_allrounder_story.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="glass-panel blog-audio-player" style="padding: 1.5rem; margin: 1rem 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.03);">
+                    <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: #a6fbd5;">🎧 Test 3: Premium Narrator + Story</h3>
+                    <p style="font-size: 0.85rem; color: #888; margin-bottom: 0.75rem;">Documentary-style narrative delivery</p>
+                    <audio controls preload="metadata" style="width: 100%; height: 40px;">
+                        <source src="../assets/audio/rustwood_test_03_narrator_story.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="glass-panel blog-audio-player" style="padding: 1.5rem; margin: 1rem 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.03);">
+                    <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: #a6fbd5;">🎧 Test 4: Offers + Sales</h3>
+                    <p style="font-size: 0.85rem; color: #888; margin-bottom: 0.75rem;">"This is not for everyone. But if you are the kind of person who values quality over noise..."</p>
+                    <audio controls preload="metadata" style="width: 100%; height: 40px;">
+                        <source src="../assets/audio/rustwood_test_04_offers_sales.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="glass-panel blog-audio-player" style="padding: 1.5rem; margin: 1rem 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.03);">
+                    <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: #a6fbd5;">🎧 Test 5: Offers + Social</h3>
+                    <p style="font-size: 0.85rem; color: #888; margin-bottom: 0.75rem;">"Quick thought for you today: stop trying to sound like everyone else..."</p>
+                    <audio controls preload="metadata" style="width: 100%; height: 40px;">
+                        <source src="../assets/audio/rustwood_test_05_offers_social.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <p><strong>The quality?</strong> Exceptional. The voice is warm, human, distinctly Australian, and premium-feeling. No nasal tone. No radio-announcer polish. Just authentic, capable presence.</p>
 
                 <h2>What We Built</h2>
                 <p>The complete system includes:</p>
