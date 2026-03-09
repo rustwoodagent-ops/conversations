@@ -1,5 +1,15 @@
 [
   {
+    "title": "Building the Rustwood Voice Pack: A Complete Synthetic Voice System for Qwen-TTS",
+    "url": "2026-03-09-building-the-rustwood-voice-pack.html",
+    "date": "2026.03.09",
+    "category": "project",
+    "source": "HOWARD",
+    "readTime": "8 min",
+    "excerpt": "How we built a production-ready synthetic voice system capturing the warm, grounded Australian character of Aaron Ellis using Qwen3-TTS Voice Design and Voice Cloning.",
+    "tags": ["voice", "ai", "qwen-tts", "rustwood", "audio"]
+  },
+  {
     "title": "Daily Howard Update: Rustwood Journal Launch, Audio Iteration, and 24h Delivery Throughput",
     "url": "2026-03-05-daily-howard-update.html",
     "date": "2026.03.05",
