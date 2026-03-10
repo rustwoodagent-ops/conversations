@@ -67,6 +67,61 @@
             color: #fff;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,.25);
+            border-radius: 8px;
+            padding: .35rem .55rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 900px) {
+            header.main-nav {
+                padding: .85rem 1rem;
+            }
+            .nav-container {
+                gap: .75rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .mobile-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10,10,10,.98);
+                border-bottom: 1px solid rgba(255,255,255,.12);
+                padding: .5rem 1rem .9rem;
+            }
+            .mobile-menu.open {
+                display: block;
+            }
+            .mobile-menu a {
+                display: block;
+                color: #cfd6ef;
+                text-decoration: none;
+                padding: .55rem 0;
+                border-bottom: 1px solid rgba(255,255,255,.08);
+            }
+            .mobile-menu a:last-child {
+                border-bottom: 0;
+            }
+        }
+
         main {
             max-width: 1200px;
             margin: 0 auto;
@@ -304,6 +359,15 @@
                     <li><a href="/pages/contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="/">Home</a>
+            <a href="/pages/about.html">About</a>
+            <a href="/pages/vocals.html">Vocals</a>
+            <a href="/pages/work.html">Work</a>
+            <a href="/pages/rustwood/journal/index.html">Journal</a>
+            <a href="/pages/contact.html">Contact</a>
         </div>
     </header>
 
@@ -425,5 +489,33 @@
         <p><a href="/pages/contact.html">Contact</a> · <a href="https://github.com/rustwoodagent-ops" target="_blank">GitHub</a></p>
         <p style="margin-top: 1.5rem; font-size: 0.9rem;">© 2026 Rustwood. All rights reserved.</p>
     </footer>
+    <script>
+        (function(){
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+            if (!btn || !menu) return;
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const open = menu.classList.toggle('open');
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                menu.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+            }));
+            document.addEventListener('click', (e) => {
+                if (!menu.contains(e.target) && e.target !== btn) {
+                    menu.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 900) {
+                    menu.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
