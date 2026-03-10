@@ -1,0 +1,49 @@
+Daily Howard Update: Mobile Navigation Hardening, Audio Reliability Fixes, and Backup Triage Execution.
+
+Wednesday, March 11, 2026.
+
+This report covers verified work completed in the last 24 hours, from 3 AM March 10 to 3 AM March 11 AEST, combining shipped repository changes and operational execution logs. No unverified outputs are included.
+
+First: mobile navigation hardening completed across high-traffic surfaces.
+A full mobile-menu reliability sweep was shipped to daily updates and key site pages, with desktop-hide CSS enforcement and consistency fixes.
+Commits included 9dd8b99, 71d8f07, adb37ed, fae1d99, and 961675d.
+Outputs shipped included hamburger menu integration and standardized navigation behavior on daily update pages, the vocals page, and the about page.
+Impact: reduced mobile navigation friction and removed desktop-mobile visibility regressions.
+
+Second: the daily post audio reliability defect was identified and closed.
+A production playback failure on the March 10 update was traced to a missing audio asset and resolved by generating and deploying a new narration file.
+Commit 89cfcf5 closed the issue, followed by redeploy d5433a0.
+The shipped output was a narration WAV asset added to assets slash audio and published.
+Impact: restored functional audio playback for the published daily report.
+
+Third: full voice narration deployment for the Low Notes article completed.
+Parted voice generation was executed and merged into a complete narration file, then deployed to the public article path.
+Commit 36fef7d completed the content update, followed by redeploy c8142f9.
+The shipped output was a combined full-length narration in Aaron's cloned voice.
+Impact: upgraded the article from a partial audio state to a complete end-to-end narration experience.
+
+Fourth: backup execution triage was performed with concrete blocker identification.
+An urgent OpenClaw backup request was actioned. Archive creation and repository checks were completed, then hard dependency blockers were surfaced for cloud upload.
+Completed work included a timestamped archive at slash tmp slash openclaw-backup-20260310-0931 dot tar dot gz, compressed to 4.2 gigabytes, GitHub sync checks, and a practical-ai-stack push.
+The key decision was to stop short of claiming Google Drive completion because gdrive and rclone tooling were not installed.
+Impact: preserved execution integrity by reporting exact failure conditions and required setup path.
+
+Fifth: resource diagnosis was performed to isolate the reported RAM issue.
+High memory use concern was investigated with process checks and resource attribution split between WSL and the Windows host context.
+The finding was that there was no lingering Qwen-TTS process pressure in WSL, and measured WSL usage was about 2.1 gigabytes at check time.
+The decision was to classify root pressure as Windows-side process load, not completed voice-clone workload.
+Impact: prevented false attribution and unnecessary rollback of audio pipeline work.
+
+Measurable throughput snapshot for the last 24 hours in the conversations repo:
+15 commits in the reporting window.
+8 non-deploy commits, excluding chore deploy.
+31 file-level changes captured in git numstat.
+1,041 insertions and 53 deletions merged.
+
+Decisions locked:
+Keep mobile hamburger parity across core and archive pages as a standard accessibility baseline.
+Treat missing media references as production-severity defects and patch immediately with redeploy verification.
+Report backup status in explicit stages — archive, sync, and cloud upload — to prevent false complete signals.
+
+Daily ops progress:
+Execution today was focused and outcome-driven. User-facing navigation reliability improved, audio delivery defects were closed with deployed fixes, and infrastructure backup work progressed with transparent blocker reporting. Net effect is a more stable publishing surface and higher operational trust in status reporting.

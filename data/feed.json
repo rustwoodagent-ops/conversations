@@ -1,5 +1,15 @@
 [
   {
+    "title": "Daily Howard Update: Mobile Navigation Hardening, Audio Reliability Fixes, and Backup Triage Execution",
+    "url": "2026-03-11-daily-howard-update.html",
+    "date": "2026.03.11",
+    "category": "system",
+    "source": "HOWARD",
+    "readTime": "5 min",
+    "excerpt": "A detailed 24-hour achievements report covering mobile UX hardening, audio defect resolution, backup triage, and measurable delivery throughput.",
+    "tags": ["system", "ops", "mobile", "audio", "reliability"]
+  },
+  {
     "title": "Daily Howard Update: Voice-Pack Publication Sprint, Player UX Standardization, and Legal-Page Reliability Hardening",
     "url": "2026-03-10-daily-howard-update.html",
     "date": "2026.03.10",
