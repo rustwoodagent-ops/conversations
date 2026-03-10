@@ -10,16 +10,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/system.css">
 <style>
-.mobile-menu-btn { display: none; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: 8px; padding: .35rem .55rem; font-size: 1rem; }
+.main-nav { position: sticky; top: 0; z-index: 100; }
+.mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 8px;
+  padding: .35rem .55rem;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
 .mobile-menu { display: none; }
 @media (max-width: 900px) {
   .main-nav { padding: .85rem 1rem !important; }
   .nav-container { gap: .75rem; }
   .main-nav nav > ul { display: none !important; }
-  .mobile-menu-btn { display: inline-flex; align-items: center; justify-content: center; }
-  .mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,10,10,.98); border-bottom: 1px solid rgba(255,255,255,.12); padding: .5rem 1rem .9rem; }
+  .mobile-menu-btn { display: inline-flex; }
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,10,.98);
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    padding: .5rem 1rem .9rem;
+  }
   .mobile-menu.open { display: block; }
-  .mobile-menu a { display: block; color: #cfd6ef; text-decoration: none; padding: .55rem 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .mobile-menu a {
+    display: block;
+    color: #cfd6ef;
+    text-decoration: none;
+    padding: .55rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
   .mobile-menu a:last-child { border-bottom: 0; }
 }
 </style>
@@ -40,7 +68,7 @@
                   <li><a href="/pages/contact.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Contact</a></li>
               </ul>
           </nav>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
             </div>
             <div class="mobile-menu" id="mobileMenu">
               <a href="/">Home</a>
@@ -147,7 +175,30 @@
   const btn = document.getElementById('mobileMenuBtn');
   const menu = document.getElementById('mobileMenu');
   if (!btn || !menu) return;
-  btn.addEventListener('click', () => menu.classList.toggle('open'));
+
+  const setOpen = (open) => {
+    menu.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  };
+
+  btn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    setOpen(!menu.classList.contains('open'));
+  });
+
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!menu.contains(event.target) && !btn.contains(event.target)) {
+      setOpen(false);
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) setOpen(false);
+  });
 })();
 </script>
 </body>
