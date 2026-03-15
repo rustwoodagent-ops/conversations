@@ -9,21 +9,43 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/system.css">
+  <link rel="stylesheet" href="/assets/css/howard-theme.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="main-nav" style="position: sticky; top: 0; z-index: 100; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 1.2rem 2rem;">
-        <div class="nav-container" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-            <a href="/" style="font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; color: #fff; text-decoration: none;">Rustwood</a>
-            <nav>
-                <ul style="display: flex; gap: 2.5rem; list-style: none;">
-                    <li><a href="/" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Home</a></li>
-                    <li><a href="/pages/about.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">About</a></li>
-                    <li><a href="/pages/vocals.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Vocals</a></li>
-                    <li><a href="/pages/work.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Work</a></li>
-                    <li><a href="/pages/rustwood/journal/index.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Journal</a></li>
-                    <li><a href="/pages/contact.html" style="color: #b0b0b0; text-decoration: none; font-size: 0.95rem; font-weight: 500;">Contact</a></li>
-                </ul>
-            </nav>
+<!-- Howard Theme Navigation -->
+<nav class="howard-nav" id="navbar">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <img src="/assets/images/howard-logo.jpg" alt="Howard" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; box-shadow: 0 0 12px rgba(79,195,247,0.3);">
+      <div class="nav-logo-text">
+        <span class="nav-logo-title">Howard</span>
+        <span class="nav-logo-subtitle">Operations Orchestrator</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/pages/conversations.html" class="nav-link">Daily Updates</a>
+      <a href="http://localhost:18789" class="nav-link" target="_blank">Dashboard</a>
+      <a href="https://docs.openclaw.ai" class="nav-link" target="_blank">Docs</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-content">
+      <a href="/" class="mobile-nav-link">Home</a>
+      <a href="/pages/conversations.html" class="mobile-nav-link">Daily Updates</a>
+      <a href="http://localhost:18789" class="mobile-nav-link" target="_blank">Dashboard</a>
+      <a href="https://docs.openclaw.ai" class="mobile-nav-link" target="_blank">Docs</a>
+    </div>
+  </div>
+</nav>
         </div>
     </header>
 
@@ -79,5 +101,5 @@
 
     <script src="../js/blog-audio.js"></script>
     <script src="../js/telemetry.js"></script>
-</body>
+<script>document.addEventListener("DOMContentLoaded",function(){var h=document.getElementById("hamburger"),m=document.getElementById("mobileMenu");h</body></body>h.addEventListener("click",function(){this.classList.toggle("active"),m.classList.toggle("open")});var l=m.querySelectorAll(".mobile-nav-link");l.forEach(function(n){n.addEventListener("click",function(){h.classList.remove("active"),m.classList.remove("open")})})});</script></body>
 </html>
