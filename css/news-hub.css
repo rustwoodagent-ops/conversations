@@ -382,6 +382,71 @@ button { font: inherit; }
   margin: 0 auto;
   padding: 0 1.5rem 4rem;
 }
+
+.nh-ticker-wrap {
+  margin-bottom: 1.4rem;
+}
+.nh-ticker-shell {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  box-shadow: var(--nh-shadow-sm);
+}
+.nh-ticker-kicker {
+  padding: 1rem 1.1rem;
+  background: rgba(92,224,255,0.08);
+  color: var(--nh-accent-cyan);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.nh-ticker-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.nh-ticker-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 0.9rem 0;
+  min-width: max-content;
+  animation: nhTicker 34s linear infinite;
+}
+.nh-ticker-marquee:hover .nh-ticker-track { animation-play-state: paused; }
+.nh-ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--nh-text-secondary);
+  transition: color var(--nh-transition-fast), transform var(--nh-transition-fast);
+}
+.nh-ticker-item:hover {
+  color: var(--nh-text-primary);
+  transform: translateY(-1px);
+}
+.nh-ticker-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--nh-accent-cyan);
+  box-shadow: 0 0 12px rgba(92,224,255,0.5);
+}
+.nh-ticker-label {
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+@keyframes nhTicker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 .nh-categories {
   position: sticky;
   top: 72px;
