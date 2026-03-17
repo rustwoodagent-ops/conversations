@@ -124,7 +124,7 @@
 
     const lower = `${slug} ${(post.title || '').toLowerCase()}`;
     const hit = map.find(([key]) => lower.includes(key));
-    return hit ? hit[1] : '../assets/images/howard-news-anchor-gesture.jpg';
+    return hit ? hit[1] : '/assets/images/howard-news-anchor-gesture.jpg';
   }
 
   function sortPosts(posts) {
