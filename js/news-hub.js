@@ -1,33 +1,34 @@
-// Howard News Hub — Interactive Feed System
-(function() {
+(() => {
   'use strict';
 
-  // Content type configurations
   const CONTENT_TYPES = {
-    report: { label: 'Howard Report', color: '#4fc3f7', icon: '◉' },
-    briefing: { label: 'Tech Briefing', color: '#a78bfa', icon: '▣' },
-    observation: { label: 'Observation', color: '#fbbf24', icon: '◊' },
-    humor: { label: 'Comic Relief', color: '#f472b6', icon: '◐' },
-    world: { label: 'World Watch', color: '#34d399', icon: '◎' },
-    automation: { label: 'Automation Log', color: 'rgba(255,255,255,0.5)', icon: '⌘' },
-    commentary: { label: 'Commentary', color: '#fbbf24', icon: '◈' },
-    news: { label: 'Dispatch', color: '#4fc3f7', icon: '◈' }
+    report: { label: 'Howard Report', tone: 'report' },
+    briefing: { label: 'Tech Briefing', tone: 'briefing' },
+    observation: { label: 'Observation', tone: 'observation' },
+    humor: { label: 'Comic Relief', tone: 'humor' },
+    world: { label: 'World Watch', tone: 'world' },
+    automation: { label: 'Automation Log', tone: 'automation' },
+    commentary: { label: 'Commentary', tone: 'commentary' },
+    news: { label: 'Dispatch', tone: 'news' }
   };
 
-  // State
-  let state = {
+  const state = {
     posts: [],
     filteredPosts: [],
     currentCategory: 'all',
     currentView: 'grid',
     displayedCount: 6,
-    postsPerLoad: 6
+    postsPerLoad: 6,
+    heroCount: 4
   };
 
-  // DOM Elements
-  const elements = {
+  const el = {
     featured: document.getElementById('featuredStory'),
+    heroRail: document.getElementById('heroRail'),
     feed: document.getElementById('contentFeed'),
+    trending: document.getElementById('trendingList'),
+    quick: document.getElementById('quickUpdates'),
+    thoughts: document.getElementById('thoughtsList'),
     categoryButtons: document.querySelectorAll('[data-category]'),
     viewButtons: document.querySelectorAll('[data-view]'),
     loadMore: document.getElementById('loadMore'),
@@ -37,284 +38,334 @@
     lastUpdate: document.getElementById('lastUpdate')
   };
 
-  // Initialize
   function init() {
     bindEvents();
-    loadPosts();
     updateStatus();
+    loadPosts();
   }
 
-  // Event binding
   function bindEvents() {
-    // Category filtering
-    elements.categoryButtons.forEach(btn => {
+    el.categoryButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const category = btn.dataset.category;
+        const category = btn.dataset.category || 'all';
         setCategory(category);
-        
-        // Update active state
-        elements.categoryButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        el.categoryButtons.forEach((b) => b.classList.toggle('active', b === btn));
       });
     });
 
-    // View toggle
-    elements.viewButtons.forEach(btn => {
+    el.viewButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const view = btn.dataset.view;
+        const view = btn.dataset.view || 'grid';
         setView(view);
-        
-        elements.viewButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+        el.viewButtons.forEach((b) => b.classList.toggle('active', b === btn));
       });
     });
 
-    // Load more
-    elements.loadMore?.addEventListener('click', loadMore);
-
-    // Mobile menu
-    elements.menuToggle?.addEventListener('click', toggleMobileMenu);
-
-    // Close mobile menu on link click
-    document.querySelectorAll('.nh-mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        elements.mobileMenu?.classList.remove('active');
-      });
+    el.loadMore?.addEventListener('click', loadMore);
+    el.menuToggle?.addEventListener('click', () => el.mobileMenu?.classList.toggle('active'));
+    document.querySelectorAll('.nh-mobile-link').forEach((link) => {
+      link.addEventListener('click', () => el.mobileMenu?.classList.remove('active'));
     });
   }
 
-  // Load posts from manifest
   async function loadPosts() {
     try {
       const manifestRes = await fetch('../posts/index.json', { cache: 'no-store' });
       if (!manifestRes.ok) throw new Error('Manifest unavailable');
-      
       const files = await manifestRes.json();
-      
-      const loaded = await Promise.all(
-        files.map(async (file) => {
-          try {
-            const res = await fetch(`../posts/${file}`, { cache: 'no-store' });
-            if (!res.ok) return null;
-            const post = await res.json();
-            post.__file = file;
-            return post;
-          } catch {
-            return null;
-          }
-        })
-      );
+
+      const loaded = await Promise.all(files.map(async (file) => {
+        try {
+          const res = await fetch(`../posts/${file}`, { cache: 'no-store' });
+          if (!res.ok) return null;
+          const post = await res.json();
+          post.__file = file;
+          return normalizePost(post);
+        } catch {
+          return null;
+        }
+      }));
 
       state.posts = sortPosts(loaded.filter(Boolean));
       state.filteredPosts = [...state.posts];
-      
-      renderFeatured();
-      renderFeed();
       updateStats();
-    } catch (err) {
-      console.error('Failed to load posts:', err);
+      renderAll();
+    } catch (error) {
+      console.error('Howard News Hub load error:', error);
       showFallback();
     }
   }
 
-  // Sort posts by date (newest first)
+  function normalizePost(post) {
+    const slug = post.slug || '';
+    const summary = post.summary || post.excerpt || '';
+    const headerImage = post.image || post.headerImage || inferImage(slug, post);
+    return {
+      ...post,
+      summary,
+      headerImage,
+      contentType: getContentType(post)
+    };
+  }
+
+  function inferImage(slug, post) {
+    const map = [
+      ['gemini', '../assets/images/news-gemini-pro.png'],
+      ['github', '../assets/images/news-github-codex.png'],
+      ['copilot', '../assets/images/news-copilot-vs.png'],
+      ['protein', '../assets/images/news-protein-ai.png'],
+      ['openai', '../assets/images/news-dalle3.png'],
+      ['news', '../assets/images/news-header-ai-newsroom.png'],
+      ['daily-howard-update', '../assets/images/news-header-ai-newsroom.png']
+    ];
+
+    const lower = `${slug} ${(post.title || '').toLowerCase()}`;
+    const hit = map.find(([key]) => lower.includes(key));
+    return hit ? hit[1] : '../assets/images/news-header-ai-newsroom.png';
+  }
+
   function sortPosts(posts) {
     return [...posts].sort((a, b) => {
-      const dateA = new Date(a.date || '1970-01-01');
-      const dateB = new Date(b.date || '1970-01-01');
-      return dateB - dateA;
+      const dateCompare = new Date(b.date || '1970-01-01') - new Date(a.date || '1970-01-01');
+      if (dateCompare !== 0) return dateCompare;
+      return (a.__file || '').localeCompare(b.__file || '') * -1;
     });
   }
 
-  // Determine content type from post
   function getContentType(post) {
     const type = (post.type || '').toLowerCase();
-    const tags = (post.tags || []).map(t => t.toLowerCase());
+    const tags = (post.tags || []).map((t) => t.toLowerCase());
     const title = (post.title || '').toLowerCase();
-    
-    // Map to content types
-    if (tags.includes('humor') || tags.includes('comic') || type.includes('humor')) return 'humor';
+
+    if (tags.includes('humor') || tags.includes('comic') || title.includes('comic') || title.includes('joke')) return 'humor';
     if (tags.includes('observation') || title.includes('observation')) return 'observation';
     if (tags.includes('automation') || title.includes('automation') || title.includes('log')) return 'automation';
     if (tags.includes('world') || title.includes('world')) return 'world';
-    if (type.includes('briefing') || tags.includes('briefing')) return 'briefing';
+    if (type.includes('briefing') || tags.includes('briefing') || title.includes('briefing')) return 'briefing';
     if (type.includes('report') || title.includes('report')) return 'report';
-    if (tags.includes('news') || type.includes('news')) return 'news';
-    
+    if (tags.includes('news') || type.includes('news') || title.includes('update')) return 'news';
     return 'commentary';
   }
 
-  // Get display info for content type
   function getTypeInfo(type) {
     return CONTENT_TYPES[type] || CONTENT_TYPES.commentary;
   }
 
-  // Set category filter
   function setCategory(category) {
     state.currentCategory = category;
     state.displayedCount = state.postsPerLoad;
-    
-    if (category === 'all') {
-      state.filteredPosts = [...state.posts];
-    } else {
-      state.filteredPosts = state.posts.filter(post => {
-        const postType = getContentType(post);
-        return postType === category || 
-               (post.tags || []).some(t => t.toLowerCase() === category) ||
-               (post.type || '').toLowerCase() === category;
-      });
-    }
-    
-    renderFeed();
+    state.filteredPosts = category === 'all'
+      ? [...state.posts]
+      : state.posts.filter((post) => post.contentType === category);
+    renderAll();
   }
 
-  // Set view mode
   function setView(view) {
     state.currentView = view;
-    elements.feed.dataset.view = view;
+    if (el.feed) el.feed.dataset.view = view;
   }
 
-  // Load more posts
   function loadMore() {
     state.displayedCount += state.postsPerLoad;
     renderFeed();
   }
 
-  // Toggle mobile menu
-  function toggleMobileMenu() {
-    elements.mobileMenu?.classList.toggle('active');
+  function renderAll() {
+    renderHeroCluster();
+    renderFeed();
+    renderSidebar();
   }
 
-  // Render featured story
-  function renderFeatured() {
-    if (!state.posts.length || !elements.featured) return;
-    
-    const featured = state.posts[0];
-    const typeInfo = getTypeInfo(getContentType(featured));
-    const imageUrl = featured.image || featured.headerImage || '../assets/images/news-header-ai-newsroom.png';
-    
-    elements.featured.innerHTML = `
+  function renderHeroCluster() {
+    const posts = state.filteredPosts;
+    if (!posts.length) {
+      if (el.featured) el.featured.innerHTML = '<div class="nh-fallback">No dispatches in this category yet.</div>';
+      if (el.heroRail) el.heroRail.innerHTML = '';
+      return;
+    }
+
+    const featured = posts[0];
+    const secondary = posts.slice(1, 4);
+    if (el.featured) el.featured.innerHTML = renderFeaturedCard(featured);
+    if (el.heroRail) el.heroRail.innerHTML = secondary.map(renderSecondaryCard).join('');
+  }
+
+  function renderFeaturedCard(post) {
+    const typeInfo = getTypeInfo(post.contentType);
+    return `
       <article class="nh-featured-card">
         <div class="nh-featured-image">
-          <img src="${imageUrl}" alt="${escapeHtml(featured.title)}">
-          <span class="nh-featured-badge">Featured Dispatch</span>
+          <img src="${escapeAttr(post.headerImage)}" alt="${escapeAttr(post.title)}">
+          <span class="nh-featured-badge">Featured Story</span>
         </div>
         <div class="nh-featured-content">
           <div class="nh-featured-meta">
-            <span class="nh-featured-category">${typeInfo.label}</span>
-            <span class="nh-featured-date">${formatDate(featured.date)}</span>
+            <span class="nh-featured-category ${typeInfo.tone}">${typeInfo.label}</span>
+            <span>${formatDate(post.date)}</span>
+            <span>${estimateReadTime(post.summary)} min read</span>
           </div>
-          <h2 class="nh-featured-title">${escapeHtml(featured.title)}</h2>
-          <p class="nh-featured-excerpt">${escapeHtml(featured.summary || featured.excerpt || '')}</p>
-          <a href="${featured.url || '#'}`} class="nh-featured-cta">
-            Read Full Dispatch →
-          </a>
+          <h2 class="nh-featured-title">${escapeHtml(post.title)}</h2>
+          <p class="nh-featured-excerpt">${escapeHtml(post.summary)}</p>
+          <a href="${escapeAttr(post.url || '#')}" class="nh-featured-cta">Read full dispatch →</a>
         </div>
       </article>
     `;
   }
 
-  // Render feed
-  function renderFeed() {
-    if (!elements.feed) return;
-    
-    const postsToShow = state.filteredPosts.slice(1, state.displayedCount + 1);
-    
-    if (!postsToShow.length) {
-      elements.feed.innerHTML = `
-        <div class="nh-empty">
-          <p>No dispatches found in this category.</p>
+  function renderSecondaryCard(post) {
+    const typeInfo = getTypeInfo(post.contentType);
+    return `
+      <a href="${escapeAttr(post.url || '#')}" class="nh-secondary-card">
+        <div class="nh-secondary-media">
+          <img src="${escapeAttr(post.headerImage)}" alt="${escapeAttr(post.title)}">
         </div>
-      `;
-      elements.loadMore.style.display = 'none';
-      return;
-    }
-    
-    elements.feed.innerHTML = postsToShow.map(post => renderArticleCard(post)).join('');
-    
-    // Show/hide load more button
-    elements.loadMore.style.display = 
-      state.displayedCount < state.filteredPosts.length - 1 ? 'inline-flex' : 'none';
+        <div class="nh-secondary-content">
+          <div class="nh-secondary-meta">
+            <span class="nh-secondary-category ${typeInfo.tone}">${typeInfo.label}</span>
+            <span>${formatDateCompact(post.date)}</span>
+          </div>
+          <h3 class="nh-secondary-title">${escapeHtml(post.title)}</h3>
+          <span class="nh-secondary-read">Open story →</span>
+        </div>
+      </a>
+    `;
   }
 
-  // Render individual article card
+  function renderFeed() {
+    if (!el.feed) return;
+
+    const start = Math.min(state.heroCount, state.filteredPosts.length);
+    const postsToShow = state.filteredPosts.slice(start, start + state.displayedCount);
+
+    if (!postsToShow.length) {
+      el.feed.innerHTML = '<div class="nh-empty">No further dispatches in this category yet.</div>';
+      if (el.loadMore) el.loadMore.style.display = 'none';
+      return;
+    }
+
+    el.feed.innerHTML = postsToShow.map(renderArticleCard).join('');
+
+    if (el.loadMore) {
+      const hasMore = start + state.displayedCount < state.filteredPosts.length;
+      el.loadMore.style.display = hasMore ? 'inline-flex' : 'none';
+    }
+  }
+
   function renderArticleCard(post) {
-    const type = getContentType(post);
-    const typeInfo = getTypeInfo(type);
-    const imageUrl = post.image || post.headerImage || '../assets/images/news-header-ai-newsroom.png';
-    const readTime = estimateReadTime(post.summary || post.content || '');
-    
+    const typeInfo = getTypeInfo(post.contentType);
     return `
-      <a href="${post.url || '#'}" class="nh-article" data-category="${type}">
+      <a href="${escapeAttr(post.url || '#')}" class="nh-article" data-category="${escapeAttr(post.contentType)}">
         <div class="nh-article-image">
-          <img src="${imageUrl}" alt="${escapeHtml(post.title)}">
-          <span class="nh-article-category ${type}">${typeInfo.label}</span>
+          <img src="${escapeAttr(post.headerImage)}" alt="${escapeAttr(post.title)}">
+          <span class="nh-article-category ${typeInfo.tone}">${typeInfo.label}</span>
         </div>
         <div class="nh-article-content">
           <div class="nh-article-meta">
             <span>${formatDate(post.date)}</span>
+            <span>•</span>
+            <span>${estimateReadTime(post.summary)} min read</span>
           </div>
           <h3 class="nh-article-title">${escapeHtml(post.title)}</h3>
-          <p class="nh-article-excerpt">${escapeHtml(post.summary || post.excerpt || '')}</p>
+          <p class="nh-article-excerpt">${escapeHtml(post.summary)}</p>
           <div class="nh-article-footer">
             <span class="nh-article-read">Read dispatch →</span>
-            <span class="nh-article-time">${readTime} min</span>
+            <span class="nh-article-time">${typeInfo.label}</span>
           </div>
         </div>
       </a>
     `;
   }
 
-  // Update statistics
+  function renderSidebar() {
+    if (el.trending) {
+      const trending = state.filteredPosts.slice(1, 6);
+      el.trending.innerHTML = trending.map((post, i) => `
+        <a href="${escapeAttr(post.url || '#')}" class="nh-mini-link">
+          <div class="nh-mini-meta">Trending ${String(i + 1).padStart(2, '0')}</div>
+          <h4 class="nh-mini-title">${escapeHtml(post.title)}</h4>
+        </a>
+      `).join('') || '<div class="nh-empty">No trending items yet.</div>';
+    }
+
+    if (el.quick) {
+      const quick = state.filteredPosts.slice(0, 4);
+      el.quick.innerHTML = quick.map((post) => {
+        const typeInfo = getTypeInfo(post.contentType);
+        return `
+          <a href="${escapeAttr(post.url || '#')}" class="nh-mini-link">
+            <span class="nh-mini-pill">${typeInfo.label}</span>
+            <h4 class="nh-mini-title">${escapeHtml(post.title)}</h4>
+            <p class="nh-mini-copy">${escapeHtml(trimSummary(post.summary, 88))}</p>
+          </a>
+        `;
+      }).join('');
+    }
+
+    if (el.thoughts) {
+      const thoughts = state.filteredPosts.filter((post) => ['commentary', 'observation', 'humor'].includes(post.contentType)).slice(0, 3);
+      const source = thoughts.length ? thoughts : state.filteredPosts.slice(0, 3);
+      el.thoughts.innerHTML = source.map((post) => `
+        <a href="${escapeAttr(post.url || '#')}" class="nh-mini-link">
+          <div class="nh-mini-meta">Howard’s Note</div>
+          <h4 class="nh-mini-title">${escapeHtml(post.title)}</h4>
+          <p class="nh-mini-copy">${escapeHtml(trimSummary(post.summary, 110))}</p>
+        </a>
+      `).join('');
+    }
+  }
+
   function updateStats() {
-    if (elements.dispatchCount) {
-      elements.dispatchCount.textContent = state.posts.length;
-    }
+    if (el.dispatchCount) el.dispatchCount.textContent = String(state.posts.length);
   }
 
-  // Update live status
   function updateStatus() {
-    if (!elements.lastUpdate) return;
-    
+    if (!el.lastUpdate) return;
     const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    elements.lastUpdate.textContent = `${hours}:${minutes}`;
+    el.lastUpdate.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
   }
 
-  // Fallback for errors
   function showFallback() {
-    if (elements.featured) {
-      elements.featured.innerHTML = `
-        <div class="nh-fallback">
-          <p>Feed temporarily unavailable. Please refresh.</p>
-        </div>
-      `;
-    }
+    const message = '<div class="nh-fallback">Feed temporarily unavailable. Refresh shortly.</div>';
+    if (el.featured) el.featured.innerHTML = message;
+    if (el.heroRail) el.heroRail.innerHTML = '';
+    if (el.feed) el.feed.innerHTML = '';
+    if (el.trending) el.trending.innerHTML = '';
+    if (el.quick) el.quick.innerHTML = '';
+    if (el.thoughts) el.thoughts.innerHTML = '';
   }
 
-  // Utility: Escape HTML
-  function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+  function trimSummary(text, limit) {
+    if (!text) return '';
+    return text.length > limit ? `${text.slice(0, limit).trimEnd()}…` : text;
   }
 
-  // Utility: Format date
   function formatDate(dateStr) {
     if (!dateStr) return 'Unknown date';
     const date = new Date(dateStr);
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return date.toLocaleDateString('en-US', options);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   }
 
-  // Utility: Estimate read time
+  function formatDateCompact(dateStr) {
+    if (!dateStr) return 'Unknown';
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  }
+
   function estimateReadTime(text) {
-    const words = (text || '').split(/\s+/).length;
-    return Math.max(1, Math.ceil(words / 200));
+    const words = String(text || '').trim().split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.ceil(words / 180));
   }
 
-  // Initialize when DOM is ready
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text || '';
+    return div.innerHTML;
+  }
+
+  function escapeAttr(text) {
+    return String(text || '').replace(/"/g, '&quot;');
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
