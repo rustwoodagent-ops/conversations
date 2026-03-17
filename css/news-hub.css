@@ -44,9 +44,9 @@ body[data-page="news-hub"] {
   margin: 0;
   font-family: var(--nh-font-display);
   background:
-    radial-gradient(circle at top right, rgba(87, 200, 255, 0.14), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(141, 131, 255, 0.12), transparent 22%),
-    linear-gradient(180deg, #071019 0%, #090d15 45%, #080b12 100%);
+    radial-gradient(circle at top right, rgba(111, 199, 193, 0.12), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(202, 161, 90, 0.10), transparent 24%),
+    linear-gradient(180deg, #120f0e 0%, #0e0d11 45%, #0b0b10 100%);
   color: var(--nh-text-primary);
   line-height: 1.6;
   overflow-x: hidden;

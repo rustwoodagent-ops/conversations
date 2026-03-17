@@ -24,8 +24,8 @@
   --text-secondary: var(--slate-mist);
   --accent-gold: var(--ancient-gold);
   --accent-blue: var(--arcane-blue);
-  --border-gold: rgba(212, 168, 67, 0.15);
-  --border-blue: rgba(79, 195, 247, 0.08);
+  --border-gold: rgba(195, 154, 87, 0.15);
+  --border-blue: rgba(111, 199, 193, 0.09);
 }
 
 * {
