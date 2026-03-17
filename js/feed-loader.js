@@ -20,7 +20,12 @@
   const asDotDate = (date = '') => String(date).split('-').join('.');
 
   function sortNewestFirst(items) {
-    return [...items].sort((a, b) => (a.date < b.date ? 1 : -1));
+    return [...items].sort((a, b) => {
+      const da = Date.parse(a.date || '1970-01-01');
+      const db = Date.parse(b.date || '1970-01-01');
+      if (db !== da) return db - da;
+      return 0;
+    });
   }
 
   function postUrl(file, directUrl) {
