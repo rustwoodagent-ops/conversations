@@ -121,7 +121,7 @@
 
     const lower = `${slug} ${(post.title || '').toLowerCase()}`;
     const hit = map.find(([key]) => lower.includes(key));
-    return hit ? hit[1] : '../assets/images/news-header-ai-newsroom.png';
+    return hit ? hit[1] : '../assets/images/2026-03-17-14-42-howard-news-hub-hero.png';
   }
 
   function sortPosts(posts) {
