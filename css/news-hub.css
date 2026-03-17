@@ -198,10 +198,11 @@ button { font: inherit; }
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
   border: 1px solid var(--nh-border);
-  background: rgba(255,255,255,0.03);
+  background: rgba(92,224,255,0.05);
   color: var(--nh-text-secondary);
   font-size: 0.82rem;
   font-weight: 600;
+  box-shadow: 0 0 0 1px rgba(92,224,255,0.04) inset;
 }
 .nh-status-dot {
   width: 8px;
@@ -461,7 +462,7 @@ button { font: inherit; }
 .nh-featured-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--nh-shadow-lg), var(--nh-shadow-glow);
-  border-color: rgba(87,200,255,0.18);
+  border-color: rgba(92,224,255,0.22);
 }
 .nh-featured-image {
   position: absolute;
@@ -668,7 +669,7 @@ button { font: inherit; }
 .nh-article:hover {
   transform: translateY(-4px);
   border-color: rgba(87,200,255,0.18);
-  box-shadow: var(--nh-shadow-md), 0 0 45px rgba(87,200,255,0.09);
+  box-shadow: var(--nh-shadow-md), 0 0 45px rgba(92,224,255,0.12);
 }
 .nh-feed[data-view="list"] .nh-article {
   display: grid;
@@ -1029,4 +1030,4 @@ button { font: inherit; }
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
   }
-}
+}}
