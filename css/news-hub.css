@@ -874,10 +874,15 @@ button { font: inherit; }
 .nh-audio-link:hover .nh-mini-title {
   color: var(--nh-text-primary);
 }
-.nh-audio-player {
-  width: 100%;
-  height: 38px;
-  filter: saturate(1.02) brightness(.96);
+.nh-audio-enhanced {
+  margin-top: .2rem;
+}
+.nh-audio-enhanced h3 {
+  display: none;
+}
+.nh-audio-enhanced.blog-audio-player.ha-modern {
+  padding: .8rem;
+  border-radius: 14px;
 }
 .nh-mini-link {
   display: block;

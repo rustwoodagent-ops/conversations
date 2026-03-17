@@ -135,11 +135,18 @@
           <div class="nh-mini-meta">${formatDate(post.date)}</div>
           <h4 class="nh-mini-title">${escapeHtml(post.title)}</h4>
         </a>
-        <audio class="nh-audio-player" controls preload="none">
-          <source src="/assets/audio/${encodeURIComponent(post.audio_slug)}.wav" type="audio/wav">
-        </audio>
+        <div class="blog-audio-player nh-audio-enhanced" data-audio-slug="${escapeHtml(post.audio_slug)}">
+          <h3>🎧 Quick Listen</h3>
+          <audio controls preload="none">
+            <source src="/assets/audio/${encodeURIComponent(post.audio_slug)}.wav" type="audio/wav">
+          </audio>
+        </div>
       </div>
     `).join('');
+
+    if (window.HowardBlogAudioInit) {
+      mount.querySelectorAll('.blog-audio-player').forEach((panel) => window.HowardBlogAudioInit(panel));
+    }
   }
 
   async function init() {

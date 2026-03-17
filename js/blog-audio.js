@@ -207,6 +207,11 @@
     refresh();
   };
 
+  window.HowardBlogAudioInit = (panel) => {
+    injectStyles();
+    initPlayer(panel);
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     injectStyles();
     const players = document.querySelectorAll('.blog-audio-player');
