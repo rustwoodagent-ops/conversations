@@ -115,8 +115,11 @@
       ['copilot', '../assets/images/news-copilot-vs.png'],
       ['protein', '../assets/images/news-protein-ai.png'],
       ['openai', '../assets/images/news-dalle3.png'],
-      ['news', '../assets/images/news-header-ai-newsroom.png'],
-      ['daily-howard-update', '../assets/images/news-header-ai-newsroom.png']
+      ['news-update-test', '../assets/images/howard-news-anchor-gesture.jpg'],
+      ['howard-news-update', '../assets/images/howard-news-anchor-reading-alt.jpg'],
+      ['howard-news', '../assets/images/howard-news-anchor-full.jpg'],
+      ['daily-howard-update', '../assets/images/howard-news-anchor-reading.jpg'],
+      ['news', '../assets/images/howard-news-anchor-full.jpg']
     ];
 
     const lower = `${slug} ${(post.title || '').toLowerCase()}`;
