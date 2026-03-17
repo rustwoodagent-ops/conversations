@@ -24,11 +24,16 @@
   }
 
   function normalizePost(post) {
+    let url = post.url || '#';
+    // Ensure URLs are absolute paths (prefix with /pages/ if relative)
+    if (url && !url.startsWith('/') && !url.startsWith('http')) {
+      url = '/pages/' + url;
+    }
     return {
       ...post,
       summary: post.summary || post.excerpt || '',
       tags: Array.isArray(post.tags) ? post.tags : [],
-      url: post.url || '#'
+      url: url
     };
   }
 
