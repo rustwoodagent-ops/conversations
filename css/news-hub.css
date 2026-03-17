@@ -937,7 +937,8 @@ button { font: inherit; }
   justify-content: center;
   margin-top: 1.6rem;
 }
-.nh-btn {
+.nh-btn,
+.roos-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -947,16 +948,28 @@ button { font: inherit; }
   font-weight: 700;
   cursor: pointer;
   transition: all var(--nh-transition-fast);
+  text-decoration: none;
 }
-.nh-btn-ghost {
+.nh-btn-ghost,
+.roos-btn-ghost {
   color: var(--nh-text-primary);
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
 }
-.nh-btn-ghost:hover {
+.nh-btn-ghost:hover,
+.roos-btn-ghost:hover {
   transform: translateY(-2px);
   border-color: rgba(87,200,255,0.16);
   box-shadow: 0 14px 36px rgba(87,200,255,0.09);
+}
+.roos-btn-primary {
+  background: linear-gradient(135deg, var(--nh-accent-cyan), #89efff);
+  color: #071019;
+  box-shadow: 0 12px 32px rgba(92,224,255,.2);
+  border: 1px solid rgba(92,224,255,.18);
+}
+.roos-btn-primary:hover {
+  transform: translateY(-2px);
 }
 
 .nh-about { margin-top: 3rem; }

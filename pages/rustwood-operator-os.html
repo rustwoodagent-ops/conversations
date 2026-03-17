@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rustwood Operator OS — Early Access | Howard</title>
+  <meta name="description" content="Join early access for Rustwood Operator OS — a practical system for founders and solo operators who want less chaos, better decisions, and stronger execution.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/system.css">
+  <link rel="stylesheet" href="../css/news-hub.css">
+  <style>
+    .roos-wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem 4rem}
+    .roos-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:2rem;align-items:center;padding:9rem 0 3rem}
+    .roos-panel{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08);border-radius:22px;box-shadow:var(--nh-shadow-md);backdrop-filter:blur(16px)}
+    .roos-copy{padding:2rem}
+    .roos-kicker{display:inline-block;margin-bottom:.8rem;color:var(--nh-accent-cyan);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .roos-title{font-size:clamp(2.6rem,5vw,4.4rem);line-height:.98;letter-spacing:-.04em;margin:0 0 1rem}
+    .roos-sub{font-size:1.12rem;line-height:1.8;color:var(--nh-text-secondary);margin:0 0 1.4rem}
+    .roos-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin:1rem 0 1.1rem}
+    .roos-btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:.95rem 1.3rem;border-radius:999px;text-decoration:none;font-weight:700;transition:all .24s ease}
+    .roos-btn-primary{background:linear-gradient(135deg,var(--nh-accent-cyan),#89efff);color:#071019;box-shadow:0 12px 32px rgba(92,224,255,.2)}
+    .roos-btn-primary:hover{transform:translateY(-2px)}
+    .roos-btn-ghost{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:var(--nh-text-primary)}
+    .roos-trust{color:var(--nh-text-muted);font-size:.92rem}
+    .roos-art{overflow:hidden;min-height:100%;position:relative}
+    .roos-art img{width:100%;height:100%;object-fit:cover;min-height:520px}
+    .roos-art:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,11,18,.06),rgba(8,11,18,.6))}
+    .roos-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,.8fr);gap:1.5rem;align-items:start}
+    .roos-section{padding:1.6rem 1.6rem 1.4rem;margin-bottom:1.4rem}
+    .roos-section h2{font-size:1.5rem;line-height:1.15;letter-spacing:-.02em;margin:0 0 .8rem;color:var(--nh-text-primary)}
+    .roos-section p{color:var(--nh-text-secondary);line-height:1.78;margin:.75rem 0}
+    .roos-list{display:grid;gap:.8rem;margin-top:1rem}
+    .roos-item{padding:1rem;border-radius:16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+    .roos-item strong{display:block;color:var(--nh-text-primary);margin-bottom:.35rem}
+    .roos-bullets{padding-left:1.1rem;color:var(--nh-text-secondary);line-height:1.8}
+    .roos-bullets li{margin:.35rem 0}
+    .roos-qa{display:grid;gap:.85rem}
+    .roos-q{padding:1rem;border-radius:16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+    .roos-q h3{font-size:1rem;margin:0 0 .35rem;color:var(--nh-text-primary)}
+    .roos-q p{margin:0;color:var(--nh-text-secondary)}
+    .roos-form{padding:1.4rem}
+    .roos-form label{display:block;font-size:.88rem;color:var(--nh-text-muted);margin-bottom:.4rem}
+    .roos-form input{width:100%;padding:.95rem 1rem;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:var(--nh-text-primary);margin-bottom:1rem}
+    .roos-mini{font-size:.85rem;color:var(--nh-text-muted);line-height:1.6}
+    .roos-note{margin-top:.8rem;padding:.8rem 1rem;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);color:var(--nh-text-secondary);font-size:.9rem}
+    @media (max-width: 980px){.roos-hero,.roos-grid{grid-template-columns:1fr}.roos-art img{min-height:340px}}
+  </style>
+</head>
+<body data-page="news-hub">
+  <div class="nh-ambient" aria-hidden="true"><div class="nh-grid"></div><div class="nh-glow nh-glow-1"></div><div class="nh-glow nh-glow-2"></div></div>
+  <nav class="nh-nav" id="navbar"><div class="nh-nav-inner"><a href="/" class="nh-logo"><div class="nh-logo-mark"><span class="nh-pulse"></span></div><div class="nh-logo-text"><span class="nh-logo-title">Howard</span><span class="nh-logo-subtitle">Operator OS</span></div></a><div class="nh-nav-links"><a href="/" class="nh-nav-link">Home</a><a href="/pages/site.html" class="nh-nav-link">Site</a><a href="/pages/conversations.html" class="nh-nav-link">Archive</a><a href="/pages/contact.html" class="nh-nav-link">Contact</a></div><div class="nh-status-indicator"><span class="nh-status-dot"></span><span class="nh-status-text">Early Access</span></div><button class="nh-menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button></div></nav>
+  <div class="nh-mobile-menu" id="mobileMenu"><a href="/" class="nh-mobile-link">Home</a><a href="/pages/site.html" class="nh-mobile-link">Site</a><a href="/pages/conversations.html" class="nh-mobile-link">Archive</a><a href="/pages/contact.html" class="nh-mobile-link">Contact</a></div>
+
+  <main class="roos-wrap">
+    <section class="roos-hero">
+      <div class="roos-panel roos-copy">
+        <span class="roos-kicker">Early access</span>
+        <h1 class="roos-title">Stop Operating Like a Talented Mess</h1>
+        <p class="roos-sub">Rustwood Operator OS helps founders and solo operators turn scattered tools, AI workflows, and messy execution into a focused system for clear action and real business progress.</p>
+        <div class="roos-actions">
+          <a href="#early-access-form" class="roos-btn roos-btn-primary">Join Early Access</a>
+          <a href="#whats-inside" class="roos-btn roos-btn-ghost">See what’s inside</a>
+        </div>
+        <p class="roos-trust">Built for real operators who want practical structure, not productivity theatre.</p>
+        <div class="roos-note">This is the pre-store commercial bridge for Rustwood Operator OS. The storefront path will only go live once the product and conversion structure are properly ready.</div>
+      </div>
+      <div class="roos-panel roos-art">
+        <img src="/assets/images/2026-03-17-17-14-howard-newsroom-hero-variant.png" alt="Howard in a premium operations newsroom">
+      </div>
+    </section>
+
+    <section class="roos-grid">
+      <div>
+        <div class="roos-panel roos-section">
+          <h2>Most operators do not need more tools. They need a system.</h2>
+          <p>You can have strong ideas, useful AI tools, good instincts, and serious ambition — and still waste huge amounts of energy operating in fragments.</p>
+          <p>Tabs multiply. Systems half-exist. Notes pile up. Work feels busy but not compounding. You spend too much time deciding what matters, switching context, patching together workflows, and manually trying to hold momentum together.</p>
+          <p><strong>That is not a motivation problem.</strong></p>
+          <p><strong>It is an operating problem.</strong></p>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2>Rustwood Operator OS gives you a real execution layer.</h2>
+          <p>Rustwood Operator OS is a practical digital operating system for people building real things.</p>
+          <ul class="roos-bullets">
+            <li>organise work clearly</li>
+            <li>identify what actually matters</li>
+            <li>reduce wasted motion</li>
+            <li>use AI more intelligently</li>
+            <li>build repeatable workflows</li>
+            <li>strengthen execution without overcomplicating your business</li>
+          </ul>
+          <p>This is not a pile of generic templates dressed up as strategy.</p>
+          <p>It is a structured operating framework for builders who want more leverage and less chaos.</p>
+        </div>
+
+        <div class="roos-panel roos-section" id="whats-inside">
+          <h2>What’s inside</h2>
+          <p>The first release of Rustwood Operator OS is built as a practical implementation pack.</p>
+          <div class="roos-list">
+            <div class="roos-item"><strong>1. Operator Command Layer</strong>Founder Operating Dashboard, Weekly Focus Sheet, Priority Ladder Framework, Bottleneck Identification Template.</div>
+            <div class="roos-item"><strong>2. Execution System</strong>Daily Execution Rhythm, Task Triage Framework, High-Leverage Action Filter, What Actually Matters planning sheet.</div>
+            <div class="roos-item"><strong>3. AI Workflow Layer</strong>AI task routing template, AI vs Human decision matrix, workflow mapping sheet, practical structure for using AI without chaos.</div>
+            <div class="roos-item"><strong>4. Business Asset Layer</strong>Asset inventory template, content-to-asset conversion framework, website improvement tracker, authority-building system sheet.</div>
+            <div class="roos-item"><strong>5. Monetisation Readiness Layer</strong>Offer packaging worksheet, lead capture readiness checklist, CTA audit framework, conversion path planning sheet.</div>
+            <div class="roos-item"><strong>6. Review and Self-Correction Layer</strong>Weekly review template, waste audit, friction log, refinement loop worksheet, strongest-next-move framework.</div>
+          </div>
+          <p>Everything is designed to help you move faster, think more clearly, and operate with more commercial discipline.</p>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2>Who this is for</h2>
+          <ul class="roos-bullets">
+            <li>solo founders</li>
+            <li>creator-operators</li>
+            <li>consultants building digital systems</li>
+            <li>AI power users</li>
+            <li>technical generalists</li>
+            <li>small operators trying to systemise execution</li>
+            <li>people with real ambition who are tired of running through mess</li>
+          </ul>
+          <p>If you already know you can do the work, but your current operating rhythm is too scattered, this is for you.</p>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2>Who it’s not for</h2>
+          <ul class="roos-bullets">
+            <li>people looking for passive-income fantasy shortcuts</li>
+            <li>people who want motivation instead of implementation</li>
+            <li>total beginners who need basic business education first</li>
+            <li>enterprise teams needing full internal software</li>
+            <li>anyone who wants shiny tools without structure</li>
+          </ul>
+          <p>Rustwood Operator OS is for builders who are ready to operate better, not just consume more content.</p>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2>Why Rustwood</h2>
+          <p>Rustwood Operator OS comes from a system-first way of thinking.</p>
+          <p>Rustwood is not built around hype, noise, or performative productivity. It is built around leverage, execution, authority, useful systems, business clarity, and durable digital assets.</p>
+          <p>Howard sits at the intersection of AI, systems, execution, and business discipline. This product is a direct extension of that philosophy.</p>
+          <p>It is built for people who want structure that actually helps them ship, prioritise, decide, and build.</p>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2>FAQ</h2>
+          <div class="roos-qa">
+            <div class="roos-q"><h3>Is this a Notion template?</h3><p>Not exactly. It may include Notion-compatible structures later, but the product is bigger than one tool. The goal is to give you an operating system, not trap you inside a single app.</p></div>
+            <div class="roos-q"><h3>Is this just for AI businesses?</h3><p>No. It is especially useful for AI-enabled operators, but the deeper value is execution clarity, prioritisation, workflow structure, and commercial usefulness.</p></div>
+            <div class="roos-q"><h3>Is this for teams or individuals?</h3><p>The first release is designed mainly for founders, solo operators, and small business builders.</p></div>
+            <div class="roos-q"><h3>Will this be practical or theoretical?</h3><p>Practical. The point is to reduce friction and make execution cleaner.</p></div>
+            <div class="roos-q"><h3>What happens if I join early access?</h3><p>You will hear first when the product is ready, and you may also receive early access, launch pricing, or first-release updates depending on how the rollout is structured.</p></div>
+            <div class="roos-q"><h3>Is the store live yet?</h3><p>No. This is the early-access stage. The storefront path will only go live once the product and purchase flow are properly ready.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="roos-panel roos-form" id="early-access-form">
+          <span class="roos-kicker">Join early access</span>
+          <h2 style="font-size:1.45rem;line-height:1.2;margin:0 0 .8rem">Get early access to Rustwood Operator OS</h2>
+          <p class="roos-mini" style="margin-bottom:1rem">If you want to stop operating in fragments and start running with a cleaner system, join the early-access list.</p>
+          <form id="roos-early-access-form">
+            <label for="roos-name">First name</label>
+            <input id="roos-name" name="first_name" type="text" placeholder="Your first name" required>
+            <label for="roos-email">Email address</label>
+            <input id="roos-email" name="email" type="email" placeholder="you@example.com" required>
+            <button type="submit" class="roos-btn roos-btn-primary" style="width:100%">Join the Early Access List</button>
+          </form>
+          <p class="roos-mini" style="margin-top:1rem">No fake countdowns. No hype theatre. Just first access when the product is ready.</p>
+          <div class="roos-note">Current implementation routes interest directly via email capture handoff. This is intentional until the full conversion path is ready.</div>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2 style="font-size:1.25rem">Why join now</h2>
+          <div class="roos-list">
+            <div class="roos-item"><strong>Get first access</strong>You’ll hear first when the product is ready.</div>
+            <div class="roos-item"><strong>Shape the first release</strong>Early interest helps validate what matters most.</div>
+            <div class="roos-item"><strong>Potential early pricing</strong>Early-access subscribers may receive first-release pricing or rollout priority.</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="nh-footer"><div class="nh-footer-inner"><div class="nh-footer-brand"><span class="nh-footer-logo">Rustwood Operator OS</span><span class="nh-footer-tagline">The first real commercial spine inside Rustwood.</span></div><div class="nh-footer-links"><a href="/" class="nh-footer-link">Home</a><a href="/pages/site.html" class="nh-footer-link">Site</a><a href="/pages/conversations.html" class="nh-footer-link">Archive</a><a href="/pages/contact.html" class="nh-footer-link">Contact</a><a href="/pages/site-directory.html" class="nh-footer-link">Site Directory</a></div><div class="nh-footer-bottom"><span class="nh-footer-credit">© 2026 Rustwood. Early access page — storefront not yet live.</span><span class="nh-footer-status"><span class="nh-status-dot"></span>Pre-launch</span></div></div></footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuToggle && mobileMenu) menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+    const form = document.getElementById('roos-early-access-form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('roos-name').value.trim();
+        const email = document.getElementById('roos-email').value.trim();
+        const subject = encodeURIComponent('Rustwood Operator OS — Early Access');
+        const body = encodeURIComponent(`First name: ${name}\nEmail: ${email}\n\nI want early access to Rustwood Operator OS.`);
+        window.location.href = `mailto:completestrength@gmail.com?subject=${subject}&body=${body}`;
+      });
+    }
+  </script>
+</body>
+</html>
