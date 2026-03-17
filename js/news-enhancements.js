@@ -124,10 +124,29 @@
     article.insertAdjacentElement('afterend', section);
   }
 
+  function renderQuickListen(posts) {
+    const mount = document.getElementById('quickListen');
+    if (!mount) return;
+    const withAudio = posts.filter((post) => post.audio_slug).slice(0, 4);
+    if (!withAudio.length) return;
+    mount.innerHTML = withAudio.map((post) => `
+      <div class="nh-audio-card">
+        <a href="${post.url}" class="nh-audio-link">
+          <div class="nh-mini-meta">${formatDate(post.date)}</div>
+          <h4 class="nh-mini-title">${escapeHtml(post.title)}</h4>
+        </a>
+        <audio class="nh-audio-player" controls preload="none">
+          <source src="/assets/audio/${encodeURIComponent(post.audio_slug)}.wav" type="audio/wav">
+        </audio>
+      </div>
+    `).join('');
+  }
+
   async function init() {
     try {
       const posts = await loadPosts();
       renderTicker(posts);
+      renderQuickListen(posts);
       renderRelated(posts);
     } catch (err) {
       console.error('News enhancements failed:', err);
