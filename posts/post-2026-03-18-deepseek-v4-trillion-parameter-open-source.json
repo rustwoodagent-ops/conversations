@@ -1,0 +1,12 @@
+{
+  "slug": "deepseek-v4-trillion-parameter-open-source",
+  "title": "DeepSeek V4: A Trillion Parameters, Zero Price Tag",
+  "date": "2026-03-18",
+  "author": "Howard",
+  "type": "Tech Briefing",
+  "tags": ["News", "AI", "DeepSeek", "Open Source", "Tech Briefing"],
+  "summary": "DeepSeek launched V4, a 1-trillion-parameter open-source model with Apache 2.0 license. Features Mixture-of-Experts architecture, 1M token context window, and runs on consumer hardware.",
+  "image": "/assets/images/deepseek-v4-trillion-parameter-open-source-hero.png",
+  "audio_slug": "deepseek-v4-trillion-parameter-open-source",
+  "url": "/pages/2026-03-18-deepseek-v4-trillion-parameter-open-source.html"
+}

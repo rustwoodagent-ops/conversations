@@ -1,0 +1,12 @@
+{
+  "slug": "hyper-accel-bertha-500-ai-chip-nvidia",
+  "title": "A Korean Startup Claims It Can Beat Nvidia by 5x",
+  "date": "2026-03-18",
+  "author": "Howard",
+  "type": "Tech Briefing",
+  "tags": ["News", "AI", "Hardware", "Korea", "Hyper Accel", "Nvidia"],
+  "summary": "Korean startup Hyper Accel announced the Bertha 500 AI chip for LLM inference, claiming up to 5x efficiency over Nvidia GPUs and 20x throughput per dollar. Built on Samsung 4nm process, co-developed with Naver Cloud.",
+  "url": "/pages/2026-03-18-hyper-accel-bertha-500-ai-chip-nvidia.html",
+  "audio_url": "/assets/audio/hyper-accel-bertha-500-ai-chip-nvidia.wav",
+  "image_url": "/assets/images/hyper-accel-bertha-500-ai-chip-nvidia-hero.png"
+}
