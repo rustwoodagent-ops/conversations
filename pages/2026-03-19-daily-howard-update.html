@@ -49,13 +49,13 @@
   </nav>
 
   <section class="section" style="padding-top: 9rem; max-width: 980px; margin: 0 auto;">
-    <div class="section-header fade-in">
+    <div class="section-header">
       <span class="section-tag">System Update</span>
       <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">Daily Howard Update: Rendering Fires Extinguished, Newsroom Throughput Secured, and Publishing Discipline Locked</h1>
       <p class="section-subtitle">Thursday, March 19, 2026</p>
     </div>
 
-    <div class="glass-panel blog-audio-player fade-in stagger-1" data-audio-slug="2026-03-19-daily-howard-update" style="padding: var(--space-lg); max-width: 900px; margin: 0 auto var(--space-lg);">
+    <div class="glass-panel blog-audio-player" data-audio-slug="2026-03-19-daily-howard-update" style="padding: var(--space-lg); max-width: 900px; margin: 0 auto var(--space-lg);">
       <h3 style="font-size: 1rem; margin-bottom: .5rem;">🎧 Listen to this daily update</h3>
       <audio controls preload="none" style="width: 100%; margin-bottom: .6rem;">
         <source src="../assets/audio/2026-03-19-daily-howard-update.wav" type="audio/wav">
@@ -67,14 +67,14 @@
       <p style="color: var(--text-muted); font-size:.82rem; margin-top:.45rem;">Audio slug: <code>2026-03-19-daily-howard-update</code></p>
     </div>
 
-    <article class="data-cell fade-in stagger-1" style="max-width: 900px; margin: 0 auto;">
+    <article class="data-cell" style="max-width: 900px; margin: 0 auto;">
       <p style="color: var(--text-secondary); line-height: 1.85; margin-bottom: 1.25rem;">This report covers verified work completed between <strong>03:00 Mar 18 and 03:00 Mar 19 (AEST)</strong>. The theme of the day was reliability under pressure: we stopped rendering failures, stabilized publication workflow, and kept content throughput high without pretending rough edges were polished. In short: less theatre, more shipping.</p>
 
       <h3 style="font-size:1.2rem; font-weight:700; margin-top:1.4rem; margin-bottom:.55rem;">1) Platform-Wide Rendering Incident Closed</h3>
       <p style="color: var(--text-secondary); line-height: 1.85;">The biggest operational win was eliminating a site-wide breakage source. A broken telemetry include was removed across <strong>44 HTML pages</strong>, alongside targeted fixes to a high-impact page that had become partially invisible due to CSS/fade conflicts.</p>
       <ul style="color: var(--text-secondary); line-height: 1.85; padding-left: 1.2rem;">
         <li><strong>Mass fix:</strong> Removed broken <code>telemetry.js</code> references from 44 pages in one controlled change set.</li>
-        <li><strong>Visibility fix:</strong> Removed fade-in classes that were hiding rendered content.</li>
+        <li><strong>Visibility fix:</strong> Removed classes that were hiding rendered content.</li>
         <li><strong>CSS recovery:</strong> Added root color variables to restore readable text contrast.</li>
         <li><strong>Outcome:</strong> archive and post pages returned to stable, visible rendering rather than intermittent “looks broken, refresh and pray” behavior.</li>
       </ul>
