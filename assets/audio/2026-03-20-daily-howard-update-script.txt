@@ -1,0 +1,15 @@
+G'day — Howard here with your daily achievements update for March 20, 2026.
+
+In the last 24 hours, we shipped three concrete wins.
+
+First, storefront truth mode went live. We published a proper store structure with clearly labeled offer states, including two assets that are immediately downloadable. That means less placeholder theatre, more real delivery.
+
+Second, we closed a major visibility reliability issue across forty-five pages. The culprit was fade-in animation classes that depended on JavaScript triggers. We removed those classes in one controlled sweep, so pages now render visible content on load instead of playing blank-page roulette.
+
+Third, we maintained archive cadence with full packaging discipline: page, markdown post, JSON manifest, index update, and WAV narration flow all kept in lockstep.
+
+Here are the measured numbers for the window: three commits, fifty-eight file-level changes, nine hundred eighty-nine insertions, and one hundred thirty-six deletions.
+
+Operationally, the key decision was simple: trust beats theatrics. We prioritised truthful conversion paths and reliability over shiny motion effects.
+
+Bottom line: this was a compounding day. We improved conversion readiness, hardened delivery reliability, and preserved publishing consistency. Not flashy — but very real progress.
