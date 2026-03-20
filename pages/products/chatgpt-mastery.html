@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT Mastery for Operators | Rustwood Store</title>
+  <meta name="description" content="Get better results from ChatGPT in 30 minutes. Practical techniques, copy-paste templates, and a framework you can use immediately.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/system.css">
+  <link rel="stylesheet" href="/css/news-hub.css">
+  <style>
+    .product-page {
+      padding-top: 6rem;
+    }
+    .product-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) {
+      .product-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+    .product-image-main {
+      background: linear-gradient(135deg, #1a1f2e, #0f1420);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .product-image-main img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .product-info h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .product-tagline {
+      color: var(--nh-text-secondary);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .product-price-large {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--nh-accent-cyan);
+      margin-bottom: 1.5rem;
+    }
+    .product-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .product-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--nh-text-secondary);
+      font-size: 0.9rem;
+    }
+    .product-cta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .btn-primary {
+      flex: 1;
+      padding: 1rem 2rem;
+      background: var(--nh-accent-cyan);
+      color: #0a0e17;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #7de8ff;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      padding: 1rem 1.5rem;
+      background: transparent;
+      color: var(--nh-text-primary);
+      font-weight: 500;
+      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.3);
+    }
+    .product-section {
+      margin-bottom: 3rem;
+    }
+    .product-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--nh-text-primary);
+    }
+    .product-section p {
+      color: var(--nh-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .benefits-list {
+      list-style: none;
+      padding: 0;
+    }
+    .benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      color: var(--nh-text-secondary);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .benefits-list li:last-child {
+      border-bottom: none;
+    }
+    .benefits-list li::before {
+      content: "✓";
+      color: var(--nh-accent-cyan);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .include-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .include-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--nh-text-primary);
+    }
+    .include-item p {
+      font-size: 0.9rem;
+      color: var(--nh-text-secondary);
+      margin: 0;
+    }
+    .faq-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .faq-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--nh-text-primary);
+    }
+    .faq-item p {
+      font-size: 0.95rem;
+      color: var(--nh-text-secondary);
+      margin: 0;
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid rgba(76, 175, 80, 0.2);
+      border-radius: 8px;
+      color: #4caf50;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 193, 7, 0.1);
+      border: 1px solid rgba(255, 193, 7, 0.3);
+      border-radius: 20px;
+      color: #ffc107;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body data-page="product">
+  <div class="nh-ambient" aria-hidden="true">
+    <div class="nh-grid"></div>
+    <div class="nh-glow nh-glow-1"></div>
+    <div class="nh-glow nh-glow-2"></div>
+  </div>
+
+  <nav class="nh-nav" id="navbar">
+    <div class="nh-nav-inner">
+      <a href="/" class="nh-logo">
+        <div class="nh-logo-mark"><span class="nh-pulse"></span></div>
+        <div class="nh-logo-text">
+          <span class="nh-logo-title">Rustwood</span>
+          <span class="nh-logo-subtitle">Store</span>
+        </div>
+      </a>
+
+      <div class="nh-nav-links">
+        <a href="/" class="nh-nav-link">Home</a>
+        <a href="/pages/shop.html" class="nh-nav-link active">Shop</a>
+        <a href="/pages/site.html" class="nh-nav-link">Hub</a>
+        <a href="/pages/conversations.html" class="nh-nav-link">Archive</a>
+        <a href="/pages/contact.html" class="nh-nav-link">Contact</a>
+      </div>
+
+      <button class="nh-menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nh-mobile-menu" id="mobileMenu">
+    <a href="/" class="nh-mobile-link">Home</a>
+    <a href="/pages/shop.html" class="nh-mobile-link active">Shop</a>
+    <a href="/pages/site.html" class="nh-mobile-link">Hub</a>
+    <a href="/pages/conversations.html" class="nh-mobile-link">Archive</a>
+    <a href="/pages/contact.html" class="nh-mobile-link">Contact</a>
+  </div>
+
+  <main class="nh-main product-page">
+    <div class="product-hero">
+      <div class="product-image-main">
+        <img src="/assets/images/chatgpt-mastery-cover.png" alt="ChatGPT Mastery for Operators - Product Cover">
+      </div>
+      
+      <div class="product-info">
+        <span class="status-badge">⚡ Available Now</span>
+        <h1>ChatGPT Mastery for Operators</h1>
+        <p class="product-tagline">Get better results from ChatGPT in 30 minutes. Practical techniques, copy-paste templates, and a framework you can use immediately.</p>
+        
+        <div class="product-price-large">$19 AUD</div>
+        
+        <div class="trust-badge">
+          <span>🔒</span>
+          <span>Secure checkout. Instant delivery.</span>
+        </div>
+        
+        <div class="product-meta">
+          <div class="product-meta-item">
+            <span>📄</span>
+            <span>PDF format</span>
+          </div>
+          <div class="product-meta-item">
+            <span>⏱️</span>
+            <span>30-minute read</span>
+          </div>
+          <div class="product-meta-item">
+            <span>🔄</span>
+            <span>Lifetime updates</span>
+          </div>
+        </div>
+        
+        <div class="product-cta">
+          <a href="/pages/checkout/chatgpt-mastery.html" class="btn-primary">Buy Now — $19</a>
+          <a href="#details" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="details">
+      <section class="product-section">
+        <h2>What You'll Learn</h2>
+        <p>This is not a theory-heavy AI course. This is a practical, no-nonsense guide for operators who want better results from ChatGPT without spending hours learning "prompt engineering."</p>
+        <p>By the end of this 30-minute guide, you'll have a framework you can use immediately—and 10 copy-paste templates for common tasks.</p>
+        
+        <ul class="benefits-list">
+          <li><strong>The 3-Part Prompt Structure</strong> — Context + Task + Format. The foundation of every effective prompt.</li>
+          <li><strong>Role Assignment</strong> — How to get ChatGPT to write like an expert in any field.</li>
+          <li><strong>Chain of Thought</strong> — Make AI work through complex problems step-by-step.</li>
+          <li><strong>Few-Shot Examples</strong> — Show, don't tell. Get exactly the format you want.</li>
+          <li><strong>Constraint-Based Prompting</strong> — Use limitations to force clarity and precision.</li>
+          <li><strong>Iterative Refinement</strong> — Turn first drafts into polished output in 2-3 iterations.</li>
+        </ul>
+      </section>
+
+      <section class="product-section">
+        <h2>What's Included</h2>
+        <div class="includes-grid">
+          <div class="include-item">
+            <h4>📖 30-Minute Guide</h4>
+            <p>The complete quick-start guide in PDF format. No fluff. Just practical techniques.</p>
+          </div>
+          <div class="include-item">
+            <h4>📋 10 Copy-Paste Templates</h4>
+            <p>Ready-to-use templates for emails, meetings, code explanation, decisions, and more.</p>
+          </div>
+          <div class="include-item">
+            <h4>🎯 Quick Reference Card</h4>
+            <p>One-page checklist for before you prompt, when it's wrong, and when it's good.</p>
+          </div>
+          <div class="include-item">
+            <h4>🔄 Lifetime Updates</h4>
+            <p>Free updates as the guide improves. Buy once, get improvements forever.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-section">
+        <h2>Who This Is For</h2>
+        <p>This guide is built for operators—people who use tools to get things done. You don't need to be technical. You don't need to understand AI. You just need to want better results in less time.</p>
+        <p>Perfect for: professionals, freelancers, small business owners, content creators, and anyone who uses ChatGPT for work.</p>
+      </section>
+
+      <section class="product-section">
+        <h2>FAQ</h2>
+        <div class="faq-item">
+          <h4>Do I need ChatGPT Plus?</h4>
+          <p>No. Everything in this guide works with the free version of ChatGPT.</p>
+        </div>
+        <div class="faq-item">
+          <h4>How do I get the product?</h4>
+          <p>After purchase, you'll receive an email with a download link. The PDF is yours to keep.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Is there a refund policy?</h4>
+          <p>Yes. If you're not satisfied, contact us within 14 days for a full refund. No questions asked.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Will this work with other AI tools?</h4>
+          <p>Yes. The techniques work with Claude, Gemini, and most modern AI assistants.</p>
+        </div>
+      </section>
+
+      <section class="product-section" style="text-align: center; padding: 3rem; background: rgba(255,255,255,0.02); border-radius: 16px; margin-top: 3rem;">
+        <h2 style="margin-bottom: 1rem;">Ready to master ChatGPT?</h2>
+        <p style="margin-bottom: 2rem;">Get the guide. Use the templates. Get better results in 30 minutes.</p>
+        <a href="/pages/checkout/chatgpt-mastery.html" class="btn-primary" style="display: inline-block; min-width: 250px;">Buy Now — $19 AUD</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="nh-footer">
+    <div class="nh-footer-inner">
+      <div class="nh-footer-brand">
+        <span class="nh-footer-logo">Rustwood Store</span>
+        <span class="nh-footer-tagline">Practical products for serious operators.</span>
+      </div>
+      <div class="nh-footer-links">
+        <a href="/" class="nh-footer-link">Home</a>
+        <a href="/pages/shop.html" class="nh-footer-link">Shop</a>
+        <a href="/pages/site.html" class="nh-footer-link">Hub</a>
+        <a href="/pages/contact.html" class="nh-footer-link">Contact</a>
+      </div>
+      <div class="nh-footer-bottom">
+        <span class="nh-footer-credit">© 2026 Rustwood. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
