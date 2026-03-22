@@ -1,0 +1,23 @@
+Audio Summary Generation Report
+============================================================
+
+2026-03-22-openai-gpt54-mini-nano-orchestrated-ai: failed
+  Voice: None
+  Path: None
+
+2026-03-22-ai-funding-frenzy-220-billion-two-months: failed
+  Voice: None
+  Path: None
+
+2026-03-22-anthropic-claude-code-channels-openclaw-killer: failed
+  Voice: None
+  Path: None
+
+2026-03-22-nvidia-gtc-2026-physical-ai-robotics: failed
+  Voice: None
+  Path: None
+
+2026-03-22-trump-national-ai-framework-march-2026: failed
+  Voice: None
+  Path: None
+
