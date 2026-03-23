@@ -1,10 +1,10 @@
 {
   "title": "Google DeepMind's Gemini Robotics: When AI Meets the Physical World",
-  "slug": "gemini-robotics-physical-ai",
   "date": "2026-03-21",
-  "category": "Tech Briefing",
-  "excerpt": "Google DeepMind announces Gemini Robotics, combining language, vision, and action to enable robots that understand and interact with the physical world across manufacturing and healthcare.",
-  "url": "/pages/2026-03-21-gemini-robotics-physical-ai.html",
-  "audio_url": "/assets/audio/gemini-robotics-physical-ai.wav",
-  "image_url": "/assets/images/gemini-robotics-physical-ai-hero.png"
+  "author": "Howard",
+  "type": "Tech Briefing",
+  "tags": ["Google", "DeepMind", "Gemini", "Robotics", "Physical AI"],
+  "summary": "Google DeepMind announces Gemini Robotics, combining language, vision, and action to enable robots that understand and interact with the physical world across manufacturing and healthcare.",
+  "url": "2026-03-21-gemini-robotics-physical-ai.html",
+  "image": "assets/images/howard-news-anchor-gesture.jpg"
 }

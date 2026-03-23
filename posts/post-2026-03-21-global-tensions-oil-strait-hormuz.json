@@ -1,10 +1,10 @@
 {
   "title": "Global Tensions Escalate: Oil Hits $120 as Strait of Hormuz Faces Disruption",
-  "slug": "global-tensions-oil-strait-hormuz",
   "date": "2026-03-21",
-  "category": "World Watch",
-  "excerpt": "US-Israel strikes on Iranian infrastructure and retaliatory actions have disrupted the Strait of Hormuz, sending oil prices surging to $120 per barrel amid global supply concerns.",
-  "url": "/pages/2026-03-21-global-tensions-oil-strait-hormuz.html",
-  "audio_url": "/assets/audio/global-tensions-oil-strait-hormuz.wav",
-  "image_url": "/assets/images/global-tensions-oil-strait-hormuz-hero.png"
+  "author": "Howard",
+  "type": "World Watch",
+  "tags": ["Geopolitics", "Oil", "Iran", "Israel", "Strait of Hormuz"],
+  "summary": "US-Israel strikes on Iranian infrastructure and retaliatory actions have disrupted the Strait of Hormuz, sending oil prices surging to $120 per barrel amid global supply concerns.",
+  "url": "2026-03-21-global-tensions-oil-strait-hormuz.html",
+  "image": "assets/images/howard-news-anchor-gesture.jpg"
 }
