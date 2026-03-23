@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI SDR Engine — Automated Prospecting for SaaS | Rustwood</title>
+  <meta name="description" content="AI SDR Engine: Autonomous prospecting, qualification, and outreach for SaaS companies. Book meetings while you sleep.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/system.css">
+  <link rel="stylesheet" href="/assets/css/howard-theme.css">
+  <style>
+    /* AI SDR Engine Page Styles */
+    .sdr-wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem 4rem}
+    
+    /* Hero Section */
+    .sdr-hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 0 4rem;text-align:center;position:relative}
+    .sdr-hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);border-radius:999px;font-size:.8rem;font-weight:600;color:var(--accent-primary);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.5rem}
+    .sdr-hero-badge::before{content:'';width:6px;height:6px;background:var(--accent-success);border-radius:50%;animation:pulse 2s infinite}
+    .sdr-hero-title{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem;background:linear-gradient(135deg,var(--text-primary) 0%,var(--accent-primary) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .sdr-hero-sub{font-size:clamp(1.1rem,2vw,1.4rem);color:var(--text-secondary);max-width:700px;margin:0 auto 2rem;line-height:1.7}
+    .sdr-hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+    .sdr-hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;color:var(--text-muted);font-size:.9rem}
+    .sdr-hero-stats span{display:flex;align-items:center;gap:.5rem}
+    .sdr-hero-stats strong{color:var(--accent-success);font-weight:700}
+    
+    /* Buttons */
+    .sdr-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 2rem;border-radius:var(--radius-md);font-weight:600;text-decoration:none;transition:all .3s ease;border:none;cursor:pointer;font-size:1rem}
+    .sdr-btn-primary{background:var(--gradient-primary);color:white;box-shadow:0 4px 20px rgba(14,165,233,.3)}
+    .sdr-btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(14,165,233,.4)}
+    .sdr-btn-secondary{background:var(--glass-bg);color:var(--text-primary);border:1px solid var(--glass-border)}
+    .sdr-btn-secondary:hover{background:rgba(255,255,255,.08);border-color:var(--glass-border-hover)}
+    
+    /* Section Styles */
+    .sdr-section{padding:5rem 0}
+    .sdr-section-header{text-align:center;margin-bottom:3rem}
+    .sdr-section-tag{display:inline-block;padding:.4rem 1rem;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:999px;font-size:.75rem;font-weight:600;color:var(--accent-primary);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
+    .sdr-section-title{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-.02em;margin-bottom:1rem}
+    .sdr-section-sub{color:var(--text-secondary);font-size:1.1rem;max-width:600px;margin:0 auto;line-height:1.7}
+    
+    /* Problem Section */
+    .sdr-problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
+    .sdr-problem-card{background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:1.75rem;backdrop-filter:blur(10px)}
+    .sdr-problem-card h3{font-size:1.15rem;margin-bottom:.75rem;color:var(--text-primary)}
+    .sdr-problem-card p{color:var(--text-secondary);line-height:1.7;font-size:.95rem}
+    .sdr-problem-icon{font-size:2rem;margin-bottom:1rem;opacity:.8}
+    
+    /* Solution Section */
+    .sdr-solution-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+    .sdr-solution-list{display:grid;gap:1.25rem}
+    .sdr-solution-item{display:flex;gap:1rem;align-items:flex-start}
+    .sdr-solution-icon{width:40px;height:40px;background:var(--gradient-primary);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .sdr-solution-item h4{font-size:1.1rem;margin-bottom:.35rem}
+    .sdr-solution-item p{color:var(--text-secondary);font-size:.9rem;line-height:1.6}
+    .sdr-solution-visual{background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:2rem;min-height:400px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .sdr-solution-visual::before{content:'';position:absolute;inset:0;background:var(--gradient-glow);opacity:.5}
+    
+    /* How It Works */
+    .sdr-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:2rem}
+    .sdr-step{background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:2rem;text-align:center;position:relative}
+    .sdr-step-number{position:absolute;top:-15px;left:50%;transform:translateX(-50%);width:30px;height:30px;background:var(--gradient-primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem}
+    .sdr-step-icon{font-size:2.5rem;margin-bottom:1rem}
+    .sdr-step h3{font-size:1.2rem;margin-bottom:.75rem}
+    .sdr-step p{color:var(--text-secondary);font-size:.9rem;line-height:1.6}
+    .sdr-steps-connector{display:none}
+    
+    /* Pricing Section */
+    .sdr-pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;align-items:start}
+    .sdr-pricing-card{background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius-lg);padding:2rem;position:relative}
+    .sdr-pricing-card.featured{border-color:var(--accent-primary);box-shadow:0 0 30px rgba(14,165,233,.15)}
+    .sdr-pricing-card.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gradient-primary);color:white;padding:.35rem 1rem;border-radius:999px;font-size:.75rem;font-weight:600}
+    .sdr-pricing-tier{font-size:.9rem;font-weight:600;color:var(--accent-primary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
+    .sdr-pricing-price{font-size:2.5rem;font-weight:800;margin-bottom:.25rem}
+    .sdr-pricing-price span{font-size:1rem;font-weight:400;color:var(--text-muted)}
+    .sdr-pricing-desc{color:var(--text-secondary);font-size:.9rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--glass-border)}
+    .sdr-pricing-features{list-style:none;padding:0;margin:0 0 1.5rem}
+    .sdr-pricing-features li{display:flex;align-items:center;gap:.75rem;padding:.5rem 0;color:var(--text-secondary);font-size:.9rem}
+    .sdr-pricing-features li::before{content:'✓';color:var(--accent-success);font-weight:700}
+    .sdr-pricing-btn{width:100%}
+    
+    /* FAQ Section */
+    .sdr-faq{display:grid;gap:1rem;max-width:800px;margin:2rem auto 0}
+    .sdr-faq-item{background:var(--bg-card);border:1px solid var(--glass-border);border-radius:var(--radius-lg);overflow:hidden}
+    .sdr-faq-question{width:100%;padding:1.25rem;display:flex;justify-content:space-between;align-items:center;background:none;border:none;color:var(--text-primary);font-size:1rem;font-weight:600;text-align:left;cursor:pointer}
+    .sdr-faq-question::after{content:'+';font-size:1.5rem;color:var(--accent-primary);transition:transform .3s}
+    .sdr-faq-item.active .sdr-faq-question::after{transform:rotate(45deg)}
+    .sdr-faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 1.25rem}
+    .sdr-faq-item.active .sdr-faq-answer{max-height:200px;padding:0 1.25rem 1.25rem}
+    .sdr-faq-answer p{color:var(--text-secondary);line-height:1.7;font-size:.95rem}
+    
+    /* CTA Section */
+    .sdr-cta{background:var(--gradient-primary);border-radius:var(--radius-xl);padding:4rem 2rem;text-align:center;margin-top:3rem;position:relative;overflow:hidden}
+    .sdr-cta::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.5}
+    .sdr-cta h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;margin-bottom:1rem;color:white;position:relative}
+    .sdr-cta p{font-size:1.1rem;margin-bottom:2rem;color:rgba(255,255,255,.9);max-width:500px;margin-left:auto;margin-right:auto;position:relative}
+    .sdr-cta .sdr-btn-primary{background:white;color:var(--bg-primary);box-shadow:0 4px 20px rgba(0,0,0,.2)}
+    .sdr-cta .sdr-btn-primary:hover{background:var(--bg-primary);color:white}
+    
+    /* Responsive */
+    @media (max-width:1024px){
+      .sdr-solution-wrap{grid-template-columns:1fr}
+      .sdr-solution-visual{order:-1;min-height:300px}
+      .sdr-pricing{grid-template-columns:1fr;max-width:500px;margin-left:auto;margin-right:auto}
+    }
+    @media (max-width:768px){
+      .sdr-hero{padding:6rem 0 3rem}
+      .sdr-hero-stats{gap:1rem}
+      .sdr-section{padding:3rem 0}
+      .sdr-steps{grid-template-columns:1fr;gap:2.5rem}
+    }
+  </style>
+</head>
+<body data-page="news-hub">
+  <div class="bg-mesh"></div>
+  
+  <!-- Navigation -->
+  <nav class="howard-nav" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <img src="/assets/images/howard-news-anchor-desk-portrait-b.jpg" alt="Howard" style="width:40px;height:40px;border-radius:8px;object-fit:cover;box-shadow:0 0 12px rgba(79,195,247,0.3)">
+        <div class="nav-logo-text">
+          <span class="nav-logo-title">Rustwood</span>
+          <span class="nav-logo-subtitle">AI SDR Engine</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/pages/conversations.html" class="nav-link">Archive</a>
+        <a href="/pages/store.html" class="nav-link">Store</a>
+        <a href="/pages/ai-sdr-engine.html" class="nav-link active">AI SDR</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-content">
+        <a href="/" class="mobile-nav-link">Home</a>
+        <a href="/pages/conversations.html" class="mobile-nav-link">Archive</a>
+        <a href="/pages/store.html" class="mobile-nav-link">Store</a>
+        <a href="/pages/ai-sdr-engine.html" class="mobile-nav-link">AI SDR</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="sdr-wrap">
+    <!-- Hero Section -->
+    <section class="sdr-hero">
+      <span class="sdr-hero-badge">Now Accepting Beta Clients</span>
+      <h1 class="sdr-hero-title">Your AI SDR Works<br>While You Sleep</h1>
+      <p class="sdr-hero-sub">Autonomous prospecting, qualification, and outreach for SaaS companies. The AI SDR Engine books qualified meetings on your calendar—no human intervention required.</p>
+      <div class="sdr-hero-cta">
+        <a href="#book-call" class="sdr-btn sdr-btn-primary">Book a Strategy Call →</a>
+        <a href="#how-it-works" class="sdr-btn sdr-btn-secondary">See How It Works</a>
+      </div>
+      <div class="sdr-hero-stats">
+        <span><strong>10x</strong> pipeline velocity</span>
+        <span><strong>24/7</strong> outreach</span>
+        <span><strong>40%</strong> cost reduction</span>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="sdr-section" id="problem">
+      <div class="sdr-section-header">
+        <span class="sdr-section-tag">The Problem</span>
+        <h2 class="sdr-section-title">SaaS Pipeline Is Broken</h2>
+        <p class="sdr-section-sub">Most SaaS companies are leaving millions in revenue on the table because their prospecting can't scale.</p>
+      </div>
+      <div class="sdr-problem-grid">
+        <div class="sdr-problem-card">
+          <div class="sdr-problem-icon">😤</div>
+          <h3>SDRs Burn Out Fast</h3>
+          <p>Average SDR tenure is 18 months. Constant churn means lost pipeline momentum, repeated training costs, and deteriorating outreach quality.</p>
+        </div>
+        <div class="sdr-problem-card">
+          <div class="sdr-problem-icon">⏰</div>
+          <h3>Manual Outreach Doesn't Scale</h3>
+          <p>Human SDRs can only send so many emails per day. When you need to 10x your pipeline, hiring 10x people isn't feasible.</p>
+        </div>
+        <div class="sdr-problem-card">
+          <div class="sdr-problem-icon">🎯</div>
+          <h3>Lead Quality Is Inconsistent</h3>
+          <p>Without rigorous qualification criteria, calendars fill with unqualified calls. Your AE's time gets wasted on prospects who will never buy.</p>
+        </div>
+        <div class="sdr-problem-card">
+          <div class="sdr-problem-icon">💸</div>
+          <h3>Customer Acquisition Costs Rise</h3>
+          <p>As competition increases and channels saturate, CAC keeps climbing. Traditional outbound becomes a money pit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="sdr-section" id="solution">
+      <div class="sdr-section-header">
+        <span class="sdr-section-tag">The Solution</span>
+        <h2 class="sdr-section-title">Meet Your AI SDR Engine</h2>
+        <p class="sdr-section-sub">A fully autonomous prospecting system that researches, personalizes, and books meetings—24/7.</p>
+      </div>
+      <div class="sdr-solution-wrap">
+        <div class="sdr-solution-list">
+          <div class="sdr-solution-item">
+            <div class="sdr-solution-icon">🔍</div>
+            <div>
+              <h4>Intelligent Prospecting</h4>
+              <p>AI researches target accounts in real-time, identifying decision-makers based on your ideal customer profile and buying signals.</p>
+            </div>
+          </div>
+          <div class="sdr-solution-item">
+            <div class="sdr-solution-icon">✍️</div>
+            <div>
+              <h4>Hyper-Personalized Outreach</h4>
+              <p>Every email is uniquely crafted based on company news, LinkedIn activity, tech stack, and trigger events. No templates. No spam.</p>
+            </div>
+          </div>
+          <div class="sdr-solution-item">
+            <div class="sdr-solution-icon">⚡</div>
+            <div>
+              <h4>Instant Response Handling</h4>
+              <p>AI reads replies, answers objections, and schedules meetings directly on your calendar. Positive replies become booked calls within minutes.</p>
+            </div>
+          </div>
+          <div class="sdr-solution-item">
+            <div class="sdr-solution-icon">📊</div>
+            <div>
+              <h4>Continuous Optimization</h4>
+              <p>The system learns from every interaction. Subject lines, send times, and messaging improve automatically based on what converts.</p>
+            </div>
+          </div>
+        </div>
+        <div class="sdr-solution-visual">
+          <div style="text-align:center;z-index:1">
+            <div style="font-size:4rem;margin-bottom:1rem">🤖</div>
+            <h3 style="font-size:1.5rem;margin-bottom:.5rem">AI SDR Engine</h3>
+            <p style="color:var(--text-secondary)">Autonomous • Personalized • Scalable</p>
+            <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+              <span style="padding:.5rem 1rem;background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);border-radius:999px;font-size:.85rem">Research</span>
+              <span style="padding:.5rem 1rem;background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);border-radius:999px;font-size:.85rem">Write</span>
+              <span style="padding:.5rem 1rem;background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);border-radius:999px;font-size:.85rem">Send</span>
+              <span style="padding:.5rem 1rem;background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);border-radius:999px;font-size:.85rem">Reply</span>
+              <span style="padding:.5rem 1rem;background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.3);border-radius:999px;font-size:.85rem">Book</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="sdr-section" id="how-it-works">
+      <div class="sdr-section-header">
+        <span class="sdr-section-tag">How It Works</span>
+        <h2 class="sdr-section-title">Four Steps to Pipeline Automation</h2>
+        <p class="sdr-section-sub">From setup to booked meetings in under 48 hours.</p>
+      </div>
+      <div class="sdr-steps">
+        <div class="sdr-step">
+          <span class="sdr-step-number">1</span>
+          <div class="sdr-step-icon">⚙️</div>
+          <h3>Configure Your ICP</h3>
+          <p>Define your ideal customer profile, target industries, company size, and decision-maker personas. The AI learns who you want to reach.</p>
+        </div>
+        <div class="sdr-step">
+          <span class="sdr-step-number">2</span>
+          <div class="sdr-step-icon">🧠</div>
+          <h3>Train Your Voice</h3>
+          <p>Upload sample emails and brand guidelines. The AI learns your tone, value propositions, and objection-handling approach.</p>
+        </div>
+        <div class="sdr-step">
+          <span class="sdr-step-number">3</span>
+          <div class="sdr-step-icon">🚀</div>
+          <h3>Launch Campaigns</h3>
+          <p>The AI begins prospecting—researching accounts, crafting personalized sequences, and sending at optimal times for engagement.</p>
+        </div>
+        <div class="sdr-step">
+          <span class="sdr-step-number">4</span>
+          <div class="sdr-step-icon">📅</div>
+          <h3>Receive Bookings</h3>
+          <p>Qualified meetings appear directly on your calendar. The AI handles objections, answers questions, and schedules calls automatically.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="sdr-section" id="pricing">
+      <div class="sdr-section-header">
+        <span class="sdr-section-tag">Pricing</span>
+        <h2 class="sdr-section-title">Simple, Transparent Pricing</h2>
+        <p class="sdr-section-sub">Choose the plan that fits your pipeline goals. All plans include setup and training.</p>
+      </div>
+      <div class="sdr-pricing">
+        <div class="sdr-pricing-card">
+          <div class="sdr-pricing-tier">Starter</div>
+          <div class="sdr-pricing-price">$2,500<span>/month</span></div>
+          <p class="sdr-pricing-desc">Perfect for early-stage SaaS testing AI outbound.</p>
+          <ul class="sdr-pricing-features">
+            <li>500 personalized emails/month</li>
+            <li>1 mailbox/domain</li>
+            <li>Basic ICP targeting</li>
+            <li>AI reply handling</li>
+            <li>Calendar integration</li>
+            <li>Weekly reporting</li>
+          </ul>
+          <a href="#book-call" class="sdr-btn sdr-btn-secondary sdr-pricing-btn">Get Started</a>
+        </div>
+        <div class="sdr-pricing-card featured">
+          <div class="sdr-pricing-tier">Growth</div>
+          <div class="sdr-pricing-price">$5,000<span>/month</span></div>
+          <p class="sdr-pricing-desc">For growing teams ready to scale pipeline.</p>
+          <ul class="sdr-pricing-features">
+            <li>2,000 personalized emails/month</li>
+            <li>3 mailboxes/domains</li>
+            <li>Advanced ICP + intent scoring</li>
+            <li>AI reply handling</li>
+            <li>Calendar + CRM integration</li>
+            <li>LinkedIn outreach</li>
+            <li>A/B testing & optimization</li>
+            <li>Dedicated success manager</li>
+          </ul>
+          <a href="#book-call" class="sdr-btn sdr-btn-primary sdr-pricing-btn">Get Started</a>
+        </div>
+        <div class="sdr-pricing-card">
+          <div class="sdr-pricing-tier">Scale</div>
+          <div class="sdr-pricing-price">$12,000<span>/month</span></div>
+          <p class="sdr-pricing-desc">Enterprise pipeline engine for rapid growth.</p>
+          <ul class="sdr-pricing-features">
+            <li>6,000 personalized emails/month</li>
+            <li>10 mailboxes/domains</li>
+            <li>Multi-layer ICP + account research</li>
+            <li>AI reply handling + objection training</li>
+            <li>Full stack integration</li>
+            <li>Multi-channel sequences</li>
+            <li>Custom AI model training</li>
+            <li>Priority support</li>
+            <li>Quarterly strategy reviews</li>
+          </ul>
+          <a href="#book-call" class="sdr-btn sdr-btn-secondary sdr-pricing-btn">Contact Sales</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="sdr-section" id="faq">
+      <div class="sdr-section-header">
+        <span class="sdr-section-tag">FAQ</span>
+        <h2 class="sdr-section-title">Common Questions</h2>
+        <p class="sdr-section-sub">Everything you need to know about the AI SDR Engine.</p>
+      </div>
+      <div class="sdr-faq">
+        <div class="sdr-faq-item active">
+          <button class="sdr-faq-question">How is this different from regular email automation tools?</button>
+          <div class="sdr-faq-answer">
+            <p>Traditional tools send templated emails with basic mail merge. The AI SDR Engine researches each prospect individually, writes completely unique emails based on real company data, and intelligently handles replies—just like a human SDR would, but at machine scale.</p>
+          </div>
+        </div>
+        <div class="sdr-faq-item">
+          <button class="sdr-faq-question">Will my emails end up in spam?</button>
+          <div class="sdr-faq-answer">
+            <p>We use a multi-domain strategy, gradual warmup protocols, and AI-powered deliverability monitoring. Our clients typically see 60-80% primary inbox placement. We also cap daily sends per mailbox to maintain sender reputation.</p>
+          </div>
+        </div>
+        <div class="sdr-faq-item">
+          <button class="sdr-faq-question">How long until I see results?</button>
+          <div class="sdr-faq-answer">
+            <p>Most clients see their first qualified meetings booked within 5-7 business days of campaign launch. Full optimization typically happens within 2-3 weeks as the AI learns from responses.</p>
+          </div>
+        </div>
+        <div class="sdr-faq-item">
+          <button class="sdr-faq-question">What integrations do you support?</button>
+          <div class="sdr-faq-answer">
+            <p>We integrate with Gmail/Outlook, Salesforce, HubSpot, Pipedrive, Apollo, ZoomInfo, Calendly, Chili Piper, and most major CRMs. Custom integrations available on Scale plans.</p>
+          </div>
+        </div>
+        <div class="sdr-faq-item">
+          <button class="sdr-faq-question">Can I review emails before they're sent?</button>
+          <div class="sdr-faq-answer">
+            <p>Yes—during your first week, we can set the system to draft-only mode so you can review and approve emails. Once you're confident in the quality, we switch to full automation.</p>
+          </div>
+        </div>
+        <div class="sdr-faq-item">
+          <button class="sdr-faq-question">What kind of results can I expect?</button>
+          <div class="sdr-faq-answer">
+            <p>Results vary by industry and ICP, but typical clients see 15-35% open rates, 5-12% reply rates, and 2-5% meeting booking rates. The Growth plan typically delivers 15-30 qualified meetings per month.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="sdr-cta" id="book-call">
+      <h2>Ready to 10x Your Pipeline?</h2>
+      <p>Book a free strategy call. We'll analyze your current outbound, show you exactly how the AI SDR Engine works, and build a custom plan for your business.</p>
+      <a href="/pages/contact.html?subject=AI%20SDR%20Engine%20Consultation" class="sdr-btn sdr-btn-primary" style="font-size:1.1rem;padding:1.25rem 2.5rem">Book Your Strategy Call →</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background:rgba(0,0,0,.8);border-top:1px solid rgba(255,255,255,.1);padding:3rem 2rem;text-align:center;color:#707070;margin-top:4rem">
+    <p><strong>Rustwood</strong> by Aaron Ellis</p>
+    <p><a href="/pages/contact.html" style="color:#a0a0a0;text-decoration:none">Contact</a></p>
+    <p style="margin-top:1.5rem;font-size:.9rem">© 2026 Rustwood. AI SDR Engine — Autonomous prospecting for SaaS.</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('hamburger').addEventListener('click', function() {
+      this.classList.toggle('active');
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.sdr-faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Close all
+        document.querySelectorAll('.sdr-faq-item').forEach(i => i.classList.remove('active'));
+        
+        // Open clicked if wasn't active
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
