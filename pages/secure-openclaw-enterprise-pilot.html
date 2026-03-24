@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure OpenClaw Enterprise Pilot | Implementation Service</title>
+  <meta name="description" content="Professional OpenClaw implementation for teams ready to deploy secure, self-hosted AI agent infrastructure. Linux-native, WSL2-ready.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/system.css">
+  <link rel="stylesheet" href="../css/news-hub.css">
+  <style>
+    .roos-wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem 4rem}
+    .roos-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:2rem;align-items:center;padding:9rem 0 3rem}
+    .roos-panel{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08);border-radius:22px;box-shadow:var(--nh-shadow-md);backdrop-filter:blur(16px)}
+    .roos-copy{padding:2rem}
+    .roos-kicker{display:inline-block;margin-bottom:.8rem;color:var(--nh-accent-cyan);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .roos-title{font-size:clamp(2.6rem,5vw,4.4rem);line-height:.98;letter-spacing:-.04em;margin:0 0 1rem}
+    .roos-sub{font-size:1.12rem;line-height:1.8;color:var(--nh-text-secondary);margin:0 0 1.4rem}
+    .roos-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin:1rem 0 1.1rem}
+    .roos-btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:.95rem 1.3rem;border-radius:999px;text-decoration:none;font-weight:700;transition:all .24s ease}
+    .roos-btn-primary{background:linear-gradient(135deg,var(--nh-accent-cyan),#89efff);color:#071019;box-shadow:0 12px 32px rgba(92,224,255,.2)}
+    .roos-btn-primary:hover{transform:translateY(-2px)}
+    .roos-btn-ghost{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:var(--nh-text-primary)}
+    .roos-trust{color:var(--nh-text-muted);font-size:.92rem}
+    .roos-art{overflow:hidden;min-height:100%;position:relative}
+    .roos-art img{width:100%;height:100%;object-fit:cover;min-height:520px}
+    .roos-art:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,11,18,.08),rgba(8,11,18,.52)),linear-gradient(135deg,rgba(92,224,255,.06),transparent 45%,rgba(121,168,255,.05) 100%)}
+    .roos-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,.8fr);gap:1.5rem;align-items:start}
+    .roos-section{padding:1.6rem 1.6rem 1.4rem;margin-bottom:1.4rem}
+    .roos-section h2{font-size:1.5rem;line-height:1.15;letter-spacing:-.02em;margin:0 0 .8rem;color:var(--nh-text-primary)}
+    .roos-section p{color:var(--nh-text-secondary);line-height:1.78;margin:.75rem 0}
+    .roos-list{display:grid;gap:.8rem;margin-top:1rem}
+    .roos-item{padding:1rem;border-radius:16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+    .roos-item strong{display:block;color:var(--nh-text-primary);margin-bottom:.35rem}
+    .roos-bullets{padding-left:1.1rem;color:var(--nh-text-secondary);line-height:1.8}
+    .roos-bullets li{margin:.35rem 0}
+    .roos-qa{display:grid;gap:.85rem}
+    .roos-q{padding:1rem;border-radius:16px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+    .roos-q h3{font-size:1rem;margin:0 0 .35rem;color:var(--nh-text-primary)}
+    .roos-q p{margin:0;color:var(--nh-text-secondary)}
+    .roos-form{padding:1.4rem}
+    .roos-form label{display:block;font-size:.88rem;color:var(--nh-text-muted);margin-bottom:.4rem}
+    .roos-form input{width:100%;padding:.95rem 1rem;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:var(--nh-text-primary);margin-bottom:1rem}
+    .roos-form textarea{width:100%;padding:.95rem 1rem;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:var(--nh-text-primary);margin-bottom:1rem;min-height:100px;resize:vertical;font-family:inherit}
+    .roos-mini{font-size:.85rem;color:var(--nh-text-muted);line-height:1.6}
+    .roos-note{margin-top:.8rem;padding:.8rem 1rem;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);color:var(--nh-text-secondary);font-size:.9rem}
+    .platform-support{padding:1rem;border-radius:16px;background:rgba(92,224,255,.05);border:1px solid rgba(92,224,255,.15);margin:1rem 0}
+    .platform-support h4{margin:0 0 .6rem;font-size:.95rem;color:var(--nh-text-primary)}
+    .platform-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;font-size:.85rem}
+    .platform-item{display:flex;align-items:center;gap:.5rem}
+    .platform-yes{color:#4ade80}
+    .platform-exp{color:#fbbf24}
+    .platform-no{color:#f87171;text-decoration:line-through;opacity:.7}
+    @media (max-width: 980px){.roos-hero,.roos-grid{grid-template-columns:1fr}.roos-hero{padding:5rem 0 2rem}.roos-art img{min-height:340px}}
+  </style>
+</head>
+<body data-page="news-hub">
+  <div class="nh-ambient" aria-hidden="true"><div class="nh-grid"></div><div class="nh-glow nh-glow-1"></div><div class="nh-glow nh-glow-2"></div></div>
+  <nav class="nh-nav" id="navbar"><div class="nh-nav-inner"><a href="/" class="nh-logo"><div class="nh-logo-mark"><span class="nh-pulse"></span></div><div class="nh-logo-text"><span class="nh-logo-title">Rustwood</span><span class="nh-logo-subtitle">OpenClaw Services</span></div></a><div class="nh-nav-links"><a href="/" class="nh-nav-link">Home</a><a href="/pages/shop.html" class="nh-nav-link">Shop</a><a href="/pages/conversations.html" class="nh-nav-link">Archive</a><a href="/pages/contact.html" class="nh-nav-link">Contact</a></div><div class="nh-status-indicator"><span class="nh-status-dot"></span><span class="nh-status-text">Accepting Pilots</span></div><button class="nh-menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button></div></nav>
+  <div class="nh-mobile-menu" id="mobileMenu"><a href="/" class="nh-mobile-link">Home</a><a href="/pages/shop.html" class="nh-mobile-link">Shop</a><a href="/pages/conversations.html" class="nh-mobile-link">Archive</a><a href="/pages/contact.html" class="nh-mobile-link">Contact</a></div>
+
+  <main class="roos-wrap">
+    <section class="roos-hero">
+      <div class="roos-panel roos-copy">
+        <span class="roos-kicker">Implementation Service</span>
+        <h1 class="roos-title">Secure OpenClaw Enterprise Pilot</h1>
+        <p class="roos-sub">Professional deployment of self-hosted AI agent infrastructure for teams ready to own their automation stack. No cloud lock-in. No data leaving your machines.</p>
+        <div class="roos-actions">
+          <a href="#inquiry-form" class="roos-btn roos-btn-primary">Request Pilot Access</a>
+          <a href="#whats-included" class="roos-btn roos-btn-ghost">What's included</a>
+        </div>
+        <p class="roos-trust">Built for operators who need real control, not SaaS convenience.</p>
+        
+        <div class="platform-support">
+          <h4>Platform Support</h4>
+          <div class="platform-grid">
+            <div class="platform-item"><span class="platform-yes">✓</span> Linux (native)</div>
+            <div class="platform-item"><span class="platform-yes">✓</span> Windows + WSL2/Ubuntu</div>
+            <div class="platform-item"><span class="platform-exp">~</span> macOS (experimental)</div>
+            <div class="platform-item"><span class="platform-no">✗</span> Native Windows</div>
+          </div>
+        </div>
+      </div>
+      <div class="roos-panel roos-art">
+        <img src="../assets/images/2026-03-17-17-14-howard-newsroom-hero-variant.png" alt="Secure OpenClaw deployment">
+      </div>
+    </section>
+
+    <section class="roos-grid">
+      <div>
+        <div class="roos-panel roos-section">
+          <h2>You do not need another SaaS. You need infrastructure you control.</h2>
+          <p>Most AI agent platforms want you to rent their cloud, trust their servers, and hope they do not change pricing or terms next quarter. That is fine for hobby projects. It is not fine for serious operations.</p>
+          <p><strong>OpenClaw is different.</strong> It runs on your hardware. Your VPS. Your WSL setup. Your terms. Your data never touches a third-party AI service unless you explicitly choose it.</p>
+          <p>But self-hosting agent infrastructure is not trivial. There is configuration, integration, tool wiring, security hardening, and workflow design that takes time to get right.</p>
+          <p><strong>That is where we come in.</strong></p>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2>What the Enterprise Pilot includes</h2>
+          <p>A complete, working OpenClaw deployment tailored to your environment and use case.</p>
+          <div class="roos-list">
+            <div class="roos-item"><strong>1. Infrastructure Assessment</strong>We evaluate your current setup — Linux servers, WSL2 workstations, or Tailscale networks — and design the right topology for your team.</div>
+            <div class="roos-item"><strong>2. Core OpenClaw Deployment</strong>Gateway configuration, agent workspaces, tool integrations, and secure credential management properly configured from day one.</div>
+            <div class="roos-item"><strong>3. Agent Workflow Design</strong>We build your first operational agent team — task routing, skill allocation, handoff protocols, and execution patterns that match how you actually work.</div>
+            <div class="roos-item"><strong>4. Security & Access Control</strong>Device pairing, bootstrap tokens, node authentication, and access policies configured for your threat model.</div>
+            <div class="roos-item"><strong>5. Integration Wiring</strong>Connect OpenClaw to your existing tools — Telegram, Discord, email, browsers, databases, APIs — without fragile webhook chains.</div>
+            <div class="roos-item"><strong>6. Knowledge Transfer</strong>Documentation, runbooks, and hands-on training so your team can extend, modify, and maintain the system independently.</div>
+          </div>
+        </div>
+
+        <div class="roos-panel roos-section" id="whats-included">
+          <h2>Deliverables</h2>
+          <ul class="roos-bullets">
+            <li>Fully operational OpenClaw gateway on your infrastructure</li>
+            <li>Configured agent workspaces with example workflows</li>
+            <li>Integrated tool stack (messaging, browser, code execution)</li>
+            <li>Security hardening and access control setup</li>
+            <li>Custom skill deployment for your specific use cases</li>
+            <li>Technical documentation and handoff materials</li>
+            <li>30 days post-deployment support</li>
+          </ul>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2>Who this is for</h2>
+          <ul class="roos-bullets">
+            <li>Technical teams tired of SaaS agent platforms</li>
+            <li>Founders who need AI automation without cloud dependencies</li>
+            <li>Operations teams with compliance or data residency requirements</li>
+            <li>Engineers who want to own their automation stack</li>
+            <li>Organizations already running Linux or WSL2 infrastructure</li>
+          </ul>
+          <p>This is not a managed service. We build it, you own it.</p>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2>Who it's not for</h2>
+          <ul class="roos-bullets">
+            <li>Teams wanting a fully managed SaaS solution</li>
+            <li>Organizations requiring native Windows support</li>
+            <li>Non-technical users seeking a no-code interface</li>
+            <li>Projects expecting enterprise-grade SLAs and 24/7 support</li>
+          </ul>
+          <p>This is professional implementation services for technical operators ready to self-host.</p>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2>Platform Requirements</h2>
+          <p>We keep our platform claims accurate:</p>
+          <div class="roos-list">
+            <div class="roos-item"><strong>Linux (native)</strong>Fully supported. Ubuntu 22.04+ recommended. This is our primary deployment target.</div>
+            <div class="roos-item"><strong>Windows with WSL2 + Ubuntu</strong>Fully supported. Well-tested path for Windows-based operators.</div>
+            <div class="roos-item"><strong>macOS</strong>Experimental support. May require additional configuration. Not recommended for production pilots.</div>
+            <div class="roos-item"><strong>Native Windows</strong>Not offered. OpenClaw requires a Unix-like environment.</div>
+          </div>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2>FAQ</h2>
+          <div class="roos-qa">
+            <div class="roos-q"><h3>Is this OpenClaw as a service?</h3><p>No. We implement OpenClaw on your infrastructure. You own and operate it. We provide the expertise to get it running correctly.</p></div>
+            <div class="roos-q"><h3>What does "pilot" mean?</h3><p>A focused first deployment — typically 1-3 agent workflows, core integrations, and a working knowledge base. Enough to prove value and train your team.</p></div>
+            <div class="roos-q"><h3>Do you provide ongoing support?</h3><p>30 days of post-deployment support is included. Extended support arrangements available, but the goal is self-sufficiency.</p></div>
+            <div class="roos-q"><h3>Can you deploy on our existing servers?</h3><p>Yes, assuming they meet the platform requirements. We also support fresh VPS provisioning if preferred.</p></div>
+            <div class="roos-q"><h3>Is my data shared with third parties?</h3><p>No. OpenClaw is self-hosted. Your data stays on your machines. We configure local model support where appropriate.</p></div>
+            <div class="roos-q"><h3>How long does implementation take?</h3><p>Typical pilots deploy within 1-2 weeks depending on complexity and your infrastructure readiness.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="roos-panel roos-form" id="inquiry-form">
+          <span class="roos-kicker">Request pilot</span>
+          <h2 style="font-size:1.45rem;line-height:1.2;margin:0 0 .8rem">Start the conversation</h2>
+          <p class="roos-mini" style="margin-bottom:1rem">Tell us about your environment and what you're trying to automate. We'll reply within 24 hours.</p>
+          <form id="roos-inquiry-form">
+            <label for="roos-name">Name</label>
+            <input id="roos-name" name="name" type="text" placeholder="Your name" required>
+            <label for="roos-email">Email address</label>
+            <input id="roos-email" name="email" type="email" placeholder="you@example.com" required>
+            <label for="roos-org">Organization</label>
+            <input id="roos-org" name="organization" type="text" placeholder="Company or team name">
+            <label for="roos-platform">Current platform</label>
+            <input id="roos-platform" name="platform" type="text" placeholder="e.g., Ubuntu 22.04, WSL2, etc.">
+            <label for="roos-message">What are you trying to automate?</label>
+            <textarea id="roos-message" name="message" placeholder="Describe your use case and current infrastructure..."></textarea>
+            <button type="submit" class="roos-btn roos-btn-primary" style="width:100%">Request Pilot Information</button>
+          </form>
+          <p class="roos-mini" style="margin-top:1rem">No obligation. We review every inquiry personally.</p>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2 style="font-size:1.25rem">Why work with us</h2>
+          <div class="roos-list">
+            <div class="roos-item"><strong>Direct implementation experience</strong>We have deployed OpenClaw across multiple environments. We know what breaks and how to fix it.</div>
+            <div class="roos-item"><strong>No vendor lock-in</strong>You own the deployment. No recurring fees to us. No dependency on our infrastructure.</div>
+            <div class="roos-item"><strong>Truthful platform claims</strong>We tell you what actually works. No promises about unsupported platforms or experimental features in production.</div>
+            <div class="roos-item"><strong>Knowledge transfer focus</strong>We document everything. The goal is a team that can extend the system without calling us.</div>
+          </div>
+        </div>
+
+        <div class="roos-panel roos-section">
+          <h2 style="font-size:1.25rem">What you need</h2>
+          <ul class="roos-bullets">
+            <li>Linux server or WSL2-capable Windows machine</li>
+            <li>Basic command-line comfort</li>
+            <li>A clear automation use case</li>
+            <li>Willingness to self-host and maintain</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="nh-footer"><div class="nh-footer-inner"><div class="nh-footer-brand"><span class="nh-footer-logo">Rustwood</span><span class="nh-footer-tagline">OpenClaw implementation for operators who own their stack.</span></div><div class="nh-footer-links"><a href="/" class="nh-footer-link">Home</a><a href="/pages/shop.html" class="nh-footer-link">Shop</a><a href="/pages/conversations.html" class="nh-footer-link">Archive</a><a href="/pages/contact.html" class="nh-footer-link">Contact</a><a href="/pages/site-directory.html" class="nh-footer-link">Site Directory</a></div><div class="nh-footer-bottom"><span class="nh-footer-credit">© 2026 Rustwood. Secure OpenClaw Enterprise Pilot — implementation services.</span><span class="nh-footer-status"><span class="nh-status-dot"></span>Accepting inquiries</span></div></div></footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuToggle && mobileMenu) menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+    const form = document.getElementById('roos-inquiry-form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('roos-name').value.trim();
+        const email = document.getElementById('roos-email').value.trim();
+        const org = document.getElementById('roos-org').value.trim();
+        const platform = document.getElementById('roos-platform').value.trim();
+        const message = document.getElementById('roos-message').value.trim();
+        const subject = encodeURIComponent('OpenClaw Enterprise Pilot Inquiry');
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nOrganization: ${org}\nPlatform: ${platform}\n\nMessage:\n${message}`);
+        window.location.href = `mailto:completestrength@gmail.com?subject=${subject}&body=${body}`;
+      });
+    }
+  </script>
+</body>
+</html>
