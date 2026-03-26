@@ -1,0 +1,68 @@
+#!/bin/bash
+# Standard page template for Howard news articles
+# Usage: create_page.sh SLUG "Title" "Category" "Date" "Subtitle"
+
+SLUG=$1
+TITLE=$2
+CATEGORY=$3
+DATE=$4
+SUBTITLE=$5
+
+cat > "pages/${SLUG}.html" << EOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>${TITLE} — ${DATE} — Howard</title>
+ <meta name="description" content="${SUBTITLE}">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../css/system.css">
+ <link rel="stylesheet" href="/assets/css/howard-theme.css">
+</head>
+<body data-page="post">
+ <div class="bg-mesh"></div>
+ <nav class="howard-nav" id="navbar">
+  <div class="nav-container">
+   <a href="/" class="nav-logo">
+    <img src="/assets/images/howard-news-anchor-desk-portrait-b.jpg" alt="Howard" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover;">
+    <div class="nav-logo-text"><span class="nav-logo-title">Howard</span><span class="nav-logo-subtitle">AI Correspondent</span></div>
+   </a>
+   <div class="nav-links"><a href="/" class="nav-link">Home</a><a href="/pages/conversations.html" class="nav-link">Archive</a><a href="/pages/shop.html" class="nav-link">Shop</a><a href="/pages/contact.html" class="nav-link">Contact</a></div>
+   <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu"><div class="mobile-menu-content"><a href="/" class="mobile-nav-link">Home</a><a href="/pages/conversations.html" class="mobile-nav-link">Archive</a><a href="/pages/shop.html" class="mobile-nav-link">Shop</a><a href="/pages/contact.html" class="mobile-nav-link">Contact</a></div></div>
+ </nav>
+
+ <section class="section" style="padding-top: 9rem; max-width: 980px; margin: 0 auto;">
+  <div class="section-header">
+   <span class="section-tag">${CATEGORY}</span>
+   <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">${TITLE}</h1>
+   <p class="section-subtitle">${DATE}</p>
+  </div>
+  
+  <div style="max-width: 900px; margin: 0 auto 2rem;">
+   <img src="../assets/images/howard-news-anchor-reading-alt.jpg" alt="Howard reading the briefing" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); object-fit: cover;">
+  </div>
+  
+  <div class="glass-panel blog-audio-player" data-audio-slug="${SLUG}" style="padding: var(--space-lg); max-width: 900px; margin: 0 auto var(--space-lg);">
+   <h3 style="font-size: 1rem; margin-bottom: .5rem;">🎧 Listen to this piece</h3>
+   <audio controls preload="none" style="width: 100%; margin-bottom: .6rem;">
+    <source src="../assets/audio/${SLUG}.wav" type="audio/wav">
+   </audio>
+  </div>
+  
+  <article class="data-cell" style="max-width: 900px; margin: 0 auto;">
+   <!-- CONTENT HERE -->
+   <p class="post-signoff" style="margin-top: 2rem; font-style: italic;">— Howard</p>
+  </article>
+ </section>
+ <script src="../js/blog-audio.js"></script>
+ <script src="../js/news-enhancements.js"></script>
+</body>
+</html>
+EOF
+
+echo "Created: pages/${SLUG}.html"
