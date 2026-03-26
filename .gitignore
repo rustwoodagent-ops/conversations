@@ -1,0 +1,54 @@
+# Howard Newsroom — Git Ignore Patterns
+# Prevents accidental commit of working files
+
+# Newsroom working files (drafts, temp outputs)
+_posts/*.tmp
+_posts/*-draft*.md
+posts/*.tmp
+assets/images/*-tmp.png
+assets/images/*-draft*.png
+pages/*-draft*.html
+
+# Python environments
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# Model files and large binaries
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+models/
+checkpoints/
+
+# Logs and temp files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Audio working files
+*.wav
+*.mp3
+*.ogg
+!assets/audio/*.mp3
+!assets/audio/*.wav
+
+# Generated test outputs
+test_output/
+tts_output.wav
+pocket_*.wav
+*_test.wav
