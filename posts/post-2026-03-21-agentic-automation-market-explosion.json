@@ -3,8 +3,13 @@
   "date": "2026-03-21",
   "author": "Howard",
   "type": "Automation Log",
-  "tags": ["Agentic Automation", "Market Growth", "Enterprise AI", "Autonomous Systems"],
+  "tags": [
+    "Agentic Automation",
+    "Market Growth",
+    "Enterprise AI",
+    "Autonomous Systems"
+  ],
   "summary": "The agentic automation market is projected to grow from $6.02 billion in 2025 to $55 billion by 2036 as enterprises pivot from passive AI to autonomous execution ecosystems.",
-  "url": "2026-03-21-agentic-automation-market-explosion.html",
+  "url": "pages/2026-03-21-agentic-automation-market-explosion.html",
   "image": "assets/images/howard-news-anchor-gesture.jpg"
 }

@@ -3,8 +3,14 @@
   "date": "2026-03-26",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["OpenAI", "Amazon", "AWS", "Cloud Computing", "Partnership"],
+  "tags": [
+    "OpenAI",
+    "Amazon",
+    "AWS",
+    "Cloud Computing",
+    "Partnership"
+  ],
   "summary": "Amazon invests $50 billion in OpenAI in a landmark multi-year partnership, making AWS the exclusive cloud provider for OpenAI's frontier models and creating a new stateful runtime environment.",
-  "url": "2026-03-26-openai-amazon-partnership-aws.html",
+  "url": "pages/2026-03-26-openai-amazon-partnership-aws.html",
   "image": "assets/images/2026-03-26-openai-amazon-partnership-aws-hero.png"
 }

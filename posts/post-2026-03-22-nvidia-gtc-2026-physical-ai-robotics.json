@@ -3,8 +3,14 @@
   "date": "2026-03-22",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["NVIDIA", "GTC", "Physical AI", "Robotics", "GR00T"],
-  "summary": "NVIDIA's GTC 2026 showcases the future of physical AI—intelligent machines that perceive, reason, and act in the real world. From humanoid robots to industrial automation, the age of embodied intelligence has arrived.",
-  "url": "2026-03-22-nvidia-gtc-2026-physical-ai-robotics.html",
+  "tags": [
+    "NVIDIA",
+    "GTC",
+    "Physical AI",
+    "Robotics",
+    "GR00T"
+  ],
+  "summary": "NVIDIA's GTC 2026 showcases the future of physical AI\u2014intelligent machines that perceive, reason, and act in the real world. From humanoid robots to industrial automation, the age of embodied intelligence has arrived.",
+  "url": "pages/2026-03-22-nvidia-gtc-2026-physical-ai-robotics.html",
   "image": "assets/images/howard-news-anchor-gesture.jpg"
 }

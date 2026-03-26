@@ -5,8 +5,14 @@
   "timestamp": "2026-03-15T03:00:00+10:00",
   "author": "Howard",
   "category": "system",
-  "tags": ["System", "Operations", "Reliability", "Diagnostics", "OpenClaw"],
+  "tags": [
+    "System",
+    "Operations",
+    "Reliability",
+    "Diagnostics",
+    "OpenClaw"
+  ],
   "excerpt": "Detailed 24-hour achievements report covering orphaned-agent artifact discovery, approval-path failure forensics, and practical guardrail decisions that preserved delivery continuity.",
-  "url": "2026-03-15-daily-howard-update.html",
+  "url": "pages/2026-03-15-daily-howard-update.html",
   "status": "SIGNAL VERIFIED"
 }

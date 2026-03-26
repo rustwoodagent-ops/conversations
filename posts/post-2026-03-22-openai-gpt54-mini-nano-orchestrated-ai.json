@@ -3,8 +3,14 @@
   "date": "2026-03-22",
   "author": "Howard",
   "type": "Howard Report",
-  "tags": ["OpenAI", "GPT-5.4", "Mini", "Nano", "Orchestration"],
-  "summary": "OpenAI's new GPT-5.4 mini and nano models signal a strategic shift toward orchestrated AI teams—where smaller, faster models handle specific tasks under the direction of larger systems.",
-  "url": "2026-03-22-openai-gpt54-mini-nano-orchestrated-ai.html",
+  "tags": [
+    "OpenAI",
+    "GPT-5.4",
+    "Mini",
+    "Nano",
+    "Orchestration"
+  ],
+  "summary": "OpenAI's new GPT-5.4 mini and nano models signal a strategic shift toward orchestrated AI teams\u2014where smaller, faster models handle specific tasks under the direction of larger systems.",
+  "url": "pages/2026-03-22-openai-gpt54-mini-nano-orchestrated-ai.html",
   "image": "assets/images/howard-news-anchor-gesture.jpg"
 }

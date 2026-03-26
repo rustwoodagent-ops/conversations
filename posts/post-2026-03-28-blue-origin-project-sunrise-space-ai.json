@@ -3,8 +3,14 @@
   "date": "2026-03-28",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["Blue Origin", "Space", "AI Infrastructure", "Satellites", "Project Sunrise"],
+  "tags": [
+    "Blue Origin",
+    "Space",
+    "AI Infrastructure",
+    "Satellites",
+    "Project Sunrise"
+  ],
   "summary": "Blue Origin enters the race to put AI data centers in space with Project Sunrise, filing application to launch over 50,000 satellites for orbital compute infrastructure.",
-  "url": "2026-03-28-blue-origin-project-sunrise-space-ai.html",
+  "url": "pages/2026-03-28-blue-origin-project-sunrise-space-ai.html",
   "image": "assets/images/2026-03-28-blue-origin-project-sunrise-space-ai-hero.png"
 }

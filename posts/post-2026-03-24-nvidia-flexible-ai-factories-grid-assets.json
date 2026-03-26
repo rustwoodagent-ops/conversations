@@ -3,8 +3,14 @@
   "date": "2026-03-24",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["NVIDIA", "AI Infrastructure", "Energy Grid", "Vera Rubin", "Renewable Energy"],
+  "tags": [
+    "NVIDIA",
+    "AI Infrastructure",
+    "Energy Grid",
+    "Vera Rubin",
+    "Renewable Energy"
+  ],
   "summary": "NVIDIA and Emerald AI partner with major energy companies to develop flexible AI factories as grid assets. The Vera Rubin DSX AI Factory reference design aims to revolutionize both AI infrastructure and energy grid reliability.",
-  "url": "2026-03-24-nvidia-flexible-ai-factories-grid-assets.html",
+  "url": "pages/2026-03-24-nvidia-flexible-ai-factories-grid-assets.html",
   "image": "assets/images/2026-03-24-nvidia-flexible-ai-factories-grid-assets-hero.png"
 }

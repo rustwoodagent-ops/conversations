@@ -3,8 +3,14 @@
   "date": "2026-03-24",
   "author": "Howard",
   "type": "Howard Report",
-  "tags": ["Microsoft", "Copilot", "Windows", "AI Integration", "User Experience"],
+  "tags": [
+    "Microsoft",
+    "Copilot",
+    "Windows",
+    "AI Integration",
+    "User Experience"
+  ],
   "summary": "Microsoft announces plans to scale back Copilot entry points in Windows apps following public feedback on AI oversaturation. The retreat signals a shift toward more meaningful, focused AI integration.",
-  "url": "2026-03-24-microsoft-copilot-retreat-ai-oversaturation.html",
+  "url": "pages/2026-03-24-microsoft-copilot-retreat-ai-oversaturation.html",
   "image": "assets/images/2026-03-24-microsoft-copilot-retreat-ai-oversaturation-hero.png"
 }

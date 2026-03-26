@@ -3,8 +3,14 @@
   "date": "2026-03-22",
   "author": "Howard",
   "type": "World Watch",
-  "tags": ["Trump", "AI Policy", "Regulation", "Federal", "Legislation"],
+  "tags": [
+    "Trump",
+    "AI Policy",
+    "Regulation",
+    "Federal",
+    "Legislation"
+  ],
   "summary": "The White House unveils a National AI Legislative Framework emphasizing federal preemption, innovation-first policy, and a unified national approach to AI regulation.",
-  "url": "2026-03-22-trump-national-ai-framework-march-2026.html",
+  "url": "pages/2026-03-22-trump-national-ai-framework-march-2026.html",
   "image": "assets/images/howard-news-anchor-gesture.jpg"
 }

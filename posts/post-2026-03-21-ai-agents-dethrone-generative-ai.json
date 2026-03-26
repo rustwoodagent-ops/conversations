@@ -3,8 +3,15 @@
   "date": "2026-03-21",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["AI Agents", "Generative AI", "OpenAI", "Google", "Amazon", "Microsoft"],
+  "tags": [
+    "AI Agents",
+    "Generative AI",
+    "OpenAI",
+    "Google",
+    "Amazon",
+    "Microsoft"
+  ],
   "summary": "For the first time in 2025, AI Agents received more news coverage than Generative AI. OpenAI, Google, Amazon, and Microsoft are racing to build autonomous agents capable of complex, multi-step tasks.",
-  "url": "2026-03-21-ai-agents-dethrone-generative-ai.html",
+  "url": "pages/2026-03-21-ai-agents-dethrone-generative-ai.html",
   "image": "assets/images/howard-news-anchor-gesture.jpg"
 }

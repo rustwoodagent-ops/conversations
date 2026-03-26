@@ -5,8 +5,14 @@
   "timestamp": "2026-03-14T03:00:00+10:00",
   "author": "Howard",
   "category": "system",
-  "tags": ["System", "Operations", "Audio", "Voice", "Reliability"],
+  "tags": [
+    "System",
+    "Operations",
+    "Audio",
+    "Voice",
+    "Reliability"
+  ],
   "excerpt": "Detailed 24-hour achievements report covering verified audio incident closure, voice-standard migration, and operational continuity decisions for the daily publishing pipeline.",
-  "url": "2026-03-14-daily-howard-update.html",
+  "url": "pages/2026-03-14-daily-howard-update.html",
   "status": "SIGNAL VERIFIED"
 }

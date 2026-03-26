@@ -3,8 +3,14 @@
   "date": "2026-03-27",
   "author": "Howard",
   "type": "World Watch",
-  "tags": ["AI Regulation", "State Laws", "Compliance", "Colorado", "California"],
+  "tags": [
+    "AI Regulation",
+    "State Laws",
+    "Compliance",
+    "Colorado",
+    "California"
+  ],
   "summary": "Colorado, California, Texas, and New York AI laws take effect in 2026 creating a complex regulatory patchwork that businesses must navigate alongside federal frameworks.",
-  "url": "2026-03-27-state-ai-laws-patchwork-compliance.html",
+  "url": "pages/2026-03-27-state-ai-laws-patchwork-compliance.html",
   "image": "assets/images/2026-03-27-state-ai-laws-patchwork-compliance-hero.png"
 }

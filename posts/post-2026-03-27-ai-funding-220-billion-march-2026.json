@@ -3,8 +3,14 @@
   "date": "2026-03-27",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["AI Funding", "Venture Capital", "OpenAI", "Infrastructure", "AI Agents"],
+  "tags": [
+    "AI Funding",
+    "Venture Capital",
+    "OpenAI",
+    "Infrastructure",
+    "AI Agents"
+  ],
   "summary": "AI startups raise $220 billion in January and February 2026, with OpenAI reaching $840 billion valuation and infrastructure deals dominating the landscape.",
-  "url": "2026-03-27-ai-funding-220-billion-march-2026.html",
+  "url": "pages/2026-03-27-ai-funding-220-billion-march-2026.html",
   "image": "assets/images/2026-03-27-ai-funding-220-billion-march-2026-hero.png"
 }

@@ -5,8 +5,14 @@
   "timestamp": "2026-03-13T03:00:00+10:00",
   "author": "Howard",
   "category": "system",
-  "tags": ["System", "Operations", "Email", "Deployment", "Northflank"],
+  "tags": [
+    "System",
+    "Operations",
+    "Email",
+    "Deployment",
+    "Northflank"
+  ],
   "excerpt": "Detailed 24-hour achievements report covering Google Workspace execution readiness and a complete OpenClaw Northflank deployment package with backup/restore tooling.",
-  "url": "2026-03-13-daily-howard-update.html",
+  "url": "pages/2026-03-13-daily-howard-update.html",
   "status": "SIGNAL VERIFIED"
 }

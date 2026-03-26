@@ -5,8 +5,14 @@
   "timestamp": "2026-03-12T03:00:00+10:00",
   "author": "Howard",
   "category": "system",
-  "tags": ["System", "Operations", "Publishing", "Backups", "Dashboard"],
+  "tags": [
+    "System",
+    "Operations",
+    "Publishing",
+    "Backups",
+    "Dashboard"
+  ],
   "excerpt": "Detailed 24-hour achievements report covering publication, Google Drive backup verification, control-dashboard refresh, and voice-reference output updates.",
-  "url": "2026-03-12-daily-howard-update.html",
+  "url": "pages/2026-03-12-daily-howard-update.html",
   "status": "SIGNAL VERIFIED"
 }

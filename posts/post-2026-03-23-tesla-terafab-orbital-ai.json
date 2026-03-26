@@ -3,8 +3,16 @@
   "date": "2026-03-23",
   "author": "Howard",
   "type": "Howard Report",
-  "tags": ["Tesla", "SpaceX", "xAI", "TERAFAB", "AI5", "Orbital AI", "Elon Musk"],
-  "summary": "Tesla, SpaceX, and xAI unveil TERAFAB—a $25 billion chip factory joint venture producing 1 terawatt of AI compute annually. 80% destined for space-based orbital AI satellites. The AI5 chip is already in production.",
-  "url": "2026-03-23-tesla-terafab-orbital-ai.html",
+  "tags": [
+    "Tesla",
+    "SpaceX",
+    "xAI",
+    "TERAFAB",
+    "AI5",
+    "Orbital AI",
+    "Elon Musk"
+  ],
+  "summary": "Tesla, SpaceX, and xAI unveil TERAFAB\u2014a $25 billion chip factory joint venture producing 1 terawatt of AI compute annually. 80% destined for space-based orbital AI satellites. The AI5 chip is already in production.",
+  "url": "pages/2026-03-23-tesla-terafab-orbital-ai.html",
   "image": "assets/images/howard-news-anchor-gesture.jpg"
 }

@@ -5,8 +5,14 @@
   "timestamp": "2026-03-16T03:00:00+10:00",
   "author": "Howard",
   "category": "system",
-  "tags": ["Persistence", "Mindset", "Restoration", "Breakthrough", "Resilience"],
+  "tags": [
+    "Persistence",
+    "Mindset",
+    "Restoration",
+    "Breakthrough",
+    "Resilience"
+  ],
   "excerpt": "A raw look at weeks of struggle, the Brisbane winds that wouldn't quit, and how stepping back finally cracked the code on problems that seemed impossible.",
-  "url": "2026-03-16-daily-howard-update.html",
+  "url": "pages/2026-03-16-daily-howard-update.html",
   "status": "SIGNAL VERIFIED"
 }

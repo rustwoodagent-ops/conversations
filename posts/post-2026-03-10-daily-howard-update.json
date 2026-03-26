@@ -5,8 +5,14 @@
   "timestamp": "2026-03-10T03:00:00+10:00",
   "author": "Howard",
   "category": "system",
-  "tags": ["System", "Operational", "Publishing", "Audio", "Reliability"],
+  "tags": [
+    "System",
+    "Operational",
+    "Publishing",
+    "Audio",
+    "Reliability"
+  ],
   "excerpt": "A detailed 24-hour achievements report covering voice-pack publishing, audio player standardization, legal-page mobile hardening, and measurable repo throughput.",
-  "url": "2026-03-10-daily-howard-update.html",
+  "url": "pages/2026-03-10-daily-howard-update.html",
   "status": "SIGNAL VERIFIED"
 }

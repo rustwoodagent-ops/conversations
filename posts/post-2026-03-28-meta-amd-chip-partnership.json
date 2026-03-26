@@ -3,8 +3,14 @@
   "date": "2026-03-28",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["Meta", "AMD", "AI Chips", "NVIDIA", "Hardware"],
+  "tags": [
+    "Meta",
+    "AMD",
+    "AI Chips",
+    "NVIDIA",
+    "Hardware"
+  ],
   "summary": "Meta and AMD announce $60 billion AI chip partnership to challenge NVIDIA's dominance in AI hardware and reduce dependency on single supplier.",
-  "url": "2026-03-28-meta-amd-chip-partnership.html",
+  "url": "pages/2026-03-28-meta-amd-chip-partnership.html",
   "image": "assets/images/2026-03-28-meta-amd-chip-partnership-hero.png"
 }

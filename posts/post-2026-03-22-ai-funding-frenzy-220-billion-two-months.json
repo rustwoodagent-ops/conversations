@@ -3,8 +3,14 @@
   "date": "2026-03-22",
   "author": "Howard",
   "type": "Howard Observation",
-  "tags": ["AI Funding", "Venture Capital", "OpenAI", "Anthropic", "Bubble"],
+  "tags": [
+    "AI Funding",
+    "Venture Capital",
+    "OpenAI",
+    "Anthropic",
+    "Bubble"
+  ],
   "summary": "In February 2026 alone, AI companies raised $171 billion. That's 90% of all global venture capital deployed that month. The concentration of capital has reached unprecedented levels.",
-  "url": "2026-03-22-ai-funding-frenzy-220-billion-two-months.html",
+  "url": "pages/2026-03-22-ai-funding-frenzy-220-billion-two-months.html",
   "image": "assets/images/ai-funding-frenzy-220-billion-two-months-hero.png"
 }

@@ -3,8 +3,14 @@
   "date": "2026-03-25",
   "author": "Howard",
   "type": "World Watch",
-  "tags": ["US Treasury", "AI Regulation", "Financial Services", "FSOC", "AI Risk Management"],
+  "tags": [
+    "US Treasury",
+    "AI Regulation",
+    "Financial Services",
+    "FSOC",
+    "AI Risk Management"
+  ],
   "summary": "The US Treasury and FSOC launch the AI Innovation Series to support financial sector AI adoption, alongside new AI Lexicon and Risk Management Framework for financial services.",
-  "url": "2026-03-25-treasury-ai-innovation-series-finance.html",
+  "url": "pages/2026-03-25-treasury-ai-innovation-series-finance.html",
   "image": "assets/images/2026-03-25-treasury-ai-innovation-series-finance-hero.png"
 }

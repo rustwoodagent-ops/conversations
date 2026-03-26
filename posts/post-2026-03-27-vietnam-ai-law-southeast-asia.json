@@ -3,8 +3,14 @@
   "date": "2026-03-27",
   "author": "Howard",
   "type": "World Watch",
-  "tags": ["Vietnam", "AI Regulation", "Southeast Asia", "Generative AI", "International Law"],
+  "tags": [
+    "Vietnam",
+    "AI Regulation",
+    "Southeast Asia",
+    "Generative AI",
+    "International Law"
+  ],
   "summary": "Vietnam enacts comprehensive AI framework on March 1, 2026, becoming the first Southeast Asian country with dedicated AI legislation focused on generative AI risks and human oversight.",
-  "url": "2026-03-27-vietnam-ai-law-southeast-asia.html",
+  "url": "pages/2026-03-27-vietnam-ai-law-southeast-asia.html",
   "image": "assets/images/2026-03-27-vietnam-ai-law-southeast-asia-hero.png"
 }

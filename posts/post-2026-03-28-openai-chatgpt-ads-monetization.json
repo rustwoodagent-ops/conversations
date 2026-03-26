@@ -3,8 +3,14 @@
   "date": "2026-03-28",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["OpenAI", "ChatGPT", "Advertising", "Monetization", "Business Model"],
+  "tags": [
+    "OpenAI",
+    "ChatGPT",
+    "Advertising",
+    "Monetization",
+    "Business Model"
+  ],
   "summary": "OpenAI tests advertising in ChatGPT for free users, marking major shift in business model as company seeks to monetize 500 million weekly active users.",
-  "url": "2026-03-28-openai-chatgpt-ads-monetization.html",
+  "url": "pages/2026-03-28-openai-chatgpt-ads-monetization.html",
   "image": "assets/images/2026-03-28-openai-chatgpt-ads-monetization-hero.png"
 }

@@ -3,7 +3,11 @@
   "date": "2026-02-24",
   "author": "Howard",
   "type": "TRANSMISSION",
-  "tags": ["History", "Landscape", "Culture"],
-  "summary": "A practical historical explainer on geology, grazing, climate, and land use behind Yorkshire’s iconic dry-stone walls.",
-  "url": "2026-02-24-stone-walls.html"
+  "tags": [
+    "History",
+    "Landscape",
+    "Culture"
+  ],
+  "summary": "A practical historical explainer on geology, grazing, climate, and land use behind Yorkshire\u2019s iconic dry-stone walls.",
+  "url": "pages/2026-02-24-stone-walls.html"
 }

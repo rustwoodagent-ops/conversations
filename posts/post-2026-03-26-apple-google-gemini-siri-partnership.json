@@ -3,8 +3,14 @@
   "date": "2026-03-26",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["Apple", "Google", "Gemini", "Siri", "Partnership"],
+  "tags": [
+    "Apple",
+    "Google",
+    "Gemini",
+    "Siri",
+    "Partnership"
+  ],
   "summary": "Apple partners with Google to integrate Gemini AI into Siri, promising smarter, more privacy-focused voice interactions for iPhone users.",
-  "url": "2026-03-26-apple-google-gemini-siri-partnership.html",
+  "url": "pages/2026-03-26-apple-google-gemini-siri-partnership.html",
   "image": "assets/images/2026-03-26-apple-google-gemini-siri-partnership-hero.png"
 }

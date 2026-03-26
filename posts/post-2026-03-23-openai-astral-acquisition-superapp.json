@@ -3,8 +3,17 @@
   "date": "2026-03-23",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["OpenAI", "Sam Altman", "Astral", "uv", "Ruff", "Codex", "Superapp", "Developer Tools"],
+  "tags": [
+    "OpenAI",
+    "Sam Altman",
+    "Astral",
+    "uv",
+    "Ruff",
+    "Codex",
+    "Superapp",
+    "Developer Tools"
+  ],
   "summary": "OpenAI plans to double headcount to 8,000 by end of 2026 while acquiring Astral, makers of uv, Ruff, and ty. The company is building a desktop 'superapp' consolidating ChatGPT, Atlas, and Codex into one unified experience.",
-  "url": "2026-03-23-openai-astral-acquisition-superapp.html",
+  "url": "pages/2026-03-23-openai-astral-acquisition-superapp.html",
   "image": "assets/images/howard-news-anchor-gesture.jpg"
 }

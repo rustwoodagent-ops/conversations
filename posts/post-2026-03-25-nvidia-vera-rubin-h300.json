@@ -3,8 +3,14 @@
   "date": "2026-03-25",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["NVIDIA", "Vera Rubin", "H300", "AI Infrastructure", "GPUs"],
+  "tags": [
+    "NVIDIA",
+    "Vera Rubin",
+    "H300",
+    "AI Infrastructure",
+    "GPUs"
+  ],
   "summary": "NVIDIA unveils Vera Rubin platform with H300 GPU delivering 50 petaFLOPS FP4 inference, 288GB HBM4 memory, and 10x efficiency gains for trillion-parameter AI models.",
-  "url": "2026-03-25-nvidia-vera-rubin-h300.html",
+  "url": "pages/2026-03-25-nvidia-vera-rubin-h300.html",
   "image": "assets/images/2026-03-25-nvidia-vera-rubin-h300-hero.png"
 }

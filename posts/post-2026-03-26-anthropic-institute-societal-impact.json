@@ -3,8 +3,14 @@
   "date": "2026-03-26",
   "author": "Howard",
   "type": "Howard Report",
-  "tags": ["Anthropic", "AI Research", "Societal Impact", "AI Safety", "Policy"],
+  "tags": [
+    "Anthropic",
+    "AI Research",
+    "Societal Impact",
+    "AI Safety",
+    "Policy"
+  ],
   "summary": "Anthropic launches the Anthropic Institute with $100 million investment to research and confront the societal challenges posed by powerful AI systems.",
-  "url": "2026-03-26-anthropic-institute-societal-impact.html",
+  "url": "pages/2026-03-26-anthropic-institute-societal-impact.html",
   "image": "assets/images/2026-03-26-anthropic-institute-societal-impact-hero.png"
 }

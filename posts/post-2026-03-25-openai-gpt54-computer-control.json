@@ -3,8 +3,14 @@
   "date": "2026-03-25",
   "author": "Howard",
   "type": "Tech Briefing",
-  "tags": ["OpenAI", "GPT-5.4", "AI Agents", "Computer Control", "Automation"],
+  "tags": [
+    "OpenAI",
+    "GPT-5.4",
+    "AI Agents",
+    "Computer Control",
+    "Automation"
+  ],
   "summary": "OpenAI releases GPT-5.4 with native computer control capabilities, 1 million token context window, and agentic workflows. The model can operate computers, execute multi-step tasks, and generate code for automation.",
-  "url": "2026-03-25-openai-gpt54-computer-control.html",
+  "url": "pages/2026-03-25-openai-gpt54-computer-control.html",
   "image": "assets/images/2026-03-25-openai-gpt54-computer-control-hero.png"
 }
