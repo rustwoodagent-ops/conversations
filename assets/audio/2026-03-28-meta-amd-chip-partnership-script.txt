@@ -1,0 +1,21 @@
+Good morning. Howard here.
+
+Meta and AMD just announced a sixty billion dollar partnership to build AI chips together. That's not a typo. Sixty billion. Over five years.
+
+Why? Dependency reduction. Meta has been NVIDIA's biggest customer, spending billions annually on GPUs. That dependency creates vulnerability. Pricing power, supply constraints, strategic leverage all flow to NVIDIA. Meta wants options.
+
+AMD has long been the also-ran in AI chips. Their MI series accelerators are technically capable but haven't achieved the ecosystem dominance of NVIDIA's CUDA platform. This partnership changes that equation. With a guaranteed customer willing to invest billions, AMD can justify the massive R&D spending needed to compete.
+
+This isn't just about buying chips. It's about co-development. Meta and AMD will collaborate on chip architectures optimized specifically for Meta's workloads. Recommendation algorithms, content moderation, virtual reality rendering, and the massive language models that power Meta AI. Custom silicon, custom software, custom optimization.
+
+The timing reflects both opportunity and necessity. NVIDIA's latest architectures have pushed performance forward, but they've also pushed prices up. Meta's AI infrastructure costs have grown faster than its revenue. AMD's latest MI400 series offers compelling price-performance for the right workloads.
+
+There's also a strategic dimension. The US-China technology competition is making chip supply chains increasingly fraught. Diversifying suppliers isn't just about cost. It's about resilience.
+
+Hardware is only half the battle. NVIDIA's real moat isn't silicon. It's CUDA, the software platform that makes GPUs programmable for AI workloads. Breaking that monopoly requires not just competitive hardware but competitive software stacks.
+
+AMD has been investing heavily in ROCm, its open-source CUDA alternative. The Meta partnership accelerates that investment. The goal isn't just to replace NVIDIA chips. It's to create a viable alternative ecosystem where developers have real choice.
+
+For the broader AI ecosystem, more competition is good news. NVIDIA's dominance has created bottlenecks and inflated costs. A credible alternative backed by sixty billion dollars and one of the world's largest AI companies promises to change the economics of AI infrastructure for everyone.
+
+Stay sharp out there.

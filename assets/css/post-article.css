@@ -305,6 +305,42 @@ audio::-webkit-media-controls-volume-slider {
   border-radius: 4px;
 }
 
+/* Glass Panel (for embedded audio players) */
+.glass-panel {
+  background: var(--nh-bg-panel);
+  border: 1px solid var(--nh-border);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.glass-panel h3 {
+  color: var(--nh-text-primary);
+  font-weight: 600;
+}
+
+.glass-panel audio {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.glass-panel audio::-webkit-media-controls-panel {
+  background: linear-gradient(135deg, rgba(87, 200, 255, 0.1), rgba(141, 131, 255, 0.1));
+  border-radius: 8px;
+}
+
+.glass-panel audio::-webkit-media-controls-current-time-display,
+.glass-panel audio::-webkit-media-controls-time-remaining-display {
+  color: var(--nh-text-primary);
+}
+
+.glass-panel audio::-webkit-media-controls-play-button {
+  background-color: var(--nh-accent-cyan);
+  border-radius: 50%;
+}
+
 /* Print styles */
 @media print {
   .newsroom-header {
