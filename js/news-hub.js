@@ -70,13 +70,15 @@
 
   async function loadPosts() {
     try {
-      const manifestRes = await fetch('../posts/index.json', { cache: 'no-store' });
+      const isInPagesDir = window.location.pathname.includes('/pages/');
+      const postsPath = isInPagesDir ? '../posts/' : 'posts/';
+      const manifestRes = await fetch(`${postsPath}index.json`, { cache: 'no-store' });
       if (!manifestRes.ok) throw new Error('Manifest unavailable');
       const files = await manifestRes.json();
 
       const loaded = await Promise.all(files.map(async (file) => {
         try {
-          const res = await fetch(`../posts/${file}`, { cache: 'no-store' });
+          const res = await fetch(`${postsPath}${file}`, { cache: 'no-store' });
           if (!res.ok) return null;
           const post = await res.json();
           post.__file = file;
@@ -109,22 +111,24 @@
   }
 
   function inferImage(slug, post) {
+    const isInPagesDir = window.location.pathname.includes('/pages/');
+    const assetsPrefix = isInPagesDir ? '../assets/' : 'assets/';
     const map = [
-      ['gemini', '../assets/images/news-gemini-pro.png'],
-      ['github', '../assets/images/news-github-codex.png'],
-      ['copilot', '../assets/images/news-copilot-vs.png'],
-      ['protein', '../assets/images/news-protein-ai.png'],
-      ['openai', '../assets/images/news-dalle3.png'],
-      ['news-update-test', '../assets/images/howard-news-anchor-gesture.jpg'],
-      ['howard-news-update', '../assets/images/howard-news-anchor-reading-alt.jpg'],
-      ['howard-news', '../assets/images/howard-news-anchor-full.jpg'],
-      ['daily-howard-update', '../assets/images/howard-news-anchor-reading.jpg'],
-      ['news', '../assets/images/howard-news-anchor-full.jpg']
+      ['gemini', `${assetsPrefix}images/news-gemini-pro.png`],
+      ['github', `${assetsPrefix}images/news-github-codex.png`],
+      ['copilot', `${assetsPrefix}images/news-copilot-vs.png`],
+      ['protein', `${assetsPrefix}images/news-protein-ai.png`],
+      ['openai', `${assetsPrefix}images/news-dalle3.png`],
+      ['news-update-test', `${assetsPrefix}images/howard-news-anchor-gesture.jpg`],
+      ['howard-news-update', `${assetsPrefix}images/howard-news-anchor-reading-alt.jpg`],
+      ['howard-news', `${assetsPrefix}images/howard-news-anchor-full.jpg`],
+      ['daily-howard-update', `${assetsPrefix}images/howard-news-anchor-reading.jpg`],
+      ['news', `${assetsPrefix}images/howard-news-anchor-full.jpg`]
     ];
 
     const lower = `${slug} ${(post.title || '').toLowerCase()}`;
     const hit = map.find(([key]) => lower.includes(key));
-    return hit ? hit[1] : '/assets/images/howard-news-anchor-gesture.jpg';
+    return hit ? hit[1] : `${assetsPrefix}images/howard-news-anchor-gesture.jpg`;
   }
 
   function sortPosts(posts) {
