@@ -224,6 +224,87 @@ body {
   }
 }
 
+/* Audio Player */
+.audio-player-container {
+  margin: 2rem 0;
+  background: var(--nh-bg-panel);
+  border: 1px solid var(--nh-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.audio-player-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.audio-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--nh-accent-cyan), var(--nh-accent-purple));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.audio-info {
+  flex: 1;
+}
+
+.audio-title {
+  font-weight: 600;
+  color: var(--nh-text-primary);
+  font-size: 1rem;
+}
+
+.audio-duration {
+  color: var(--nh-text-secondary);
+  font-size: 0.85rem;
+}
+
+audio {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+audio::-webkit-media-controls-panel {
+  background: linear-gradient(135deg, rgba(87, 200, 255, 0.1), rgba(141, 131, 255, 0.1));
+  border-radius: 8px;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  color: var(--nh-text-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: var(--nh-accent-cyan);
+  border-radius: 50%;
+}
+
+audio::-webkit-media-controls-play-button:hover {
+  background-color: var(--nh-accent-purple);
+}
+
+audio::-webkit-media-controls-timeline {
+  background-color: var(--nh-border);
+  border-radius: 4px;
+  height: 6px;
+}
+
+audio::-webkit-media-controls-volume-slider {
+  background-color: var(--nh-border);
+  border-radius: 4px;
+}
+
 /* Print styles */
 @media print {
   .newsroom-header {
