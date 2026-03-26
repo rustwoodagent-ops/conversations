@@ -197,6 +197,15 @@
     if (el.heroRail) el.heroRail.innerHTML = secondary.map(renderSecondaryCard).join('');
   }
 
+  function getPostUrl(post) {
+    if (!post.url) return '#';
+    const isInPagesDir = window.location.pathname.includes('/pages/');
+    if (isInPagesDir && post.url.startsWith('pages/')) {
+      return post.url.replace('pages/', '');
+    }
+    return post.url;
+  }
+
   function renderFeaturedCard(post) {
     const typeInfo = getTypeInfo(post.contentType);
     return `
@@ -213,7 +222,7 @@
           </div>
           <h2 class="nh-featured-title">${escapeHtml(post.title)}</h2>
           <p class="nh-featured-excerpt">${escapeHtml(post.summary)}</p>
-          <a href="${escapeAttr(post.url || '#')}" class="nh-featured-cta">Read full dispatch →</a>
+          <a href="${escapeAttr(getPostUrl(post))}" class="nh-featured-cta">Read full dispatch →</a>
         </div>
       </article>
     `;
@@ -222,7 +231,7 @@
   function renderSecondaryCard(post) {
     const typeInfo = getTypeInfo(post.contentType);
     return `
-      <a href="${escapeAttr(post.url || '#')}" class="nh-secondary-card">
+      <a href="${escapeAttr(getPostUrl(post))}" class="nh-secondary-card">
         <div class="nh-secondary-media">
           <img src="${escapeAttr(post.headerImage)}" alt="${escapeAttr(post.title)}">
         </div>
@@ -261,7 +270,7 @@
   function renderArticleCard(post) {
     const typeInfo = getTypeInfo(post.contentType);
     return `
-      <a href="${escapeAttr(post.url || '#')}" class="nh-article" data-category="${escapeAttr(post.contentType)}">
+      <a href="${escapeAttr(getPostUrl(post))}" class="nh-article" data-category="${escapeAttr(post.contentType)}">
         <div class="nh-article-image">
           <img src="${escapeAttr(post.headerImage)}" alt="${escapeAttr(post.title)}">
           <span class="nh-article-category ${typeInfo.tone}">${typeInfo.label}</span>
