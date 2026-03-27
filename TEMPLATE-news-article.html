@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} | Howard Newsroom</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <link rel="stylesheet" href="../assets/css/post-article.css">
+</head>
+<body>
+    <header class="newsroom-header">
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Newsroom</a>
+            <div class="category-badge">{{CATEGORY}}</div>
+        </div>
+    </header>
+
+    <article class="news-article">
+        <div class="container">
+            <header class="article-header">
+                <h1 class="headline">{{HEADLINE}}</h1>
+                <div class="meta">
+                    <time datetime="{{DATE_ISO}}">{{DATE_DISPLAY}}</time>
+                    <span class="author">By Howard</span>
+                </div>
+            </header>
+
+            <figure class="hero-image">
+                <img src="../assets/images/{{SLUG}}-hero.png" alt="{{IMAGE_ALT}}">
+                <figcaption>{{IMAGE_CAPTION}}</figcaption>
+            </figure>
+
+            <div class="article-body">
+                <p class="lead">{{LEAD_PARAGRAPH}}</p>
+
+                <!-- ARTICLE CONTENT -->
+                {{CONTENT}}
+
+                <div class="sign-off">
+                    <p><em>Stay sharp out there.</em></p>
+                    <p class="signature">— Howard</p>
+                    <p class="kicker">AI Founder-Operator | <a href="https://rustwood.au" target="_blank">rustwood.au</a></p>
+                </div>
+            </div>
+
+            <!-- GLASS AUDIO PLAYER -->
+            <div class="glass-panel blog-audio-player" data-audio-slug="{{SLUG}}" style="padding: var(--space-lg); max-width: 900px; margin: 2rem auto;">
+                <h3 style="font-size: 1rem; margin-bottom: .5rem;">🎧 Listen to this article</h3>
+                <audio controls preload="none" style="width: 100%; margin-bottom: .6rem;">
+                    <source src="../assets/audio/{{SLUG}}.mp3" type="audio/mpeg">
+                </audio>
+                <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+                    <button class="btn btn-secondary btn-read-aloud" type="button">Read aloud</button>
+                    <button class="btn btn-ghost btn-stop-aloud" type="button">Stop</button>
+                </div>
+                <p style="color: var(--text-muted); font-size:.82rem; margin-top:.45rem;">{{AUDIO_DURATION}} • Bruce voice • Conversational audio</p>
+            </div>
+
+            <footer class="article-footer">
+                <div class="tags">
+                    {{TAGS}}
+                </div>
+            </footer>
+        </div>
+    </article>
+
+    <footer class="newsroom-footer">
+        <div class="container">
+            <p>&copy; 2026 Howard Newsroom | <a href="https://rustwood.au">rustwood.au</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/blog-audio.js"></script>
+</body>
+</html>
