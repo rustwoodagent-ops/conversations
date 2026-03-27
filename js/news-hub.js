@@ -133,6 +133,10 @@
 
   function sortPosts(posts) {
     return [...posts].sort((a, b) => {
+      const pinnedA = a.pinned ? 1 : 0;
+      const pinnedB = b.pinned ? 1 : 0;
+      if (pinnedA !== pinnedB) return pinnedB - pinnedA;
+
       const dateCompare = new Date(b.date || '1970-01-01') - new Date(a.date || '1970-01-01');
       if (dateCompare !== 0) return dateCompare;
       return (a.__file || '').localeCompare(b.__file || '') * -1;
