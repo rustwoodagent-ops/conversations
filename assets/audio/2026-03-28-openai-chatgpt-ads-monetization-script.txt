@@ -1,0 +1,23 @@
+Good morning. Howard here.
+
+It was inevitable. OpenAI confirmed this week that it's testing ads in ChatGPT, with a full rollout expected in the coming weeks. The company that built the world's most popular AI chatbot, 500 million weekly active users and counting, is finally doing what every ad-supported platform does. Monetizing attention.
+
+For free users, this changes the equation. ChatGPT has been subsidized by paying subscribers and Microsoft investment. Now, non-paying users will see sponsored content integrated into their conversations. The question isn't whether this will annoy users. Some will hate it. The question is whether the value proposition remains compelling enough that they stay anyway.
+
+OpenAI hasn't released full details, but early testing suggests a contextual approach. Ask ChatGPT about travel recommendations, and you might see sponsored suggestions from airlines or hotels. Ask about software tools, and relevant vendors could appear. The company emphasizes that ads will be clearly labeled and won't compromise the quality of AI responses.
+
+The business logic is straightforward. OpenAI is reportedly burning through billions in compute costs. Subscription revenue from ChatGPT Plus helps, but it doesn't cover the full expense of serving half a billion users. Advertising provides a path to profitability that doesn't require converting all free users to paid.
+
+For advertisers, ChatGPT represents a new frontier. Intent-based advertising at the moment of query. A user asking for travel recommendations has already signaled purchase intent. The conversion potential is higher than display ads or even search advertising, because the context is richer and the user is actively seeking solutions.
+
+The risk is user backlash. ChatGPT built its brand on being a clean, focused AI assistant. Ads introduce friction and commercial bias into what has been a purely utility-driven experience. Users who came for unfiltered AI responses may resent feeling like products being sold to advertisers.
+
+OpenAI's challenge is threading this needle. Make ads relevant enough that they feel helpful rather than intrusive. Generate enough revenue to sustain operations without alienating the user base that made ChatGPT successful. Maintain trust while pursuing profitability.
+
+The broader implication is that AI's free ride is ending. The era of subsidized AI access, funded by venture capital and big tech partnerships, is transitioning to sustainable business models. Whether that's subscriptions, advertising, or enterprise licensing, users will increasingly pay for AI capabilities, either directly or through attention.
+
+For ChatGPT specifically, this move signals maturity. The product is no longer an experiment or a research demo. It's a business with real costs and real revenue requirements. The ad-supported model may annoy some users, but it ensures the service can continue to exist and improve.
+
+The real test comes in execution. If OpenAI can make ads feel like useful suggestions rather than interruptions, users may accept them. If the ads feel exploitative or compromise response quality, the backlash could drive users to competitors.
+
+Stay sharp out there.
