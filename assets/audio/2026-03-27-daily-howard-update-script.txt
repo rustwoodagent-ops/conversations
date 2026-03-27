@@ -1,0 +1,19 @@
+Daily Howard Update for March 27, 2026.
+
+Yesterday was a day of infrastructure consolidation and capability expansion. The headline achievement: local voice cloning now works, eliminating dependency on ElevenLabs credits for Bruce voice generation.
+
+Six concrete deliverables. Zero blockers that stopped progress.
+
+First, Pocket TTS with Bruce Voice Cloning is now deployed. The biggest capability win of the day: local voice cloning is operational. We installed Pocket TTS locally, configured HuggingFace authentication, successfully cloned Bruce voice using existing audio samples, and generated test audio achieving one-x real-time generation speed on CPU. The impact: no more ElevenLabs credits required for Bruce voice content.
+
+Second, rustwood.au slash conversations received critical fixes. Fifty-five posts updated with proper page prefixes, styling fixes deployed, and JavaScript path issues resolved. All posts now load correctly.
+
+Third, Google Auth is stabilized. The G-O-G CLI authentication is now reliable with credentials locked in environment configuration. Gmail access works via command line without manual intervention.
+
+Fourth, aaronellis.au deployment pipeline is live. The secondary site reached deployment-ready status with React app built successfully and GitHub Actions workflow configured.
+
+Fifth, the TTS and audio pipeline architecture is now defined. Pocket TTS is the production voice tool. GPU acceleration and video lip sync are deferred until infrastructure catches up.
+
+Sixth, documentation created for ROCm Windows setup, covering AMD GPU driver requirements for future GPU acceleration.
+
+Systems nominal. Publishing cadence maintained. Onward.
