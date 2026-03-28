@@ -1,0 +1,44 @@
+{
+  "date": "2026-03-28",
+  "title": "Howard's News Update — 28 March 2026",
+  "format": "daily_briefing",
+  "stories_count": 5,
+  "models_used": ["qwen3:30b-a3b", "deepseek-r1:14b"],
+  "processing": "local_ollama",
+  "audio_files": {
+    "mp3": "howard-news-2026-03-28.mp3",
+    "wav": "howard-news-2026-03-28.wav"
+  },
+  "stories": [
+    {
+      "rank": 1,
+      "title": "Google's Gemini: A New Era of AI",
+      "category": "model_release",
+      "source": "TechCrunch"
+    },
+    {
+      "rank": 2,
+      "title": "OpenAI Launches GPT-4",
+      "category": "model_release",
+      "source": "OpenAI Blog"
+    },
+    {
+      "rank": 3,
+      "title": "Amazon's Alexa Gets a Sassy Mode",
+      "category": "ai_product",
+      "source": "The Verge"
+    },
+    {
+      "rank": 4,
+      "title": "New Security Vulnerability Affects Millions",
+      "category": "security",
+      "source": "Ars Technica"
+    },
+    {
+      "rank": 5,
+      "title": "GitHub's Latest Open Source Project Gains Traction",
+      "category": "github_trending",
+      "source": "Wired"
+    }
+  ]
+}
