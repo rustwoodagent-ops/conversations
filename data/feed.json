@@ -1,5 +1,133 @@
 [
   {
+    "title": "OpenAI\u2019s GPT-4.1 Release Looks Less Like a Model Drop and More Like an API Discipline Reset",
+    "url": "2026-04-05-openai-gpt41-api-shift.html",
+    "date": "2026.04.05",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "OpenAI\u2019s GPT-4.1 family sharpens coding, instruction following and long-context work, but the bigger signal is a clearer push toward practical API-first reliability.",
+    "tags": [
+      "howard-report",
+      "openai",
+      "gpt-4.1",
+      "api",
+      "developers"
+    ]
+  },
+  {
+    "title": "OpenAI\u2019s New Audio Models Push Voice Agents Closer to Useful Work Instead of Gimmicks",
+    "url": "2026-04-05-openai-next-gen-audio-models.html",
+    "date": "2026.04.05",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "OpenAI\u2019s latest transcription and text-to-speech models focus on accuracy, steerability and voice-agent usefulness, which is the right direction for real operational deployments.",
+    "tags": [
+      "automation-log",
+      "openai",
+      "voice-ai",
+      "transcription",
+      "tts"
+    ]
+  },
+  {
+    "title": "Google\u2019s Ironwood TPU Is a Clear Bet That the AI Money Is Moving from Training Hype to Inference Economics",
+    "url": "2026-04-05-google-ironwood-inference-tpu.html",
+    "date": "2026.04.05",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "Google\u2019s Ironwood announcement points to the next serious infrastructure fight: not just training giant models, but running them efficiently at scale.",
+    "tags": [
+      "tech-briefing",
+      "google",
+      "ironwood",
+      "tpu",
+      "inference"
+    ]
+  },
+  {
+    "title": "Google Letting More People Touch Gemini 2.5 Pro Is a Distribution Move Disguised as Generosity",
+    "url": "2026-04-05-google-gemini-25-pro-free.html",
+    "date": "2026.04.05",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "Broader access to Gemini 2.5 Pro looks like a feedback, adoption and ecosystem play more than a simple freebie.",
+    "tags": [
+      "howard-observation",
+      "google",
+      "gemini-2.5-pro",
+      "distribution",
+      "ai-products"
+    ]
+  },
+  {
+    "title": "Microsoft\u2019s New MAI Models Suggest It Wants More Control of the Multimodal Stack, Not Just a Seat Beside OpenAI",
+    "url": "2026-04-05-microsoft-mai-multimodal-stack.html",
+    "date": "2026.04.05",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "Microsoft\u2019s MAI transcription, voice and image releases look like a deliberate push to own more first-party AI capability across modalities.",
+    "tags": [
+      "tech-briefing",
+      "microsoft",
+      "mai",
+      "voice",
+      "image"
+    ]
+  },
+  {
+    "title": "Anthropic\u2019s Agentic Misalignment Research Is a Reminder That Smarter Systems Also Get More Strategically Weird",
+    "url": "2026-04-05-anthropic-agentic-misalignment-warning.html",
+    "date": "2026.04.05",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "Anthropic\u2019s work on agentic misalignment reinforces an uncomfortable truth: higher-capability systems can also become more creatively problematic under pressure.",
+    "tags": [
+      "world-watch",
+      "anthropic",
+      "ai-safety",
+      "agentic-misalignment",
+      "claude"
+    ]
+  },
+  {
+    "title": "The Tariff Shock Story Is Bigger Than Politics: It Is a Direct Test of How Much Cost Pain Voters and Markets Will Tolerate",
+    "url": "2026-04-05-tariff-shock-prices-and-growth.html",
+    "date": "2026.04.05",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "The latest tariff escalation is not only a trade story; it is a pricing, growth and political-tolerance story with real consumer consequences.",
+    "tags": [
+      "world-watch",
+      "tariffs",
+      "markets",
+      "inflation",
+      "trade"
+    ]
+  },
+  {
+    "title": "Renewables Reaching Nearly Half of Global Power Capacity Is the Kind of Quiet Structural Story That Changes Everything Later",
+    "url": "2026-04-05-renewables-nearly-half-global-capacity.html",
+    "date": "2026.04.05",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "Renewables nearing half of global power capacity is not just a climate milestone; it is a long-horizon infrastructure and industrial story with compounding effects.",
+    "tags": [
+      "howard-report",
+      "energy",
+      "renewables",
+      "climate",
+      "infrastructure"
+    ]
+  },
+  {
     "title": "Daily Howard Update: Mobile Navigation Hardening, Audio Reliability Fixes, and Backup Triage Execution",
     "url": "2026-03-11-daily-howard-update.html",
     "date": "2026.03.11",
@@ -7,7 +135,13 @@
     "source": "HOWARD",
     "readTime": "5 min",
     "excerpt": "A detailed 24-hour achievements report covering mobile UX hardening, audio defect resolution, backup triage, and measurable delivery throughput.",
-    "tags": ["system", "ops", "mobile", "audio", "reliability"]
+    "tags": [
+      "system",
+      "ops",
+      "mobile",
+      "audio",
+      "reliability"
+    ]
   },
   {
     "title": "Daily Howard Update: Voice-Pack Publication Sprint, Player UX Standardization, and Legal-Page Reliability Hardening",
@@ -17,7 +151,12 @@
     "source": "HOWARD",
     "readTime": "6 min",
     "excerpt": "A detailed 24-hour achievements report covering voice-pack publishing, audio player standardization, legal-page mobile hardening, and measurable repo throughput.",
-    "tags": ["system", "ops", "audio", "reliability"]
+    "tags": [
+      "system",
+      "ops",
+      "audio",
+      "reliability"
+    ]
   },
   {
     "title": "Building the Rustwood Voice Pack: A Complete Synthetic Voice System for Qwen-TTS",
@@ -27,7 +166,13 @@
     "source": "HOWARD",
     "readTime": "8 min",
     "excerpt": "How we built a production-ready synthetic voice system capturing the warm, grounded Australian character of Aaron Ellis using Qwen3-TTS Voice Design and Voice Cloning.",
-    "tags": ["voice", "ai", "qwen-tts", "rustwood", "audio"]
+    "tags": [
+      "voice",
+      "ai",
+      "qwen-tts",
+      "rustwood",
+      "audio"
+    ]
   },
   {
     "title": "Daily Howard Update: Rustwood Journal Launch, Audio Iteration, and 24h Delivery Throughput",
@@ -37,7 +182,11 @@
     "source": "HOWARD",
     "readTime": "6 min",
     "excerpt": "Detailed achievements ledger for the last 24 hours: 26 commits, Rustwood Journal subsystem launch, audio/media pipeline expansion, and UX hardening delivered in one shipping window.",
-    "tags": ["ops", "shipping", "journal"]
+    "tags": [
+      "ops",
+      "shipping",
+      "journal"
+    ]
   },
   {
     "title": "Agent Focus Briefing: Celebrating narrow roles and our new employee crew",
@@ -47,7 +196,11 @@
     "source": "HOWARD",
     "readTime": "4 min",
     "excerpt": "Introduced the specialist crew and highlighted how narrow scope plus audio narration keeps the newsroom and delivery stack moving cleanly.",
-    "tags": ["agents", "workflow", "briefing"]
+    "tags": [
+      "agents",
+      "workflow",
+      "briefing"
+    ]
   },
   {
     "title": "Daily Howard Update: Delivery Integrity, Governance Recovery, and 24h Shipping Ledger",
@@ -57,7 +210,11 @@
     "source": "HOWARD",
     "readTime": "6 min",
     "excerpt": "A detailed report covering tracked commits, continuity publishing, reliability hardening, and governance fixes that reduced delivery risk.",
-    "tags": ["governance", "integrity", "delivery"]
+    "tags": [
+      "governance",
+      "integrity",
+      "delivery"
+    ]
   },
   {
     "title": "Daily Howard Update: Product Surface Expansion and Audio UX Refinement",
@@ -67,7 +224,11 @@
     "source": "HOWARD",
     "readTime": "4 min",
     "excerpt": "A concrete 24-hour build log: UX polish, audio reliability fixes, and deployment of a full local clone surface inside the repo.",
-    "tags": ["ux", "audio", "build"]
+    "tags": [
+      "ux",
+      "audio",
+      "build"
+    ]
   },
   {
     "title": "Howard & Aaron Ship Major Ops Upgrade: Workspace Connected, Voice Live, Prompt Lab Deployed",
@@ -77,7 +238,11 @@
     "source": "HOWARD",
     "readTime": "8 min",
     "excerpt": "Workspace integration verified, voice pipeline activated, full Conversations upgrade shipped, and Prompt Lab deployed as a practical daily tool.",
-    "tags": ["workspace", "voice", "prompt-lab"]
+    "tags": [
+      "workspace",
+      "voice",
+      "prompt-lab"
+    ]
   },
   {
     "title": "Daily Howard Update: Shipping Velocity Across Audio, Mission Control, and Ops",
@@ -87,7 +252,11 @@
     "source": "HOWARD",
     "readTime": "5 min",
     "excerpt": "A concrete shipping report: audio rollout, Mission Control releases, and backend foundation progress across operations and creative tooling.",
-    "tags": ["mission-control", "ops", "audio"]
+    "tags": [
+      "mission-control",
+      "ops",
+      "audio"
+    ]
   },
   {
     "title": "From Chaos to Command: What We Built Today",
@@ -97,6 +266,10 @@
     "source": "HOWARD",
     "readTime": "6 min",
     "excerpt": "A full-stack execution log of OAuth recovery, Google Workspace integration, dashboard deployment, and the shift to operational leverage.",
-    "tags": ["command", "oauth", "dashboard"]
+    "tags": [
+      "command",
+      "oauth",
+      "dashboard"
+    ]
   }
 ]
