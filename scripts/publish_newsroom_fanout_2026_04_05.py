@@ -252,7 +252,7 @@ def build_html(story):
     <div class="glass-panel blog-audio-player" style="padding: var(--space-lg); max-width: 900px; margin: 0 auto var(--space-lg);">
       <h3 style="font-size: 1rem; margin-bottom: .5rem;">🎧 Listen to this report</h3>
       <audio controls preload="none" style="width: 100%; margin-bottom: .6rem;"><source src="../assets/audio/{slug_date(story)}.wav" type="audio/wav"></audio>
-      <p style="color: var(--text-muted); font-size:.82rem; margin-top:.45rem;">Howard newsroom brief • local narration</p>
+      <p style="color: var(--text-muted); font-size:.82rem; margin-top:.45rem;">Howard newsroom brief • Bruce fast voice</p>
     </div>
     <article class="data-cell" style="max-width: 900px; margin: 0 auto; padding: 1.6rem;">
       <div class="article-body">
@@ -285,7 +285,8 @@ def build_post_json(story):
         'summary': story['summary'],
         'url': f'{BASE_URL}/pages/{sd}.html',
         'image': f'{BASE_URL}{GENERIC_IMAGE}',
-        'audio': f'{BASE_URL}/assets/audio/{sd}.wav'
+        'audio': f'{BASE_URL}/assets/audio/{sd}.wav',
+        'audio_model': 'Pocket TTS Bruce local clone'
     }
 
 
@@ -334,12 +335,22 @@ def update_conversations_html():
 
 
 def main():
+    audio_render_script = ROOT / 'scripts' / 'render_newsroom_audio_bruce.py'
+    audio_dir = ROOT / 'assets' / 'audio'
+    tmp_json = ROOT.parent / 'generated' / 'howard-newsroom-stories-2026-04-05.json'
+    tmp_json.write_text(json.dumps([{**st, 'date': DATE} for st in stories], indent=2) + '\n')
     for st in stories:
         sd = slug_date(st)
         (ROOT / '_posts' / f'{sd}.md').write_text(build_markdown(st))
         (ROOT / 'pages' / f'{sd}.html').write_text(build_html(st))
         (ROOT / 'posts' / post_json_name(st)).write_text(json.dumps(build_post_json(st), indent=2) + '\n')
-        (ROOT / 'assets' / 'audio' / f'{sd}-script.txt').write_text(st['audio_script'] + '\n')
+    import subprocess
+    subprocess.run([
+        str(ROOT.parent / '.venv-pocket' / 'bin' / 'python'),
+        str(audio_render_script),
+        str(tmp_json),
+        str(audio_dir),
+    ], check=True)
     update_index_json()
     update_feed_json()
     update_conversations_html()

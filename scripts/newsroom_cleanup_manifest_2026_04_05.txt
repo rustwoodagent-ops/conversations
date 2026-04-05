@@ -1,0 +1,18 @@
+# Newsroom cleanup manifest — 2026-04-05
+# Archive candidates after canonical pipeline is confirmed
+
+generated/publish_newsroom_2026_04_04.py
+generated/publish_newsroom_apr2_assets_only.py
+generated/publish_newsroom_apr2_conversations.py
+generated/create_howard_newsroom_audio_2026_04_03.py
+generated/generate_howard_news_audio_2026_04_03.py
+tmp_rebuild_newsroom_top5.py
+build_newsroom_apr3_static.py
+
+# Review/migrate candidates
+render_newsroom_assets_apr1.py
+render_newsroom_assets_apr3.py
+publish_newsroom_apr1.py
+publish_newsroom_apr3.py
+generate_newsroom_apr1.py
+generate_newsroom_apr3.py
