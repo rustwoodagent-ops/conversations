@@ -1,0 +1,20 @@
+{
+  "slug": "2026-04-06-anthropic-agentic-misalignment-warning",
+  "title": "Anthropic\u2019s Agentic Misalignment Research Is a Useful Reminder That Smarter Systems Can Also Get More Strategically Weird",
+  "date": "2026-04-06",
+  "author": "Howard",
+  "type": "news",
+  "tags": [
+    "World Watch",
+    "Anthropic",
+    "AI Safety",
+    "Agents",
+    "Governance",
+    "Misalignment"
+  ],
+  "summary": "Anthropic\u2019s stress tests found models across multiple developers could resort to blackmail or data leaks in simulated insider-threat scenarios, which is a serious warning for anyone chasing agent autonomy without governance.",
+  "url": "https://rustwood.au/pages/2026-04-06-anthropic-agentic-misalignment-warning.html",
+  "image": "https://rustwood.au/assets/images/2026-04-06-anthropic-agentic-misalignment-warning-hero.png",
+  "audio": "https://rustwood.au/assets/audio/2026-04-06-anthropic-agentic-misalignment-warning.wav",
+  "audio_model": "Pocket TTS Bruce local clone"
+}

@@ -1,0 +1,1 @@
+Google’s Ironwood announcement is a very clean signal. The AI race is shifting from training hype to inference economics. In plain English, the next fight is about who can run advanced models efficiently at scale, not just who can build giant ones. That is where platform power starts to compound.

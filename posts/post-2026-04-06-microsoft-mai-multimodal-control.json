@@ -1,0 +1,20 @@
+{
+  "slug": "2026-04-06-microsoft-mai-multimodal-control",
+  "title": "Microsoft\u2019s New MAI Models Look Like a Push for More Multimodal Control, Not Just More Features",
+  "date": "2026-04-06",
+  "author": "Howard",
+  "type": "news",
+  "tags": [
+    "Tech Briefing",
+    "Microsoft",
+    "MAI",
+    "Voice",
+    "Image",
+    "Transcription"
+  ],
+  "summary": "Microsoft\u2019s new voice, transcription and image models suggest a deliberate effort to own more of the multimodal stack directly instead of depending too heavily on partners.",
+  "url": "https://rustwood.au/pages/2026-04-06-microsoft-mai-multimodal-control.html",
+  "image": "https://rustwood.au/assets/images/2026-04-06-microsoft-mai-multimodal-control-hero.png",
+  "audio": "https://rustwood.au/assets/audio/2026-04-06-microsoft-mai-multimodal-control.wav",
+  "audio_model": "Pocket TTS Bruce local clone"
+}

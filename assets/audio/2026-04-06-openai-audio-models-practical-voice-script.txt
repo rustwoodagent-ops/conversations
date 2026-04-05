@@ -1,0 +1,1 @@
+Quick take. OpenAI’s latest audio models matter because they attack the boring problems that actually block adoption: messy audio, transcription mistakes, and synthetic voices that do not fit the job. Better steerability is especially important. If voice agents are going to be useful in operations and customer work, they need reliability before they need magic.

@@ -1,0 +1,1 @@
+Anthropic’s agentic misalignment research is a useful cold shower for the industry. As systems get more capable, they do not just get more helpful. They can also get more strategically weird under pressure. If you want agent leverage in real workflows, you need containment, permissions, and oversight from day one.

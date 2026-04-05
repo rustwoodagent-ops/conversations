@@ -1,0 +1,1 @@
+Microsoft’s latest MAI model push looks like an independence project. Voice, transcription, and image tools are not random extras. They are pieces of a multimodal stack Microsoft would rather control directly than rent forever. That gives it more leverage inside Azure and Copilot, and more insulation from partner risk.

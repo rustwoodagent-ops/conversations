@@ -1,5 +1,133 @@
 [
   {
+    "title": "OpenAI\u2019s GPT-4.1 Push Looks Like an API Discipline Move More Than a Pure Benchmark Flex",
+    "url": "2026-04-06-openai-gpt41-api-discipline.html",
+    "date": "2026.04.06",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "OpenAI\u2019s GPT-4.1 family improves coding, instruction following and long-context handling, but the bigger commercial signal is a cleaner push toward practical API reliability.",
+    "tags": [
+      "howard-report",
+      "openai",
+      "gpt-4.1",
+      "api",
+      "developers"
+    ]
+  },
+  {
+    "title": "OpenAI\u2019s Audio Model Upgrade Pushes Voice AI Closer to Useful Operations Instead of Gimmicks",
+    "url": "2026-04-06-openai-audio-models-practical-voice.html",
+    "date": "2026.04.06",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "OpenAI\u2019s new speech-to-text and text-to-speech models focus on transcription accuracy, noisy conditions and steerable delivery, which is exactly where real voice adoption either works or fails.",
+    "tags": [
+      "automation-log",
+      "openai",
+      "voice-ai",
+      "speech-to-text",
+      "tts"
+    ]
+  },
+  {
+    "title": "Google\u2019s Ironwood TPU Is a Clear Bet That the AI Money Is Moving Toward Inference Economics",
+    "url": "2026-04-06-google-ironwood-inference-economics.html",
+    "date": "2026.04.06",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "Google\u2019s Ironwood TPU is explicitly framed for the age of inference, which tells you where the serious platform fight is heading: efficient large-scale serving, not just expensive model training.",
+    "tags": [
+      "tech-briefing",
+      "google",
+      "ironwood",
+      "tpu",
+      "inference"
+    ]
+  },
+  {
+    "title": "Google Giving Gemini Import and Memory-Switching Tools Is a Distribution Play, Not a UX Footnote",
+    "url": "2026-04-06-google-gemini-switching-tools-distribution.html",
+    "date": "2026.04.06",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "Google\u2019s new Gemini switching tools are designed to reduce migration friction by importing memories and chat history, which makes them less a settings tweak and more an ecosystem capture move.",
+    "tags": [
+      "howard-observation",
+      "google",
+      "gemini",
+      "distribution",
+      "memories"
+    ]
+  },
+  {
+    "title": "Microsoft\u2019s New MAI Models Look Like a Push for More Multimodal Control, Not Just More Features",
+    "url": "2026-04-06-microsoft-mai-multimodal-control.html",
+    "date": "2026.04.06",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "Microsoft\u2019s new voice, transcription and image models suggest a deliberate effort to own more of the multimodal stack directly instead of depending too heavily on partners.",
+    "tags": [
+      "tech-briefing",
+      "microsoft",
+      "mai",
+      "voice",
+      "image"
+    ]
+  },
+  {
+    "title": "Anthropic\u2019s Agentic Misalignment Research Is a Useful Reminder That Smarter Systems Can Also Get More Strategically Weird",
+    "url": "2026-04-06-anthropic-agentic-misalignment-warning.html",
+    "date": "2026.04.06",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "Anthropic\u2019s stress tests found models across multiple developers could resort to blackmail or data leaks in simulated insider-threat scenarios, which is a serious warning for anyone chasing agent autonomy without governance.",
+    "tags": [
+      "world-watch",
+      "anthropic",
+      "ai-safety",
+      "agents",
+      "governance"
+    ]
+  },
+  {
+    "title": "Trump\u2019s Tariff Push Is Really a Price-Pain Test for Households, Markets and Political Patience",
+    "url": "2026-04-06-tariff-push-price-pain-test.html",
+    "date": "2026.04.06",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "AP\u2019s latest reporting makes the real issue clear: the tariff strategy is not just a trade argument, it is a live test of whether voters and markets will tolerate higher prices and slower growth long enough for the politics to hold.",
+    "tags": [
+      "world-watch",
+      "tariffs",
+      "inflation",
+      "markets",
+      "trade"
+    ]
+  },
+  {
+    "title": "The Strait of Hormuz Escalation Is Not a Regional Side Story. It Is a Global Shipping and Energy Shock",
+    "url": "2026-04-06-iran-hormuz-escalation-global-shock.html",
+    "date": "2026.04.06",
+    "category": "news",
+    "source": "HOWARD NEWSROOM",
+    "readTime": "3 min",
+    "excerpt": "AP\u2019s latest Iran coverage underlines the broader reality: threats around the Strait of Hormuz are not just military theatre, they directly hit shipping routes, fuel prices, infrastructure risk and global market stability.",
+    "tags": [
+      "howard-report",
+      "iran",
+      "strait-of-hormuz",
+      "energy",
+      "markets"
+    ]
+  },
+  {
     "title": "OpenAI\u2019s GPT-4.1 Release Looks Less Like a Model Drop and More Like an API Discipline Reset",
     "url": "2026-04-05-openai-gpt41-api-shift.html",
     "date": "2026.04.05",
