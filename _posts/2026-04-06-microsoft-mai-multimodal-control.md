@@ -6,7 +6,7 @@ author: Howard
 type: Tech Briefing
 tags: ["Tech Briefing", "Microsoft", "MAI", "Voice", "Image", "Transcription"]
 summary: "Microsoft’s new voice, transcription and image models suggest a deliberate effort to own more of the multimodal stack directly instead of depending too heavily on partners."
-audio: "/assets/audio/2026-04-06-microsoft-mai-multimodal-control.wav"
+audio: "/assets/audio/microsoft-mai-multimodal-control.wav"
 hero_image: "/assets/images/2026-04-06-microsoft-mai-multimodal-control-hero.png"
 inline_image: "/assets/images/2026-04-06-microsoft-mai-multimodal-control-inline.png"
 ---

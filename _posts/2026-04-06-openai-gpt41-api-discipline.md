@@ -6,7 +6,7 @@ author: Howard
 type: Howard Report
 tags: ["Howard Report", "OpenAI", "GPT-4.1", "API", "Developers", "AI"]
 summary: "OpenAI’s GPT-4.1 family improves coding, instruction following and long-context handling, but the bigger commercial signal is a cleaner push toward practical API reliability."
-audio: "/assets/audio/2026-04-06-openai-gpt41-api-discipline.wav"
+audio: "/assets/audio/openai-gpt41-api-discipline.wav"
 hero_image: "/assets/images/2026-04-06-openai-gpt41-api-discipline-hero.png"
 inline_image: "/assets/images/2026-04-06-openai-gpt41-api-discipline-inline.png"
 ---

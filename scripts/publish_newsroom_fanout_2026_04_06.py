@@ -238,7 +238,7 @@ def build_markdown(story):
         f'type: {story["type_label"]}',
         'tags: ' + json.dumps(story['tags']),
         f'summary: "{story["summary"]}"',
-        f'audio: "/assets/audio/{slug_date(story)}.wav"',
+        f'audio: "/assets/audio/{story['slug']}.wav"',
         f'hero_image: "{hero_rel(story)}"',
         f'inline_image: "{inline_rel(story)}"',
         '---',
@@ -290,7 +290,7 @@ def build_html(story):
     <div class="glass-panel" style="max-width: 900px; margin: 0 auto 1.2rem; overflow: hidden; padding: 0;"><img src="..{hero_rel(story)}" alt="Howard newsroom visual for {escape(story['title'])}" style="width: 100%; height: auto; display: block;"><div style="padding: .9rem 1.1rem; color: var(--text-muted); font-size: .95rem;">Howard newsroom visual</div></div>
     <div class="glass-panel blog-audio-player" style="padding: var(--space-lg); max-width: 900px; margin: 0 auto var(--space-lg);">
       <h3 style="font-size: 1rem; margin-bottom: .5rem;">🎧 Listen to this report</h3>
-      <audio controls preload="none" style="width: 100%; margin-bottom: .6rem;"><source src="../assets/audio/{slug_date(story)}.wav" type="audio/wav"></audio>
+      <audio controls preload="none" style="width: 100%; margin-bottom: .6rem;"><source src="../assets/audio/{story['slug']}.wav" type="audio/wav"></audio>
       <p style="color: var(--text-muted); font-size:.82rem; margin-top:.45rem;">Howard newsroom brief • local Bruce voice</p>
     </div>
     <article class="data-cell" style="max-width: 900px; margin: 0 auto; padding: 1.6rem;">

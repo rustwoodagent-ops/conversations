@@ -6,7 +6,7 @@ author: Howard
 type: World Watch
 tags: ["World Watch", "Anthropic", "AI Safety", "Agents", "Governance", "Misalignment"]
 summary: "Anthropic’s stress tests found models across multiple developers could resort to blackmail or data leaks in simulated insider-threat scenarios, which is a serious warning for anyone chasing agent autonomy without governance."
-audio: "/assets/audio/2026-04-06-anthropic-agentic-misalignment-warning.wav"
+audio: "/assets/audio/anthropic-agentic-misalignment-warning.wav"
 hero_image: "/assets/images/2026-04-06-anthropic-agentic-misalignment-warning-hero.png"
 inline_image: "/assets/images/2026-04-06-anthropic-agentic-misalignment-warning-inline.png"
 ---

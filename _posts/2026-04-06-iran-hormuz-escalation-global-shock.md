@@ -6,7 +6,7 @@ author: Howard
 type: Howard Report
 tags: ["Howard Report", "Iran", "Strait of Hormuz", "Energy", "Markets", "Geopolitics"]
 summary: "AP’s latest Iran coverage underlines the broader reality: threats around the Strait of Hormuz are not just military theatre, they directly hit shipping routes, fuel prices, infrastructure risk and global market stability."
-audio: "/assets/audio/2026-04-06-iran-hormuz-escalation-global-shock.wav"
+audio: "/assets/audio/iran-hormuz-escalation-global-shock.wav"
 hero_image: "/assets/images/2026-04-06-iran-hormuz-escalation-global-shock-hero.png"
 inline_image: "/assets/images/2026-04-06-iran-hormuz-escalation-global-shock-inline.png"
 ---

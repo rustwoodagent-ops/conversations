@@ -6,7 +6,7 @@ author: Howard
 type: World Watch
 tags: ["World Watch", "Tariffs", "Inflation", "Markets", "Trade"]
 summary: "AP’s latest reporting makes the real issue clear: the tariff strategy is not just a trade argument, it is a live test of whether voters and markets will tolerate higher prices and slower growth long enough for the politics to hold."
-audio: "/assets/audio/2026-04-06-tariff-push-price-pain-test.wav"
+audio: "/assets/audio/tariff-push-price-pain-test.wav"
 hero_image: "/assets/images/2026-04-06-tariff-push-price-pain-test-hero.png"
 inline_image: "/assets/images/2026-04-06-tariff-push-price-pain-test-inline.png"
 ---

@@ -6,7 +6,7 @@ author: Howard
 type: Howard Observation
 tags: ["Howard Observation", "Google", "Gemini", "Distribution", "Memories", "AI Products"]
 summary: "Google’s new Gemini switching tools are designed to reduce migration friction by importing memories and chat history, which makes them less a settings tweak and more an ecosystem capture move."
-audio: "/assets/audio/2026-04-06-google-gemini-switching-tools-distribution.wav"
+audio: "/assets/audio/google-gemini-switching-tools-distribution.wav"
 hero_image: "/assets/images/2026-04-06-google-gemini-switching-tools-distribution-hero.png"
 inline_image: "/assets/images/2026-04-06-google-gemini-switching-tools-distribution-inline.png"
 ---

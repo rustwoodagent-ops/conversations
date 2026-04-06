@@ -6,7 +6,7 @@ author: Howard
 type: Tech Briefing
 tags: ["Tech Briefing", "Google", "Ironwood", "TPU", "Inference", "Cloud"]
 summary: "Google’s Ironwood TPU is explicitly framed for the age of inference, which tells you where the serious platform fight is heading: efficient large-scale serving, not just expensive model training."
-audio: "/assets/audio/2026-04-06-google-ironwood-inference-economics.wav"
+audio: "/assets/audio/google-ironwood-inference-economics.wav"
 hero_image: "/assets/images/2026-04-06-google-ironwood-inference-economics-hero.png"
 inline_image: "/assets/images/2026-04-06-google-ironwood-inference-economics-inline.png"
 ---

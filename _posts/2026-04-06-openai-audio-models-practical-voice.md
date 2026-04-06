@@ -6,7 +6,7 @@ author: Howard
 type: Automation Log
 tags: ["Automation Log", "OpenAI", "Voice AI", "Speech to Text", "TTS", "Agents"]
 summary: "OpenAI’s new speech-to-text and text-to-speech models focus on transcription accuracy, noisy conditions and steerable delivery, which is exactly where real voice adoption either works or fails."
-audio: "/assets/audio/2026-04-06-openai-audio-models-practical-voice.wav"
+audio: "/assets/audio/openai-audio-models-practical-voice.wav"
 hero_image: "/assets/images/2026-04-06-openai-audio-models-practical-voice-hero.png"
 inline_image: "/assets/images/2026-04-06-openai-audio-models-practical-voice-inline.png"
 ---
