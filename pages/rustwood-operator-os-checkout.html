@@ -3,185 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout — Howard Operator OS Starter Kit</title>
-  <script src="https://js.stripe.com/v3/"></script>
+  <title>Checkout Unavailable | Rustwood Operator OS</title>
+  <meta name="description" content="The public checkout for this Rustwood Operator OS path is not live. Use the current early-access page for truthful availability.">
+  <link rel="stylesheet" href="../css/system.css">
+  <link rel="stylesheet" href="/assets/css/howard-theme.css">
   <style>
-    :root {
-      --bg-primary: #0a0a0b;
-      --bg-secondary: #121214;
-      --text-primary: #f5f5f5;
-      --text-secondary: #a0a0a0;
-      --accent: #c9a227;
-      --accent-hover: #d4b43a;
-      --border: #2a2a2c;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .container {
-      max-width: 480px;
-      width: 100%;
-      padding: 24px;
-    }
-    
-    .checkout-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
-    }
-    
-    h1 {
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-    
-    .subtitle {
-      color: var(--text-secondary);
-      margin-bottom: 24px;
-    }
-    
-    .product {
-      display: flex;
-      justify-content: space-between;
-      padding: 16px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 24px;
-    }
-    
-    .product-name {
-      font-weight: 500;
-    }
-    
-    .product-price {
-      font-weight: 600;
-      color: var(--accent);
-    }
-    
-    .details {
-      margin-bottom: 24px;
-    }
-    
-    .detail-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
-    
-    .detail-item::before {
-      content: "✓";
-      color: var(--accent);
-    }
-    
-    #checkout-button {
-      width: 100%;
-      padding: 16px;
-      background: var(--accent);
-      color: var(--bg-primary);
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    
-    #checkout-button:hover {
-      background: var(--accent-hover);
-    }
-    
-    #checkout-button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    .secure-note {
-      text-align: center;
-      margin-top: 16px;
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
-    
-    .test-mode {
-      text-align: center;
-      padding: 8px;
-      background: #fef3c7;
-      color: #92400e;
-      border-radius: 4px;
-      margin-bottom: 16px;
-      font-size: 12px;
-      font-weight: 500;
-    }
+    .checkout-unavailable { max-width: 760px; margin: 0 auto; padding: 9rem 1.5rem 4rem; }
+    .checkout-panel { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 2rem; }
+    .checkout-kicker { display: inline-block; margin-bottom: .8rem; color: var(--accent-cyan); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .checkout-panel h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    .checkout-panel p { color: var(--text-secondary); line-height: 1.8; margin: .85rem 0; }
+    .checkout-status { margin: 1.3rem 0; padding: 1rem 1.1rem; border-radius: 16px; background: rgba(79,195,247,.08); border: 1px solid rgba(79,195,247,.18); color: var(--text-secondary); }
+    .checkout-status strong { color: var(--text-primary); }
+    .checkout-actions { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.5rem; }
+    .checkout-btn { display: inline-flex; align-items: center; justify-content: center; padding: .9rem 1.25rem; border-radius: 10px; text-decoration: none; font-weight: 600; }
+    .checkout-btn-primary { background: var(--accent); color: white; }
+    .checkout-btn-secondary { background: rgba(255,255,255,.08); color: var(--text-primary); border: 1px solid rgba(255,255,255,.12); }
   </style>
 </head>
-<body>
-  <div class="container">
-    <div class="checkout-card">
-      <div class="test-mode">TEST MODE — No real charges</div>
-      
-      <h1>Complete Your Purchase</h1>
-      <p class="subtitle">Howard Operator OS — Starter Kit</p>
-      
-      <div class="product">
-        <span class="product-name">Starter Kit License</span>
-        <span class="product-price">$299.00</span>
-      </div>
-      
-      <div class="details">
-        <div class="detail-item">Private GitHub repository access</div>
-        <div class="detail-item">Docker Compose deployment</div>
-        <div class="detail-item">Howard agent + 2 workflows</div>
-        <div class="detail-item">Documentation & setup guide</div>
-        <div class="detail-item">14-day money-back guarantee</div>
-      </div>
-      
-      <button id="checkout-button">Proceed to Payment</button>
-      
-      <p class="secure-note">🔒 Secure checkout powered by Stripe</p>
-    </div>
-  </div>
+<body data-page="checkout-unavailable">
+  <div class="bg-mesh"></div>
 
-  <script>
-    const stripe = Stripe('pk_test_51TC9IT9Xy3kpkPGsSGv0KEBz24FktKRWYa1vmaw7MA8SS26GiT4pFwChQmjg3ovyySmOyqtLagIO3Bc8Qbwns8jA00XtAOdVug');
-    
-    document.getElementById('checkout-button').addEventListener('click', async () => {
-      const button = document.getElementById('checkout-button');
-      button.disabled = true;
-      button.textContent = 'Loading...';
-      
-      try {
-        // In production, this would call your backend to create a checkout session
-        // For test mode, we'll simulate the flow
-        alert('Test mode: In production, this would redirect to Stripe Checkout\n\nUse test card: 4242 4242 4242 4242\nAny future date, any CVC, any ZIP');
-        
-        button.disabled = false;
-        button.textContent = 'Proceed to Payment';
-      } catch (error) {
-        console.error('Error:', error);
-        button.disabled = false;
-        button.textContent = 'Proceed to Payment';
-        alert('Something went wrong. Please try again.');
-      }
-    });
-  </script>
+  <nav class="howard-nav" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-title">Rustwood</span>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/pages/shop.html" class="nav-link">Offers</a>
+        <a href="/pages/conversations.html" class="nav-link">Archive</a>
+        <a href="/pages/contact.html" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="checkout-unavailable">
+    <div class="checkout-panel">
+      <span class="checkout-kicker">Checkout Status</span>
+      <h1>This checkout path is not live.</h1>
+      <p>This older Rustwood Operator OS checkout URL is retained so direct visits and legacy references do not break, but it is not an active public payment flow.</p>
+      <div class="checkout-status">
+        <strong>Status:</strong> Public checkout is unavailable on this path. Pricing and purchase access should only be shown when launch readiness and delivery are verified.
+      </div>
+      <p>For the current truthful public path, use the Rustwood Operator OS early-access page. If you want to ask about availability directly, contact Aaron by email.</p>
+      <div class="checkout-actions">
+        <a href="/pages/rustwood-operator-os.html" class="checkout-btn checkout-btn-primary">Open Operator OS Early Access</a>
+        <a href="mailto:completestrength@gmail.com?subject=Rustwood%20Operator%20OS%20Availability" class="checkout-btn checkout-btn-secondary">Request Availability</a>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

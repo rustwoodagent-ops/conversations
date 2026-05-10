@@ -3,131 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Store | Rustwood</title>
-  <meta name="description" content="Practical digital products for operators who want results, not theory.">
+  <title>Offers | Rustwood</title>
+  <meta name="description" content="Current Rustwood public offers: free guides, Operator OS early access, and truthful product previews.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/system.css">
   <link rel="stylesheet" href="/css/news-hub.css">
   <style>
-    .store-hero {
-      padding: 8rem 0 3rem;
-      text-align: center;
-    }
-    .store-hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--nh-text-primary), var(--nh-accent-cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .store-hero p {
-      color: var(--nh-text-secondary);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .store-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem 0;
-    }
-    .product-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-    }
-    .product-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(92, 224, 255, 0.2);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
-    .product-image {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #1a1f2e, #0f1420);
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .product-tag {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      background: rgba(92, 224, 255, 0.1);
-      color: var(--nh-accent-cyan);
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-radius: 20px;
-      margin-bottom: 0.75rem;
-    }
-    .product-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--nh-text-primary);
-    }
-    .product-description {
-      color: var(--nh-text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 1rem;
-      flex-grow: 1;
-    }
-    .product-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: auto;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .product-price {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--nh-accent-cyan);
-    }
-    .product-btn {
-      padding: 0.6rem 1.2rem;
-      background: var(--nh-accent-cyan);
-      color: #0a0e17;
-      font-weight: 600;
-      font-size: 0.9rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .product-btn:hover {
-      background: #7de8ff;
-      transform: translateY(-1px);
-    }
-    .coming-soon-badge {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      background: rgba(255, 193, 7, 0.1);
-      color: #ffc107;
-      font-size: 0.75rem;
-      font-weight: 600;
-      border-radius: 20px;
-    }
+    .offers-hero{padding:8rem 0 2.5rem;text-align:center}
+    .offers-hero h1{font-size:clamp(2.3rem,4.2vw,3.3rem);font-weight:700;margin-bottom:1rem;background:linear-gradient(135deg,var(--nh-text-primary),var(--nh-accent-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .offers-hero p{color:var(--nh-text-secondary);font-size:1.05rem;max-width:720px;margin:0 auto}
+    .offers-note{max-width:920px;margin:0 auto 2rem;padding:1rem 1.15rem;border-radius:16px;background:rgba(92,224,255,.05);border:1px solid rgba(92,224,255,.14);color:var(--nh-text-secondary);line-height:1.7}
+    .offers-note strong{color:var(--nh-text-primary)}
+    .offers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;padding:1rem 0 3rem}
+    .offer-card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:1.4rem;display:flex;flex-direction:column}
+    .offer-card:hover{border-color:rgba(92,224,255,.18);box-shadow:0 20px 40px rgba(0,0,0,.22)}
+    .offer-tag{display:inline-block;padding:.28rem .72rem;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.9rem}
+    .offer-tag-free{background:rgba(76,175,80,.12);color:#7ae290}
+    .offer-tag-early{background:rgba(92,224,255,.12);color:var(--nh-accent-cyan)}
+    .offer-tag-preview{background:rgba(255,193,7,.12);color:#ffd166}
+    .offer-title{font-size:1.2rem;font-weight:600;color:var(--nh-text-primary);margin-bottom:.55rem}
+    .offer-description{color:var(--nh-text-secondary);line-height:1.6;margin-bottom:1rem;flex-grow:1}
+    .offer-footer{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06)}
+    .offer-price{font-size:1.2rem;font-weight:700;color:var(--nh-accent-cyan)}
+    .offer-price-muted{color:var(--nh-text-muted)}
+    .offer-btn{display:inline-flex;align-items:center;justify-content:center;padding:.72rem 1rem;border-radius:10px;text-decoration:none;font-weight:600;background:var(--nh-accent-cyan);color:#081018;transition:all .2s ease;text-align:center}
+    .offer-btn:hover{background:#7de8ff;transform:translateY(-1px)}
+    .offer-btn-muted{background:rgba(255,255,255,.08);color:var(--nh-text-primary)}
+    .offer-btn-muted:hover{background:rgba(255,255,255,.12)}
   </style>
 </head>
 <body data-page="store">
@@ -143,18 +47,16 @@
         <div class="nh-logo-mark"><span class="nh-pulse"></span></div>
         <div class="nh-logo-text">
           <span class="nh-logo-title">Rustwood</span>
-          <span class="nh-logo-subtitle">Store</span>
+          <span class="nh-logo-subtitle">Offers</span>
         </div>
       </a>
-
       <div class="nh-nav-links">
         <a href="/" class="nh-nav-link">Home</a>
-        <a href="/pages/shop.html" class="nh-nav-link active">Shop</a>
+        <a href="/pages/shop.html" class="nh-nav-link active">Offers</a>
         <a href="/pages/site.html" class="nh-nav-link">Hub</a>
         <a href="/pages/conversations.html" class="nh-nav-link">Archive</a>
         <a href="/pages/contact.html" class="nh-nav-link">Contact</a>
       </div>
-
       <button class="nh-menu-toggle" id="menuToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -163,71 +65,64 @@
 
   <div class="nh-mobile-menu" id="mobileMenu">
     <a href="/" class="nh-mobile-link">Home</a>
-    <a href="/pages/shop.html" class="nh-mobile-link active">Shop</a>
+    <a href="/pages/shop.html" class="nh-mobile-link active">Offers</a>
     <a href="/pages/site.html" class="nh-mobile-link">Hub</a>
     <a href="/pages/conversations.html" class="nh-mobile-link">Archive</a>
     <a href="/pages/contact.html" class="nh-mobile-link">Contact</a>
   </div>
 
   <main class="nh-main">
-    <section class="store-hero">
-      <h1>Rustwood Store</h1>
-      <p>Practical digital products for operators who want results, not theory. No fluff. No hype. Just what works.</p>
+    <section class="offers-hero">
+      <h1>Rustwood Offers</h1>
+      <p>Current public offers are limited to resources that can be delivered truthfully right now: free guides, Operator OS early access, and direct-contact previews where checkout is not yet live.</p>
     </section>
 
-    <section class="nh-section">
-      <div class="nh-section-header">
-        <div>
-          <div class="nh-section-kicker">Available Now</div>
-          <h2 class="nh-section-title">Digital Products</h2>
-        </div>
+    <section class="nh-section" style="padding-top:0">
+      <div class="offers-note">
+        <strong>Status:</strong> public checkout is not live on this page. If a product is not ready for verified self-serve delivery, it is shown here as preview or early access instead of pretending the storefront is finished.
       </div>
 
-      <div class="store-grid">
-        <a href="/pages/products/chatgpt-mastery.html" class="product-card">
-          <div class="product-image">
-            <img src="/assets/images/chatgpt-mastery-cover.png" alt="ChatGPT Mastery for Operators">
+      <div class="offers-grid">
+        <article class="offer-card">
+          <span class="offer-tag offer-tag-free">Free Guide</span>
+          <h2 class="offer-title">Local AI in Plain English</h2>
+          <p class="offer-description">A no-nonsense guide to running AI on your own computer without cloud lock-in or subscription theatre.</p>
+          <div class="offer-footer">
+            <span class="offer-price">Free</span>
+            <a href="/pages/local-ai-plain-english.html" class="offer-btn">Open Guide</a>
           </div>
-          <span class="product-tag">Guide</span>
-          <h3 class="product-title">ChatGPT Mastery for Operators</h3>
-          <p class="product-description">Get better results from ChatGPT in 30 minutes. Practical techniques, copy-paste templates, and a framework you can use immediately.</p>
-          <div class="product-footer">
-            <span class="product-price">$19 AUD</span>
-            <span class="product-btn">View Details</span>
-          </div>
-        </a>
+        </article>
 
-        <div class="product-card" style="opacity: 0.6;">
-          <div class="product-image" style="background: linear-gradient(135deg, #1a1f2e, #0f1420);">
-            <div style="text-align: center; color: var(--nh-text-secondary);">
-              <div style="font-size: 3rem; margin-bottom: 0.5rem;">📚</div>
-              <div>Coming Soon</div>
-            </div>
+        <article class="offer-card">
+          <span class="offer-tag offer-tag-free">Free Guide</span>
+          <h2 class="offer-title">Your First AI Workflow</h2>
+          <p class="offer-description">A practical starter path for building a working AI workflow without needing a full technical stack.</p>
+          <div class="offer-footer">
+            <span class="offer-price">Free</span>
+            <a href="/pages/your-first-ai-workflow.html" class="offer-btn">Open Guide</a>
           </div>
-          <span class="coming-soon-badge">In Development</span>
-          <h3 class="product-title">Local AI in Plain English</h3>
-          <p class="product-description">Run AI on your own hardware. No cloud. No subscriptions. Complete setup guide for local LLMs.</p>
-          <div class="product-footer">
-            <span class="product-price" style="color: var(--nh-text-secondary);">—</span>
-            <span class="product-btn" style="background: rgba(255,255,255,0.1); color: var(--nh-text-secondary);">Coming Soon</span>
-          </div>
-        </div>
+        </article>
 
-        <div class="product-card" style="opacity: 0.6;">
-          <div class="product-image" style="background: linear-gradient(135deg, #1a1f2e, #0f1420);">
-            <div style="text-align: center; color: var(--nh-text-secondary);">
-              <div style="font-size: 3rem; margin-bottom: 0.5rem;">⚡</div>
-              <div>Coming Soon</div>
-            </div>
+        <article class="offer-card">
+          <span class="offer-tag offer-tag-early">Early Access</span>
+          <h2 class="offer-title">Rustwood Operator OS</h2>
+          <p class="offer-description">The current commercial spine for Rustwood: a practical operating system for founders and solo operators who want less chaos and stronger execution. Pricing has not been announced on the public early-access page yet.</p>
+          <p style="margin:0 0 1rem; color:var(--nh-text-secondary); font-size:.92rem;">Need context first? <a href="/pages/rustwood-operator-os-what-it-is.html" style="color:var(--nh-accent-cyan)">Read what it is, who it is for, and why early access comes first.</a></p>
+          <div class="offer-footer">
+            <span class="offer-price offer-price-muted">Pricing TBA</span>
+            <a href="/pages/rustwood-operator-os.html" class="offer-btn">Join Early Access</a>
           </div>
-          <span class="coming-soon-badge">In Development</span>
-          <h3 class="product-title">Your First AI Workflow</h3>
-          <p class="product-description">Build your first automated AI workflow. Step-by-step guide for non-technical operators.</p>
-          <div class="product-footer">
-            <span class="product-price" style="color: var(--nh-text-secondary);">—</span>
-            <span class="product-btn" style="background: rgba(255,255,255,0.1); color: var(--nh-text-secondary);">Coming Soon</span>
+        </article>
+
+        <article class="offer-card">
+          <span class="offer-tag offer-tag-preview">Preview Only</span>
+          <h2 class="offer-title">ChatGPT Mastery for Operators</h2>
+          <p class="offer-description">A low-ticket guide preview that exists in content form, but is not currently offered through a verified public checkout flow.</p>
+          <div class="offer-footer">
+            <span class="offer-price offer-price-muted">Ask</span>
+            <a href="mailto:completestrength@gmail.com?subject=ChatGPT%20Mastery%20Availability" class="offer-btn offer-btn-muted">Request Availability</a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   </main>
@@ -235,29 +130,30 @@
   <footer class="nh-footer">
     <div class="nh-footer-inner">
       <div class="nh-footer-brand">
-        <span class="nh-footer-logo">Rustwood Store</span>
-        <span class="nh-footer-tagline">Practical products for serious operators.</span>
+        <span class="nh-footer-logo">Rustwood Offers</span>
+        <span class="nh-footer-tagline">Truthful public paths first.</span>
       </div>
       <div class="nh-footer-links">
         <a href="/" class="nh-footer-link">Home</a>
-        <a href="/pages/shop.html" class="nh-footer-link">Shop</a>
         <a href="/pages/site.html" class="nh-footer-link">Hub</a>
+        <a href="/pages/conversations.html" class="nh-footer-link">Archive</a>
         <a href="/pages/contact.html" class="nh-footer-link">Contact</a>
       </div>
       <div class="nh-footer-bottom">
-        <span class="nh-footer-credit">© 2026 Rustwood. All rights reserved.</span>
+        <span class="nh-footer-credit">© 2026 Rustwood. Public checkout not live on this page.</span>
       </div>
     </div>
   </footer>
 
   <script>
-    // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-      menuToggle.classList.toggle('active');
-    });
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    }
   </script>
 </body>
 </html>

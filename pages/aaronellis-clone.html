@@ -40,7 +40,7 @@
     <div class="nav-links">
       <a href="/" class="nav-link">Home</a>
       <a href="/pages/conversations.html" class="nav-link">Archive</a>
-      <a href="/pages/shop.html" class="nav-link">Shop</a>
+      <a href="/pages/shop.html" class="nav-link">Offers</a>
       <a href="/pages/contact.html" class="nav-link">Contact</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -53,7 +53,7 @@
     <div class="mobile-menu-content">
       <a href="/" class="mobile-nav-link">Home</a>
       <a href="/pages/conversations.html" class="mobile-nav-link">Archive</a>
-      <a href="/pages/shop.html" class="mobile-nav-link">Shop</a>
+      <a href="/pages/shop.html" class="mobile-nav-link">Offers</a>
       <a href="/pages/contact.html" class="mobile-nav-link">Contact</a>
     </div>
   </div>
@@ -106,5 +106,28 @@
   <footer class="footer" style="padding:2rem 1.5rem; text-align:center;">
     <p>© 2026 Aaron Ellis · Homepage concept page inside Conversations</p>
   </footer>
-<script>document.addEventListener("DOMContentLoaded",function(){var h=document.getElementById("hamburger"),m=document.getElementById("mobileMenu");h</body></body>h.addEventListener("click",function(){this.classList.toggle("active"),m.classList.toggle("open")});var l=m.querySelectorAll(".mobile-nav-link");l.forEach(function(n){n.addEventListener("click",function(){h.classList.remove("active"),m.classList.remove("open")})})});</script></body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var hamburger = document.getElementById("hamburger");
+  var mobileMenu = document.getElementById("mobileMenu");
+
+  if (!hamburger || !mobileMenu) {
+    return;
+  }
+
+  hamburger.addEventListener("click", function () {
+    this.classList.toggle("active");
+    mobileMenu.classList.toggle("open");
+  });
+
+  var mobileLinks = mobileMenu.querySelectorAll(".mobile-nav-link");
+  mobileLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+      hamburger.classList.remove("active");
+      mobileMenu.classList.remove("open");
+    });
+  });
+});
+</script>
+</body>
 </html>

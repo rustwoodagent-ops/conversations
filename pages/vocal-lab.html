@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-page="vocal-lab">
 <!-- Howard Theme Navigation -->
 <nav class="howard-nav" id="navbar">
   <div class="nav-container">
@@ -28,7 +28,7 @@
     <div class="nav-links">
       <a href="/" class="nav-link">Home</a>
       <a href="/pages/conversations.html" class="nav-link">Archive</a>
-      <a href="/pages/shop.html" class="nav-link">Shop</a>
+      <a href="/pages/shop.html" class="nav-link">Offers</a>
       <a href="/pages/contact.html" class="nav-link">Contact</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -41,15 +41,11 @@
     <div class="mobile-menu-content">
       <a href="/" class="mobile-nav-link">Home</a>
       <a href="/pages/conversations.html" class="mobile-nav-link">Archive</a>
-      <a href="/pages/shop.html" class="mobile-nav-link">Shop</a>
+      <a href="/pages/shop.html" class="mobile-nav-link">Offers</a>
       <a href="/pages/contact.html" class="mobile-nav-link">Contact</a>
     </div>
   </div>
 </nav>
-        </div>
-    </header>
-
- data-page="vocal-lab">
     <div class="bg-mesh"></div>
 
     <!-- Navigation -->
@@ -63,26 +59,18 @@
             </p>
         </div>
 
-        <!-- Coming Soon -->
-        <div class="glass-panel" style="text-align: center; padding: var(--space-3xl); margin: var(--space-3xl) 0;">
-            <h3 style="font-size: 2rem; margin-bottom: var(--space-lg);">Laboratory Under Construction</h3>
-            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: var(--space-2xl); max-width: 600px; margin-left: auto; margin-right: auto;">
-                Advanced vocal analysis tools, technique measurement frameworks, and AI-assisted voice training systems are currently in development.
+        <div class="glass-panel" style="padding: var(--space-3xl); margin: var(--space-3xl) 0; max-width: 760px; margin-left: auto; margin-right: auto;">
+            <h3 style="font-size: 2rem; margin-bottom: var(--space-lg); text-align: center;">Current Status</h3>
+            <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.1rem; line-height: 1.8;">
+                This page marks the intended home for Howard&rsquo;s future vocal pedagogy and voice-analysis work, but there is no public lab, training tool, or assessment system live here yet.
+            </p>
+            <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: var(--space-2xl); line-height: 1.8;">
+                If you are looking for current Howard material, use the archive for published work or the contact page for direct enquiries.
             </p>
 
-            <div class="telemetry-grid">
-                <div class="telemetry-card">
-                    <div class="telemetry-label">Technique Analysis</div>
-                    <div style="color: var(--accent-primary); font-size: 2rem;">In Development</div>
-                </div>
-                <div class="telemetry-card">
-                    <div class="telemetry-label">Health Monitoring</div>
-                    <div style="color: var(--accent-primary); font-size: 2rem;">Prototype</div>
-                </div>
-                <div class="telemetry-card">
-                    <div class="telemetry-label">Training Frameworks</div>
-                    <div style="color: var(--accent-primary); font-size: 2rem;">Planning</div>
-                </div>
+            <div style="display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/pages/conversations.html" class="btn btn-secondary">Browse Archive</a>
+                <a href="/pages/contact.html" class="btn btn-ghost">Contact</a>
             </div>
         </div>
     </section>
@@ -103,5 +91,28 @@
     </footer>
 
     <!-- Scripts -->
-<script>document.addEventListener("DOMContentLoaded",function(){var h=document.getElementById("hamburger"),m=document.getElementById("mobileMenu");h</body></body>h.addEventListener("click",function(){this.classList.toggle("active"),m.classList.toggle("open")});var l=m.querySelectorAll(".mobile-nav-link");l.forEach(function(n){n.addEventListener("click",function(){h.classList.remove("active"),m.classList.remove("open")})})});</script></body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var hamburger = document.getElementById("hamburger");
+    var mobileMenu = document.getElementById("mobileMenu");
+
+    if (!hamburger || !mobileMenu) {
+        return;
+    }
+
+    hamburger.addEventListener("click", function () {
+        this.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+    });
+
+    var mobileLinks = mobileMenu.querySelectorAll(".mobile-nav-link");
+    mobileLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+            hamburger.classList.remove("active");
+            mobileMenu.classList.remove("open");
+        });
+    });
+});
+</script>
+</body>
 </html>
