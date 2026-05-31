@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your First AI Workflow — Free Guide</title>
+  <meta name="description" content="A free guide to building your first useful AI workflow with clearer steps, better routing, and less operational chaos.">
+  <meta property="og:title" content="Your First AI Workflow — Free Guide">
+  <meta property="og:description" content="A free guide to building your first useful AI workflow with clearer steps, better routing, and less operational chaos.">
   <link rel="stylesheet" href="../css/system.css">
   <link rel="stylesheet" href="/assets/css/howard-theme.css">
 </head>
@@ -14,7 +17,8 @@
       <a href="/" class="nav-logo"><span class="nav-logo-title">Rustwood</span></a>
       <div class="nav-links">
         <a href="/" class="nav-link">Home</a>
-        <a href="/pages/store.html" class="nav-link">Offers</a>
+        <a href="/pages/shop.html" class="nav-link">Offers</a>
+        <a href="/pages/contact.html" class="nav-link">Contact</a>
       </div>
     </div>
   </nav>
@@ -36,29 +40,14 @@
       </ul>
 
       <div id="download-section">
-        <p style="margin-bottom: 1rem; color: var(--text-secondary);">Enter your email for instant access:</p>
-        <form id="email-form" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
-          <input type="email" id="email" placeholder="your@email.com" required style="flex: 1; padding: 0.75rem 1rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; color: var(--text-primary); min-width: 250px;">
-          <button type="submit" class="btn btn-primary">Get Free Guide →</button>
-        </form>
-        <p style="color: var(--text-muted); font-size: 0.8rem;">No spam. Unsubscribe anytime.</p>
-      </div>
-
-      <div id="success-section" style="display: none; text-align: center; padding: 2rem; background: var(--success); color: white; border-radius: 8px;">
-        <h3 style="margin-bottom: 1rem;">✓ Your guide is ready</h3>
-        <p style="margin-bottom: 1.5rem;">Download link:</p>
-        <a href="/assets/downloads/your-first-ai-workflow.md" class="btn" style="background: white; color: var(--success); font-weight: 600;">Download Guide</a>
+        <p style="margin-bottom: 1rem; color: var(--text-secondary);">Direct download is available now.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+          <a href="/assets/downloads/your-first-ai-workflow.md" class="btn btn-primary">Download Free Guide →</a>
+          <a href="mailto:completestrength@gmail.com?subject=Question%20about%20Your%20First%20AI%20Workflow" class="btn btn-secondary">Ask a Question</a>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">This guide is available without a signup gate. Email Aaron if you want help putting the workflow into practice.</p>
       </div>
     </div>
   </section>
-
-  <script>
-    document.getElementById('email-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      localStorage.setItem('rustwood_workflow_access', Date.now());
-      document.getElementById('download-section').style.display = 'none';
-      document.getElementById('success-section').style.display = 'block';
-    });
-  </script>
 </body>
 </html>
