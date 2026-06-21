@@ -270,17 +270,6 @@
     </div>
   </div>
 </nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
-        </div>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="/">Home</a>
-            <a href="/pages/about.html">About</a>
-            <a href="/pages/vocals.html">Vocals</a>
-            <a href="/pages/work.html">Work</a>
-            <a href="/pages/rustwood/journal/index.html">Journal</a>
-            <a href="/pages/contact.html">Contact</a>
-        </div>
-    </header>
 
     <main>
         <h1>About Aaron Ellis</h1>
@@ -345,7 +334,7 @@
     </footer>
     <script>
         (function(){
-            const btn = document.getElementById('mobileMenuBtn');
+            const btn = document.getElementById('hamburger');
             const menu = document.getElementById('mobileMenu');
             if (!btn || !menu) return;
             btn.addEventListener('click', (e) => {
